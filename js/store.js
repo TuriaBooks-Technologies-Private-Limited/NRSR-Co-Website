@@ -328,13 +328,13 @@ class Store {
   async loadData() {
     try {
       const [services, team, faqs, blogs, testimonials, caseStudies, settings] = await Promise.all([
-        fetch('/data/services.json').then(r => r.json()).catch(() => null),
-        fetch('/data/team.json').then(r => r.json()).catch(() => null),
-        fetch('/data/faqs.json').then(r => r.json()).catch(() => null),
-        fetch('/data/blogs-index.json').then(r => r.json()).catch(() => null),
-        fetch('/data/testimonials.json').then(r => r.json()).catch(() => null),
-        fetch('/data/case_studies-index.json').then(r => r.json()).catch(() => null),
-        fetch('/data/settings.json').then(r => r.json()).catch(() => null)
+        fetch('data/services.json').then(r => r.json()).catch(() => null),
+        fetch('data/team.json').then(r => r.json()).catch(() => null),
+        fetch('data/faqs.json').then(r => r.json()).catch(() => null),
+        fetch('data/blogs-index.json').then(r => r.json()).catch(() => null),
+        fetch('data/testimonials.json').then(r => r.json()).catch(() => null),
+        fetch('data/case_studies-index.json').then(r => r.json()).catch(() => null),
+        fetch('data/settings.json').then(r => r.json()).catch(() => null)
       ]);
 
       this.services = Array.isArray(services) ? services : (services && services.services ? services.services : null);
@@ -418,7 +418,7 @@ class Store {
 
     const slug = meta.slug || meta.id;
     try {
-      const res = await fetch(`/data/blogs/${slug}.json`);
+      const res = await fetch(`data/blogs/${slug}.json`);
       if (!res.ok) throw new Error('File not found');
       const fullBlog = await res.json();
       return fullBlog;
@@ -435,7 +435,7 @@ class Store {
 
     const slug = meta.slug || meta.id;
     try {
-      const res = await fetch(`/data/case_studies/${slug}.json`);
+      const res = await fetch(`data/case_studies/${slug}.json`);
       if (!res.ok) throw new Error('File not found');
       const fullCs = await res.json();
       return fullCs;
