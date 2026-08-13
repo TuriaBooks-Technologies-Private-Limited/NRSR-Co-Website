@@ -1,0 +1,92 @@
+{
+  "testimonials": [
+    {
+      "id": "test-1",
+      "name": "Rajesh K. Shetty",
+      "designation": "Managing Director",
+      "company": "Horizon Healthcare Solutions",
+      "rating": 5,
+      "review": "NRSR & Co's Virtual CFO services completely restructured our finance department. The team optimized our working capital cycles, saving us over ₹35 Lakhs in interest overheads within 8 months.",
+      "placement": "index.html",
+      "date": "",
+      "image": ""
+    },
+    {
+      "id": "test-2",
+      "name": "Elena Rostova",
+      "designation": "VP Operations",
+      "company": "FinTech Global Inc (US)",
+      "rating": 5,
+      "review": "The team at NRSR & Co provided seamless US GAAP accounting and Australian tax compliance support for our GCC setup in Karnataka. Highly recommend their multi-disciplinary expertise!",
+      "placement": "team.html",
+      "date": "",
+      "image": ""
+    },
+    {
+      "id": "test-3",
+      "name": "Vikramaditya Naik",
+      "designation": "Founder & CEO",
+      "company": "Apex Robotics Pvt Ltd",
+      "rating": 5,
+      "review": "The assurance team at NRSR & Co closed our annual audit faster and with far fewer back-and-forth queries than any firm we've worked with before.",
+      "placement": "all",
+      "date": "",
+      "image": ""
+    },
+    {
+      "id": "test-4",
+      "name": "Deepak B",
+      "designation": "Google Review",
+      "company": "",
+      "rating": 5,
+      "review": "Shrinidi and team have helped me file Income tax returns for past few years. They are very approachable and have always answered all my questions in a timely manner. Very happy with the service provided. Best wishes to the team!",
+      "placement": "all",
+      "date": "Jul 11, 2023",
+      "image": ""
+    },
+    {
+      "id": "test-5",
+      "name": "Prajwal Shenoy",
+      "designation": "Google Review",
+      "company": "",
+      "rating": 5,
+      "review": "Superb service. Wanted to file revised ITR with only 5 days remaining and they did a splendid job. I will be using their services henceforth every year. Highly recommended.",
+      "placement": "all",
+      "date": "Jan 20, 2024",
+      "image": ""
+    },
+    {
+      "id": "test-6",
+      "name": "Harshitha Sharath",
+      "designation": "Google Review",
+      "company": "",
+      "rating": 5,
+      "review": "Must say CA Swetha and team is very friendly, professional and knowledgeable team. I got my service done so quickly in no time. Would highly recommend anyone and everyone to NRSR & Co.",
+      "placement": "all",
+      "date": "Aug 23, 2023",
+      "image": ""
+    },
+    {
+      "id": "test-7",
+      "name": "Narendra Khilrani",
+      "designation": "Google Review",
+      "company": "",
+      "rating": 5,
+      "review": "Excellent service received consistently every year for my ITR filing. Very helpful and knowledgeable team. I am thankful for their proactive communication and seamless ITR filing process.",
+      "placement": "all",
+      "date": "Jul 29, 2026",
+      "image": ""
+    },
+    {
+      "id": "test-8",
+      "name": "R Skanda Udupa",
+      "designation": "Google Review",
+      "company": "",
+      "rating": 5,
+      "review": "I had a great experience with their ITR filing service. The entire process was handled in a very systematic and professional manner. Their communication was clear and prompt throughout, and they guided me at every step, making the filing process smooth and hassle-free. I truly appreciate their professionalism, attention to detail, and commitment to delivering quality service. Everything was completed accurately and on time. I would highly recommend their services to anyone looking for reliable and stress-free ITR filing assistance. Thank you for the excellent support!",
+      "placement": "all",
+      "date": "Jul 22, 2026",
+      "image": ""
+    }
+  ]
+}

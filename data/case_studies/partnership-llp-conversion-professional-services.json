@@ -1,0 +1,19 @@
+{
+  "id": "cs-4",
+  "title": "Partnership to LLP Conversion — Professional Services Sector",
+  "slug": "partnership-llp-conversion-professional-services",
+  "metaTitle": "Partnership to LLP Conversion Overview | NRSR & Co",
+  "metaDesc": "An overview of the conversion of a partnership firm to a Limited Liability Partnership in the professional services sector.",
+  "metaKeywords": "LLP Conversion, Partnership Firm, Professional Services",
+  "image": "",
+  "industry": "Professional Services",
+  "summary": "A registered partnership firm in the professional services sector was converted into a Limited Liability Partnership.",
+  "metrics": [
+    { "label": "Engagement Type", "val": "Entity Conversion" },
+    { "label": "Duration", "val": "6 Weeks" },
+    { "label": "Filing Authority", "val": "Ministry of Corporate Affairs" }
+  ],
+  "challenge": "The partners of the firm wished to convert their registered partnership into a Limited Liability Partnership, requiring consent documentation and statutory filings with the Ministry of Corporate Affairs.",
+  "solution": "The engagement covered obtaining Digital Signature Certificates and Designated Partner Identification Numbers for partners, name reservation, incorporation filings, and the conversion filing under Form 17.",
+  "execution": "Filings were prepared and submitted in sequence, followed by post-conversion updates to the entity's PAN, bank accounts, and GST registration to reflect the new LLP structure."
+}

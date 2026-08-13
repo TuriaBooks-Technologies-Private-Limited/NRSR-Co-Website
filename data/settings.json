@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "whatsapp_numbers": [
+      {
+        "name": "NRSR & Co Advisory Team",
+        "number": "9108599083"
+      }
+    ],
+    "erp_api_url": "",
+    "erp_api_key": "",
+    "notification_usernames": "Likith0074",
+    "notification_emails": "likiths2546@gmail.com,casandeepnaik@gmail.com",
+    "google_script_url": ""
+  }
+}

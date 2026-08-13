@@ -1,0 +1,19 @@
+{
+  "id": "cs-5",
+  "title": "Internal Financial Controls Review — Healthcare Sector",
+  "slug": "internal-financial-controls-review-healthcare-sector",
+  "metaTitle": "Internal Financial Controls Review Overview | NRSR & Co",
+  "metaDesc": "An overview of an internal financial controls review carried out for an entity in the healthcare sector.",
+  "metaKeywords": "Internal Controls, SOP Design, Healthcare",
+  "image": "",
+  "industry": "Healthcare",
+  "summary": "An internal financial controls review, including SOP documentation, was carried out for a healthcare-sector entity.",
+  "metrics": [
+    { "label": "Engagement Type", "val": "Internal Controls Review" },
+    { "label": "Duration", "val": "12 Weeks" },
+    { "label": "Scope", "val": "Finance & Procurement" }
+  ],
+  "challenge": "The entity's finance and procurement functions did not have formally documented Standard Operating Procedures, and sought a review of existing internal controls across these functions.",
+  "solution": "The engagement covered mapping of existing processes, identification of control gaps in the finance and procurement workflows, and preparation of documented Standard Operating Procedures.",
+  "execution": "Process walkthroughs were conducted with relevant department heads, followed by documentation of revised procedures and a review session to confirm alignment with the entity's operational requirements."
+}

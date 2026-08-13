@@ -1,0 +1,88 @@
+{
+  "blogs": [
+    {
+      "id": "blog-1",
+      "title": "Virtual CFO Services: Scope and Structure",
+      "slug": "why-growing-businesses-switch-virtual-cfo-services",
+      "metaTitle": "Virtual CFO Services Overview | NRSR & Co",
+      "metaDesc": "An overview of Virtual CFO advisory services, including financial planning, cash flow monitoring, and reporting structures.",
+      "metaKeywords": "Virtual CFO, Financial Planning, Cash Flow Monitoring, Reporting",
+      "image": "",
+      "category": "Business Advisory",
+      "author": "Sandeep (Director)",
+      "date": "2026-07-15",
+      "readTime": "6 min read",
+      "summary": "An overview of Virtual CFO advisory services, including financial planning, cash flow monitoring, and periodic reporting structures for growing businesses."
+    },
+    {
+      "id": "blog-2",
+      "title": "Transfer Pricing Compliance for Global Capability Centres",
+      "slug": "transfer-pricing-tp-audit-challenges-gcc-india",
+      "metaTitle": "Transfer Pricing Compliance Overview | NRSR & Co",
+      "metaDesc": "A compliance overview covering documentation and filing requirements under Rule 10D for cross-border related-party transactions.",
+      "metaKeywords": "Transfer Pricing, Rule 10D, Form 3CEB, GCC",
+      "image": "",
+      "category": "Finance & Compliance",
+      "author": "Hrishikesh",
+      "date": "2026-07-10",
+      "readTime": "8 min read",
+      "summary": "An overview of Transfer Pricing documentation and filing requirements under Rule 10D for entities with cross-border related-party transactions."
+    },
+    {
+      "id": "blog-3",
+      "title": "Power BI Dashboards for Financial Reporting",
+      "slug": "power-bi-executive-dashboards-financial-decision-making",
+      "metaTitle": "Power BI Financial Reporting Dashboards | NRSR & Co",
+      "metaDesc": "How ERP data can be connected to Power BI to produce recurring financial reporting dashboards.",
+      "metaKeywords": "Power BI, Financial Reporting, Business Intelligence, ERP Integration",
+      "image": "",
+      "category": "Technology & Automation",
+      "author": "Akshay Bhat",
+      "date": "2026-07-02",
+      "readTime": "5 min read",
+      "summary": "An overview of connecting accounting ERP data to Power BI to produce recurring financial reporting dashboards."
+    },
+    {
+      "id": "blog-4",
+      "title": "GST Filing Timelines for Small and Medium Enterprises",
+      "slug": "gst-filing-timelines-small-medium-enterprises",
+      "metaTitle": "GST Filing Timelines Overview | NRSR & Co",
+      "metaDesc": "A summary of periodic GST return filing timelines and applicable due dates for small and medium enterprises.",
+      "metaKeywords": "GST, Return Filing, Compliance Calendar, SME",
+      "image": "",
+      "category": "Finance & Compliance",
+      "author": "Niranjan Rao",
+      "date": "2026-06-20",
+      "readTime": "5 min read",
+      "summary": "A summary of periodic GST return filing timelines and applicable due dates relevant to small and medium enterprises."
+    },
+    {
+      "id": "blog-5",
+      "title": "Statutory Audit Requirements Under the Companies Act, 2013",
+      "slug": "statutory-audit-requirements-companies-act-2013",
+      "metaTitle": "Statutory Audit Requirements Overview | NRSR & Co",
+      "metaDesc": "An overview of statutory audit applicability, timelines, and documentation requirements under the Companies Act, 2013.",
+      "metaKeywords": "Statutory Audit, Companies Act 2013, Audit Documentation",
+      "image": "",
+      "category": "Audit & Assurance",
+      "author": "Sandeep (Director)",
+      "date": "2026-06-08",
+      "readTime": "7 min read",
+      "summary": "An overview of statutory audit applicability, timelines, and documentation requirements for companies under the Companies Act, 2013."
+    },
+    {
+      "id": "blog-6",
+      "title": "Partnership Firm to LLP Conversion: Procedural Overview",
+      "slug": "partnership-firm-to-llp-conversion-overview",
+      "metaTitle": "Partnership to LLP Conversion Overview | NRSR & Co",
+      "metaDesc": "A procedural overview of converting a registered partnership firm into a Limited Liability Partnership.",
+      "metaKeywords": "LLP Conversion, Partnership Firm, ROC Filing",
+      "image": "",
+      "category": "Business Advisory",
+      "author": "Hrishikesh",
+      "date": "2026-05-22",
+      "readTime": "6 min read",
+      "summary": "A procedural overview of the steps and filings involved in converting a registered partnership firm into a Limited Liability Partnership."
+    }
+  ]
+}

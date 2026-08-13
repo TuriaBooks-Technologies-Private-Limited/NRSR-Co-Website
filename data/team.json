@@ -1,0 +1,64 @@
+{
+  "team": [
+    {
+      "id": "team-1",
+      "name": "CA Shrinidhi Rao",
+      "role": "Managing Partner",
+      "category": "Chartered Accountant",
+      "qualification": "B.Com, ACA",
+      "expertise": "Overall practice leadership, statutory audit, corporate taxation, and strategic client advisory.",
+      "bio": "Shrinidhi leads NRSR & Co's practice, overseeing audit, taxation, and advisory engagements to ensure every client relationship is backed by sound, compliant financial guidance.",
+      "image": ""
+    },
+    {
+      "id": "team-2",
+      "name": "CA Swetha SV",
+      "role": "Partner",
+      "category": "Chartered Accountant",
+      "qualification": "B.Com, M.Com, ACA, DISA (ICAI), RV-SFA (IBBI)",
+      "expertise": "Statutory audit, information systems audit, and registered valuation of securities and financial assets.",
+      "bio": "Swetha brings a rare combination of audit, IT-systems assurance, and valuation credentials to the firm's advisory and assurance practice.",
+      "image": ""
+    },
+    {
+      "id": "team-3",
+      "name": "CA Karthik",
+      "role": "Corporate Accounts Manager",
+      "category": "Chartered Accountant",
+      "qualification": "B.Com, ACA",
+      "expertise": "Corporate accounting, financial reporting, and day-to-day management of client account books.",
+      "bio": "Karthik manages the firm's corporate accounting engagements, keeping client books accurate, current, and audit-ready.",
+      "image": ""
+    },
+    {
+      "id": "team-4",
+      "name": "Akshay Bhat",
+      "role": "Assurance Manager",
+      "category": "Assurance",
+      "qualification": "B.Com",
+      "expertise": "Audit execution, assurance engagements, and compliance verification across client portfolios.",
+      "bio": "Akshay oversees assurance engagements end to end, working closely with clients to close audits on time and without surprises.",
+      "image": ""
+    },
+    {
+      "id": "team-5",
+      "name": "Swathi Kulal",
+      "role": "Compliance Manager",
+      "category": "Compliance",
+      "qualification": "BBA",
+      "expertise": "Regulatory compliance tracking, filings management, and client compliance calendars.",
+      "bio": "Swathi keeps every client's statutory and regulatory compliance on schedule, from filings to renewals.",
+      "image": ""
+    },
+    {
+      "id": "team-6",
+      "name": "Chaithra Karanth",
+      "role": "Admin & HR",
+      "category": "Admin & HR",
+      "qualification": "BBA",
+      "expertise": "Practice administration, HR operations, and client coordination.",
+      "bio": "Chaithra runs the firm's day-to-day administration and HR operations, keeping the practice organized and client communication smooth.",
+      "image": ""
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "services": [
+    {
+      "id": "srv-1",
+      "name": "Income Tax",
+      "category": "Direct Taxation",
+      "shortDesc": "Income Tax return filing, 12A/80G Applications, TDS compliance, Appeal Filing, Form 15CA/15CB, and assessments.",
+      "description": "Our direct taxation team handles full-scope Income Tax compliance, strategic tax planning, assessments, representations before the ITAT, and complex filings.",
+      "features": [
+        "Income Tax return filing",
+        "12A/80G Applications",
+        "TDS & Appeal Filing",
+        "Form 15CA/15CB",
+        "Assessments"
+      ],
+      "icon": "dollar-sign"
+    },
+    {
+      "id": "srv-2",
+      "name": "Goods & Service Tax",
+      "category": "Indirect Taxation",
+      "shortDesc": "GST Registrations, periodic filings, refund tracking, closures, and representation before appellate authorities.",
+      "description": "We manage end-to-end Goods & Service Tax (GST) compliance, audit reconciliations, state/national refund processing, and dispute resolution.",
+      "features": [
+        "GST Registrations",
+        "GST Closures",
+        "GST Refunds",
+        "GST Appeals",
+        "GST Filings"
+      ],
+      "icon": "percent"
+    },
+    {
+      "id": "srv-3",
+      "name": "Corporate",
+      "category": "Corporate Advisory",
+      "shortDesc": "Company incorporation, statutory certifications, corporate governance advisory, internal reviews, and company audits.",
+      "description": "Comprehensive business advisory and compliance management for corporate entities from incorporation and secretarial audits to strategic management.",
+      "features": [
+        "Company Incorporation",
+        "Company Certifications",
+        "Company Internal Audit",
+        "Corporate Advisory",
+        "Company Audits"
+      ],
+      "icon": "briefcase"
+    },
+    {
+      "id": "srv-4",
+      "name": "Partnerships & LLPs",
+      "category": "Corporate Advisory",
+      "shortDesc": "Structuring partnerships & LLPs, partner retirements/admissions, PAN registration, and deed drafting.",
+      "description": "Structuring and legal compliance for partnerships and Limited Liability Partnerships, including drafting partnership deeds, registration, and restructuring.",
+      "features": [
+        "Admit / Retire of Partners",
+        "Firm PAN Applications",
+        "Firm Registrations",
+        "Deed Drafting"
+      ],
+      "icon": "users"
+    },
+    {
+      "id": "srv-5",
+      "name": "Internal Control",
+      "category": "Audit & Assurance",
+      "shortDesc": "Designing financial SOPs, internal control matrices, operational risk assessments, and transaction due diligence.",
+      "description": "We safeguard corporate assets and streamline operational efficacy by establishing Standard Operating Procedures (SOPs) and internal auditing controls.",
+      "features": [
+        "Internal Control Design",
+        "Risk Assessment",
+        "Due Diligence",
+        "Internal Audit"
+      ],
+      "icon": "shield"
+    },
+    {
+      "id": "srv-6",
+      "name": "Certifications",
+      "category": "Audit & Assurance",
+      "shortDesc": "Turnover & Net worth certificates, receivable audit certifications, statutory compliance, and RERA certifications.",
+      "description": "Independent third-party financial certifications required by banking institutions, government bodies, and regulatory frameworks such as RERA.",
+      "features": [
+        "Turnover / Networth Certificate",
+        "Receivable Certifications",
+        "Compliance Certificate",
+        "RERA Certifications"
+      ],
+      "icon": "award"
+    },
+    {
+      "id": "srv-7",
+      "name": "Registrations",
+      "category": "Corporate Advisory",
+      "shortDesc": "Co-Operative Society formation, partnership registrations, MSME certificates, and public/private trust setup.",
+      "description": "Securing license and entity registrations for multi-state co-operative societies, MSMEs, small businesses, and charitable/private trusts.",
+      "features": [
+        "Co-Operative Society Formation",
+        "Partnership Registration",
+        "MSME Registrations",
+        "Trust Formation"
+      ],
+      "icon": "file-text"
+    },
+    {
+      "id": "srv-8",
+      "name": "Financial Accounting",
+      "category": "Financial Advisory",
+      "shortDesc": "Provisional/projected statement preparation, business viability reports, and detailed project reports for bank financing.",
+      "description": "Financial drafting including provisional balance sheets, multi-year projected cash flows, CMA data, and viability analyses for growth capital.",
+      "features": [
+        "Provisional Preparation",
+        "Projected Preparation",
+        "Viability Reporting",
+        "Project Reporting"
+      ],
+      "icon": "trending-up"
+    },
+    {
+      "id": "srv-9",
+      "name": "Audits",
+      "category": "Audit & Assurance",
+      "shortDesc": "Statutory company audits, tax audits, society & trust audits, and internal operational reviews.",
+      "description": "Providing independent, audit-ready reviews under statutory guidelines, including Tax Audits under Section 44AB, company audits, and cooperative trust reviews.",
+      "features": [
+        "Society & Trust Audits",
+        "Company Audits",
+        "Internal Audits",
+        "Tax Audits"
+      ],
+      "icon": "clipboard-check"
+    }
+  ]
+}

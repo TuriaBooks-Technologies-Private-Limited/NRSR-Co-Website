@@ -1,0 +1,19 @@
+{
+  "id": "cs-3",
+  "title": "Transfer Pricing Documentation — Information Technology Sector",
+  "slug": "transfer-pricing-documentation-it-sector",
+  "metaTitle": "Transfer Pricing Documentation Overview | NRSR & Co",
+  "metaDesc": "An overview of Transfer Pricing documentation prepared for a cross-border information technology entity.",
+  "metaKeywords": "Transfer Pricing, Rule 10D, Information Technology",
+  "image": "",
+  "industry": "Information Technology",
+  "summary": "Transfer Pricing documentation, including Form 3CEB filing, was prepared for an entity with cross-border related-party transactions.",
+  "metrics": [
+    { "label": "Engagement Type", "val": "Transfer Pricing Documentation" },
+    { "label": "Duration", "val": "10 Weeks" },
+    { "label": "Filing", "val": "Form 3CEB" }
+  ],
+  "challenge": "The entity, a subsidiary of an overseas parent, was required to document its cross-border related-party transactions in accordance with Transfer Pricing provisions under Section 92 of the Income Tax Act.",
+  "solution": "The engagement covered a Function, Assets, and Risk (FAR) analysis, benchmarking of comparable transactions, and preparation of contemporaneous documentation under Rule 10D, along with certification in Form 3CEB.",
+  "execution": "Documentation was compiled in coordination with the entity's finance team, with benchmarking carried out using authorized databases, followed by filing of Form 3CEB within the applicable due date."
+}

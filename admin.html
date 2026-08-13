@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NRSR & Co Content Management System & Admin Panel dashboard for FAQs, services, testimonials, team members, blogs, and case studies.">
+  <title>Admin Dashboard | M/s NRSR & Co</title>
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script defer src="/js/store.js"></script>
+  <script defer src="/js/admin.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="scrolled" style="display: none;">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.svg" alt="NRSR & Co Logo">
+        <div class="logo-text">
+          <span class="logo-title">NRSR <span>& Co</span></span>
+          <span class="logo-subtitle">ADMIN DASHBOARD</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">← Return to Main Website</a>
+        <button id="exportBackupBtn" class="btn btn-outline" style="padding: 6px 14px; font-size: 12px;">📥 Export Backup (JSON)</button>
+        <button id="importBackupBtn" class="btn btn-outline" style="padding: 6px 14px; font-size: 12px;">📤 Import Backup</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-layout" id="adminMainLayout" style="display:none;">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+      <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-accent); margin-bottom: 16px; padding-left: 16px;">CMS Operations</div>
+      <div class="admin-menu-item active" data-section="overview">
+        <span>📊</span> Dashboard Overview
+      </div>
+      <div class="admin-menu-item" data-section="services">
+        <span>⚙️</span> Services (Create & Edit)
+      </div>
+      <div class="admin-menu-item" data-section="team">
+        <span>👥</span> Team Members & Photos
+      </div>
+      <div class="admin-menu-item" data-section="faqs">
+        <span>❓</span> FAQs & Placement
+      </div>
+      <div class="admin-menu-item" data-section="testimonials">
+        <span>⭐</span> Testimonials & Placement
+      </div>
+      <div class="admin-menu-item" data-section="blogs">
+        <span>📝</span> Blogs & Enterprise SEO
+      </div>
+      <div class="admin-menu-item" data-section="case-studies">
+        <span>📈</span> Case Studies & SEO
+      </div>
+      <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-accent); margin-top: 24px; margin-bottom: 16px; padding-left: 16px;">System Config</div>
+      <div class="admin-menu-item" data-section="leads">
+        <span>📥</span> Contact Leads
+      </div>
+      <div class="admin-menu-item" data-section="settings">
+        <span>🛠️</span> Settings & ERP / WA
+      </div>
+    </aside>
+
+    <!-- Admin Content Area -->
+    <section class="admin-content">
+      <div class="admin-header">
+        <div>
+          <h1 id="adminSectionTitle" style="font-size: 26px;">Dashboard Overview</h1>
+          <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Updates saved here automatically publish live on the website.</p>
+        </div>
+        <div style="display:flex; gap:12px;">
+          <input type="text" id="adminSearchInput" class="form-control" placeholder="Search items..." style="width: 220px; padding: 8px 14px; font-size: 13px; display:none;">
+          <button id="adminAddBtn" class="btn btn-primary" style="display:none;">+ Create Item</button>
+        </div>
+      </div>
+
+      <!-- Dynamic Table & Overview Container -->
+      <div id="adminTableContainer" style="overflow-x: auto;">
+        <!-- Populated via admin.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Form Dialog for Add/Edit -->
+  <div id="adminModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalTitle" style="font-size: 20px; color: var(--color-slate);">Edit Item</h3>
+        <button id="modalCloseBtn" style="background:none; border:none; font-size:24px; cursor:pointer; color:var(--text-muted);">&times;</button>
+      </div>
+      <div id="modalBody">
+        <!-- Form injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden File Input for Import Backup -->
+  <input type="file" id="importFileInput" accept=".json" style="display:none;">
+
+</body>
+</html>

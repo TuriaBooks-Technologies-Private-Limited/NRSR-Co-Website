@@ -1,0 +1,19 @@
+{
+  "id": "cs-1",
+  "title": "Statutory Audit Engagement — Manufacturing Sector",
+  "slug": "statutory-audit-manufacturing-sector",
+  "metaTitle": "Statutory Audit Engagement Overview | NRSR & Co",
+  "metaDesc": "An overview of a statutory audit engagement carried out for an entity in the manufacturing sector.",
+  "metaKeywords": "Statutory Audit, Manufacturing, Companies Act",
+  "image": "",
+  "industry": "Manufacturing",
+  "summary": "A statutory audit engagement covering the review of financial statements and internal records for an entity in the manufacturing sector.",
+  "metrics": [
+    { "label": "Engagement Type", "val": "Statutory Audit" },
+    { "label": "Duration", "val": "8 Weeks" },
+    { "label": "Reporting Period", "val": "Annual" }
+  ],
+  "challenge": "The entity required its annual financial statements to be audited under the Companies Act, 2013, ahead of its Annual General Meeting, with supporting schedules for fixed assets, inventory, and statutory registers to be reviewed.",
+  "solution": "The engagement covered planning and risk assessment, review of books of account and supporting vouchers, verification of statutory registers, and preparation of the audit report for presentation at the Annual General Meeting.",
+  "execution": "Fieldwork was carried out in stages, with periodic status updates shared with the entity's finance team, followed by a review meeting to discuss observations before finalizing the audit report."
+}
