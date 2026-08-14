@@ -6,16 +6,24 @@
 
 const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  // ── Wait for fresh data to load from data/*.json BEFORE any service
+  //    rendering function runs. This prevents the race condition where
+  //    initServiceRail / initServicesHub read stale localStorage before
+  //    the fetch resolves, causing the wrong (old template) services to appear.
+  if (window.gmStore && typeof window.gmStore.loadData === 'function') {
+    await window.gmStore.loadData();
+  }
+
   initPreloader();
   initCanvasWaves();
   initLedgerSimulation();
   initTimelineSimulation();
   initGlowEffects();
   init3DTilt();
-  initServiceRail();
-  initServiceSplitPage();
-  initServicesHub();
+  initServiceRail();       // ← now guaranteed to have fresh data
+  initServiceSplitPage();  // ← now guaranteed to have fresh data
+  initServicesHub();       // ← now guaranteed to have fresh data
   initCursorGlow();
   initProcessLine();
   initMagneticButtons();

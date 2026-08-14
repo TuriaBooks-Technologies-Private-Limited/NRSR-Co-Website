@@ -305,6 +305,13 @@ const DEFAULT_CASE_STUDIES = [
   }
 ];
 
+// ─── Data Version Guard ───────────────────────────────────────────────────────
+// Bump this string whenever the firm's content or data schema changes.
+// Any browser whose stored version doesn't match gets its cache wiped and
+// rewritten with the correct NRSR & Co defaults — eliminating ghost/stale
+// data left over from previous template projects (Green Monk, Sandeep Advisory).
+const DATA_VERSION = 'nrsr-v1';
+
 class Store {
   constructor() {
     this.services = null;
@@ -317,36 +324,57 @@ class Store {
   }
 
   init() {
-    if (!localStorage.getItem('gm_services')) localStorage.setItem('gm_services', JSON.stringify(DEFAULT_SERVICES));
-    if (!localStorage.getItem('gm_team')) localStorage.setItem('gm_team', JSON.stringify(DEFAULT_TEAM));
-    if (!localStorage.getItem('gm_faqs')) localStorage.setItem('gm_faqs', JSON.stringify(DEFAULT_FAQS));
-    if (!localStorage.getItem('gm_blogs')) localStorage.setItem('gm_blogs', JSON.stringify(DEFAULT_BLOGS));
-    if (!localStorage.getItem('gm_testimonials')) localStorage.setItem('gm_testimonials', JSON.stringify(DEFAULT_TESTIMONIALS));
-    if (!localStorage.getItem('gm_case_studies')) localStorage.setItem('gm_case_studies', JSON.stringify(DEFAULT_CASE_STUDIES));
+    // ── Version check: if the stored version doesn't match, flush everything ──
+    const storedVersion = localStorage.getItem('gm_data_version');
+    if (storedVersion !== DATA_VERSION) {
+      // Wipe all keys that belong to this CMS so stale data from
+      // any previous project can never pollute this site.
+      ['gm_services', 'gm_team', 'gm_faqs', 'gm_blogs',
+       'gm_testimonials', 'gm_case_studies', 'gm_settings'].forEach(k => localStorage.removeItem(k));
+      localStorage.setItem('gm_data_version', DATA_VERSION);
+      console.info('[Store] Data version mismatch — cache flushed and reset to NRSR & Co defaults.');
+    }
+
+    // ── Seed defaults if a key is still absent after the version flush ────────
+    if (!localStorage.getItem('gm_services'))     localStorage.setItem('gm_services',     JSON.stringify(DEFAULT_SERVICES));
+    if (!localStorage.getItem('gm_team'))          localStorage.setItem('gm_team',          JSON.stringify(DEFAULT_TEAM));
+    if (!localStorage.getItem('gm_faqs'))          localStorage.setItem('gm_faqs',          JSON.stringify(DEFAULT_FAQS));
+    if (!localStorage.getItem('gm_blogs'))         localStorage.setItem('gm_blogs',         JSON.stringify(DEFAULT_BLOGS));
+    if (!localStorage.getItem('gm_testimonials'))  localStorage.setItem('gm_testimonials',  JSON.stringify(DEFAULT_TESTIMONIALS));
+    if (!localStorage.getItem('gm_case_studies'))  localStorage.setItem('gm_case_studies',  JSON.stringify(DEFAULT_CASE_STUDIES));
   }
 
   async loadData() {
-    try {
-      const [services, team, faqs, blogs, testimonials, caseStudies, settings] = await Promise.all([
-        fetch('data/services.json').then(r => r.json()).catch(() => null),
-        fetch('data/team.json').then(r => r.json()).catch(() => null),
-        fetch('data/faqs.json').then(r => r.json()).catch(() => null),
-        fetch('data/blogs-index.json').then(r => r.json()).catch(() => null),
-        fetch('data/testimonials.json').then(r => r.json()).catch(() => null),
-        fetch('data/case_studies-index.json').then(r => r.json()).catch(() => null),
-        fetch('data/settings.json').then(r => r.json()).catch(() => null)
-      ]);
+    // ── Idempotent: return the same in-flight (or resolved) Promise if
+    //    called more than once (e.g. both main.js and animations.js call it).
+    //    This prevents double-fetching all 7 data files on every page load.
+    if (this._loadPromise) return this._loadPromise;
 
-      this.services = Array.isArray(services) ? services : (services && services.services ? services.services : null);
-      this.team = Array.isArray(team) ? team : (team && team.team ? team.team : null);
-      this.faqs = Array.isArray(faqs) ? faqs : (faqs && faqs.faqs ? faqs.faqs : null);
-      this.blogs = Array.isArray(blogs) ? blogs : (blogs && blogs.blogs ? blogs.blogs : null);
-      this.testimonials = Array.isArray(testimonials) ? testimonials : (testimonials && testimonials.testimonials ? testimonials.testimonials : null);
-      this.caseStudies = Array.isArray(caseStudies) ? caseStudies : (caseStudies && caseStudies.case_studies ? caseStudies.case_studies : null);
-      this.settings = settings ? settings.settings : null;
-    } catch (err) {
-      console.error('Failed to load data:', err);
-    }
+    this._loadPromise = (async () => {
+      try {
+        const [services, team, faqs, blogs, testimonials, caseStudies, settings] = await Promise.all([
+          fetch('data/services.json').then(r => r.json()).catch(() => null),
+          fetch('data/team.json').then(r => r.json()).catch(() => null),
+          fetch('data/faqs.json').then(r => r.json()).catch(() => null),
+          fetch('data/blogs-index.json').then(r => r.json()).catch(() => null),
+          fetch('data/testimonials.json').then(r => r.json()).catch(() => null),
+          fetch('data/case_studies-index.json').then(r => r.json()).catch(() => null),
+          fetch('data/settings.json').then(r => r.json()).catch(() => null)
+        ]);
+
+        this.services    = Array.isArray(services)      ? services      : (services      && services.services           ? services.services           : null);
+        this.team        = Array.isArray(team)           ? team          : (team          && team.team                   ? team.team                   : null);
+        this.faqs        = Array.isArray(faqs)           ? faqs          : (faqs          && faqs.faqs                   ? faqs.faqs                   : null);
+        this.blogs       = Array.isArray(blogs)          ? blogs         : (blogs         && blogs.blogs                 ? blogs.blogs                 : null);
+        this.testimonials= Array.isArray(testimonials)   ? testimonials  : (testimonials  && testimonials.testimonials   ? testimonials.testimonials   : null);
+        this.caseStudies = Array.isArray(caseStudies)    ? caseStudies   : (caseStudies   && caseStudies.case_studies    ? caseStudies.case_studies    : null);
+        this.settings    = settings ? settings.settings : null;
+      } catch (err) {
+        console.error('Failed to load data:', err);
+      }
+    })();
+
+    return this._loadPromise;
   }
 
   async verifyRepositoryAccess() {
