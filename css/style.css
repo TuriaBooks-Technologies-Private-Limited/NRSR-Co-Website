@@ -1,42 +1,42 @@
 /*
-   NRSR & Co - Global Design System (v6.0 — Pure Monochrome Edition)
-   No accent color anywhere. Black, white, and a scale of greys only —
-   interactive elements read through weight, underline, and contrast
-   instead of hue. The leaf-green logo mark is the one color on the page.
-   Status colors (verified/due) are semantic, not decorative, and stay.
+   NRSR & Co - Global Design System (v7.0 — Brand Edition)
    Brand Palette:
-   - Ink (headings, buttons, header/footer, "accent" role): #16181d
-   - Grey scale: #4b5158 / #a9adb3 / #c7cad0
-   - Neutral background: #f7f8fa
+   - Deep Navy  #071A36  — primary brand colour (headers, buttons, CTAs)
+   - Muted Gold #D4A83F  — accent (highlights, badges, active states)
+   - Warm Cream #FAF8F2  — page background
+   - Slate      #596579  — secondary / muted text
+   - White      #FFFFFF  — card surfaces
+   Status colors (verified/due) are semantic, not decorative, and stay.
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 :root {
   /* NRSR & Co Brand Tokens */
-  --color-primary: #16181d;
-  --color-primary-dark: #000000;
-  --color-primary-light: #c7cad0;
-  --color-accent: #4b5158;
-  --color-accent-light: #a9adb3;
-  --color-blue: #2a2d33;
-  --color-slate: #16181d;
-  --color-slate-light: #4b5158;
+  --color-primary: #071A36;
+  --color-primary-dark: #03101f;
+  --color-primary-light: #1a3a6e;
+  --color-accent: #D4A83F;
+  --color-accent-light: #e8c97a;
+  --color-accent-soft: rgba(212, 168, 63, 0.12);
+  --color-blue: #0d2a55;
+  --color-slate: #596579;
+  --color-slate-light: #8a96a6;
 
-  --bg-main: #f7f8fa;
-  --bg-card: #ffffff;
-  --bg-alt: #eef0f3;
-  --bg-dark: #0f1021;
+  --bg-main: #FAF8F2;
+  --bg-card: #FFFFFF;
+  --bg-alt: #f2efe8;
+  --bg-dark: #071A36;
 
-  --text-main: #1c1e22;
-  --text-muted: #5b6472;
-  --text-light: #94a3b8;
+  --text-main: #071A36;
+  --text-muted: #596579;
+  --text-light: #8a96a6;
 
-  --card-border: 1px solid rgba(15, 17, 20, 0.08);
-  --card-shadow: 0 8px 24px -12px rgba(15, 17, 20, 0.10);
-  --card-shadow-lg: 0 24px 50px -16px rgba(22, 24, 29, 0.24);
+  --card-border: 1px solid rgba(7, 26, 54, 0.08);
+  --card-shadow: 0 8px 24px -12px rgba(7, 26, 54, 0.10);
+  --card-shadow-lg: 0 24px 50px -16px rgba(7, 26, 54, 0.22);
   --glass-bg: rgba(255, 255, 255, 0.90);
-  --header-bg: rgba(22, 24, 29, 0.92);
+  --header-bg: rgba(7, 26, 54, 0.96);
 
   /* Status accents (used for live filing/certification states) */
   --color-verified: #10b981;
@@ -140,17 +140,17 @@ button, input, textarea, select { font-family: inherit; font-size: inherit; outl
   min-height: 44px;
 }
 
-.btn-primary { background-color: var(--color-slate); color: #ffffff; }
-.btn-primary:hover { background-color: #000000; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); }
+.btn-primary { background-color: var(--color-primary); color: #ffffff; }
+.btn-primary:hover { background-color: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(7, 26, 54, 0.35); }
 
-.btn-accent { background-color: transparent; border: 1.5px solid var(--color-slate); color: var(--color-slate); }
-.btn-accent:hover { background-color: var(--color-slate); color: #ffffff; transform: translateY(-2px); }
+.btn-accent { background-color: var(--color-accent); border: 1.5px solid var(--color-accent); color: #ffffff; }
+.btn-accent:hover { background-color: #b8902f; border-color: #b8902f; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212, 168, 63, 0.35); }
 
 .btn-outline { border: 1.5px solid var(--color-primary); color: var(--color-primary); background-color: transparent; }
-.btn-outline:hover { background-color: rgba(22, 24, 29, 0.08); transform: translateY(-2px); }
+.btn-outline:hover { background-color: rgba(7, 26, 54, 0.08); transform: translateY(-2px); }
 
 .card-hover { transition: var(--transition); }
-.card-hover:hover { transform: translateY(-6px); border-color: var(--color-primary-light); box-shadow: 0 16px 32px rgba(22, 24, 29, 0.12); }
+.card-hover:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: 0 16px 32px rgba(7, 26, 54, 0.14); }
 
 /* Header Navigation */
 header {
@@ -254,8 +254,8 @@ header.scrolled {
 
 /* Nav CTA needs to read against the dark header — light pill instead of
    the site-wide near-black .btn-primary, which would vanish on this bg. */
-header .btn-primary { background-color: #ffffff; color: var(--color-slate); }
-header .btn-primary:hover { background-color: var(--color-primary-light); color: var(--color-slate); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); }
+header .btn-primary { background-color: var(--color-accent); color: #ffffff; }
+header .btn-primary:hover { background-color: #b8902f; color: #ffffff; box-shadow: 0 8px 20px rgba(212, 168, 63, 0.4); }
 
 .nav-link.active::after { width: calc(100% - 28px); }
 
@@ -320,7 +320,7 @@ header .btn-primary:hover { background-color: var(--color-primary-light); color:
   gap: 8px;
   padding: 6px 14px;
   border-radius: 50px;
-  background: rgba(22, 24, 29, 0.1);
+  background: rgba(7, 26, 54, 0.1);
   color: var(--color-primary-dark);
   font-size: 12px;
   font-weight: 700;
@@ -358,7 +358,7 @@ header .btn-primary:hover { background-color: var(--color-primary-light); color:
   border: var(--card-border);
   border-radius: 16px;
   padding: 30px;
-  box-shadow: 0 20px 40px rgba(22, 24, 29, 0.08);
+  box-shadow: 0 20px 40px rgba(7, 26, 54, 0.08);
 }
 
 .hero-badge-grid {
@@ -372,7 +372,7 @@ header .btn-primary:hover { background-color: var(--color-primary-light); color:
   padding: 16px;
   border-radius: 10px;
   background: var(--bg-main);
-  border: 1px solid rgba(22, 24, 29, 0.08);
+  border: 1px solid rgba(7, 26, 54, 0.08);
   text-align: center;
 }
 
@@ -442,7 +442,7 @@ main .text-center .section-title::after {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(22, 24, 29, 0.08);
+  background: rgba(7, 26, 54, 0.08);
   color: var(--color-primary);
   display: flex;
   align-items: center;
@@ -513,7 +513,7 @@ main .text-center .section-title::after {
 
 .member-card {
   background: #ffffff;
-  border: 1px solid rgba(15, 17, 20, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   border-radius: 14px;
   padding: 32px;
   display: flex;
@@ -536,7 +536,7 @@ main .text-center .section-title::after {
   font-weight: 800;
   font-family: var(--font-header);
   margin-bottom: 20px;
-  box-shadow: 0 8px 16px rgba(22, 24, 29, 0.2);
+  box-shadow: 0 8px 16px rgba(7, 26, 54, 0.2);
 }
 
 .member-card h3 {
@@ -571,7 +571,7 @@ main .text-center .section-title::after {
 .member-bio {
   font-size: 13px;
   color: var(--text-main);
-  border-top: 1px solid rgba(22, 24, 29, 0.08);
+  border-top: 1px solid rgba(7, 26, 54, 0.08);
   padding-top: 16px;
   margin-top: auto;
   line-height: 1.6;
@@ -587,7 +587,7 @@ main .text-center .section-title::after {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(22, 24, 29, 0.1);
+  background: rgba(7, 26, 54, 0.1);
   color: var(--color-primary);
   display: flex;
   align-items: center;
@@ -604,7 +604,7 @@ main .text-center .section-title::after {
 /* Testimonials Carousel */
 .testimonial-card {
   background: #ffffff;
-  border: 1px solid rgba(15, 17, 20, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   border-radius: 14px;
   padding: 36px;
   max-width: 800px;
@@ -623,7 +623,7 @@ main .text-center .section-title::after {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   color: #ffffff; display: flex; align-items: center; justify-content: center;
   font-size: 16px; font-weight: 800; font-family: var(--font-header);
-  box-shadow: 0 6px 14px rgba(22, 24, 29, 0.25);
+  box-shadow: 0 6px 14px rgba(7, 26, 54, 0.25);
 }
 .testimonial-byline > div { text-align: left; }
 .testimonial-author { font-family: var(--font-header); font-weight: 700; font-size: 16px; color: var(--color-primary-dark); }
@@ -640,7 +640,7 @@ main .text-center .section-title::after {
 
 .faq-item {
   background: #ffffff;
-  border: 1px solid rgba(15, 17, 20, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   border-radius: 12px;
   overflow: hidden;
   transition: var(--transition);
@@ -850,7 +850,7 @@ main .text-center .section-title::after {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: rgba(22, 24, 29, 0.08);
+  background: rgba(7, 26, 54, 0.08);
   color: var(--color-primary);
   display: flex;
   align-items: center;
@@ -870,7 +870,7 @@ main .text-center .section-title::after {
   padding: 12px 16px;
   border-radius: 8px;
   background: var(--bg-main);
-  border: 1px solid rgba(22, 24, 29, 0.15);
+  border: 1px solid rgba(7, 26, 54, 0.15);
   color: var(--text-main);
   transition: var(--transition);
   min-height: 44px;
@@ -879,7 +879,7 @@ main .text-center .section-title::after {
 .form-control:focus {
   border-color: var(--color-primary);
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(22, 24, 29, 0.15);
+  box-shadow: 0 0 0 3px rgba(7, 26, 54, 0.15);
 }
 
 textarea.form-control { resize: vertical; min-height: 120px; }
@@ -942,7 +942,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .admin-table th, .admin-table td {
   padding: 16px 20px;
   text-align: left;
-  border-bottom: 1px solid rgba(22, 24, 29, 0.08);
+  border-bottom: 1px solid rgba(7, 26, 54, 0.08);
 }
 
 .admin-table th {
@@ -965,7 +965,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   cursor: pointer;
 }
 
-.btn-edit { background: rgba(22, 24, 29, 0.1); color: var(--color-primary); }
+.btn-edit { background: rgba(7, 26, 54, 0.1); color: var(--color-primary); }
 .btn-delete { background: rgba(225, 29, 72, 0.1); color: #e11d48; margin-left: 6px; }
 
 /* Modal Editor */
@@ -1048,7 +1048,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 .office-card {
   background: #ffffff;
-  border: 1px solid rgba(15, 17, 20, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   border-radius: 14px;
   padding: 28px;
   margin-bottom: 20px;
@@ -1072,7 +1072,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   color: var(--color-slate);
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(15, 17, 20, 0.1);
+  border-bottom: 1px solid rgba(7, 26, 54, 0.1);
 }
 
 /* Sectors We Serve — flat icon grid (about.html) */
@@ -1091,7 +1091,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   gap: 10px;
   padding: 18px 10px;
   background: #ffffff;
-  border: 1px solid rgba(15, 17, 20, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   border-radius: 14px;
   text-align: center;
   transition: var(--transition);
@@ -1145,8 +1145,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
-  background: rgba(15, 17, 20, 0.1);
-  border: 1px solid rgba(15, 17, 20, 0.1);
+  background: rgba(7, 26, 54, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   border-radius: 14px;
   overflow: hidden;
 }
@@ -1179,7 +1179,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   justify-content: space-between;
   gap: 12px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(15, 17, 20, 0.08);
+  border-bottom: 1px solid rgba(7, 26, 54, 0.08);
   margin-bottom: 18px;
 }
 
@@ -1195,7 +1195,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   justify-content: space-between;
   gap: 12px;
   padding-top: 16px;
-  border-top: 1px solid rgba(15, 17, 20, 0.08);
+  border-top: 1px solid rgba(7, 26, 54, 0.08);
 }
 
 .content-card-byline { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-muted); }
@@ -1247,7 +1247,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 
 .hub-lines line {
-  stroke: rgba(22, 24, 29, 0.15);
+  stroke: rgba(7, 26, 54, 0.15);
   stroke-width: 0.35;
 }
 
@@ -1260,7 +1260,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   height: 78px;
   border-radius: 50%;
   background: #ffffff;
-  border: 1.5px solid rgba(22, 24, 29, 0.12);
+  border: 1.5px solid rgba(7, 26, 54, 0.12);
   box-shadow: var(--card-shadow-lg);
   display: flex;
   align-items: center;
@@ -1288,7 +1288,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   height: 44px;
   border-radius: 50%;
   background: #ffffff;
-  border: 1px solid rgba(22, 24, 29, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1516,10 +1516,10 @@ footer {
 /* Ledger Dashboard Simulation */
 .ledger-preview-card {
   background: #ffffff;
-  border: 1px solid rgba(22, 24, 29, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 20px 40px rgba(22, 24, 29, 0.06);
+  box-shadow: 0 20px 40px rgba(7, 26, 54, 0.06);
   position: relative;
 }
 
@@ -1527,7 +1527,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(22, 24, 29, 0.08);
+  border-bottom: 1px solid rgba(7, 26, 54, 0.08);
   padding-bottom: 12px;
   margin-bottom: 16px;
 }
@@ -1584,7 +1584,7 @@ footer {
 }
 
 .ledger-sim-table tr {
-  border-bottom: 1px solid rgba(22, 24, 29, 0.04);
+  border-bottom: 1px solid rgba(7, 26, 54, 0.04);
 }
 
 .ledger-sim-table td {
@@ -1603,10 +1603,10 @@ footer {
 /* Firm Snapshot Card (hero) — quiet, factual, no simulated software */
 .firm-snapshot-card {
   background: #ffffff;
-  border: 1px solid rgba(22, 24, 29, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   border-radius: 20px;
   padding: 36px 28px 28px;
-  box-shadow: 0 20px 40px rgba(22, 24, 29, 0.06);
+  box-shadow: 0 20px 40px rgba(7, 26, 54, 0.06);
 }
 
 .snapshot-header {
@@ -1622,7 +1622,7 @@ footer {
   display: block;
   padding: 10px;
   border-radius: 50%;
-  border: 1px solid rgba(22, 24, 29, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   background: var(--bg-alt);
   box-sizing: border-box;
 }
@@ -1649,7 +1649,7 @@ footer {
 
 .snapshot-item {
   background: var(--bg-alt);
-  border: 1px solid rgba(22, 24, 29, 0.06);
+  border: 1px solid rgba(7, 26, 54, 0.06);
   border-radius: 12px;
   padding: 18px;
   display: flex;
@@ -1678,10 +1678,10 @@ footer {
 /* Activity Timeline Tracker styling */
 .timeline-card {
   background: #ffffff;
-  border: 1px solid rgba(22, 24, 29, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 20px 40px rgba(22, 24, 29, 0.06);
+  box-shadow: 0 20px 40px rgba(7, 26, 54, 0.06);
   position: relative;
 }
 
@@ -1836,7 +1836,7 @@ footer {
   border-radius: inherit;
   background: radial-gradient(
     250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(22, 24, 29, 0.08),
+    rgba(7, 26, 54, 0.08),
     transparent 80%
   );
   opacity: 0;
@@ -1873,7 +1873,7 @@ footer {
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  border: 1px solid rgba(15, 17, 20, 0.1);
+  border: 1px solid rgba(7, 26, 54, 0.1);
   border-radius: 14px;
   overflow: hidden;
 }
@@ -1881,7 +1881,7 @@ footer {
 .service-nav-item {
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(15, 17, 20, 0.08);
+  border-bottom: 1px solid rgba(7, 26, 54, 0.08);
   border-radius: 0;
   padding: 18px 24px;
   cursor: pointer;
@@ -1990,7 +1990,7 @@ footer {
    service added later with zero code changes. */
 .service-cta-panel {
   background: var(--bg-card);
-  border: 1px solid rgba(22, 24, 29, 0.08);
+  border: 1px solid rgba(7, 26, 54, 0.08);
   border-radius: 18px;
   padding: 22px 26px;
   display: flex;
@@ -2024,10 +2024,10 @@ footer {
 .tilt-card {
   width: 100%;
   background: #ffffff;
-  border: 1px solid rgba(22, 24, 29, 0.12);
+  border: 1px solid rgba(7, 26, 54, 0.12);
   border-radius: 24px;
   padding: 44px;
-  box-shadow: 0 30px 60px -15px rgba(22, 24, 29, 0.1);
+  box-shadow: 0 30px 60px -15px rgba(7, 26, 54, 0.1);
   transform-style: preserve-3d;
   perspective: 1000px;
   transition: transform 0.15s ease-out, box-shadow 0.3s ease;
@@ -2082,7 +2082,7 @@ footer {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(22, 24, 29, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(7, 26, 54, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 1;
 }
@@ -2104,8 +2104,8 @@ footer {
   width: 100%;
   height: 100%;
   background-image:
-    linear-gradient(rgba(22, 24, 29, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 24, 29, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(7, 26, 54, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 26, 54, 0.03) 1px, transparent 1px);
   background-size: 20px 20px;
   pointer-events: none;
   z-index: 1;
@@ -2126,9 +2126,9 @@ footer {
 }
 
 @keyframes idlePulseGlow {
-  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 24, 29, 0); }
-  35%  { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(22, 24, 29, 0.12); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 24, 29, 0); }
+  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(7, 26, 54, 0); }
+  35%  { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(7, 26, 54, 0.12); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(7, 26, 54, 0); }
 }
 
 /* Testimonials — flat cards in a snap-scrolling row, 2-3 visible at once,
@@ -2157,7 +2157,7 @@ footer {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(15, 17, 20, 0.15);
+  border: 1px solid rgba(7, 26, 54, 0.15);
   background: #ffffff;
   color: var(--color-slate);
   font-size: 20px;
@@ -2275,7 +2275,7 @@ footer {
   max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   border-top: 1px solid transparent; background: var(--bg-alt);
 }
-.svc-card.expanded .svc-diagram { max-height: 300px; border-top-color: rgba(22, 24, 29, 0.1); }
+.svc-card.expanded .svc-diagram { max-height: 300px; border-top-color: rgba(7, 26, 54, 0.1); }
 .svc-diagram-inner { padding: 18px; min-height: 230px; }
 
 /* ==========================================================================
@@ -2286,7 +2286,7 @@ footer {
    connecting line has to run between column centers: column i's center
    sits at i*25% + 12.5%, meaning the line spans from 12.5% to 87.5% —
    12.5% in from each edge of the 1000px track. */
-.process-track { position: absolute; top: 19px; left: 12.5%; right: 12.5%; height: 2px; background: rgba(22, 24, 29, 0.15); border-radius: 2px; z-index: 0; }
+.process-track { position: absolute; top: 19px; left: 12.5%; right: 12.5%; height: 2px; background: rgba(7, 26, 54, 0.15); border-radius: 2px; z-index: 0; }
 .process-fill {
   position: absolute; top: 19px; left: 12.5%; height: 2px; width: 0%; z-index: 1; border-radius: 2px;
   background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
@@ -2306,7 +2306,7 @@ footer {
 .p-step.active { opacity: 1; }
 .p-step.done { opacity: 0.92; }
 .p-num {
-  width: 40px; height: 40px; border-radius: 50%; background: #ffffff; border: 2px solid rgba(22, 24, 29, 0.2);
+  width: 40px; height: 40px; border-radius: 50%; background: #ffffff; border: 2px solid rgba(7, 26, 54, 0.2);
   color: var(--text-light); font-family: 'SF Mono', Menlo, Consolas, monospace; font-weight: 700; font-size: 13px;
   display: flex; align-items: center; justify-content: center; position: relative; z-index: 2; margin: 0 auto 16px;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -2314,17 +2314,17 @@ footer {
 .p-step.active .p-num, .p-step.done .p-num {
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-color: transparent; color: #ffffff;
 }
-.p-step.active .p-num { transform: scale(1.12); box-shadow: 0 0 0 8px rgba(22, 24, 29, 0.14); }
+.p-step.active .p-num { transform: scale(1.12); box-shadow: 0 0 0 8px rgba(7, 26, 54, 0.14); }
 
 /* Milestone celebration — a quick bounce + expanding ring on the circle
    the instant a step is marked complete, so finishing a step feels like
    an actual achievement rather than a silent state change. */
 .p-num.milestone-pop { animation: milestonePop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1); }
 @keyframes milestonePop {
-  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(22, 24, 29, 0.45); }
-  35%  { transform: scale(1.4); box-shadow: 0 0 0 3px rgba(22, 24, 29, 0.3); }
-  65%  { transform: scale(0.94); box-shadow: 0 0 0 10px rgba(22, 24, 29, 0.08); }
-  100% { transform: scale(1); box-shadow: 0 0 0 16px rgba(22, 24, 29, 0); }
+  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(7, 26, 54, 0.45); }
+  35%  { transform: scale(1.4); box-shadow: 0 0 0 3px rgba(7, 26, 54, 0.3); }
+  65%  { transform: scale(0.94); box-shadow: 0 0 0 10px rgba(7, 26, 54, 0.08); }
+  100% { transform: scale(1); box-shadow: 0 0 0 16px rgba(7, 26, 54, 0); }
 }
 
 .milestone-particle {
@@ -2367,11 +2367,11 @@ footer {
   font-weight: 700;
   letter-spacing: 0.3px;
   cursor: pointer;
-  box-shadow: 0 8px 18px -6px rgba(22, 24, 29, 0.5);
+  box-shadow: 0 8px 18px -6px rgba(7, 26, 54, 0.5);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   animation: pAdvancePulse 1.8s ease infinite;
 }
-.p-advance:hover { transform: translateY(-2px); box-shadow: 0 12px 22px -6px rgba(22, 24, 29, 0.6); }
+.p-advance:hover { transform: translateY(-2px); box-shadow: 0 12px 22px -6px rgba(7, 26, 54, 0.6); }
 .p-step.active .p-advance { display: inline-flex; }
 
 .p-teaser {
@@ -2391,8 +2391,8 @@ footer {
 }
 
 @keyframes pAdvancePulse {
-  0%, 100% { box-shadow: 0 8px 18px -6px rgba(22, 24, 29, 0.5); }
-  50% { box-shadow: 0 8px 22px -4px rgba(22, 24, 29, 0.75); }
+  0%, 100% { box-shadow: 0 8px 18px -6px rgba(7, 26, 54, 0.5); }
+  50% { box-shadow: 0 8px 22px -4px rgba(7, 26, 54, 0.75); }
 }
 
 @media (max-width: 800px) {

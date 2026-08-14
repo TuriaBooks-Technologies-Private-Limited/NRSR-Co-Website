@@ -163,7 +163,7 @@ function renderOverviewStats(container) {
         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">FAQs</div>
       </div>
       <div style="background:#ffffff; padding:20px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center;">
-        <div style="font-size:28px; font-weight:800; color:#4b5158;">${testimonials.length}</div>
+        <div style="font-size:28px; font-weight:800; color:#D4A83F;">${testimonials.length}</div>
         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Reviews</div>
       </div>
       <div style="background:#ffffff; padding:20px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center;">
@@ -452,7 +452,7 @@ window.openBlogModal = function() {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Featured Cover Photo Upload (with Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="bPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(15,17,20,0.2);">
+          <div id="bPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2);">
             <span style="font-size:20px; color:#94a3b8;">🖼️</span>
           </div>
           <input type="file" id="bPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
@@ -475,7 +475,7 @@ window.openBlogModal = function() {
         </div>
       </div>
 
-      <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(15,17,20,0.15); margin-bottom:16px;">
+      <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(7,26,54,0.15); margin-bottom:16px;">
         <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px;">🔍 Enterprise SEO & Social Metadata</h4>
         <div class="form-group">
           <label>Meta Title Tag (60 chars)</label>
@@ -572,7 +572,7 @@ window.openEditBlogModal = function(id) {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Update Featured Cover Photo (Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="editBPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(15,17,20,0.2);">
+          <div id="editBPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2);">
             ${b.image ? `<img src="${b.image}" style="width:100%; height:100%; object-fit:cover;">` : `<span style="font-size:20px; color:#94a3b8;">🖼️</span>`}
           </div>
           <input type="file" id="editBPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
@@ -595,7 +595,7 @@ window.openEditBlogModal = function(id) {
         </div>
       </div>
 
-      <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(15,17,20,0.15); margin-bottom:16px;">
+      <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(7,26,54,0.15); margin-bottom:16px;">
         <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px;">🔍 Enterprise SEO & Social Metadata</h4>
         <div class="form-group">
           <label>Meta Title Tag</label>
@@ -699,7 +699,7 @@ window.openCaseStudyModal = function() {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Case Study Banner Photo Upload (with Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="csPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(15,17,20,0.2);">
+          <div id="csPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2);">
             <span style="font-size:20px; color:#94a3b8;">📊</span>
           </div>
           <input type="file" id="csPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
@@ -717,7 +717,7 @@ window.openCaseStudyModal = function() {
         </div>
       </div>
 
-      <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(15,17,20,0.15); margin-bottom:16px;">
+      <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(7,26,54,0.15); margin-bottom:16px;">
         <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px;">🔍 Enterprise SEO & Social Metadata</h4>
         <div class="form-group">
           <label>Meta Title Tag (60 chars)</label>
@@ -816,7 +816,7 @@ window.openEditCaseStudyModal = function(id) {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Update Banner Photo (Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="editCsPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(15,17,20,0.2);">
+          <div id="editCsPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2);">
             ${c.image ? `<img src="${c.image}" style="width:100%; height:100%; object-fit:cover;">` : `<span style="font-size:20px; color:#94a3b8;">📊</span>`}
           </div>
           <input type="file" id="editCsPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
@@ -834,7 +834,7 @@ window.openEditCaseStudyModal = function(id) {
         </div>
       </div>
 
-      <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(15,17,20,0.15); margin-bottom:16px;">
+      <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(7,26,54,0.15); margin-bottom:16px;">
         <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px;">🔍 Enterprise SEO & Social Metadata</h4>
         <div class="form-group">
           <label>Meta Title Tag</label>
@@ -1705,13 +1705,13 @@ function renderSettingsPanel(container) {
           <label>Recipient Email Addresses (Comma separated)</label>
           <input type="text" id="setNotificationEmails" class="form-control" placeholder="e.g. likiths2546@gmail.com, partner@company.com" value="${settings.notification_emails || ''}">
         </div>
-        <div style="margin-top:16px; padding:12px; background:var(--bg-main); border-radius:8px; border:1px solid rgba(15,17,20,0.15);">
+        <div style="margin-top:16px; padding:12px; background:var(--bg-main); border-radius:8px; border:1px solid rgba(7,26,54,0.15);">
           <p style="font-size:12px; margin:0; line-height:1.4;"><strong>💡 Alternate GitHub CRM notifications</strong>: You can still add GitHub Usernames below to also tag team members inside private repository Issues.</p>
           <input type="text" id="setNotificationUsernames" class="form-control" placeholder="GitHub Usernames (Comma separated)" value="${settings.notification_usernames || ''}" style="margin-top:8px; font-size:12px; padding:6px 12px;">
         </div>
       </div>
 
-      <hr style="border:none; border-top:1px solid rgba(15,17,20,0.15);">
+      <hr style="border:none; border-top:1px solid rgba(7,26,54,0.15);">
 
       <!-- ERP Configuration Block -->
       <div>
@@ -1727,7 +1727,7 @@ function renderSettingsPanel(container) {
         </div>
       </div>
 
-      <hr style="border:none; border-top:1px solid rgba(15,17,20,0.15);">
+      <hr style="border:none; border-top:1px solid rgba(7,26,54,0.15);">
 
       <!-- WhatsApp Support Routing Block -->
       <div>
@@ -1828,7 +1828,7 @@ window.viewLeadDetails = async function(name, path) {
         <div><strong>Email Address:</strong> <a href="mailto:${lead.email}">${lead.email}</a></div>
         <div><strong>Phone Number:</strong> <a href="tel:${lead.phone}">${lead.phone}</a></div>
         <div><strong>Selected Service Area:</strong> <span class="service-badge" style="font-size:12px;">${lead.service || 'General'}</span></div>
-        <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(15,17,20,0.15);">
+        <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(7,26,54,0.15);">
           <strong style="display:block; margin-bottom:8px; color:var(--color-primary);">Message Text:</strong>
           <p style="white-space:pre-line; margin:0;">${lead.message}</p>
         </div>

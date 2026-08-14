@@ -374,7 +374,7 @@ function renderDetailPages() {
       blogDetailContainer.innerHTML = `
         <div style="background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:var(--card-shadow); border:var(--card-border);">
           <!-- Breadcrumb Navigation -->
-          <div style="background:var(--bg-alt); padding:14px 48px; border-bottom:1px solid rgba(15,17,20,0.08); font-size:12px; color:var(--text-muted);">
+          <div style="background:var(--bg-alt); padding:14px 48px; border-bottom:1px solid rgba(7,26,54,0.08); font-size:12px; color:var(--text-muted);">
             <a href="index.html">Home</a> &nbsp;›&nbsp; <a href="blogs.html">Insights & Blogs</a> &nbsp;›&nbsp; <span style="color:var(--color-primary); font-weight:600;">${blog.title}</span>
           </div>
 
@@ -388,7 +388,7 @@ function renderDetailPages() {
             <div class="service-badge" style="font-size:13px;">${blog.category} • ${blog.date} ${blog.readTime ? '• ' + blog.readTime : ''}</div>
             <h1 style="font-size:34px; color:var(--color-slate); margin:16px 0 20px 0; line-height:1.25;">${blog.title}</h1>
             
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; border-bottom:1px solid rgba(15,17,20,0.1); padding-bottom:20px; flex-wrap:wrap; gap:16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; border-bottom:1px solid rgba(7,26,54,0.1); padding-bottom:20px; flex-wrap:wrap; gap:16px;">
               <div style="display:flex; align-items:center; gap:12px;">
                 <div style="width:42px; height:42px; border-radius:50%; background:var(--color-primary); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700;">${blog.author.charAt(0)}</div>
                 <div>
@@ -409,7 +409,7 @@ function renderDetailPages() {
               ${formatMarkdownContent(blog.content)}
             </div>
 
-            <div style="margin-top:40px; padding-top:30px; border-top:1px solid rgba(15,17,20,0.1); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
+            <div style="margin-top:40px; padding-top:30px; border-top:1px solid rgba(7,26,54,0.1); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
               <div>
                 <h4 style="font-size:16px; color:var(--color-slate);">Need Financial or Compliance Advisory?</h4>
                 <p style="font-size:13px; color:var(--text-muted); margin:0;">Book a direct consultation with our Chartered Accountants & Tech Leads.</p>
@@ -453,7 +453,7 @@ function renderDetailPages() {
       csDetailContainer.innerHTML = `
         <div style="background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:var(--card-shadow); border:var(--card-border);">
           <!-- Breadcrumb Navigation -->
-          <div style="background:var(--bg-alt); padding:14px 48px; border-bottom:1px solid rgba(15,17,20,0.08); font-size:12px; color:var(--text-muted);">
+          <div style="background:var(--bg-alt); padding:14px 48px; border-bottom:1px solid rgba(7,26,54,0.08); font-size:12px; color:var(--text-muted);">
             <a href="index.html">Home</a> &nbsp;›&nbsp; <a href="case-studies.html">Case Studies</a> &nbsp;›&nbsp; <span style="color:var(--color-primary); font-weight:600;">${cs.title}</span>
           </div>
 
@@ -470,7 +470,7 @@ function renderDetailPages() {
             ${cs.metrics ? `
               <div style="display:grid; grid-template-columns:repeat(${cs.metrics.length}, 1fr); gap:20px; margin-bottom:40px;">
                 ${cs.metrics.map(m => `
-                  <div style="background:var(--bg-main); padding:20px; border-radius:12px; border:1px solid rgba(15,17,20,0.15); text-align:center;">
+                  <div style="background:var(--bg-main); padding:20px; border-radius:12px; border:1px solid rgba(7,26,54,0.15); text-align:center;">
                     <div style="font-size:18px; font-weight:800; color:var(--color-primary);">${m.val}</div>
                     <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">${m.label}</div>
                   </div>
@@ -502,7 +502,7 @@ function renderDetailPages() {
               ` : ''}
             </div>
 
-            <div style="margin-top:40px; padding-top:30px; border-top:1px solid rgba(15,17,20,0.1);">
+            <div style="margin-top:40px; padding-top:30px; border-top:1px solid rgba(7,26,54,0.1);">
               <a href="contact.html" class="btn btn-primary">Contact Us</a>
             </div>
           </div>
@@ -693,7 +693,7 @@ function triggerWhatsAppAction() {
       right: 30px;
       background: #ffffff;
       border-radius: 12px;
-      border: 1px solid rgba(15,17,20,0.15);
+      border: 1px solid rgba(7,26,54,0.15);
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
       width: 280px;
       z-index: 10000;
@@ -705,13 +705,13 @@ function triggerWhatsAppAction() {
   }
 
   popup.innerHTML = `
-    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(15,17,20,0.1); padding-bottom:8px; margin-bottom:12px; font-weight:700;">
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(7,26,54,0.1); padding-bottom:8px; margin-bottom:12px; font-weight:700;">
       <span style="font-weight:700; font-size:13px; color:#1e293b;">Chat with our Advisors</span>
       <button onclick="document.getElementById('floatingWaPopup').style.display='none'" style="background:none; border:none; font-size:18px; cursor:pointer; color:#94a3b8;">&times;</button>
     </div>
     <div style="display:flex; flex-direction:column; gap:8px;">
       ${numbers.map(n => `
-        <a href="https://wa.me/${n.number}?text=Hello%20NRSR%20%26%20Co,%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" style="display:flex; align-items:center; gap:10px; background:#f8fafc; padding:10px; border-radius:8px; text-decoration:none; color:#1e293b; transition:background 0.2s;" onmouseover="this.style.background='rgba(15,17,20,0.06)'" onmouseout="this.style.background='#f8fafc'">
+        <a href="https://wa.me/${n.number}?text=Hello%20NRSR%20%26%20Co,%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" style="display:flex; align-items:center; gap:10px; background:#f8fafc; padding:10px; border-radius:8px; text-decoration:none; color:#1e293b; transition:background 0.2s;" onmouseover="this.style.background='rgba(7,26,54,0.06)'" onmouseout="this.style.background='#f8fafc'">
           <div style="width:32px; height:32px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px;">💬</div>
           <div style="flex:1;">
             <div style="font-size:12px; font-weight:700;">${n.name}</div>
