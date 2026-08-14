@@ -781,21 +781,21 @@ main .text-center .section-title::after {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #9ca3af;
+  color: rgba(255,255,255,0.35);
   padding: 4px 0;
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
-.footer-disclaimer-toggle:hover { color: #e5e7eb; }
+.footer-disclaimer-toggle:hover { color: rgba(255,255,255,0.7); }
 
 .footer-disclaimer-caret { transition: transform 0.25s ease; font-size: 10px; }
 .footer-disclaimer.expanded .footer-disclaimer-caret { transform: rotate(180deg); }
 
 .footer-disclaimer-text {
   font-size: 11px;
-  color: #6b7280;
+  color: rgba(255,255,255,0.4);
   line-height: 1.6;
   max-height: 0;
   overflow: hidden;
@@ -1327,10 +1327,10 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 /* Footer */
 footer {
-  background-color: var(--color-slate);
+  background-color: var(--bg-dark);        /* Deep Navy #071A36 */
   color: #ffffff;
   padding: 70px 0 30px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 3px solid var(--color-accent); /* Gold top-border — ties footer to brand accent */
 }
 
 .footer-grid {
@@ -1340,22 +1340,23 @@ footer {
   margin-bottom: 50px;
 }
 
-.footer-brand p { font-size: 13.5px; color: #94a3b8; margin-top: 14px; line-height: 1.6; }
+.footer-brand p { font-size: 13.5px; color: rgba(255,255,255,0.55); margin-top: 14px; line-height: 1.6; }
 
-.footer-col h4 { color: #ffffff; font-size: 15px; margin-bottom: 20px; position: relative; }
+.footer-col h4 { color: #ffffff; font-size: 15px; margin-bottom: 20px; position: relative; letter-spacing: 0.3px; }
 
 .footer-col h4::after {
   content: '';
   display: block;
-  width: 30px;
+  width: 28px;
   height: 2px;
   background: var(--color-accent);
   margin-top: 8px;
+  border-radius: 2px;
 }
 
 .footer-links li { margin-bottom: 10px; }
-.footer-links a { font-size: 13.5px; color: #94a3b8; }
-.footer-links a:hover { color: var(--color-primary-light); padding-left: 4px; }
+.footer-links a { font-size: 13.5px; color: rgba(255,255,255,0.55); transition: color 0.2s ease, padding-left 0.2s ease; }
+.footer-links a:hover { color: var(--color-accent); padding-left: 5px; }
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -1363,7 +1364,7 @@ footer {
   display: flex;
   justify-content: space-between;
   font-size: 13px;
-  color: #64748b;
+  color: rgba(255,255,255,0.35);
   flex-wrap: wrap;
   gap: 12px;
 }
