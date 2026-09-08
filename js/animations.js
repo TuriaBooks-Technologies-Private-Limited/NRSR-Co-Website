@@ -93,15 +93,15 @@ function initCanvasWaves() {
 
   // Curve definition
   const lines = [
-    { yOffset: 0.45, speed: 0.008, amplitude: 35, phase: 0, color: 'rgba(7, 26, 54, 0.25)' },
+    { yOffset: 0.45, speed: 0.008, amplitude: 35, phase: 0, color: 'rgba(29, 163, 154, 0.25)' },
     { yOffset: 0.50, speed: 0.005, amplitude: 45, phase: Math.PI / 4, color: 'rgba(75, 81, 88, 0.2)' },
     { yOffset: 0.55, speed: 0.007, amplitude: 25, phase: Math.PI / 2, color: 'rgba(169, 173, 179, 0.18)' }
   ];
 
   // Moving energy particles along the waves
   const particles = [
-    { lineIndex: 0, progress: 0.1, speed: 0.0015, size: 4, color: '#071A36' },
-    { lineIndex: 1, progress: 0.4, speed: 0.0010, size: 5, color: '#D4A83F' },
+    { lineIndex: 0, progress: 0.1, speed: 0.0015, size: 4, color: '#1DA39A' },
+    { lineIndex: 1, progress: 0.4, speed: 0.0010, size: 5, color: '#6BBF4E' },
     { lineIndex: 2, progress: 0.7, speed: 0.0020, size: 3, color: '#596579' }
   ];
 
@@ -354,11 +354,11 @@ function init3DTilt() {
       const rotateX = ((y - centerY) / centerY) * -10;
       const rotateY = ((x - centerX) / centerX) * 10;
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
-      card.style.boxShadow = `${-rotateY * 2}px ${rotateX * 2}px 40px rgba(7, 26, 54,0.15)`;
+      card.style.boxShadow = `${-rotateY * 2}px ${rotateX * 2}px 40px rgba(29, 163, 154,0.15)`;
     });
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
-      card.style.boxShadow = '0 30px 60px -15px rgba(7, 26, 54,0.1)';
+      card.style.boxShadow = '0 30px 60px -15px rgba(29, 163, 154,0.1)';
     });
   });
 }
@@ -373,12 +373,12 @@ const SERVICE_TEMPLATES = {
       el.innerHTML = `
         <div class="mock-grid-lines"></div>
         <div class="mock-diagram-container" style="padding:10px;">
-          <div style="font-size:11px;color:#071A36;font-weight:700;letter-spacing:1px;margin-bottom:14px;">INCOME TAX WORKFLOW</div>
+          <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:14px;">INCOME TAX WORKFLOW</div>
           ${['Document Collection','TDS Reconciliation','ITR Computation','E-Filing to Portal','Acknowledgement'].map((step,i) => `
             <div class="timeline-step" style="display:flex;align-items:center;gap:12px;margin-bottom:12px;animation:fadeSlideIn 0.4s ease ${i*0.15}s both;">
-              <div style="width:28px;height:28px;border-radius:50%;background:${i<2?'#071A36':'rgba(7, 26, 54,0.12)'};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:${i<2?'#fff':'#071A36'};flex-shrink:0;">${i+1}</div>
-              <div style="flex:1;height:6px;background:${i<2?'linear-gradient(90deg,#071A36,#D4A83F)':'rgba(7, 26, 54,0.1)'};border-radius:3px;"></div>
-              <div style="font-size:11px;color:${i<2?'#071A36':'#94a3b8'};font-weight:${i<2?'600':'400'};min-width:120px;">${step}</div>
+              <div style="width:28px;height:28px;border-radius:50%;background:${i<2?'#1DA39A':'rgba(29, 163, 154,0.12)'};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:${i<2?'#fff':'#1DA39A'};flex-shrink:0;">${i+1}</div>
+              <div style="flex:1;height:6px;background:${i<2?'linear-gradient(90deg,#1DA39A,#6BBF4E)':'rgba(29, 163, 154,0.1)'};border-radius:3px;"></div>
+              <div style="font-size:11px;color:${i<2?'#1DA39A':'#94a3b8'};font-weight:${i<2?'600':'400'};min-width:120px;">${step}</div>
             </div>`).join('')}
           <div style="margin-top:16px;padding:10px 14px;background:linear-gradient(90deg,#ecfdf5,#d1fae5);border-radius:10px;font-size:11px;color:#059669;font-weight:700;">✓ ITR Filed Successfully (AY 2024-25)</div>
         </div>`;
@@ -394,14 +394,14 @@ const SERVICE_TEMPLATES = {
       el.innerHTML = `
         <div class="mock-grid-lines"></div>
         <div class="mock-diagram-container" style="padding:10px;">
-          <div style="font-size:11px;color:#071A36;font-weight:700;letter-spacing:1px;margin-bottom:14px;">GST COMPLIANCE TRACKER</div>
+          <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:14px;">GST COMPLIANCE TRACKER</div>
           <svg viewBox="0 0 300 120" style="width:100%;height:120px;">
-            <polyline points="${vals.map((v,i) => `${i*50+25},${120-(v*1.1)}`).join(' ')}" fill="none" stroke="#071A36" stroke-width="2.5" stroke-linecap="round" class="drawing-path"/>
-            ${vals.map((v,i) => `<circle cx="${i*50+25}" cy="${120-(v*1.1)}" r="4" fill="#071A36" style="animation:fadeSlideIn 0.3s ease ${i*0.2}s both;"/>`).join('')}
+            <polyline points="${vals.map((v,i) => `${i*50+25},${120-(v*1.1)}`).join(' ')}" fill="none" stroke="#1DA39A" stroke-width="2.5" stroke-linecap="round" class="drawing-path"/>
+            ${vals.map((v,i) => `<circle cx="${i*50+25}" cy="${120-(v*1.1)}" r="4" fill="#1DA39A" style="animation:fadeSlideIn 0.3s ease ${i*0.2}s both;"/>`).join('')}
             ${months.map((m,i) => `<text x="${i*50+25}" y="118" font-size="8" fill="#94a3b8" text-anchor="middle">${m}</text>`).join('')}
           </svg>
           <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
-            ${['GSTR-1 Filed','GSTR-3B Filed','ITC Claimed'].map(t => `<span style="font-size:10px;background:rgba(7,26,54,0.06);color:#D4A83F;padding:3px 8px;border-radius:20px;font-weight:600;">${t}</span>`).join('')}
+            ${['GSTR-1 Filed','GSTR-3B Filed','ITC Claimed'].map(t => `<span style="font-size:10px;background:rgba(29,163,154,0.06);color:#6BBF4E;padding:3px 8px;border-radius:20px;font-weight:600;">${t}</span>`).join('')}
           </div>
         </div>`;
     }
@@ -414,13 +414,13 @@ const SERVICE_TEMPLATES = {
       el.innerHTML = `
         <div class="mock-grid-lines"></div>
         <div class="mock-diagram-container" style="padding:10px;">
-          <div style="font-size:11px;color:#071A36;font-weight:700;letter-spacing:1px;margin-bottom:18px;">INCORPORATION FLOW</div>
+          <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:18px;">INCORPORATION FLOW</div>
           <div style="display:flex;flex-direction:column;gap:14px;">
             ${[['Name Approval','MCA21 Portal','✓ Approved'],['MOA / AOA Drafting','Legal Document','✓ Signed'],['DIN & DSC','Director Credentials','✓ Issued'],['Certificate of Incorporation','Registrar of Companies','✓ Received']].map(([title,sub,status],i)=>`
               <div style="display:flex;align-items:center;gap:14px;animation:fadeSlideIn 0.4s ease ${i*0.15}s both;">
-                <div style="width:32px;height:32px;background:${i===3?'#071A36':'rgba(7,26,54,0.06)'};border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">${['📝','📄','🔑','🏛️'][i]}</div>
+                <div style="width:32px;height:32px;background:${i===3?'#1DA39A':'rgba(29,163,154,0.06)'};border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">${['📝','📄','🔑','🏛️'][i]}</div>
                 <div style="flex:1;">
-                  <div style="font-size:12px;font-weight:700;color:#071A36;">${title}</div>
+                  <div style="font-size:12px;font-weight:700;color:#1DA39A;">${title}</div>
                   <div style="font-size:10px;color:#94a3b8;">${sub}</div>
                 </div>
                 <span style="font-size:10px;color:#059669;font-weight:700;">${status}</span>
@@ -437,19 +437,19 @@ const SERVICE_TEMPLATES = {
       el.innerHTML = `
         <div class="mock-grid-lines"></div>
         <div class="mock-diagram-container" style="padding:10px;">
-          <div style="font-size:11px;color:#071A36;font-weight:700;letter-spacing:1px;margin-bottom:14px;">PARTNER CAPITAL LEDGER</div>
+          <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:14px;">PARTNER CAPITAL LEDGER</div>
           <table style="width:100%;font-size:11px;border-collapse:collapse;">
-            <thead><tr style="background:rgba(7,26,54,0.05);">
-              <th style="padding:8px;text-align:left;color:#071A36;border-radius:6px 0 0 6px;">Partner</th>
-              <th style="padding:8px;text-align:right;color:#071A36;">Capital (₹)</th>
-              <th style="padding:8px;text-align:right;color:#071A36;">Profit Share</th>
+            <thead><tr style="background:rgba(29,163,154,0.05);">
+              <th style="padding:8px;text-align:left;color:#1DA39A;border-radius:6px 0 0 6px;">Partner</th>
+              <th style="padding:8px;text-align:right;color:#1DA39A;">Capital (₹)</th>
+              <th style="padding:8px;text-align:right;color:#1DA39A;">Profit Share</th>
             </tr></thead>
             <tbody>
               ${[['N. Rao','12,50,000','30%'],['R. Shetty','10,00,000','25%'],['S. Raj','8,75,000','22.5%'],['R. Kumar','7,50,000','22.5%']].map(([n,c,p],i)=>`
                 <tr style="animation:fadeSlideIn 0.3s ease ${i*0.15}s both;">
                   <td style="padding:8px;color:#374151;font-weight:600;">${n}</td>
-                  <td style="padding:8px;text-align:right;color:#071A36;">₹${c}</td>
-                  <td style="padding:8px;text-align:right;"><span style="background:rgba(7,26,54,0.06);color:#D4A83F;padding:2px 8px;border-radius:20px;font-weight:700;">${p}</span></td>
+                  <td style="padding:8px;text-align:right;color:#1DA39A;">₹${c}</td>
+                  <td style="padding:8px;text-align:right;"><span style="background:rgba(29,163,154,0.06);color:#6BBF4E;padding:2px 8px;border-radius:20px;font-weight:700;">${p}</span></td>
                 </tr>`).join('')}
             </tbody>
           </table>
@@ -465,7 +465,7 @@ const SERVICE_TEMPLATES = {
       el.innerHTML = `
         <div class="mock-grid-lines"></div>
         <div class="mock-diagram-container" style="padding:10px;">
-          <div style="font-size:11px;color:#071A36;font-weight:700;letter-spacing:1px;margin-bottom:14px;">INTERNAL AUDIT CHECKLIST</div>
+          <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:14px;">INTERNAL AUDIT CHECKLIST</div>
           ${checks.map(([name,status,risk],i)=>`
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;animation:fadeSlideIn 0.4s ease ${i*0.12}s both;">
               <div style="width:18px;height:18px;border-radius:50%;background:${status==='Verified'?'#10b981':status==='Flagged'?'#f43f5e':'#f97316'};display:flex;align-items:center;justify-content:center;font-size:9px;color:white;flex-shrink:0;">${status==='Verified'?'✓':status==='Flagged'?'!':'~'}</div>
@@ -483,13 +483,13 @@ const SERVICE_TEMPLATES = {
       el.innerHTML = `
         <div class="mock-grid-lines"></div>
         <div class="mock-diagram-container" style="padding:10px;align-items:center;">
-          <div style="font-size:11px;color:#071A36;font-weight:700;letter-spacing:1px;margin-bottom:18px;align-self:flex-start;">CERTIFICATE ISSUED</div>
-          <div style="width:220px;border:2px solid #071A36;border-radius:16px;padding:20px 24px;text-align:center;position:relative;background:linear-gradient(135deg,#FAF8F2,#f2efe8);" class="stamp-seal">
+          <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:18px;align-self:flex-start;">CERTIFICATE ISSUED</div>
+          <div style="width:220px;border:2px solid #1DA39A;border-radius:16px;padding:20px 24px;text-align:center;position:relative;background:linear-gradient(135deg,#F2FAF9,#E6F5F3);" class="stamp-seal">
             <div style="font-size:28px;margin-bottom:8px;">🏅</div>
-            <div style="font-size:12px;font-weight:800;color:#071A36;letter-spacing:0.5px;">CERTIFICATE OF NET WORTH</div>
-            <div style="font-size:10px;color:#071A36;margin:6px 0;">M/s NRSR & Co</div>
+            <div style="font-size:12px;font-weight:800;color:#1DA39A;letter-spacing:0.5px;">CERTIFICATE OF NET WORTH</div>
+            <div style="font-size:10px;color:#1DA39A;margin:6px 0;">M/s NRSR & Co</div>
             <div style="font-size:10px;color:#94a3b8;">Chartered Accountants</div>
-            <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#071A36,#D4A83F);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;margin:14px auto 0;box-shadow:0 4px 12px rgba(7, 26, 54,0.4);">SEAL</div>
+            <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#1DA39A,#6BBF4E);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;margin:14px auto 0;box-shadow:0 4px 12px rgba(29, 163, 154,0.4);">SEAL</div>
           </div>
         </div>`;
     }
@@ -503,9 +503,9 @@ const SERVICE_TEMPLATES = {
       el.innerHTML = `
         <div class="mock-grid-lines"></div>
         <div class="mock-diagram-container" style="padding:10px;">
-          <div style="font-size:11px;color:#071A36;font-weight:700;letter-spacing:1px;margin-bottom:14px;">REGISTRATION STATUS BOARD</div>
+          <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:14px;">REGISTRATION STATUS BOARD</div>
           ${regs.map(([name,status,color],i)=>`
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(7, 26, 54,0.07);animation:fadeSlideIn 0.3s ease ${i*0.12}s both;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(29, 163, 154,0.07);animation:fadeSlideIn 0.3s ease ${i*0.12}s both;">
               <div style="font-size:11px;color:#374151;font-weight:600;">${name}</div>
               <span style="font-size:10px;color:${color};font-weight:700;padding:2px 10px;background:${color}18;border-radius:20px;">● ${status}</span>
             </div>`).join('')}
@@ -520,13 +520,13 @@ const SERVICE_TEMPLATES = {
       el.innerHTML = `
         <div class="mock-grid-lines"></div>
         <div class="mock-diagram-container" style="padding:10px;">
-          <div style="font-size:11px;color:#071A36;font-weight:700;letter-spacing:1px;margin-bottom:10px;">P&L SUMMARY (FY 2024-25)</div>
+          <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:10px;">P&L SUMMARY (FY 2024-25)</div>
           <svg viewBox="0 0 280 130" style="width:100%;height:130px;">
-            <defs><linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#071A36"/><stop offset="100%" stop-color="#D4A83F"/></linearGradient></defs>
+            <defs><linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1DA39A"/><stop offset="100%" stop-color="#6BBF4E"/></linearGradient></defs>
             ${[['Revenue','240','Q1'],['COGS','120','Q2'],['Gross Profit','180','Q3'],['Net Profit','90','Q4']].map(([label,h,q],i)=>`
               <rect x="${i*65+15}" y="${130-parseInt(h)}" width="40" height="${h}" rx="6" fill="url(#barGrad)" opacity="${0.5+i*0.15}" style="animation:fadeSlideIn 0.5s ease ${i*0.15}s both;"/>
               <text x="${i*65+35}" y="128" font-size="7" fill="#94a3b8" text-anchor="middle">${label}</text>
-              <text x="${i*65+35}" y="${130-parseInt(h)-6}" font-size="8" fill="#071A36" text-anchor="middle" font-weight="700">₹${parseInt(h)*1.2}L</text>`).join('')}
+              <text x="${i*65+35}" y="${130-parseInt(h)-6}" font-size="8" fill="#1DA39A" text-anchor="middle" font-weight="700">₹${parseInt(h)*1.2}L</text>`).join('')}
           </svg>
         </div>`;
     }
@@ -540,16 +540,16 @@ const SERVICE_TEMPLATES = {
       el.innerHTML = `
         <div class="mock-grid-lines"></div>
         <div class="mock-diagram-container" style="padding:10px;">
-          <div style="font-size:11px;color:#071A36;font-weight:700;letter-spacing:1px;margin-bottom:14px;">STATUTORY AUDIT PROGRESS</div>
+          <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:14px;">STATUTORY AUDIT PROGRESS</div>
           ${phases.map(([phase,status],i)=>`
             <div style="display:flex;align-items:center;gap:12px;margin-bottom:11px;animation:fadeSlideIn 0.4s ease ${i*0.15}s both;">
-              <div style="width:24px;height:24px;border-radius:50%;border:2px solid ${status==='✓'?'#10b981':status==='→'?'#071A36':'#e2e8f0'};background:${status==='✓'?'#10b981':status==='→'?'rgba(7,26,54,0.08)':'white'};display:flex;align-items:center;justify-content:center;font-size:10px;color:${status==='✓'?'white':status==='→'?'#071A36':'#94a3b8'};flex-shrink:0;font-weight:700;">${status}</div>
+              <div style="width:24px;height:24px;border-radius:50%;border:2px solid ${status==='✓'?'#10b981':status==='→'?'#1DA39A':'#e2e8f0'};background:${status==='✓'?'#10b981':status==='→'?'rgba(29,163,154,0.08)':'white'};display:flex;align-items:center;justify-content:center;font-size:10px;color:${status==='✓'?'white':status==='→'?'#1DA39A':'#94a3b8'};flex-shrink:0;font-weight:700;">${status}</div>
               <div style="flex:1;">
                 <div style="font-size:11px;color:${status==='○'?'#94a3b8':'#374151'};font-weight:${status!=='○'?'600':'400'};">${phase}</div>
               </div>
-              ${status==='→'?`<span style="font-size:9px;background:rgba(7,26,54,0.08);color:#D4A83F;padding:2px 8px;border-radius:20px;font-weight:700;">IN PROGRESS</span>`:''}
+              ${status==='→'?`<span style="font-size:9px;background:rgba(29,163,154,0.08);color:#6BBF4E;padding:2px 8px;border-radius:20px;font-weight:700;">IN PROGRESS</span>`:''}
             </div>`).join('')}
-          <div style="height:4px;background:#f1f5f9;border-radius:2px;margin-top:8px;"><div style="width:65%;height:100%;background:linear-gradient(90deg,#071A36,#D4A83F);border-radius:2px;"></div></div>
+          <div style="height:4px;background:#f1f5f9;border-radius:2px;margin-top:8px;"><div style="width:65%;height:100%;background:linear-gradient(90deg,#1DA39A,#6BBF4E);border-radius:2px;"></div></div>
           <div style="font-size:10px;color:#94a3b8;margin-top:6px;">65% Complete</div>
         </div>`;
     }
@@ -565,12 +565,12 @@ function renderGenericWorkflow(svc, el) {
   el.innerHTML = `
     <div class="mock-grid-lines"></div>
     <div class="mock-diagram-container" style="padding:10px;">
-      <div style="font-size:11px;color:#071A36;font-weight:700;letter-spacing:1px;margin-bottom:14px;">${svc.name.toUpperCase()} WORKFLOW</div>
+      <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:14px;">${svc.name.toUpperCase()} WORKFLOW</div>
       ${steps.map((step, i) => `
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;animation:fadeSlideIn 0.4s ease ${i * 0.15}s both;">
-          <div style="width:28px;height:28px;border-radius:50%;background:${i < steps.length - 1 ? '#071A36' : 'rgba(7, 26, 54,0.12)'};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:${i < steps.length - 1 ? '#fff' : '#071A36'};flex-shrink:0;">${i + 1}</div>
-          <div style="flex:1;height:6px;background:${i < steps.length - 1 ? 'linear-gradient(90deg,#071A36,#D4A83F)' : 'rgba(7, 26, 54,0.1)'};border-radius:3px;"></div>
-          <div style="font-size:11px;color:#071A36;font-weight:600;min-width:140px;">${step}</div>
+          <div style="width:28px;height:28px;border-radius:50%;background:${i < steps.length - 1 ? '#1DA39A' : 'rgba(29, 163, 154,0.12)'};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:${i < steps.length - 1 ? '#fff' : '#1DA39A'};flex-shrink:0;">${i + 1}</div>
+          <div style="flex:1;height:6px;background:${i < steps.length - 1 ? 'linear-gradient(90deg,#1DA39A,#6BBF4E)' : 'rgba(29, 163, 154,0.1)'};border-radius:3px;"></div>
+          <div style="font-size:11px;color:#1DA39A;font-weight:600;min-width:140px;">${step}</div>
         </div>`).join('')}
       <div style="margin-top:16px;padding:10px 14px;background:linear-gradient(90deg,#ecfdf5,#d1fae5);border-radius:10px;font-size:11px;color:#059669;font-weight:700;">✓ ${svc.category || 'Handled'}, End to End</div>
     </div>`;

@@ -97,6 +97,15 @@ const DEFAULT_SERVICES = [
     description: 'Providing independent, audit-ready reviews under statutory guidelines, including Tax Audits under Section 44AB, company audits, and cooperative trust reviews.',
     features: ['Society & Trust Audits', 'Company Audits', 'Internal Audits', 'Tax Audits'],
     icon: 'clipboard-check'
+  },
+  {
+    id: 'srv-10',
+    name: 'Valuation',
+    category: 'Valuation Advisory',
+    shortDesc: 'Business valuation, share valuation, ESOP valuation, and fair value assessments for regulatory, transactional, and litigation purposes.',
+    description: 'Our valuation practice delivers independent, defensible valuations for businesses, equity, intangibles, and financial instruments — supporting M&A transactions, ESOP schemes, regulatory filings, and dispute resolution.',
+    features: ['Business Enterprise Valuation', 'Share & Equity Valuation', 'ESOP / Sweat Equity Valuation', 'Intangible Asset Valuation', 'Fairness Opinion Reports'],
+    icon: 'bar-chart-2'
   }
 ];
 
@@ -310,7 +319,7 @@ const DEFAULT_CASE_STUDIES = [
 // Any browser whose stored version doesn't match gets its cache wiped and
 // rewritten with the correct NRSR & Co defaults — eliminating ghost/stale
 // data left over from previous template projects (Green Monk, Sandeep Advisory).
-const DATA_VERSION = 'nrsr-v1';
+const DATA_VERSION = 'nrsr-v2';
 
 class Store {
   constructor() {

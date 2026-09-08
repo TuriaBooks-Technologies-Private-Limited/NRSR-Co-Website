@@ -163,7 +163,7 @@ function renderOverviewStats(container) {
         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">FAQs</div>
       </div>
       <div style="background:#ffffff; padding:20px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center;">
-        <div style="font-size:28px; font-weight:800; color:#D4A83F;">${testimonials.length}</div>
+        <div style="font-size:28px; font-weight:800; color:#6BBF4E;">${testimonials.length}</div>
         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Reviews</div>
       </div>
       <div style="background:#ffffff; padding:20px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center;">
