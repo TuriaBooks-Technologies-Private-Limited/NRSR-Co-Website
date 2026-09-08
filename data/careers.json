@@ -1,0 +1,55 @@
+{
+  "careers": [
+    {
+      "id": "job-1",
+      "title": "Audit Senior / Semi-Qualified CA",
+      "department": "Audit & Assurance",
+      "location": "Manipal / Bengaluru",
+      "type": "Full-Time",
+      "experience": "2-4 Years",
+      "shortDesc": "Lead statutory audit engagements, internal control reviews, and company compliance audits.",
+      "description": "We are seeking a proactive Semi-Qualified CA or experienced Audit Senior to oversee statutory audits, tax audits (Sec 44AB), and internal financial controls for corporate and SME clients.",
+      "requirements": [
+        "CA Inter / Semi-Qualified or M.Com with audit firm experience",
+        "Strong working knowledge of TallyPrime, Zoho Books, and Excel",
+        "Familiarity with Indian Accounting Standards and Companies Act 2013",
+        "Ability to lead junior articled assistants and manage client communications"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "job-2",
+      "title": "Articled Assistant (CA Articleship)",
+      "department": "Tax & Compliance",
+      "location": "Manipal / Bengaluru",
+      "type": "Articleship (ICAI)",
+      "experience": "Fresher / IPCC Cleared",
+      "shortDesc": "Hands-on ICAI articleship training across Direct Tax, GST, Statutory Audits, and ROC Filings.",
+      "description": "Join our comprehensive 2/3-year ICAI articleship program gaining multi-disciplinary exposure in ITR filing, GST returns, MCA21 corporate filings, and bank concurrent audits.",
+      "requirements": [
+        "Cleared CA Intermediate / IPCC (Single or Both Groups)",
+        "Strong fundamentals in accounting, taxation, and auditing",
+        "Eagerness to learn cloud accounting and business advisory tools",
+        "Good communication and team collaboration skills"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "job-3",
+      "title": "GST & Direct Tax Executive",
+      "department": "Tax Advisory",
+      "location": "Manipal / Bengaluru",
+      "type": "Full-Time",
+      "experience": "1-3 Years",
+      "shortDesc": "Manage monthly GSTR-1, GSTR-3B, TDS quarterly returns, and advance tax computations.",
+      "description": "Manage day-to-day tax compliance including monthly GST returns, reconciliation of 2B vs purchase registers, TDS return preparation, and IT return draftings for varied client verticals.",
+      "requirements": [
+        "B.Com / M.Com / MBA Finance",
+        "1+ years experience in a CA firm or corporate tax department",
+        "Hands-on expertise in GST portal, TRACES, and Income Tax e-filing portal",
+        "Attention to detail and timely adherence to statutory cut-offs"
+      ],
+      "status": "Active"
+    }
+  ]
+}

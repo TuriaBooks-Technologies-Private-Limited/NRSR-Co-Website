@@ -314,12 +314,158 @@ const DEFAULT_CASE_STUDIES = [
   }
 ];
 
+const DEFAULT_CAREERS = [
+  {
+    id: 'job-1',
+    title: 'Audit Senior / Semi-Qualified CA',
+    department: 'Audit & Assurance',
+    location: 'Manipal / Bengaluru',
+    type: 'Full-Time',
+    experience: '2-4 Years',
+    shortDesc: 'Lead statutory audit engagements, internal control reviews, and company compliance audits.',
+    description: 'We are seeking a proactive Semi-Qualified CA or experienced Audit Senior to oversee statutory audits, tax audits (Sec 44AB), and internal financial controls for corporate and SME clients.',
+    requirements: [
+      'CA Inter / Semi-Qualified or M.Com with audit firm experience',
+      'Strong working knowledge of TallyPrime, Zoho Books, and Excel',
+      'Familiarity with Indian Accounting Standards and Companies Act 2013',
+      'Ability to lead junior articled assistants and manage client communications'
+    ],
+    status: 'Active'
+  },
+  {
+    id: 'job-2',
+    title: 'Articled Assistant (CA Articleship)',
+    department: 'Tax & Compliance',
+    location: 'Manipal / Bengaluru',
+    type: 'Articleship (ICAI)',
+    experience: 'Fresher / IPCC Cleared',
+    shortDesc: 'Hands-on ICAI articleship training across Direct Tax, GST, Statutory Audits, and ROC Filings.',
+    description: 'Join our comprehensive 2/3-year ICAI articleship program gaining multi-disciplinary exposure in ITR filing, GST returns, MCA21 corporate filings, and bank concurrent audits.',
+    requirements: [
+      'Cleared CA Intermediate / IPCC (Single or Both Groups)',
+      'Strong fundamentals in accounting, taxation, and auditing',
+      'Eagerness to learn cloud accounting and business advisory tools',
+      'Good communication and team collaboration skills'
+    ],
+    status: 'Active'
+  },
+  {
+    id: 'job-3',
+    title: 'GST & Direct Tax Executive',
+    department: 'Tax Advisory',
+    location: 'Manipal / Bengaluru',
+    type: 'Full-Time',
+    experience: '1-3 Years',
+    shortDesc: 'Manage monthly GSTR-1, GSTR-3B, TDS quarterly returns, and advance tax computations.',
+    description: 'Manage day-to-day tax compliance including monthly GST returns, reconciliation of 2B vs purchase registers, TDS return preparation, and IT return draftings for varied client verticals.',
+    requirements: [
+      'B.Com / M.Com / MBA Finance',
+      '1+ years experience in a CA firm or corporate tax department',
+      'Hands-on expertise in GST portal, TRACES, and Income Tax e-filing portal',
+      'Attention to detail and timely adherence to statutory cut-offs'
+    ],
+    status: 'Active'
+  }
+];
+
+const DEFAULT_GALLERY = [
+  {
+    id: 'gal-1',
+    title: 'NRSR & Co Headquarters — Manipal',
+    category: 'Office',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+    caption: 'Our primary corporate office at Union Bank Building, Tiger Circle, Manipal.',
+    date: '2026-01-15'
+  },
+  {
+    id: 'gal-2',
+    title: 'Annual Team Strategy & CPD Seminar',
+    category: 'Events',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+    caption: 'Continuous professional development workshop on Union Budget and Tax Updates.',
+    date: '2026-02-10'
+  },
+  {
+    id: 'gal-3',
+    title: 'Client Advisory & Corporate Consultation',
+    category: 'Team',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+    caption: 'Corporate restructuring and valuation advisory session in progress.',
+    date: '2026-03-01'
+  },
+  {
+    id: 'gal-4',
+    title: 'ICAI Peer Review & Quality Certification',
+    category: 'Certifications',
+    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80',
+    caption: 'Recognition of rigorous quality control frameworks and adherence to ICAI standards.',
+    date: '2026-04-20'
+  }
+];
+
+const DEFAULT_LINKS = [
+  {
+    id: 'link-1',
+    title: 'Income Tax e-Filing Portal',
+    category: 'Government Portals',
+    url: 'https://www.incometax.gov.in',
+    description: 'Official Income Tax Department e-filing portal for ITR, 26AS, AIS/TIS, and e-Verification.',
+    icon: '🏛️',
+    badge: 'Tax Portal'
+  },
+  {
+    id: 'link-2',
+    title: 'Goods & Services Tax (GST) Portal',
+    category: 'Government Portals',
+    url: 'https://www.gst.gov.in',
+    description: 'National GST portal for monthly return filing, GSTR-2B reconciliations, and registrations.',
+    icon: '🧾',
+    badge: 'GST Portal'
+  },
+  {
+    id: 'link-3',
+    title: 'Ministry of Corporate Affairs (MCA21 V3)',
+    category: 'Government Portals',
+    url: 'https://www.mca.gov.in',
+    description: 'MCA21 portal for company & LLP incorporations, DIN KYC, and annual ROC statutory filings.',
+    icon: '🏢',
+    badge: 'Corporate Portal'
+  },
+  {
+    id: 'link-4',
+    title: 'ICAI Official Portal',
+    category: 'Regulatory',
+    url: 'https://www.icai.org',
+    description: 'Institute of Chartered Accountants of India - accounting standards, notifications & guidance.',
+    icon: '🎓',
+    badge: 'ICAI Portal'
+  },
+  {
+    id: 'link-5',
+    title: 'Live Support & Chatbot Assistant',
+    category: 'Client Support',
+    url: 'https://dashboard.tawk.to/#/dashboard/6011a916c31c9117cb73225c',
+    description: 'Instant live support chat with NRSR & Co compliance and client advisory desk.',
+    icon: '💬',
+    badge: 'Live Chat'
+  },
+  {
+    id: 'link-6',
+    title: 'Client WhatsApp Advisory Desk',
+    category: 'Client Support',
+    url: 'https://wa.me/919108599083?text=Hello%20NRSR%20%26%20Co,%20I%20would%20like%20to%20inquire%20about%20your%20services.',
+    description: 'Direct WhatsApp hotline with our senior advisory team for queries and status tracking.',
+    icon: '📱',
+    badge: 'WhatsApp Hotline'
+  }
+];
+
 // ─── Data Version Guard ───────────────────────────────────────────────────────
 // Bump this string whenever the firm's content or data schema changes.
 // Any browser whose stored version doesn't match gets its cache wiped and
 // rewritten with the correct NRSR & Co defaults — eliminating ghost/stale
 // data left over from previous template projects (Green Monk, Sandeep Advisory).
-const DATA_VERSION = 'nrsr-v2';
+const DATA_VERSION = 'nrsr-v3';
 
 class Store {
   constructor() {
@@ -329,6 +475,9 @@ class Store {
     this.blogs = null;
     this.testimonials = null;
     this.caseStudies = null;
+    this.careers = null;
+    this.gallery = null;
+    this.links = null;
     this.init();
   }
 
@@ -339,7 +488,7 @@ class Store {
       // Wipe all keys that belong to this CMS so stale data from
       // any previous project can never pollute this site.
       ['gm_services', 'gm_team', 'gm_faqs', 'gm_blogs',
-       'gm_testimonials', 'gm_case_studies', 'gm_settings'].forEach(k => localStorage.removeItem(k));
+       'gm_testimonials', 'gm_case_studies', 'gm_careers', 'gm_gallery', 'gm_links', 'gm_settings'].forEach(k => localStorage.removeItem(k));
       localStorage.setItem('gm_data_version', DATA_VERSION);
       console.info('[Store] Data version mismatch — cache flushed and reset to NRSR & Co defaults.');
     }
@@ -351,23 +500,29 @@ class Store {
     if (!localStorage.getItem('gm_blogs'))         localStorage.setItem('gm_blogs',         JSON.stringify(DEFAULT_BLOGS));
     if (!localStorage.getItem('gm_testimonials'))  localStorage.setItem('gm_testimonials',  JSON.stringify(DEFAULT_TESTIMONIALS));
     if (!localStorage.getItem('gm_case_studies'))  localStorage.setItem('gm_case_studies',  JSON.stringify(DEFAULT_CASE_STUDIES));
+    if (!localStorage.getItem('gm_careers'))       localStorage.setItem('gm_careers',       JSON.stringify(DEFAULT_CAREERS));
+    if (!localStorage.getItem('gm_gallery'))       localStorage.setItem('gm_gallery',       JSON.stringify(DEFAULT_GALLERY));
+    if (!localStorage.getItem('gm_links'))         localStorage.setItem('gm_links',         JSON.stringify(DEFAULT_LINKS));
   }
 
   async loadData() {
     // ── Idempotent: return the same in-flight (or resolved) Promise if
     //    called more than once (e.g. both main.js and animations.js call it).
-    //    This prevents double-fetching all 7 data files on every page load.
+    //    This prevents double-fetching data files on every page load.
     if (this._loadPromise) return this._loadPromise;
 
     this._loadPromise = (async () => {
       try {
-        const [services, team, faqs, blogs, testimonials, caseStudies, settings] = await Promise.all([
+        const [services, team, faqs, blogs, testimonials, caseStudies, careers, gallery, links, settings] = await Promise.all([
           fetch('data/services.json').then(r => r.json()).catch(() => null),
           fetch('data/team.json').then(r => r.json()).catch(() => null),
           fetch('data/faqs.json').then(r => r.json()).catch(() => null),
           fetch('data/blogs-index.json').then(r => r.json()).catch(() => null),
           fetch('data/testimonials.json').then(r => r.json()).catch(() => null),
           fetch('data/case_studies-index.json').then(r => r.json()).catch(() => null),
+          fetch('data/careers.json').then(r => r.json()).catch(() => null),
+          fetch('data/gallery.json').then(r => r.json()).catch(() => null),
+          fetch('data/links.json').then(r => r.json()).catch(() => null),
           fetch('data/settings.json').then(r => r.json()).catch(() => null)
         ]);
 
@@ -377,6 +532,9 @@ class Store {
         this.blogs       = Array.isArray(blogs)          ? blogs         : (blogs         && blogs.blogs                 ? blogs.blogs                 : null);
         this.testimonials= Array.isArray(testimonials)   ? testimonials  : (testimonials  && testimonials.testimonials   ? testimonials.testimonials   : null);
         this.caseStudies = Array.isArray(caseStudies)    ? caseStudies   : (caseStudies   && caseStudies.case_studies    ? caseStudies.case_studies    : null);
+        this.careers     = Array.isArray(careers)        ? careers       : (careers       && careers.careers             ? careers.careers             : null);
+        this.gallery     = Array.isArray(gallery)        ? gallery       : (gallery       && gallery.gallery             ? gallery.gallery             : null);
+        this.links       = Array.isArray(links)          ? links         : (links         && links.links                 ? links.links                 : null);
         this.settings    = settings ? settings.settings : null;
       } catch (err) {
         console.error('Failed to load data:', err);
@@ -436,14 +594,26 @@ class Store {
   getBlogs() { return this.blogs || JSON.parse(localStorage.getItem('gm_blogs')) || DEFAULT_BLOGS; }
   getTestimonials() { return this.testimonials || JSON.parse(localStorage.getItem('gm_testimonials')) || DEFAULT_TESTIMONIALS; }
   getCaseStudies() { return this.caseStudies || JSON.parse(localStorage.getItem('gm_case_studies')) || DEFAULT_CASE_STUDIES; }
+  getCareers() { return this.careers || JSON.parse(localStorage.getItem('gm_careers')) || DEFAULT_CAREERS; }
+  getGallery() { return this.gallery || JSON.parse(localStorage.getItem('gm_gallery')) || DEFAULT_GALLERY; }
+  getLinks() { return this.links || JSON.parse(localStorage.getItem('gm_links')) || DEFAULT_LINKS; }
 
   getCloudflareTeamDomain() { return window.CLOUDFLARE_TEAM_DOMAIN || 'white-waterfall-e96f'; }
 
   getSettings() {
     return this.settings || JSON.parse(localStorage.getItem('gm_settings')) || {
-      whatsapp_numbers: [{ name: "Sandeep (Advisory Lead)", number: "9108599083" }],
+      firm_name: "M/s NRSR & Co",
+      firm_subtitle: "Chartered Accountants",
+      firm_email: "info@nrsrandco.com",
+      firm_phone: "+91 9108599083",
+      whatsapp_numbers: [{ name: "NRSR & Co Advisory Team", number: "9108599083" }],
+      hq_address: "'Gokula', 1st Floor, Union Bank Building, Opp. Green Park Hotel, Near Tiger Circle, Manipal, Karnataka 576104",
+      branch_address: "Laggere, Bengaluru, Karnataka",
+      working_hours: "Mon - Sat: 9:30 AM - 6:30 PM",
+      established_year: "2019",
       erp_api_url: "",
-      erp_api_key: ""
+      erp_api_key: "",
+      tawk_property_id: "6011a916c31c9117cb73225c"
     };
   }
 
@@ -503,6 +673,21 @@ class Store {
     this.faqs = v;
     localStorage.setItem('gm_faqs', JSON.stringify(v));
     this.pushToGit('faqs.json', { faqs: v });
+  }
+  saveCareers(v) {
+    this.careers = v;
+    localStorage.setItem('gm_careers', JSON.stringify(v));
+    this.pushToGit('careers.json', { careers: v });
+  }
+  saveGallery(v) {
+    this.gallery = v;
+    localStorage.setItem('gm_gallery', JSON.stringify(v));
+    this.pushToGit('gallery.json', { gallery: v });
+  }
+  saveLinks(v) {
+    this.links = v;
+    localStorage.setItem('gm_links', JSON.stringify(v));
+    this.pushToGit('links.json', { links: v });
   }
   saveBlogs(v) {
     // 1. Detect and execute deletions
@@ -751,6 +936,21 @@ class Store {
   updateCaseStudy(c) { const list = this.getCaseStudies().map(item => item.id === c.id ? c : item); this.saveCaseStudies(list); }
   deleteCaseStudy(id) { const list = this.getCaseStudies().filter(c => c.id !== id); this.saveCaseStudies(list); }
 
+  // Careers / Job Openings CRUD
+  addCareer(j) { const list = this.getCareers(); j.id = 'job-' + Date.now(); list.unshift(j); this.saveCareers(list); }
+  updateCareer(j) { const list = this.getCareers().map(item => item.id === j.id ? j : item); this.saveCareers(list); }
+  deleteCareer(id) { const list = this.getCareers().filter(j => j.id !== id); this.saveCareers(list); }
+
+  // Gallery CRUD
+  addGalleryItem(g) { const list = this.getGallery(); g.id = 'gal-' + Date.now(); list.unshift(g); this.saveGallery(list); }
+  updateGalleryItem(g) { const list = this.getGallery().map(item => item.id === g.id ? g : item); this.saveGallery(list); }
+  deleteGalleryItem(id) { const list = this.getGallery().filter(g => g.id !== id); this.saveGallery(list); }
+
+  // Useful Links & Chatbots CRUD
+  addLink(l) { const list = this.getLinks(); l.id = 'link-' + Date.now(); list.push(l); this.saveLinks(list); }
+  updateLink(l) { const list = this.getLinks().map(item => item.id === l.id ? l : item); this.saveLinks(list); }
+  deleteLink(id) { const list = this.getLinks().filter(l => l.id !== id); this.saveLinks(list); }
+
   // Export / Import Data
   exportData() {
     return JSON.stringify({
@@ -760,6 +960,10 @@ class Store {
       blogs: this.getBlogs(),
       testimonials: this.getTestimonials(),
       caseStudies: this.getCaseStudies(),
+      careers: this.getCareers(),
+      gallery: this.getGallery(),
+      links: this.getLinks(),
+      settings: this.getSettings(),
       exportedAt: new Date().toISOString()
     }, null, 2);
   }
@@ -773,6 +977,10 @@ class Store {
       if (p.blogs) this.saveBlogs(p.blogs);
       if (p.testimonials) this.saveTestimonials(p.testimonials);
       if (p.caseStudies) this.saveCaseStudies(p.caseStudies);
+      if (p.careers) this.saveCareers(p.careers);
+      if (p.gallery) this.saveGallery(p.gallery);
+      if (p.links) this.saveLinks(p.links);
+      if (p.settings) this.saveSettings(p.settings);
       return true;
     } catch (e) {
       return false;

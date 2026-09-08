@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact NRSR & Co in Manipal, Karnataka for Virtual CFO, Tax Advisory, Automation, and GCC Support. Phone: +91 9108599083.">
-  <title>Contact Us | M/s NRSR & Co</title>
+  <meta name="description" content="Photo gallery and media moments of M/s NRSR & Co: office premises, client consultations, strategy seminars, and team moments.">
+  <title>Photo Gallery & Media | M/s NRSR & Co</title>
   
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/store.js"></script>
@@ -29,7 +29,7 @@
         <a href="services.html" class="nav-link">Services</a>
         <a href="team.html" class="nav-link">Meet Our Team</a>
         <a href="careers.html" class="nav-link">Careers</a>
-        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="gallery.html" class="nav-link active">Gallery</a>
         <a href="blogs.html" class="nav-link">Insights & Blogs</a>
         <a href="case-studies.html" class="nav-link">Case Studies</a>
         <a href="about.html" class="nav-link">About Us</a>
@@ -46,104 +46,55 @@
 
   <main>
     <!-- Header Banner -->
-    <section class="section-padding" style="padding-top: calc(var(--header-height) + 50px);">
+    <section class="section-padding" style="padding-top: calc(var(--header-height) + 50px); background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-main) 100%);">
       <div class="container text-center">
         <div class="section-header text-center" style="margin-bottom:0;">
-          <span class="section-subtitle">Get in Touch</span>
-          <h1 class="section-title" style="font-size: 38px;">Contact Us</h1>
+          <span class="section-subtitle">Life At NRSR & Co</span>
+          <h1 class="section-title" style="font-size: 38px;">Photo Gallery & Media</h1>
         </div>
-        <p style="color: var(--text-muted); max-width: 700px; margin: 16px auto 0 auto; font-size: 16px;">
-          For queries relating to Virtual CFO services, Transfer Pricing, Power BI dashboards, or GCC setup, the details below can be used to get in touch.
+        <p style="color: var(--text-muted); max-width: 760px; margin: 16px auto 0 auto; font-size: 16px; line-height: 1.7;">
+          A glimpse into our offices, professional development seminars, client advisory sessions, and firm milestones across Manipal and Bengaluru.
         </p>
       </div>
     </section>
 
-    <!-- Contact Form & Registered Office Section -->
+    <!-- Gallery Section with Category Tabs -->
     <section class="section-padding">
-      <div class="container contact-layout">
-        <!-- Contact Info Card -->
-        <div class="contact-card">
-          <h3 style="font-size: 22px; margin-bottom: 24px; color: var(--color-slate);">Registered Corporate Office</h3>
-
-          <div class="info-item">
-            <div class="info-icon">📍</div>
-            <div class="info-content">
-              <h4>Manipal Headquarters</h4>
-              <p>'Gokula', 1st Floor, Union Bank Building, Opp. Green Park Hotel, Near Tiger Circle, Manipal, Karnataka 576104</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">📞</div>
-            <div class="info-content">
-              <h4>Phone & WhatsApp</h4>
-              <p><a href="tel:+919108599083" style="color: var(--color-primary); font-weight:700;">+91 9108599083</a></p>
-              <p style="font-size: 12px; color: var(--text-muted);">Mon - Sat: 9:30 AM - 6:30 PM IST</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">✉️</div>
-            <div class="info-content">
-              <h4>Email Inquiries</h4>
-              <p><a href="mailto:info@nrsrandco.com" style="color: var(--color-primary); font-weight:700;">info@nrsrandco.com</a></p>
-            </div>
-          </div>
-
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(15,17,20,0.1);">
-            <h4 style="font-size: 14px; color: var(--color-slate); margin-bottom: 8px;">Cross-Border Engagements</h4>
-            <p style="font-size: 13px; color: var(--text-muted);">The firm handles cross-border financial and tax compliance matters involving India, the United States, and Australia.</p>
-          </div>
+      <div class="container">
+        <!-- Category Filter Tabs -->
+        <div id="galleryTabs" style="display:flex; justify-content:center; gap:10px; margin-bottom:36px; flex-wrap:wrap;">
+          <button class="gallery-tab active btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('All', this)">All Moments</button>
+          <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Office', this)">Office & Infrastructure</button>
+          <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Events', this)">Events & Seminars</button>
+          <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Team', this)">Team & Advisory</button>
+          <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Certifications', this)">Certifications & Awards</button>
         </div>
 
-        <!-- Contact Form Card -->
-        <div class="contact-card">
-          <h3 style="font-size: 22px; margin-bottom: 8px; color: var(--color-slate);">Send a Message</h3>
-          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 24px;">Queries submitted through this form are typically responded to within 24 hours.</p>
-
-          <form id="contactForm" data-netlify="true" name="contact">
-            <input type="hidden" name="form-name" value="contact" />
-            <div class="form-group">
-              <label>Your Full Name *</label>
-              <input type="text" id="formName" name="name" class="form-control" placeholder="e.g. Ramesh Kumar" required>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-              <div class="form-group">
-                <label>Email Address *</label>
-                <input type="email" id="formEmail" name="email" class="form-control" placeholder="name@company.com" required>
-              </div>
-
-              <div class="form-group">
-                <label>Phone / Mobile Number *</label>
-                <input type="tel" id="formPhone" name="phone" class="form-control" placeholder="+91 98765 43210" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Primary Service Requirement</label>
-              <select id="formService" name="service" class="form-control">
-                <option>Virtual CFO Services</option>
-                <option>Litigation Support (Direct Tax)</option>
-                <option>Transfer Pricing (TP) Study</option>
-                <option>Business Automation & Power BI</option>
-                <option>GCC Support (Global Capability Centre)</option>
-                <option>Valuation & Investment Advisory</option>
-                <option>Other Services</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Message / Specific Query (Optional)</label>
-              <textarea id="formMessage" name="message" class="form-control" placeholder="Describe your business background and compliance requirements..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
-          </form>
+        <!-- Dynamic Photo Grid Container -->
+        <div id="galleryGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:24px;">
+          <!-- Populated dynamically via main.js from store.js -->
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Photo Lightbox Modal -->
+  <div id="galleryLightbox" class="modal-overlay" onclick="closeLightbox(event)">
+    <div style="position:relative; max-width:900px; max-height:90vh; width:90%; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.5); display:flex; flex-direction:column;" onclick="event.stopPropagation()">
+      <button style="position:absolute; top:12px; right:14px; background:rgba(0,0,0,0.6); color:#ffffff; border:none; width:34px; height:34px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;" onclick="document.getElementById('galleryLightbox').classList.remove('active')">&times;</button>
+      <div style="max-height:65vh; background:#0f2027; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+        <img id="lightboxImg" src="" alt="" style="max-width:100%; max-height:65vh; object-fit:contain;">
+      </div>
+      <div style="padding:20px 24px; background:#ffffff;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <h3 id="lightboxTitle" style="font-size:18px; margin:0; color:var(--text-main);"></h3>
+          <span id="lightboxCategory" style="font-size:11px; background:rgba(29,163,154,0.1); color:var(--color-primary); padding:3px 10px; border-radius:12px; font-weight:700;"></span>
+        </div>
+        <p id="lightboxCaption" style="font-size:14px; color:var(--text-muted); margin:0; line-height:1.5;"></p>
+        <div id="lightboxDate" style="font-size:12px; color:var(--text-light); margin-top:8px;"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- Floating WhatsApp Quick Action Button -->
   <a href="https://wa.me/919108599083?text=Hello%20NRSR%20%26%20Co,%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
@@ -153,7 +104,6 @@
   </a>
 
   <!-- Footer -->
-    <!-- Footer -->
   <footer>
     <div class="container footer-grid">
       <div class="footer-brand">
@@ -164,7 +114,7 @@
             <span class="logo-subtitle" style="color:var(--color-accent);">CHARTERED ACCOUNTANTS</span>
           </div>
         </div>
-        <p>M/s NRSR & Co is a partnership firm of Chartered Accountants providing financial, compliance, and technology-related services to businesses.</p>
+        <p>M/s NRSR & Co is a partnership firm of Chartered Accountants providing financial, compliance, valuation, and advisory services.</p>
       </div>
 
       <div class="footer-col">
@@ -173,7 +123,7 @@
           <li><a href="services.html">Income Tax & GST</a></li>
           <li><a href="services.html">Corporate & Partnership</a></li>
           <li><a href="services.html">Audit & Assurance</a></li>
-          <li><a href="services.html">Financial Accounting</a></li>
+          <li><a href="services.html">Business Valuation</a></li>
         </ul>
       </div>
 
@@ -184,8 +134,8 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Our Services</a></li>
           <li><a href="team.html">Meet Our Team</a></li>
-          <li><a href="blogs.html">Insights & Blogs</a></li>
-          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="careers.html">Careers & Openings</a></li>
+          <li><a href="gallery.html">Photo Gallery</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>

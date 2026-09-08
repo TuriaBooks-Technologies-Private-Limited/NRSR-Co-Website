@@ -44,19 +44,28 @@ function initAuth() {
 
 let currentSection = 'overview';
 
-/* 1. Admin Tab Navigation */
 function initAdminNavigation() {
   const menuItems = document.querySelectorAll('.admin-menu-item');
   menuItems.forEach(item => {
     item.addEventListener('click', () => {
-      menuItems.forEach(m => m.classList.remove('active'));
-      item.classList.add('active');
-
-      currentSection = item.getAttribute('data-section');
-      renderAdminSection(currentSection);
+      const section = item.getAttribute('data-section');
+      window.switchAdminTab(section);
     });
   });
 }
+
+window.switchAdminTab = function(section) {
+  const menuItems = document.querySelectorAll('.admin-menu-item');
+  menuItems.forEach(m => {
+    if (m.getAttribute('data-section') === section) {
+      m.classList.add('active');
+    } else {
+      m.classList.remove('active');
+    }
+  });
+  currentSection = section;
+  renderAdminSection(section);
+};
 
 /* 2. Render Selected Admin Section */
 function renderAdminSection(section) {
@@ -125,6 +134,30 @@ function renderAdminSection(section) {
       renderCaseStudiesTable(container);
       break;
 
+    case 'careers':
+      sectionTitle.textContent = 'Manage Careers & Job Openings';
+      addBtn.style.display = 'block';
+      addBtn.textContent = '+ Post New Job Opening';
+      addBtn.onclick = () => window.openCareerModal();
+      renderCareersTable(container);
+      break;
+
+    case 'gallery':
+      sectionTitle.textContent = 'Manage Photo Gallery & Media';
+      addBtn.style.display = 'block';
+      addBtn.textContent = '+ Add Photo to Gallery';
+      addBtn.onclick = () => window.openGalleryModal();
+      renderGalleryTable(container);
+      break;
+
+    case 'links':
+      sectionTitle.textContent = 'Manage Useful Links & Chatbots';
+      addBtn.style.display = 'block';
+      addBtn.textContent = '+ Add New Link / Tool';
+      addBtn.onclick = () => window.openLinkModal();
+      renderLinksTable(container);
+      break;
+
     case 'leads':
       sectionTitle.textContent = 'Contact Inquiries & Leads';
       addBtn.style.display = 'none';
@@ -132,7 +165,7 @@ function renderAdminSection(section) {
       break;
 
     case 'settings':
-      sectionTitle.textContent = 'Global Settings (WhatsApp & ERP Config)';
+      sectionTitle.textContent = 'Global Settings & Contact Card';
       addBtn.style.display = 'none';
       renderSettingsPanel(container);
       break;
@@ -147,31 +180,46 @@ function renderOverviewStats(container) {
   const testimonials = window.gmStore.getTestimonials();
   const blogs = window.gmStore.getBlogs();
   const caseStudies = window.gmStore.getCaseStudies();
+  const careers = window.gmStore.getCareers();
+  const gallery = window.gmStore.getGallery();
+  const links = window.gmStore.getLinks();
 
   container.innerHTML = `
-    <div style="display:grid; grid-template-columns:repeat(6, 1fr); gap:16px; margin-bottom:40px;">
-      <div style="background:#ffffff; padding:20px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center;">
-        <div style="font-size:28px; font-weight:800; color:var(--color-primary);">${services.length}</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:14px; margin-bottom:32px;">
+      <div style="background:#ffffff; padding:18px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center; cursor:pointer;" onclick="switchAdminTab('services')">
+        <div style="font-size:26px; font-weight:800; color:var(--color-primary);">${services.length}</div>
         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Services</div>
       </div>
-      <div style="background:#ffffff; padding:20px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center;">
-        <div style="font-size:28px; font-weight:800; color:#2a2d33;">${team.length}</div>
+      <div style="background:#ffffff; padding:18px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center; cursor:pointer;" onclick="switchAdminTab('team')">
+        <div style="font-size:26px; font-weight:800; color:#2a2d33;">${team.length}</div>
         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Team</div>
       </div>
-      <div style="background:#ffffff; padding:20px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center;">
-        <div style="font-size:28px; font-weight:800; color:#059669;">${faqs.length}</div>
+      <div style="background:#ffffff; padding:18px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center; cursor:pointer;" onclick="switchAdminTab('careers')">
+        <div style="font-size:26px; font-weight:800; color:#0284c7;">${careers.length}</div>
+        <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Careers</div>
+      </div>
+      <div style="background:#ffffff; padding:18px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center; cursor:pointer;" onclick="switchAdminTab('gallery')">
+        <div style="font-size:26px; font-weight:800; color:#8b5cf6;">${gallery.length}</div>
+        <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Gallery</div>
+      </div>
+      <div style="background:#ffffff; padding:18px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center; cursor:pointer;" onclick="switchAdminTab('links')">
+        <div style="font-size:26px; font-weight:800; color:#f59e0b;">${links.length}</div>
+        <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Links / Bot</div>
+      </div>
+      <div style="background:#ffffff; padding:18px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center; cursor:pointer;" onclick="switchAdminTab('faqs')">
+        <div style="font-size:26px; font-weight:800; color:#059669;">${faqs.length}</div>
         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">FAQs</div>
       </div>
-      <div style="background:#ffffff; padding:20px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center;">
-        <div style="font-size:28px; font-weight:800; color:#6BBF4E;">${testimonials.length}</div>
+      <div style="background:#ffffff; padding:18px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center; cursor:pointer;" onclick="switchAdminTab('testimonials')">
+        <div style="font-size:26px; font-weight:800; color:#6BBF4E;">${testimonials.length}</div>
         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Reviews</div>
       </div>
-      <div style="background:#ffffff; padding:20px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center;">
-        <div style="font-size:28px; font-weight:800; color:var(--color-accent);">${blogs.length}</div>
+      <div style="background:#ffffff; padding:18px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center; cursor:pointer;" onclick="switchAdminTab('blogs')">
+        <div style="font-size:26px; font-weight:800; color:var(--color-accent);">${blogs.length}</div>
         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Blogs</div>
       </div>
-      <div style="background:#ffffff; padding:20px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center;">
-        <div style="font-size:28px; font-weight:800; color:var(--color-primary-dark);">${caseStudies.length}</div>
+      <div style="background:#ffffff; padding:18px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); text-align:center; cursor:pointer;" onclick="switchAdminTab('case-studies')">
+        <div style="font-size:26px; font-weight:800; color:var(--color-primary-dark);">${caseStudies.length}</div>
         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Case Studies</div>
       </div>
     </div>
@@ -1690,55 +1738,87 @@ async function renderLeadsPanel(container) {
   }
 }
 
-/* 15. Settings Panel Renderer */
+/* 15. Settings & Contact Card Panel Renderer */
 function renderSettingsPanel(container) {
   const settings = window.gmStore.getSettings();
   const numbers = settings.whatsapp_numbers || [];
 
   container.innerHTML = `
-    <div style="background:#ffffff; padding:32px; border-radius:14px; border:var(--card-border); box-shadow:var(--card-shadow); max-width:800px; display:flex; flex-direction:column; gap:28px;">
+    <div style="background:#ffffff; padding:32px; border-radius:14px; border:var(--card-border); box-shadow:var(--card-shadow); max-width:850px; display:flex; flex-direction:column; gap:28px;">
+      
+      <!-- Firm Identity & Contact Card -->
+      <div>
+        <h3 style="font-size:18px; color:var(--color-primary); margin-top:0; margin-bottom:6px; font-weight:800;">📇 Firm Contact Card & Header Details</h3>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Update official contact numbers, emails, and address lines displayed in headers, footers, and contact pages.</p>
+        
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label>Official Firm Name</label>
+            <input type="text" id="setFirmName" class="form-control" value="${settings.firm_name || "M/s NRSR & Co"}">
+          </div>
+          <div class="form-group">
+            <label>Firm Tagline / Subtitle</label>
+            <input type="text" id="setFirmSubtitle" class="form-control" value="${settings.firm_subtitle || "Chartered Accountants"}">
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label>Primary Contact Email</label>
+            <input type="email" id="setFirmEmail" class="form-control" value="${settings.firm_email || "info@nrsrandco.com"}">
+          </div>
+          <div class="form-group">
+            <label>Primary Contact Phone Number</label>
+            <input type="text" id="setFirmPhone" class="form-control" value="${settings.firm_phone || "+91 9108599083"}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Headquarters Address (Manipal)</label>
+          <input type="text" id="setHqAddress" class="form-control" value="${settings.hq_address || "'Gokula', 1st Floor, Union Bank Building, Opp. Green Park Hotel, Near Tiger Circle, Manipal, Karnataka 576104"}">
+        </div>
+
+        <div class="form-group">
+          <label>Branch Office Address (Bengaluru)</label>
+          <input type="text" id="setBranchAddress" class="form-control" value="${settings.branch_address || "Laggere, Bengaluru, Karnataka"}">
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label>Office Working Hours</label>
+            <input type="text" id="setWorkingHours" class="form-control" value="${settings.working_hours || "Mon - Sat: 9:30 AM - 6:30 PM"}">
+          </div>
+          <div class="form-group">
+            <label>Tawk.to Property ID</label>
+            <input type="text" id="setTawkId" class="form-control" value="${settings.tawk_property_id || "6011a916c31c9117cb73225c"}">
+          </div>
+        </div>
+      </div>
+
+      <hr style="border:none; border-top:1px solid #e2e8f0;">
+
       <!-- Lead Notifications Config Block -->
       <div>
-        <h3 style="font-size:18px; color:var(--color-slate); margin-top:0; margin-bottom:6px; font-weight:800;">🔔 Lead Email Notifications Dispatch</h3>
-        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Configure free, unlimited email notifications to multiple custom email addresses using GitHub Actions SMTP relay.</p>
+        <h3 style="font-size:18px; color:var(--color-primary); margin-top:0; margin-bottom:6px; font-weight:800;">🔔 Lead Email Notifications Dispatch</h3>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">New client submissions from the contact form are dispatched to these email addresses.</p>
         <div class="form-group">
-          <label>Recipient Email Addresses (Comma separated)</label>
-          <input type="text" id="setNotificationEmails" class="form-control" placeholder="e.g. likiths2546@gmail.com, partner@company.com" value="${settings.notification_emails || ''}">
-        </div>
-        <div style="margin-top:16px; padding:12px; background:var(--bg-main); border-radius:8px; border:1px solid rgba(7,26,54,0.15);">
-          <p style="font-size:12px; margin:0; line-height:1.4;"><strong>💡 Alternate GitHub CRM notifications</strong>: You can still add GitHub Usernames below to also tag team members inside private repository Issues.</p>
-          <input type="text" id="setNotificationUsernames" class="form-control" placeholder="GitHub Usernames (Comma separated)" value="${settings.notification_usernames || ''}" style="margin-top:8px; font-size:12px; padding:6px 12px;">
+          <label>Recipient Notification Emails (Comma separated)</label>
+          <input type="text" id="setNotificationEmails" class="form-control" placeholder="e.g. info@nrsrandco.com, casandeepnaik@gmail.com" value="${settings.notification_emails || ""}">
         </div>
       </div>
 
-      <hr style="border:none; border-top:1px solid rgba(7,26,54,0.15);">
-
-      <!-- ERP Configuration Block -->
-      <div>
-        <h3 style="font-size:18px; color:var(--color-slate); margin-top:0; margin-bottom:6px; font-weight:800;">🏢 Enterprise ERP Synchronization API</h3>
-        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Configure your corporate ERP API endpoint to automatically push new contact inquiries to your database.</p>
-        <div class="form-group">
-          <label>ERP Endpoint URL (POST Endpoint)</label>
-          <input type="text" id="setErpUrl" class="form-control" placeholder="https://api.yourcompany.com/v1/leads" value="${settings.erp_api_url || ''}">
-        </div>
-        <div class="form-group">
-          <label>API Authorization Key (Bearer Token Header)</label>
-          <input type="password" id="setErpKey" class="form-control" placeholder="••••••••••••••••••••" value="${settings.erp_api_key || ''}">
-        </div>
-      </div>
-
-      <hr style="border:none; border-top:1px solid rgba(7,26,54,0.15);">
+      <hr style="border:none; border-top:1px solid #e2e8f0;">
 
       <!-- WhatsApp Support Routing Block -->
       <div>
-        <h3 style="font-size:18px; color:var(--color-slate); margin-bottom:6px; font-weight:800;">💬 WhatsApp Contact Routing</h3>
-        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Manage active advisor WhatsApp numbers. If multiple contacts are added, the website shows a menu list for the user to choose.</p>
+        <h3 style="font-size:18px; color:var(--color-primary); margin-bottom:6px; font-weight:800;">💬 WhatsApp Contact Routing</h3>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Manage active advisor WhatsApp numbers displayed in floating chat buttons and contact points.</p>
         
         <table class="admin-table" style="margin-bottom:16px;">
           <thead>
             <tr>
               <th>Advisor Name</th>
-              <th>WhatsApp Phone (Include Country Code)</th>
+              <th>WhatsApp Phone</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -1751,72 +1831,76 @@ function renderSettingsPanel(container) {
                   <button class="action-btn btn-delete" onclick="window.removeWaNumber(${idx})">Remove</button>
                 </td>
               </tr>
-            `).join('')}
-            ${numbers.length === 0 ? '<tr><td colspan="3" style="text-align:center; color:var(--text-muted);">No WhatsApp contacts configured.</td></tr>' : ''}
+            `).join("")}
+            ${numbers.length === 0 ? "<tr><td colspan="3" style="text-align:center; color:var(--text-muted);">No WhatsApp contacts configured.</td></tr>" : ""}
           </tbody>
         </table>
 
         <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary); display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap;">
           <div class="form-group" style="flex:1; min-width:200px; margin:0;">
-            <label style="font-size:11px; margin-bottom:4px; font-weight:700;">Advisor Name</label>
-            <input type="text" id="addWaName" class="form-control" placeholder="e.g. Hrishikesh (Tech Lead)" style="padding:6px 12px; font-size:12px;">
+            <label style="font-size:11px; margin-bottom:4px; font-weight:700;">Advisor / Desk Name</label>
+            <input type="text" id="addWaName" class="form-control" placeholder="e.g. NRSR Advisory Desk" style="padding:6px 12px; font-size:12px;">
           </div>
           <div class="form-group" style="flex:1; min-width:200px; margin:0;">
-            <label style="font-size:11px; margin-bottom:4px; font-weight:700;">WhatsApp Number (No spaces/symbols)</label>
+            <label style="font-size:11px; margin-bottom:4px; font-weight:700;">WhatsApp Number (Digits only)</label>
             <input type="text" id="addWaPhone" class="form-control" placeholder="e.g. 9108599083" style="padding:6px 12px; font-size:12px;">
           </div>
           <button class="btn btn-outline" onclick="window.addWaNumber()" style="padding:7px 16px; font-size:12px; height:34px; font-weight:700;">+ Add Contact</button>
         </div>
       </div>
 
-      <button class="btn btn-primary" onclick="window.saveGlobalSettings()" style="width:100%; padding:12px; font-weight:800; font-size:15px; margin-top:10px;">💾 Save & Publish Global Settings</button>
+      <button class="btn btn-primary" onclick="window.saveGlobalSettings()" style="width:100%; padding:14px; font-weight:800; font-size:15px; margin-top:10px;">💾 Save & Publish All Settings</button>
     </div>
   `;
 }
 
-/* Global Settings Helper Methods */
 window.addWaNumber = function() {
-  const name = document.getElementById('addWaName').value.trim();
-  const phone = document.getElementById('addWaPhone').value.trim().replace(/[^0-9]/g, '');
+  const name = document.getElementById("addWaName").value.trim();
+  const phone = document.getElementById("addWaPhone").value.trim().replace(/[^0-9]/g, "");
   if (!name || !phone) {
-    alert('Please fill out both name and phone number.');
+    alert("Please fill out both name and phone number.");
     return;
   }
   const settings = window.gmStore.getSettings();
   if (!settings.whatsapp_numbers) settings.whatsapp_numbers = [];
   settings.whatsapp_numbers.push({ name, number: phone });
   
-  const container = document.getElementById('adminTableContainer');
+  const container = document.getElementById("adminTableContainer");
   renderSettingsPanel(container);
 };
 
 window.removeWaNumber = function(idx) {
   const settings = window.gmStore.getSettings();
   settings.whatsapp_numbers.splice(idx, 1);
-  const container = document.getElementById('adminTableContainer');
+  const container = document.getElementById("adminTableContainer");
   renderSettingsPanel(container);
 };
 
 window.saveGlobalSettings = function() {
   const settings = window.gmStore.getSettings();
-  settings.erp_api_url = document.getElementById('setErpUrl').value.trim();
-  settings.erp_api_key = document.getElementById('setErpKey').value.trim();
-  settings.notification_usernames = document.getElementById('setNotificationUsernames').value.trim();
-  settings.notification_emails = document.getElementById('setNotificationEmails').value.trim();
+  settings.firm_name = document.getElementById("setFirmName").value.trim();
+  settings.firm_subtitle = document.getElementById("setFirmSubtitle").value.trim();
+  settings.firm_email = document.getElementById("setFirmEmail").value.trim();
+  settings.firm_phone = document.getElementById("setFirmPhone").value.trim();
+  settings.hq_address = document.getElementById("setHqAddress").value.trim();
+  settings.branch_address = document.getElementById("setBranchAddress").value.trim();
+  settings.working_hours = document.getElementById("setWorkingHours").value.trim();
+  settings.tawk_property_id = document.getElementById("setTawkId").value.trim();
+  settings.notification_emails = document.getElementById("setNotificationEmails").value.trim();
 
   window.gmStore.saveSettings(settings);
-  alert('Settings successfully pushed to GitHub! It will take about 20 seconds to compile live.');
+  alert("Settings & Contact Card successfully saved to GitHub!");
 };
 
-/* Global Leads Helper Methods */
+/* Leads methods */
 window.viewLeadDetails = async function(name, path) {
-  const modal = document.getElementById('adminModal');
-  const title = document.getElementById('modalTitle');
-  const body = document.getElementById('modalBody');
+  const modal = document.getElementById("adminModal");
+  const title = document.getElementById("modalTitle");
+  const body = document.getElementById("modalBody");
 
-  title.textContent = 'Contact Inquiry Details';
+  title.textContent = "Contact Inquiry Details";
   body.innerHTML = `<div style="text-align:center; padding:20px;">Fetching lead data...</div>`;
-  modal.classList.add('active');
+  modal.classList.add("active");
 
   try {
     const lead = await fetchGitFile(path);
@@ -1827,7 +1911,7 @@ window.viewLeadDetails = async function(name, path) {
         <div><strong>Sender Name:</strong> ${lead.name}</div>
         <div><strong>Email Address:</strong> <a href="mailto:${lead.email}">${lead.email}</a></div>
         <div><strong>Phone Number:</strong> <a href="tel:${lead.phone}">${lead.phone}</a></div>
-        <div><strong>Selected Service Area:</strong> <span class="service-badge" style="font-size:12px;">${lead.service || 'General'}</span></div>
+        <div><strong>Selected Service Area:</strong> <span class="service-badge" style="font-size:12px;">${lead.service || "General"}</span></div>
         <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(7,26,54,0.15);">
           <strong style="display:block; margin-bottom:8px; color:var(--color-primary);">Message Text:</strong>
           <p style="white-space:pre-line; margin:0;">${lead.message}</p>
@@ -1841,19 +1925,14 @@ window.viewLeadDetails = async function(name, path) {
 };
 
 window.deleteLead = async function(name, sha) {
-  if (!confirm('Are you sure you want to delete this lead?')) return;
-  
-  const oauthToken = localStorage.getItem('git_oauth_token');
-  const isCloudflare = oauthToken === 'cloudflare_access' || window.API_ENGINE === 'cloudflare';
-  
+  if (!confirm("Are you sure you want to delete this lead?")) return;
+  const oauthToken = localStorage.getItem("git_oauth_token");
+  const isCloudflare = oauthToken === "cloudflare_access" || window.API_ENGINE === "cloudflare";
   const url = isCloudflare
     ? `/github_proxy?path=${encodeURIComponent(`contents/data/leads/${name}`)}`
-    : `https://api.github.com/repos/${window.GITHUB_REPOSITORY || 'NRSR_Coc/NRSR_Co-website'}/contents/data/leads/${name}`;
-  
-  const headers = { 'Content-Type': 'application/json' };
-  if (!isCloudflare && oauthToken) {
-    headers['Authorization'] = `token ${oauthToken}`;
-  }
+    : `https://api.github.com/repos/${window.GITHUB_REPOSITORY || "NRSR-Co/nrsr-website"}/contents/data/leads/${name}`;
+  const headers = { "Content-Type": "application/json" };
+  if (!isCloudflare && oauthToken) headers["Authorization"] = `token ${oauthToken}`;
 
   try {
     let fileSha = sha;
@@ -1862,24 +1941,408 @@ window.deleteLead = async function(name, sha) {
       const fileInfo = await getRes.json();
       fileSha = fileInfo.sha;
     }
-
     const res = await fetch(url, {
-      method: 'DELETE',
+      method: "DELETE",
       headers,
-      body: JSON.stringify({
-        message: `lead: delete ${name}`,
-        sha: fileSha,
-        branch: 'Main'
-      })
+      body: JSON.stringify({ message: `lead: delete ${name}`, sha: fileSha, branch: "Main" })
     });
-
     if (res.ok) {
-      alert('Lead inquiry deleted successfully.');
-      renderAdminSection('leads');
+      alert("Lead inquiry deleted successfully.");
+      renderAdminSection("leads");
     } else {
-      alert('Failed to delete lead from Git.');
+      alert("Failed to delete lead from Git.");
     }
   } catch (e) {
-    alert('Error deleting lead: ' + e.message);
+    alert("Error deleting lead: " + e.message);
+  }
+};
+
+/* 16. Careers / Job Openings Section */
+function renderCareersTable(container) {
+  const careers = window.gmStore.getCareers() || [];
+  container.innerHTML = `
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>Department</th>
+          <th>Location</th>
+          <th>Type</th>
+          <th>Experience</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${careers.map(j => `
+          <tr>
+            <td>
+              <div style="font-weight:700; color:var(--text-main);">${j.title}</div>
+              <div style="font-size:11px; color:var(--text-muted);">${(j.shortDesc || "").substring(0, 70)}...</div>
+            </td>
+            <td><span class="service-badge">${j.department || "General"}</span></td>
+            <td>${j.location || "Manipal / Bengaluru"}</td>
+            <td><strong>${j.type || "Full-Time"}</strong></td>
+            <td>${j.experience || "Any"}</td>
+            <td><span style="display:inline-block; padding:3px 8px; border-radius:12px; font-size:11px; font-weight:700; background:${j.status === "Closed" ? "#fee2e2" : "#dcfce7"}; color:${j.status === "Closed" ? "#dc2626" : "#15803d"};">${j.status || "Active"}</span></td>
+            <td>
+              <div style="display:flex; gap:6px;">
+                <button class="action-btn btn-edit" onclick="window.openCareerModal('${j.id}')">Edit</button>
+                <button class="action-btn btn-delete" onclick="window.deleteCareer('${j.id}')">Delete</button>
+              </div>
+            </td>
+          </tr>
+        `).join("")}
+        ${careers.length === 0 ? "<tr><td colspan="7" style="text-align:center; color:var(--text-muted); padding:30px;">No job openings posted yet. Click + Post New Job Opening above!</td></tr>" : ""}
+      </tbody>
+    </table>
+  `;
+}
+
+window.openCareerModal = function(id) {
+  const modal = document.getElementById("adminModal");
+  const title = document.getElementById("modalTitle");
+  const body = document.getElementById("modalBody");
+  const job = id ? window.gmStore.getCareers().find(j => j.id === id) : null;
+
+  title.textContent = job ? "Edit Job Opening" : "Post New Job Opening";
+  body.innerHTML = `
+    <form id="careerForm" onsubmit="event.preventDefault(); window.saveCareerForm('${id || ""}');">
+      <div class="form-group">
+        <label>Job Title *</label>
+        <input type="text" id="jobTitle" class="form-control" required value="${job ? job.title : ""}" placeholder="e.g. Audit Senior / Semi-Qualified CA">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="form-group">
+          <label>Department / Category</label>
+          <input type="text" id="jobDept" class="form-control" value="${job ? job.department : "Audit & Assurance"}" placeholder="e.g. Tax Advisory, Statutory Audit">
+        </div>
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" id="jobLocation" class="form-control" value="${job ? job.location : "Manipal / Bengaluru"}" placeholder="e.g. Manipal, Bengaluru">
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+        <div class="form-group">
+          <label>Job Type</label>
+          <select id="jobType" class="form-control">
+            <option value="Full-Time" ${job && job.type === "Full-Time" ? "selected" : ""}>Full-Time</option>
+            <option value="Articleship (ICAI)" ${job && job.type === "Articleship (ICAI)" ? "selected" : ""}>Articleship (ICAI)</option>
+            <option value="Part-Time / Retainer" ${job && job.type === "Part-Time / Retainer" ? "selected" : ""}>Part-Time / Retainer</option>
+            <option value="Internship" ${job && job.type === "Internship" ? "selected" : ""}>Internship</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Experience Required</label>
+          <input type="text" id="jobExp" class="form-control" value="${job ? job.experience : "1-3 Years"}" placeholder="e.g. 2-4 Years">
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select id="jobStatus" class="form-control">
+            <option value="Active" ${!job || job.status === "Active" ? "selected" : ""}>Active (Accepting Applications)</option>
+            <option value="Closed" ${job && job.status === "Closed" ? "selected" : ""}>Closed / Filled</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Short Summary (Shown in card)</label>
+        <input type="text" id="jobShortDesc" class="form-control" value="${job ? job.shortDesc || "" : ""}" placeholder="One line summary for search and listing view">
+      </div>
+      <div class="form-group">
+        <label>Full Role Description</label>
+        <textarea id="jobDesc" class="form-control" rows="3" placeholder="Detailed responsibilities and engagement overview...">${job ? job.description || "" : ""}</textarea>
+      </div>
+      <div class="form-group">
+        <label>Key Requirements (One requirement per line)</label>
+        <textarea id="jobReqs" class="form-control" rows="3" placeholder="CA Inter / IPCC Cleared&#10;Knowledge of TallyPrime & GST Portal&#10;Good communication skills">${job && job.requirements ? job.requirements.join("
+") : ""}</textarea>
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('adminModal').classList.remove('active')">Cancel</button>
+        <button type="submit" class="btn btn-primary">${job ? "Save Changes" : "Create Opening"}</button>
+      </div>
+    </form>
+  `;
+  modal.classList.add("active");
+};
+
+window.saveCareerForm = function(id) {
+  const title = document.getElementById("jobTitle").value.trim();
+  const department = document.getElementById("jobDept").value.trim();
+  const location = document.getElementById("jobLocation").value.trim();
+  const type = document.getElementById("jobType").value;
+  const experience = document.getElementById("jobExp").value.trim();
+  const status = document.getElementById("jobStatus").value;
+  const shortDesc = document.getElementById("jobShortDesc").value.trim();
+  const description = document.getElementById("jobDesc").value.trim();
+  const reqsRaw = document.getElementById("jobReqs").value;
+  const requirements = reqsRaw.split("
+").map(r => r.trim()).filter(Boolean);
+
+  if (!title) { alert("Please enter job title."); return; }
+
+  const jobObj = { title, department, location, type, experience, status, shortDesc, description, requirements };
+
+  if (id) {
+    jobObj.id = id;
+    window.gmStore.updateCareer(jobObj);
+  } else {
+    window.gmStore.addCareer(jobObj);
+  }
+
+  document.getElementById("adminModal").classList.remove("active");
+  renderCareersTable(document.getElementById("adminTableContainer"));
+};
+
+window.deleteCareer = function(id) {
+  if (confirm("Are you sure you want to delete this job opening?")) {
+    window.gmStore.deleteCareer(id);
+    renderCareersTable(document.getElementById("adminTableContainer"));
+  }
+};
+
+/* 17. Photo Gallery & Media Section */
+function renderGalleryTable(container) {
+  const gallery = window.gmStore.getGallery() || [];
+  container.innerHTML = `
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:18px; margin-bottom:20px;">
+      ${gallery.map(g => `
+        <div style="background:#ffffff; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); overflow:hidden; display:flex; flex-direction:column;">
+          <div style="height:150px; background:#f1f5f9; overflow:hidden; position:relative;">
+            <img src="${g.image || "assets/logo.svg"}" alt="${g.title}" style="width:100%; height:100%; object-fit:cover;">
+            <span style="position:absolute; top:8px; left:8px; background:rgba(15,32,39,0.85); color:#ffffff; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px;">${g.category || "General"}</span>
+          </div>
+          <div style="padding:14px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <h4 style="font-size:14px; margin:0 0 6px 0; color:var(--text-main);">${g.title}</h4>
+              <p style="font-size:12px; color:var(--text-muted); margin:0; line-height:1.4;">${g.caption || ""}</p>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; padding-top:10px; border-top:1px solid #f1f5f9;">
+              <span style="font-size:11px; color:var(--text-light);">${g.date || ""}</span>
+              <div style="display:flex; gap:6px;">
+                <button class="action-btn btn-edit" onclick="window.openGalleryModal('${g.id}')">Edit</button>
+                <button class="action-btn btn-delete" onclick="window.deleteGalleryItem('${g.id}')">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+    ${gallery.length === 0 ? "<div style="background:#ffffff; padding:40px; text-align:center; border-radius:12px; color:var(--text-muted); border:var(--card-border);">No photos in gallery. Click + Add Photo to Gallery to upload!</div>" : ""}
+  `;
+}
+
+window.openGalleryModal = function(id) {
+  const modal = document.getElementById("adminModal");
+  const title = document.getElementById("modalTitle");
+  const body = document.getElementById("modalBody");
+  const item = id ? window.gmStore.getGallery().find(g => g.id === id) : null;
+
+  title.textContent = item ? "Edit Gallery Photo" : "Add Photo to Gallery";
+  body.innerHTML = `
+    <form id="galleryForm" onsubmit="event.preventDefault(); window.saveGalleryForm('${id || ""}');">
+      <div class="form-group">
+        <label>Photo Title *</label>
+        <input type="text" id="galTitle" class="form-control" required value="${item ? item.title : ""}" placeholder="e.g. Annual Firm Strategy Seminar">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="form-group">
+          <label>Category</label>
+          <select id="galCategory" class="form-control">
+            <option value="Office" ${item && item.category === "Office" ? "selected" : ""}>Office & Infrastructure</option>
+            <option value="Events" ${item && item.category === "Events" ? "selected" : ""}>Events & Seminars</option>
+            <option value="Team" ${item && item.category === "Team" ? "selected" : ""}>Team & Advisory</option>
+            <option value="Certifications" ${item && item.category === "Certifications" ? "selected" : ""}>Certifications & Awards</option>
+            <option value="CSR" ${item && item.category === "CSR" ? "selected" : ""}>CSR & Community</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Date (YYYY-MM-DD)</label>
+          <input type="date" id="galDate" class="form-control" value="${item ? item.date || "" : new Date().toISOString().split("T")[0]}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Image Upload or Image URL</label>
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+          <input type="file" id="galFileInput" class="form-control" accept="image/*" onchange="window.handleGalPhotoUpload(event)">
+        </div>
+        <input type="text" id="galImageUrl" class="form-control" value="${item ? item.image || "" : ""}" placeholder="Or paste image URL (https://...)">
+        <div id="galPreview" style="margin-top:10px; height:120px; border-radius:8px; border:1px dashed #cbd5e1; display:flex; align-items:center; justify-content:center; overflow:hidden; background:#f8fafc;">
+          ${item && item.image ? `<img src="${item.image}" style="height:100%; object-fit:cover;">` : "<span style="color:#94a3b8; font-size:12px;">Image preview will appear here</span>"}
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Caption / Short Description</label>
+        <textarea id="galCaption" class="form-control" rows="2" placeholder="Brief description of the event or photo...">${item ? item.caption || "" : ""}</textarea>
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('adminModal').classList.remove('active')">Cancel</button>
+        <button type="submit" class="btn btn-primary">${item ? "Save Photo" : "Add to Gallery"}</button>
+      </div>
+    </form>
+  `;
+  modal.classList.add("active");
+};
+
+window.handleGalPhotoUpload = function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    const dataUrl = evt.target.result;
+    document.getElementById("galImageUrl").value = dataUrl;
+    document.getElementById("galPreview").innerHTML = `<img src="${dataUrl}" style="height:100%; object-fit:cover;">`;
+  };
+  reader.readAsDataURL(file);
+};
+
+window.saveGalleryForm = function(id) {
+  const title = document.getElementById("galTitle").value.trim();
+  const category = document.getElementById("galCategory").value;
+  const date = document.getElementById("galDate").value;
+  const image = document.getElementById("galImageUrl").value.trim();
+  const caption = document.getElementById("galCaption").value.trim();
+
+  if (!title) { alert("Please enter a photo title."); return; }
+
+  const itemObj = { title, category, date, image, caption };
+
+  if (id) {
+    itemObj.id = id;
+    window.gmStore.updateGalleryItem(itemObj);
+  } else {
+    window.gmStore.addGalleryItem(itemObj);
+  }
+
+  document.getElementById("adminModal").classList.remove("active");
+  renderGalleryTable(document.getElementById("adminTableContainer"));
+};
+
+window.deleteGalleryItem = function(id) {
+  if (confirm("Are you sure you want to delete this photo from the gallery?")) {
+    window.gmStore.deleteGalleryItem(id);
+    renderGalleryTable(document.getElementById("adminTableContainer"));
+  }
+};
+
+/* 18. Useful Links & Chatbots Section */
+function renderLinksTable(container) {
+  const links = window.gmStore.getLinks() || [];
+  container.innerHTML = `
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Link / Tool</th>
+          <th>Category</th>
+          <th>Target URL</th>
+          <th>Badge Label</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${links.map(l => `
+          <tr>
+            <td>
+              <div style="font-weight:700; color:var(--text-main); display:flex; align-items:center; gap:8px;">
+                <span>${l.icon || "🔗"}</span>
+                <span>${l.title}</span>
+              </div>
+              <div style="font-size:11px; color:var(--text-muted);">${(l.description || "").substring(0, 60)}...</div>
+            </td>
+            <td><span class="service-badge">${l.category || "General"}</span></td>
+            <td><a href="${l.url}" target="_blank" style="color:var(--color-primary); font-size:12px; text-decoration:underline;">${l.url} ↗</a></td>
+            <td><span style="font-size:10px; background:rgba(29,163,154,0.1); color:var(--color-primary); padding:3px 8px; border-radius:10px; font-weight:700;">${l.badge || "Link"}</span></td>
+            <td>
+              <div style="display:flex; gap:6px;">
+                <button class="action-btn btn-edit" onclick="window.openLinkModal('${l.id}')">Edit</button>
+                <button class="action-btn btn-delete" onclick="window.deleteLink('${l.id}')">Delete</button>
+              </div>
+            </td>
+          </tr>
+        `).join("")}
+        ${links.length === 0 ? "<tr><td colspan="5" style="text-align:center; color:var(--text-muted); padding:30px;">No links added. Click + Add New Link / Tool to create!</td></tr>" : ""}
+      </tbody>
+    </table>
+  `;
+}
+
+window.openLinkModal = function(id) {
+  const modal = document.getElementById("adminModal");
+  const title = document.getElementById("modalTitle");
+  const body = document.getElementById("modalBody");
+  const link = id ? window.gmStore.getLinks().find(l => l.id === id) : null;
+
+  title.textContent = link ? "Edit Link / Tool" : "Add Useful Link or Chatbot";
+  body.innerHTML = `
+    <form id="linkForm" onsubmit="event.preventDefault(); window.saveLinkForm('${id || ""}');">
+      <div class="form-group">
+        <label>Link Title *</label>
+        <input type="text" id="linkTitle" class="form-control" required value="${link ? link.title : ""}" placeholder="e.g. Income Tax e-Filing Portal">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="form-group">
+          <label>Category</label>
+          <select id="linkCategory" class="form-control">
+            <option value="Government Portals" ${link && link.category === "Government Portals" ? "selected" : ""}>Government Portals (MCA, GST, IT)</option>
+            <option value="Client Support" ${link && link.category === "Client Support" ? "selected" : ""}>Client Support & Chatbots</option>
+            <option value="Regulatory" ${link && link.category === "Regulatory" ? "selected" : ""}>Regulatory & ICAI</option>
+            <option value="Tools" ${link && link.category === "Tools" ? "selected" : ""}>Online Calculators & Tools</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Badge Tag / Short Label</label>
+          <input type="text" id="linkBadge" class="form-control" value="${link ? link.badge || "Portal" : "Portal"}" placeholder="e.g. Tax Portal, Live Chat">
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:80px 1fr; gap:12px;">
+        <div class="form-group">
+          <label>Icon / Emoji</label>
+          <input type="text" id="linkIcon" class="form-control" value="${link ? link.icon || "🔗" : "🔗"}" style="text-align:center;">
+        </div>
+        <div class="form-group">
+          <label>Destination URL *</label>
+          <input type="url" id="linkUrl" class="form-control" required value="${link ? link.url : "https://"}" placeholder="https://...">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Short Description</label>
+        <textarea id="linkDesc" class="form-control" rows="2" placeholder="Brief note on what this link or tool does...">${link ? link.description || "" : ""}</textarea>
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('adminModal').classList.remove('active')">Cancel</button>
+        <button type="submit" class="btn btn-primary">${link ? "Save Link" : "Add Link"}</button>
+      </div>
+    </form>
+  `;
+  modal.classList.add("active");
+};
+
+window.saveLinkForm = function(id) {
+  const title = document.getElementById("linkTitle").value.trim();
+  const category = document.getElementById("linkCategory").value;
+  const badge = document.getElementById("linkBadge").value.trim();
+  const icon = document.getElementById("linkIcon").value.trim();
+  const url = document.getElementById("linkUrl").value.trim();
+  const description = document.getElementById("linkDesc").value.trim();
+
+  if (!title || !url) { alert("Please enter both link title and URL."); return; }
+
+  const linkObj = { title, category, badge, icon, url, description };
+
+  if (id) {
+    linkObj.id = id;
+    window.gmStore.updateLink(linkObj);
+  } else {
+    window.gmStore.addLink(linkObj);
+  }
+
+  document.getElementById("adminModal").classList.remove("active");
+  renderLinksTable(document.getElementById("adminTableContainer"));
+};
+
+window.deleteLink = function(id) {
+  if (confirm("Are you sure you want to delete this link?")) {
+    window.gmStore.deleteLink(id);
+    renderLinksTable(document.getElementById("adminTableContainer"));
   }
 };

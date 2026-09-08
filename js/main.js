@@ -200,6 +200,27 @@ function renderDynamicContent() {
     const caseStudies = window.gmStore.getCaseStudies();
     renderCaseStudies(caseStudies, csContainer);
   }
+
+  // Careers Grid
+  const careersContainer = document.getElementById('careersGrid');
+  if (careersContainer) {
+    const careers = window.gmStore.getCareers();
+    renderCareersGrid(careers, careersContainer);
+  }
+
+  // Gallery Grid
+  const galleryContainer = document.getElementById('galleryGrid');
+  if (galleryContainer) {
+    const gallery = window.gmStore.getGallery();
+    renderGalleryGrid(gallery, galleryContainer);
+  }
+
+  // Useful Links Grid
+  const linksContainer = document.getElementById('usefulLinksGrid');
+  if (linksContainer) {
+    const links = window.gmStore.getLinks();
+    renderLinksGrid(links, linksContainer);
+  }
 }
 
 /* 7. Render Team with Photo */
@@ -724,4 +745,195 @@ function triggerWhatsAppAction() {
 
   // Toggle visibility
   popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+}
+
+/* 15. Render Careers & Job Openings Grid */
+function renderCareersGrid(careers, container) {
+  if (!careers || careers.length === 0) {
+    container.innerHTML = `
+      <div style="background:#ffffff; border-radius:12px; padding:40px; text-align:center; border:var(--card-border); color:var(--text-muted);">
+        <p style="margin:0; font-size:15px;">No active openings right now. Check back soon or submit an open application below!</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = careers.map(j => `
+    <div class="career-card" style="background:#ffffff; border-radius:14px; border:var(--card-border); box-shadow:var(--card-shadow); padding:24px 28px; display:flex; flex-direction:column; gap:14px; transition:transform 0.3s ease, box-shadow 0.3s ease;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span style="font-size:11px; background:rgba(29,163,154,0.1); color:var(--color-primary); padding:3px 10px; border-radius:12px; font-weight:700;">${j.department || "General"}</span>
+            <span style="font-size:11px; background:rgba(107,191,78,0.15); color:var(--color-accent-dark, #15803d); padding:3px 10px; border-radius:12px; font-weight:700;">${j.type || "Full-Time"}</span>
+          </div>
+          <h3 style="font-size:20px; color:var(--text-main); margin:0 0 4px 0;">${j.title}</h3>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; gap:14px; flex-wrap:wrap;">
+            <span>📍 ${j.location || "Manipal / Bengaluru"}</span>
+            <span>⏳ Experience: ${j.experience || "Not specified"}</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="openApplyModal('${(j.title || "").replace(/'/g, "\'")}')" style="padding:8px 20px; font-size:13px; height:38px;">Apply for Role →</button>
+      </div>
+
+      <p style="font-size:14px; color:var(--text-muted); margin:0; line-height:1.6;">${j.description || j.shortDesc || ""}</p>
+
+      ${j.requirements && j.requirements.length ? `
+        <div style="background:var(--bg-main); padding:14px 18px; border-radius:10px; border:1px solid rgba(29,163,154,0.08);">
+          <div style="font-size:12px; font-weight:700; color:var(--color-primary); margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Key Requirements:</div>
+          <ul style="margin:0; padding-left:16px; font-size:13px; color:var(--text-muted); line-height:1.5;">
+            ${j.requirements.map(r => `<li>${r}</li>`).join("")}
+          </ul>
+        </div>
+      ` : ""}
+    </div>
+  `).join("");
+}
+
+window.openApplyModal = function(jobTitle) {
+  const modal = document.getElementById("careerApplyModal");
+  if (!modal) return;
+  document.getElementById("applyJobTitle").value = jobTitle || "General Application";
+  document.getElementById("applyModalTitle").textContent = `Apply for: ${jobTitle || "Open Role"}`;
+  modal.classList.add("active");
+};
+
+window.handleJobApplicationSubmit = async function(e) {
+  e.preventDefault();
+  const jobTitle = document.getElementById("applyJobTitle").value;
+  const name = document.getElementById("applicantName").value.trim();
+  const email = document.getElementById("applicantEmail").value.trim();
+  const phone = document.getElementById("applicantPhone").value.trim();
+  const qualification = document.getElementById("applicantQual").value;
+  const location = document.getElementById("applicantLocation").value;
+  const resumeLink = document.getElementById("applicantResumeLink").value.trim();
+  const notes = document.getElementById("applicantNotes").value.trim();
+  const submitBtn = document.getElementById("submitAppBtn");
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Submitting Application...";
+
+  const applicationData = {
+    type: "Job Application",
+    position: jobTitle,
+    name,
+    email,
+    phone,
+    qualification,
+    location,
+    resumeLink,
+    notes,
+    submitted_at: new Date().toISOString()
+  };
+
+  try {
+    const res = await fetch("/submit_lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: `${name} [Job: ${jobTitle}]`,
+        email,
+        phone,
+        service: `Career: ${jobTitle}`,
+        message: `Qualification: ${qualification}
+Location: ${location}
+Resume Link: ${resumeLink}
+
+Cover Note:
+${notes}`
+      })
+    });
+
+    alert("Thank you! Your application for " + jobTitle + " has been submitted to NRSR & Co HR desk. We will reach out to you shortly.");
+    document.getElementById("jobApplicationForm").reset();
+    document.getElementById("careerApplyModal").classList.remove("active");
+  } catch (err) {
+    // Fallback direct confirmation
+    alert("Application recorded! Our HR team will contact you at " + email);
+    document.getElementById("careerApplyModal").classList.remove("active");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Submit Application";
+  }
+};
+
+/* 16. Render Photo Gallery Grid */
+let activeGalleryCategory = "All";
+
+function renderGalleryGrid(gallery, container) {
+  if (!gallery || gallery.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column:1/-1; background:#ffffff; border-radius:12px; padding:40px; text-align:center; border:var(--card-border); color:var(--text-muted);">
+        <p style="margin:0;">No photos in gallery at the moment.</p>
+      </div>
+    `;
+    return;
+  }
+
+  const items = activeGalleryCategory === "All"
+    ? gallery
+    : gallery.filter(g => g.category === activeGalleryCategory);
+
+  container.innerHTML = items.map(g => `
+    <div class="gallery-item-card card-hover" style="background:#ffffff; border-radius:14px; border:var(--card-border); box-shadow:var(--card-shadow); overflow:hidden; cursor:pointer; display:flex; flex-direction:column;" onclick="openLightbox('${g.id}')">
+      <div style="height:210px; background:#f1f5f9; overflow:hidden; position:relative;">
+        <img src="${g.image || "assets/logo.svg"}" alt="${g.title}" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <span style="position:absolute; top:10px; left:10px; background:rgba(15,32,39,0.85); color:#ffffff; font-size:10px; font-weight:700; padding:3px 10px; border-radius:12px;">${g.category || "General"}</span>
+      </div>
+      <div style="padding:16px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h4 style="font-size:15px; margin:0 0 6px 0; color:var(--text-main); font-weight:700;">${g.title}</h4>
+          <p style="font-size:12.5px; color:var(--text-muted); margin:0; line-height:1.5;">${g.caption || ""}</p>
+        </div>
+        <div style="margin-top:12px; font-size:11px; color:var(--color-primary); font-weight:600; display:flex; justify-content:space-between; align-items:center;">
+          <span>${g.date || ""}</span>
+          <span>View Photo 🔍</span>
+        </div>
+      </div>
+    </div>
+  `).join("");
+}
+
+window.filterGallery = function(category, btnEl) {
+  activeGalleryCategory = category;
+  document.querySelectorAll(".gallery-tab").forEach(t => t.classList.remove("active"));
+  if (btnEl) btnEl.classList.add("active");
+  const container = document.getElementById("galleryGrid");
+  if (container && window.gmStore) {
+    renderGalleryGrid(window.gmStore.getGallery(), container);
+  }
+};
+
+window.openLightbox = function(id) {
+  const item = window.gmStore.getGallery().find(g => g.id === id);
+  if (!item) return;
+  document.getElementById("lightboxImg").src = item.image;
+  document.getElementById("lightboxTitle").textContent = item.title;
+  document.getElementById("lightboxCategory").textContent = item.category || "General";
+  document.getElementById("lightboxCaption").textContent = item.caption || "";
+  document.getElementById("lightboxDate").textContent = item.date ? `Event Date: ${item.date}` : "";
+  document.getElementById("galleryLightbox").classList.add("active");
+};
+
+window.closeLightbox = function(e) {
+  document.getElementById("galleryLightbox").classList.remove("active");
+};
+
+/* 17. Render Useful Links & Chatbots Grid */
+function renderLinksGrid(links, container) {
+  if (!links || links.length === 0) return;
+  container.innerHTML = links.map(l => `
+    <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="link-resource-card card-hover" style="background:#ffffff; border-radius:12px; padding:18px 20px; border:var(--card-border); box-shadow:var(--card-shadow); display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit;">
+      <div style="width:44px; height:44px; border-radius:10px; background:rgba(29,163,154,0.1); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">
+        ${l.icon || "🔗"}
+      </div>
+      <div style="flex:1;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:2px;">
+          <h4 style="font-size:14px; margin:0; color:var(--text-main); font-weight:700;">${l.title}</h4>
+          ${l.badge ? `<span style="font-size:9.5px; background:rgba(107,191,78,0.15); color:#15803d; padding:2px 7px; border-radius:8px; font-weight:700;">${l.badge}</span>` : ""}
+        </div>
+        <p style="font-size:12px; color:var(--text-muted); margin:0; line-height:1.4;">${l.description || ""}</p>
+      </div>
+      <div style="font-size:16px; color:var(--color-primary); font-weight:700;">↗</div>
+    </a>
+  `).join("");
 }

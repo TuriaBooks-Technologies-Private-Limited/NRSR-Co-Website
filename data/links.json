@@ -1,0 +1,58 @@
+{
+  "links": [
+    {
+      "id": "link-1",
+      "title": "Income Tax e-Filing Portal",
+      "category": "Government Portals",
+      "url": "https://www.incometax.gov.in",
+      "description": "Official Income Tax Department e-filing portal for ITR, 26AS, AIS/TIS, and e-Verification.",
+      "icon": "🏛️",
+      "badge": "Tax Portal"
+    },
+    {
+      "id": "link-2",
+      "title": "Goods & Services Tax (GST) Portal",
+      "category": "Government Portals",
+      "url": "https://www.gst.gov.in",
+      "description": "National GST portal for monthly return filing, GSTR-2B reconciliations, and registrations.",
+      "icon": "🧾",
+      "badge": "GST Portal"
+    },
+    {
+      "id": "link-3",
+      "title": "Ministry of Corporate Affairs (MCA21 V3)",
+      "category": "Government Portals",
+      "url": "https://www.mca.gov.in",
+      "description": "MCA21 portal for company & LLP incorporations, DIN KYC, and annual ROC statutory filings.",
+      "icon": "🏢",
+      "badge": "Corporate Portal"
+    },
+    {
+      "id": "link-4",
+      "title": "ICAI Official Portal",
+      "category": "Regulatory",
+      "url": "https://www.icai.org",
+      "description": "Institute of Chartered Accountants of India - accounting standards, notifications & guidance.",
+      "icon": "🎓",
+      "badge": "ICAI Portal"
+    },
+    {
+      "id": "link-5",
+      "title": "Live Support & Chatbot Assistant",
+      "category": "Client Support",
+      "url": "https://dashboard.tawk.to/#/dashboard/6011a916c31c9117cb73225c",
+      "description": "Instant live support chat with NRSR & Co compliance and client advisory desk.",
+      "icon": "💬",
+      "badge": "Live Chat"
+    },
+    {
+      "id": "link-6",
+      "title": "Client WhatsApp Advisory Desk",
+      "category": "Client Support",
+      "url": "https://wa.me/919108599083?text=Hello%20NRSR%20%26%20Co,%20I%20would%20like%20to%20inquire%20about%20your%20services.",
+      "description": "Direct WhatsApp hotline with our senior advisory team for queries and status tracking.",
+      "icon": "📱",
+      "badge": "WhatsApp Hotline"
+    }
+  ]
+}
