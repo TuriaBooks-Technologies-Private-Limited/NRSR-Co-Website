@@ -4,33 +4,72 @@
 
 <div id="disclaimerGateOverlay" class="disclaimer-gate" style="display:none;">
   <div class="disclaimer-box">
-    <h3>Disclaimer</h3>
-    <p>As per the provisions of the Chartered Accountants Act, 1949 and rules of the Institute of Chartered Accountants of India (ICAI), we are not permitted to solicit work or advertise. By clicking on "Accept & Continue", the user acknowledges that:</p>
-    <ul>
-      <li>There has been no advertisement, personal communication, invitation, or inducement of any sort whatsoever from us or any of our members to solicit any work through this website;</li>
-      <li>The user wishes to gain more information about us for his/her own information and use;</li>
-      <li>The information about us is provided to the user only on his/her specific request, and any transmission, receipt or use of this website does not constitute solicitation or advertisement.</li>
+    <h3 style="font-family: var(--font-header); font-size: 22px; color: var(--text-main); margin-top: 0; margin-bottom: 14px; font-weight: 700;">
+      Disclaimer
+    </h3>
+    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 14px;">
+      As per the provisions of the Chartered Accountants Act, 1949 and rules of the Institute of Chartered Accountants of India (ICAI), we are not permitted to solicit work or advertise. By clicking on "Accept & Continue", the user acknowledges that:
+    </p>
+    <ul style="margin: 0 0 20px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px;">
+      <li style="font-size: 13.5px; color: var(--text-muted); line-height: 1.6;">
+        There has been no advertisement, personal communication, invitation, or inducement of any sort whatsoever from us or any of our members to solicit any work through this website;
+      </li>
+      <li style="font-size: 13.5px; color: var(--text-muted); line-height: 1.6;">
+        The user wishes to gain more information about us for his/her own information and use;
+      </li>
+      <li style="font-size: 13.5px; color: var(--text-muted); line-height: 1.6;">
+        The information about us is provided to the user only on his/her specific request, and any transmission, receipt or use of this website does not constitute solicitation or advertisement.
+      </li>
     </ul>
-    <button id="disclaimerAcceptBtn" class="btn btn-primary" style="width:100%; padding:12px; font-weight:700;">Accept & Continue</button>
+
+    <!-- Sticky Button Container -->
+    <div style="position: sticky; bottom: -36px; background: #ffffff; padding: 14px 0 0 0; margin-top: 14px; border-top: 1px solid #f1f5f9; z-index: 10;">
+      <button
+        type="button"
+        id="disclaimerAcceptBtn"
+        class="btn btn-primary"
+        style="width: 100%; padding: 14px; font-weight: 700; font-size: 15px; cursor: pointer; text-align: center; justify-content: center; box-shadow: 0 4px 14px rgba(29, 163, 154, 0.35);"
+        onclick="window.acceptDisclaimer()"
+      >
+        Accept & Continue
+      </button>
+    </div>
   </div>
 </div>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('gm_disclaimer_ack')) {
-      const overlay = document.getElementById('disclaimerGateOverlay');
-      if (overlay) {
-        overlay.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      }
-      const btn = document.getElementById('disclaimerAcceptBtn');
-      if (btn) {
-        btn.addEventListener('click', () => {
-          localStorage.setItem('gm_disclaimer_ack', 'true');
-          if (overlay) overlay.style.display = 'none';
-          document.body.style.overflow = '';
-        });
-      }
+  window.acceptDisclaimer = function() {
+    try {
+      localStorage.setItem('gm_disclaimer_ack', 'true');
+    } catch (e) {}
+    const overlay = document.getElementById('disclaimerGateOverlay');
+    if (overlay) {
+      overlay.style.display = 'none';
+      overlay.remove();
     }
-  });
+    // Also remove any dynamically added gates
+    document.querySelectorAll('.disclaimer-gate').forEach(el => el.remove());
+    document.body.style.overflow = '';
+  };
+
+  function checkDisclaimer() {
+    try {
+      if (!localStorage.getItem('gm_disclaimer_ack')) {
+        const overlay = document.getElementById('disclaimerGateOverlay');
+        if (overlay) {
+          overlay.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+      } else {
+        const overlay = document.getElementById('disclaimerGateOverlay');
+        if (overlay) overlay.remove();
+      }
+    } catch (e) {}
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', checkDisclaimer);
+  } else {
+    checkDisclaimer();
+  }
 </script>

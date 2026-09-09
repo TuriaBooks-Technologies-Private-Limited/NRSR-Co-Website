@@ -11,7 +11,7 @@
 // Registered first (and kept synchronous, independent of gmStore) so the
 // disclaimer blocks the page as early as possible on a first visit,
 // rather than waiting behind the data fetch below.
-document.addEventListener('DOMContentLoaded', initDisclaimerGate);
+// Disclaimer gate handled via DisclaimerGate.astro
 
 document.addEventListener('DOMContentLoaded', async () => {
   if (window.gmStore && typeof window.gmStore.loadData === 'function') {
@@ -33,30 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
    this site is an advertisement or invitation before viewing it. Shown
    once per browser (localStorage), on every page. */
 function initDisclaimerGate() {
-  if (localStorage.getItem('gm_disclaimer_ack')) return;
-
-  const overlay = document.createElement('div');
-  overlay.className = 'disclaimer-gate';
-  overlay.innerHTML = `
-    <div class="disclaimer-box">
-      <h3>Disclaimer</h3>
-      <p>As per the provisions of the Chartered Accountants Act, 1949, we are not permitted to solicit work and advertise. By clicking on "Accept & Continue", the user acknowledges that:</p>
-      <ul>
-        <li>There has been no advertisement, personal communication, invitation or inducement of any sort whatsoever from us or any of our members to solicit any work through this website;</li>
-        <li>The user wishes to gain more information about us for his/her own information and use;</li>
-        <li>The information about us is provided to the user only on his/her specific request, and any information obtained or materials downloaded from this website is completely at the user's own volition, and any transmission, receipt or use of this website does not constitute solicitation or advertisement.</li>
-      </ul>
-      <button id="disclaimerAcceptBtn" class="btn btn-primary">Accept & Continue</button>
-    </div>
-  `;
-  document.body.appendChild(overlay);
-  document.body.style.overflow = 'hidden';
-
-  document.getElementById('disclaimerAcceptBtn').addEventListener('click', () => {
-    localStorage.setItem('gm_disclaimer_ack', 'true');
-    overlay.remove();
-    document.body.style.overflow = '';
-  });
+  // Disclaimer gate is cleanly managed via Astro component src/components/DisclaimerGate.astro
 }
 
 /* 0b. Footer Disclaimer — the same acknowledgement, kept as permanent
