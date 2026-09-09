@@ -670,7 +670,7 @@ function triggerWhatsAppAction() {
 
   if (numbers.length === 0) {
     // Fallback default number
-    window.open('https://wa.me/919108599083?text=Hello%20NRSR%20%26%20Co', '_blank');
+    window.open('https://wa.me/917760485737?text=Hello%20NRSR%20%26%20Co', '_blank');
     return;
   }
 

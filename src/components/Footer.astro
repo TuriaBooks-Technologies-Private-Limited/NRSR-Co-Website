@@ -1,7 +1,13 @@
 ---
+import settingsData from '../data/settings.json';
+
 interface Props {
   settings?: any;
 }
+
+const settings = Astro.props.settings || settingsData.settings;
+const mainPhone = settings.firm_phone || '+91 7760485737';
+const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
 ---
 
 <footer>
@@ -14,7 +20,7 @@ interface Props {
           <span class="logo-subtitle" style="color:var(--color-accent);">CHARTERED ACCOUNTANTS</span>
         </div>
       </div>
-      <p>M/s NRSR & Co is a partnership firm of Chartered Accountants providing financial, compliance, valuation, and advisory services.</p>
+      <p>{settings.firm_name || 'M/s NRSR & Co'} is a partnership firm of Chartered Accountants providing financial, compliance, valuation, and advisory services.</p>
     </div>
 
     <div class="footer-col">
@@ -43,9 +49,9 @@ interface Props {
     <div class="footer-col">
       <h4>Contact Info</h4>
       <ul class="footer-links" style="font-size: 13.5px; color: rgba(255,255,255,0.55);">
-        <li style="margin-bottom: 12px;">📍 'Gokula', 1st Floor, Union Bank Building, Opp. Green Park Hotel, Near Tiger Circle, Manipal, Karnataka 576104</li>
-        <li style="margin-bottom: 12px;">📞 <a href="tel:+919108599083">+91 9108599083</a></li>
-        <li style="margin-bottom: 12px;">✉️ <a href="mailto:info@nrsrandco.com">info@nrsrandco.com</a></li>
+        <li style="margin-bottom: 12px;">📍 {settings.hq_address}</li>
+        <li style="margin-bottom: 12px;">📞 <a href={`tel:${cleanPhone}`}>{mainPhone}</a></li>
+        <li style="margin-bottom: 12px;">✉️ <a href={`mailto:${settings.firm_email}`}>{settings.firm_email}</a></li>
       </ul>
     </div>
   </div>

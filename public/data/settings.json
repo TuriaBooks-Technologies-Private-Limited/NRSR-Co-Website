@@ -3,16 +3,22 @@
     "firm_name": "M/s NRSR & Co",
     "firm_subtitle": "Chartered Accountants",
     "firm_email": "info@nrsrandco.com",
-    "firm_phone": "+91 9108599083",
+    "firm_phone": "+91 7760485737",
+    "hq_phone": "+91 7760485737 / +91 6360523673",
+    "branch_phone": "+91 8867531151 / +91 7829809690",
     "whatsapp_numbers": [
       {
-        "name": "NRSR & Co Advisory Team",
-        "number": "9108599083"
+        "name": "Manipal Office",
+        "number": "917760485737"
+      },
+      {
+        "name": "Bengaluru Office",
+        "number": "918867531151"
       }
     ],
-    "hq_address": "'Gokula', 1st Floor, Union Bank Building, Opp. Green Park Hotel, Near Tiger Circle, Manipal, Karnataka 576104",
-    "branch_address": "Laggere, Bengaluru, Karnataka",
-    "working_hours": "Mon - Sat: 9:30 AM - 6:30 PM",
+    "hq_address": "'Gokula', 1st Floor, Union Bank Building, Opp. Green Park Hotel, Near Tiger Circle, Manipal - 576104",
+    "branch_address": "17/106, 3rd Cross, LG Ramanna Extension, Laggere, Bengaluru, Karnataka - 560058",
+    "working_hours": "Mon - Sat: 9:00 AM - 8:00 PM (Sunday Closed)",
     "established_year": "2019",
     "peer_reviewed": true,
     "iso_certified": true,
@@ -21,6 +27,7 @@
     "notification_usernames": "Likith0074",
     "notification_emails": "info@nrsrandco.com,likiths2546@gmail.com,casandeepnaik@gmail.com",
     "google_script_url": "",
-    "tawk_property_id": "6011a916c31c9117cb73225c"
+    "tawk_property_id": "6011a916c31c9117cb73225c",
+    "tawk_widget_id": "1et2fp10u"
   }
 }
