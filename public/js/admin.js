@@ -230,8 +230,8 @@ function renderOverviewStats(container) {
         All modifications, photo uploads, page placement selections, and blog/case study SEO updates immediately publish live on the website. Use the sidebar menu to navigate options.
       </p>
       <div style="margin-top:20px; display:flex; gap:16px;">
-        <a href="index.html" class="btn btn-outline" style="font-size:13px;">View Live Homepage →</a>
-        <a href="services.html" class="btn btn-outline" style="font-size:13px;">View Live Services (16) →</a>
+        <a href="/" class="btn btn-outline" style="font-size:13px;">View Live Homepage →</a>
+        <a href="/services" class="btn btn-outline" style="font-size:13px;">View Live Services (10) →</a>
       </div>
     </div>
   `;
@@ -386,10 +386,10 @@ function renderTestimonialsTable(container, filterQuery = '') {
 }
 
 function getPlacementLabel(p) {
-  if (p === 'index.html') return 'Homepage';
-  if (p === 'services.html') return 'Services Page';
-  if (p === 'team.html') return 'Team Page';
-  if (p === 'contact.html') return 'Contact Page';
+  if (p === 'index' || p === 'index.html') return 'Homepage';
+  if (p === 'services' || p === 'services.html') return 'Services Page';
+  if (p === 'team' || p === 'team.html') return 'Team Page';
+  if (p === 'contact' || p === 'contact.html') return 'Contact Page';
   return 'All Pages';
 }
 
@@ -1171,9 +1171,9 @@ window.openFaqModal = function() {
       <div class="form-group">
         <label>Target Page Placement Dropdown *</label>
         <select id="fPlacement" class="form-control">
-          <option value="index.html">Homepage Only (index.html)</option>
-          <option value="services.html">Services Page Only (services.html)</option>
-          <option value="contact.html">Contact Us Page Only (contact.html)</option>
+          <option value="index">Homepage Only (/)</option>
+          <option value="services">Services Page Only (/services)</option>
+          <option value="contact">Contact Us Page Only (/contact)</option>
           <option value="all" selected>All Pages Everywhere</option>
         </select>
       </div>
@@ -1217,9 +1217,9 @@ window.openEditFaqModal = function(id) {
       <div class="form-group">
         <label>Target Page Placement Dropdown *</label>
         <select id="editFPlacement" class="form-control">
-          <option value="index.html" ${f.placement === 'index.html' ? 'selected' : ''}>Homepage Only (index.html)</option>
-          <option value="services.html" ${f.placement === 'services.html' ? 'selected' : ''}>Services Page Only (services.html)</option>
-          <option value="contact.html" ${f.placement === 'contact.html' ? 'selected' : ''}>Contact Us Page Only (contact.html)</option>
+          <option value="index" ${f.placement === 'index' || f.placement === 'index.html' ? 'selected' : ''}>Homepage Only (/)</option>
+          <option value="services" ${f.placement === 'services' || f.placement === 'services.html' ? 'selected' : ''}>Services Page Only (/services)</option>
+          <option value="contact" ${f.placement === 'contact' || f.placement === 'contact.html' ? 'selected' : ''}>Contact Us Page Only (/contact)</option>
           <option value="all" ${!f.placement || f.placement === 'all' ? 'selected' : ''}>All Pages Everywhere</option>
         </select>
       </div>
@@ -1273,9 +1273,9 @@ window.openTestimonialModal = function() {
       <div class="form-group">
         <label>Target Page Placement Dropdown *</label>
         <select id="tPlacement" class="form-control">
-          <option value="index.html">Homepage Only (index.html)</option>
-          <option value="services.html">Services Page Only (services.html)</option>
-          <option value="team.html">Team Page Only (team.html)</option>
+          <option value="index">Homepage Only (/)</option>
+          <option value="services">Services Page Only (/services)</option>
+          <option value="team">Team Page Only (/team)</option>
           <option value="all" selected>All Pages Everywhere</option>
         </select>
       </div>
@@ -1356,9 +1356,9 @@ window.openEditTestimonialModal = function(id) {
       <div class="form-group">
         <label>Target Page Placement Dropdown *</label>
         <select id="editTPlacement" class="form-control">
-          <option value="index.html" ${t.placement === 'index.html' ? 'selected' : ''}>Homepage Only (index.html)</option>
-          <option value="services.html" ${t.placement === 'services.html' ? 'selected' : ''}>Services Page Only (services.html)</option>
-          <option value="team.html" ${t.placement === 'team.html' ? 'selected' : ''}>Team Page Only (team.html)</option>
+          <option value="index" ${t.placement === 'index' || t.placement === 'index.html' ? 'selected' : ''}>Homepage Only (/)</option>
+          <option value="services" ${t.placement === 'services' || t.placement === 'services.html' ? 'selected' : ''}>Services Page Only (/services)</option>
+          <option value="team" ${t.placement === 'team' || t.placement === 'team.html' ? 'selected' : ''}>Team Page Only (/team)</option>
           <option value="all" ${!t.placement || t.placement === 'all' ? 'selected' : ''}>All Pages Everywhere</option>
         </select>
       </div>

@@ -6,6 +6,6 @@ export default defineConfig({
   site: 'https://nrsrcoconsultants.com',
   compressHTML: true,
   build: {
-    format: 'file'
+    format: 'directory'
   }
 });

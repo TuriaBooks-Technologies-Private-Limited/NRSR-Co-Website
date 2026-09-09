@@ -13,7 +13,7 @@ import faqsData from '../data/faqs.json';
 const services = servicesData.services || [];
 const team = teamData.team || [];
 const links = linksData.links || [];
-const faqs = (faqsData.faqs || []).filter(f => !f.placement || f.placement === 'all' || f.placement === 'index.html');
+const faqs = (faqsData.faqs || []).filter(f => !f.placement || f.placement === 'all' || f.placement === 'index' || f.placement === 'index.html');
 ---
 
 <Layout

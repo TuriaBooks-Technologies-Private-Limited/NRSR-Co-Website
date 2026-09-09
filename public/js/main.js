@@ -132,8 +132,9 @@ function initCookieBanner() {
 }
 
 function getCurrentPageName() {
-  const path = window.location.pathname.split('/').pop();
-  return path || 'index.html';
+  const clean = window.location.pathname.replace(/^\/|\/$/g, '').split('/')[0];
+  if (!clean || clean === 'index.html' || clean === 'index') return 'index';
+  return clean.replace(/\.html$/, '');
 }
 
 /* 4. Render Dynamic Content from Store */
@@ -152,7 +153,7 @@ function renderDynamicContent() {
   const faqsContainer = document.getElementById('faqsContainer');
   if (faqsContainer) {
     const allFaqs = window.gmStore.getFaqs();
-    const pageFaqs = allFaqs.filter(f => !f.placement || f.placement === 'all' || f.placement === currentPage);
+    const pageFaqs = allFaqs.filter(f => !f.placement || f.placement === 'all' || f.placement === currentPage || f.placement === `${currentPage}.html` || (currentPage === 'index' && (f.placement === 'index' || f.placement === 'index.html')));
     renderFaqsGrid(pageFaqs.length > 0 ? pageFaqs : allFaqs, faqsContainer);
   }
 
@@ -160,7 +161,7 @@ function renderDynamicContent() {
   const testimonialsContainer = document.getElementById('testimonialsContainer');
   if (testimonialsContainer) {
     const allTestimonials = window.gmStore.getTestimonials();
-    const pageTestimonials = allTestimonials.filter(t => !t.placement || t.placement === 'all' || t.placement === currentPage);
+    const pageTestimonials = allTestimonials.filter(t => !t.placement || t.placement === 'all' || t.placement === currentPage || t.placement === `${currentPage}.html` || (currentPage === 'index' && (t.placement === 'index' || t.placement === 'index.html')));
     renderTestimonials(pageTestimonials.length > 0 ? pageTestimonials : allTestimonials, testimonialsContainer);
   }
 
@@ -286,11 +287,9 @@ function renderTestimonials(testimonials, container) {
 }
 
 /* 10. Render Blogs with Featured Cover Photo */
-/* Same flat content-card pattern as case studies — one card component
-   for any "grid of stories" section, rather than a bespoke style per page. */
 function renderBlogs(blogs, container) {
   container.innerHTML = blogs.map((b, i) => `
-    <a href="blog-detail.html?slug=${b.slug || b.id}" class="content-card reveal-on-scroll ${i % 2 ? 'reveal-down' : ''}" style="transition-delay:${(i % 3) * 0.08}s;">
+    <a href="/blogs/${b.slug || b.id}" class="content-card reveal-on-scroll ${i % 2 ? 'reveal-down' : ''}" style="transition-delay:${(i % 3) * 0.08}s;">
       <div class="content-card-top">
         <span class="content-card-client">${b.category}</span>
         <span class="content-card-industry">${b.date}</span>
@@ -309,15 +308,12 @@ function renderBlogs(blogs, container) {
 }
 
 /* 11. Render Case Studies with Featured Banner Photo */
-/* Flat, hairline-bordered case study grid — company/industry as the
-   "logo" row, the headline metric standing in for a stat header, quote,
-   then an avatar-initial + "Read case study" footer row. */
 function renderCaseStudies(caseStudies, container) {
   container.innerHTML = caseStudies.map((c, i) => {
     const headline = c.metrics && c.metrics[0] ? `${c.metrics[0].val} ${c.metrics[0].label}` : c.title;
     const initial = (c.client || c.industry || 'N').charAt(0);
     return `
-    <a href="case-study-detail.html?slug=${c.slug || c.id}" class="content-card reveal-on-scroll ${i % 2 ? 'reveal-down' : ''}" style="transition-delay:${(i % 3) * 0.08}s;">
+    <a href="/case-studies/${c.slug || c.id}" class="content-card reveal-on-scroll ${i % 2 ? 'reveal-down' : ''}" style="transition-delay:${(i % 3) * 0.08}s;">
       <div class="content-card-top">
         <span class="content-card-client">${c.client || c.industry}</span>
         <span class="content-card-industry">${c.industry}</span>
@@ -373,7 +369,7 @@ function renderDetailPages() {
         <div style="background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:var(--card-shadow); border:var(--card-border);">
           <!-- Breadcrumb Navigation -->
           <div style="background:var(--bg-alt); padding:14px 48px; border-bottom:1px solid rgba(29,163,154,0.08); font-size:12px; color:var(--text-muted);">
-            <a href="index.html">Home</a> &nbsp;›&nbsp; <a href="blogs.html">Insights & Blogs</a> &nbsp;›&nbsp; <span style="color:var(--color-primary); font-weight:600;">${blog.title}</span>
+            <a href="/">Home</a> &nbsp;›&nbsp; <a href="/blogs">Insights & Blogs</a> &nbsp;›&nbsp; <span style="color:var(--color-primary); font-weight:600;">${blog.title}</span>
           </div>
 
           ${blog.image ? `
@@ -412,7 +408,7 @@ function renderDetailPages() {
                 <h4 style="font-size:16px; color:var(--color-slate);">Need Financial or Compliance Advisory?</h4>
                 <p style="font-size:13px; color:var(--text-muted); margin:0;">Book a direct consultation with our Chartered Accountants & Tech Leads.</p>
               </div>
-              <a href="contact.html" class="btn btn-primary">Schedule Advisory Call →</a>
+              <a href="/contact" class="btn btn-primary">Schedule Advisory Call →</a>
             </div>
           </div>
         </div>
@@ -452,7 +448,7 @@ function renderDetailPages() {
         <div style="background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:var(--card-shadow); border:var(--card-border);">
           <!-- Breadcrumb Navigation -->
           <div style="background:var(--bg-alt); padding:14px 48px; border-bottom:1px solid rgba(29,163,154,0.08); font-size:12px; color:var(--text-muted);">
-            <a href="index.html">Home</a> &nbsp;›&nbsp; <a href="case-studies.html">Case Studies</a> &nbsp;›&nbsp; <span style="color:var(--color-primary); font-weight:600;">${cs.title}</span>
+            <a href="/">Home</a> &nbsp;›&nbsp; <a href="/case-studies">Case Studies</a> &nbsp;›&nbsp; <span style="color:var(--color-primary); font-weight:600;">${cs.title}</span>
           </div>
 
           ${cs.image ? `
@@ -501,7 +497,7 @@ function renderDetailPages() {
             </div>
 
             <div style="margin-top:40px; padding-top:30px; border-top:1px solid rgba(29,163,154,0.1);">
-              <a href="contact.html" class="btn btn-primary">Contact Us</a>
+              <a href="/contact" class="btn btn-primary">Contact Us</a>
             </div>
           </div>
         </div>

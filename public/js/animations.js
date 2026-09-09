@@ -586,7 +586,7 @@ function initServiceRail() {
   function buildCard(svc, i) {
     const template = SERVICE_TEMPLATES[svc.name];
     const card = document.createElement('a');
-    card.href = `services.html?service=${encodeURIComponent(svc.id)}`;
+    card.href = `/services?service=${encodeURIComponent(svc.id)}`;
     card.className = 'svc-card glow-card reveal-on-scroll' + (i % 2 ? ' reveal-down' : '');
     // A slower, more visible cascade than the default stagger — the user
     // should be able to watch each card settle in as they land on/scroll
@@ -912,14 +912,14 @@ function initServicesHub() {
   const nodeEls = nodes.map((node, i) => {
     const template = SERVICE_TEMPLATES[node.svc.name];
     return `
-      <a href="services.html?service=${encodeURIComponent(node.svc.id)}" class="hub-node reveal-on-scroll" style="left:${node.x.toFixed(2)}%; top:${node.y.toFixed(2)}%; transition-delay:${(i % 5) * 0.06}s;">
+      <a href="/services?service=${encodeURIComponent(node.svc.id)}" class="hub-node reveal-on-scroll" style="left:${node.x.toFixed(2)}%; top:${node.y.toFixed(2)}%; transition-delay:${(i % 5) * 0.06}s;">
         <span class="hub-node-icon">${template ? template.icon : '📁'}</span>
         <span class="hub-node-label">${node.svc.name}</span>
       </a>`;
   }).join('');
 
   const listItems = services.map(svc => `
-    <a href="services.html?service=${encodeURIComponent(svc.id)}" class="hub-list-item">
+    <a href="/services?service=${encodeURIComponent(svc.id)}" class="hub-list-item">
       <span>${SERVICE_TEMPLATES[svc.name] ? SERVICE_TEMPLATES[svc.name].icon : '📁'}</span> ${svc.name}
     </a>`).join('');
 
