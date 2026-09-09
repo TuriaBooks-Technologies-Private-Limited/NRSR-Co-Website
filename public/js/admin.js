@@ -1785,8 +1785,19 @@ function renderSettingsPanel(container) {
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
           <div class="form-group">
+            <label>Client Portal Login URL</label>
+            <input type="url" id="setClientLoginUrl" class="form-control" value="${settings.client_login_url || "https://practice.turia.in/login"}">
+          </div>
+          <div class="form-group">
+            <label>Employee Practice Login URL</label>
+            <input type="url" id="setEmployeeLoginUrl" class="form-control" value="${settings.employee_login_url || "https://practice.turia.in/login"}">
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group">
             <label>Office Working Hours</label>
-            <input type="text" id="setWorkingHours" class="form-control" value="${settings.working_hours || "Mon - Sat: 9:30 AM - 6:30 PM"}">
+            <input type="text" id="setWorkingHours" class="form-control" value="${settings.working_hours || "Mon - Sat: 9:00 AM - 8:00 PM (Sunday Closed)"}">
           </div>
           <div class="form-group">
             <label>Tawk.to Property ID</label>
@@ -1832,7 +1843,7 @@ function renderSettingsPanel(container) {
                 </td>
               </tr>
             `).join("")}
-            ${numbers.length === 0 ? "<tr><td colspan="3" style="text-align:center; color:var(--text-muted);">No WhatsApp contacts configured.</td></tr>" : ""}
+            ${numbers.length === 0 ? "<tr><td colspan=\"3\" style=\"text-align:center; color:var(--text-muted);\">No WhatsApp contacts configured.</td></tr>" : ""}
           </tbody>
         </table>
 
@@ -1858,22 +1869,23 @@ window.addWaNumber = function() {
   const name = document.getElementById("addWaName").value.trim();
   const phone = document.getElementById("addWaPhone").value.trim().replace(/[^0-9]/g, "");
   if (!name || !phone) {
-    alert("Please fill out both name and phone number.");
+    alert("Please provide both name and numeric WhatsApp phone.");
     return;
   }
   const settings = window.gmStore.getSettings();
   if (!settings.whatsapp_numbers) settings.whatsapp_numbers = [];
   settings.whatsapp_numbers.push({ name, number: phone });
-  
-  const container = document.getElementById("adminTableContainer");
-  renderSettingsPanel(container);
+  window.gmStore.saveSettings(settings);
+  renderSettingsPanel(document.getElementById("adminTableContainer"));
 };
 
 window.removeWaNumber = function(idx) {
   const settings = window.gmStore.getSettings();
-  settings.whatsapp_numbers.splice(idx, 1);
-  const container = document.getElementById("adminTableContainer");
-  renderSettingsPanel(container);
+  if (settings.whatsapp_numbers) {
+    settings.whatsapp_numbers.splice(idx, 1);
+    window.gmStore.saveSettings(settings);
+  }
+  renderSettingsPanel(document.getElementById("adminTableContainer"));
 };
 
 window.saveGlobalSettings = function() {
@@ -1884,6 +1896,8 @@ window.saveGlobalSettings = function() {
   settings.firm_phone = document.getElementById("setFirmPhone").value.trim();
   settings.hq_address = document.getElementById("setHqAddress").value.trim();
   settings.branch_address = document.getElementById("setBranchAddress").value.trim();
+  settings.client_login_url = document.getElementById("setClientLoginUrl").value.trim();
+  settings.employee_login_url = document.getElementById("setEmployeeLoginUrl").value.trim();
   settings.working_hours = document.getElementById("setWorkingHours").value.trim();
   settings.tawk_property_id = document.getElementById("setTawkId").value.trim();
   settings.notification_emails = document.getElementById("setNotificationEmails").value.trim();

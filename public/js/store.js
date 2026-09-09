@@ -640,7 +640,9 @@ class Store {
       erp_api_url: "",
       erp_api_key: "",
       tawk_property_id: "6011a916c31c9117cb73225c",
-      tawk_widget_id: "1et2fp10u"
+      tawk_widget_id: "1et2fp10u",
+      client_login_url: "https://practice.turia.in/login",
+      employee_login_url: "https://practice.turia.in/login"
     };
   }
 

@@ -43,6 +43,8 @@ const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
         <li><a href="/careers">Careers & Openings</a></li>
         <li><a href="/gallery">Photo Gallery</a></li>
         <li><a href="/contact">Contact Us</a></li>
+        <li style="margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.1);"><a href={settings.client_login_url || 'https://practice.turia.in/login'} target="_blank" rel="noopener noreferrer" style="color: var(--color-primary-light); font-weight: 600;">👤 Client Login</a></li>
+        <li><a href={settings.employee_login_url || 'https://practice.turia.in/login'} target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); font-weight: 600;">💼 Employee Login</a></li>
       </ul>
     </div>
 
