@@ -1,45 +1,45 @@
 /*
-   NRSR & Co - Global Design System (v8.0 — Logo Brand Edition)
-   Brand Palette extracted directly from the NRSR & Co logo:
-   - Teal        #1DA39A  — primary ("NRSR" logo colour — headers, buttons, CTAs)
-   - Green       #6BBF4E  — accent ("&Co" logo colour — badges, hover, highlights)
-   - Light Teal  #F2FAF9  — page background
-   - Dark Navy   #0F2027  — header / footer background
-   - Slate       #596579  — secondary / muted text
-   - White       #FFFFFF  — card surfaces
-   Status colors (verified/due) are semantic, not decorative, and stay.
+   NRSR & Co - Global Design System (v9.0 — Precision Logo Match)
+   Brand Palette extracted directly from the NRSR & Co logo image:
+   - Cerulean / Cyan Blue #00AACE  — primary ("NRSR" logo colour — buttons, active nav, primary CTAs)
+   - Lime Green           #A2CD3A  — accent ("&Co" logo colour — badges, hover states, accents)
+   - Light Cerulean-White #F4F9FA  — page background
+   - Deep Navy / Charcoal #0A1C24  — header / footer background
+   - Slate Text           #475569  — secondary text
+   - Rich Dark Slate      #0F172A  — main headings text
+   - Card White           #FFFFFF  — surface cards
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  /* NRSR & Co Brand Tokens — Logo Matched */
-  --color-primary: #1DA39A;
-  --color-primary-dark: #147A74;
-  --color-primary-light: #5BC8C2;
-  --color-accent: #6BBF4E;
-  --color-accent-light: #94D470;
-  --color-accent-soft: rgba(107, 191, 78, 0.12);
-  --color-blue: #1A6B65;
-  --color-slate: #596579;
-  --color-slate-light: #8a96a6;
+  /* NRSR & Co Brand Tokens — Exact Logo Extraction */
+  --color-primary: #00AACE;
+  --color-primary-dark: #008BA8;
+  --color-primary-light: #38C8E6;
+  --color-accent: #A2CD3A;
+  --color-accent-light: #B8DE5E;
+  --color-accent-soft: rgba(162, 205, 58, 0.15);
+  --color-blue: #007791;
+  --color-slate: #475569;
+  --color-slate-light: #64748B;
 
-  --bg-main: #F2FAF9;
+  --bg-main: #F4F9FA;
   --bg-card: #FFFFFF;
-  --bg-alt: #E6F5F3;
-  --bg-dark: #0F2027;
+  --bg-alt: #E8F4F7;
+  --bg-dark: #0A1C24;
 
-  --text-main: #0F2027;
-  --text-muted: #596579;
-  --text-light: #8a96a6;
+  --text-main: #0F172A;
+  --text-muted: #475569;
+  --text-light: #64748B;
 
-  --card-border: 1px solid rgba(29, 163, 154, 0.10);
-  --card-shadow: 0 8px 24px -12px rgba(29, 163, 154, 0.10);
-  --card-shadow-lg: 0 24px 50px -16px rgba(29, 163, 154, 0.20);
-  --glass-bg: rgba(255, 255, 255, 0.90);
-  --header-bg: rgba(15, 32, 39, 0.97);
+  --card-border: 1px solid rgba(0, 170, 206, 0.12);
+  --card-shadow: 0 8px 24px -12px rgba(0, 170, 206, 0.12);
+  --card-shadow-lg: 0 24px 50px -16px rgba(0, 170, 206, 0.22);
+  --glass-bg: rgba(255, 255, 255, 0.92);
+  --header-bg: rgba(10, 28, 36, 0.97);
 
-  /* Status accents (used for live filing/certification states) */
+  /* Status accents */
   --color-verified: #10b981;
   --color-verified-soft: rgba(16, 185, 129, 0.12);
   --color-due: #f43f5e;
@@ -142,16 +142,16 @@ button, input, textarea, select { font-family: inherit; font-size: inherit; outl
 }
 
 .btn-primary { background-color: var(--color-primary); color: #ffffff; }
-.btn-primary:hover { background-color: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(29, 163, 154, 0.35); }
+.btn-primary:hover { background-color: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 170, 206, 0.35); }
 
 .btn-accent { background-color: var(--color-accent); border: 1.5px solid var(--color-accent); color: #ffffff; }
-.btn-accent:hover { background-color: #4fa334; border-color: #4fa334; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(107, 191, 78, 0.35); }
+.btn-accent:hover { background-color: #4fa334; border-color: #4fa334; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(162, 205, 58, 0.35); }
 
 .btn-outline { border: 1.5px solid var(--color-primary); color: var(--color-primary); background-color: transparent; }
-.btn-outline:hover { background-color: rgba(29, 163, 154, 0.08); transform: translateY(-2px); }
+.btn-outline:hover { background-color: rgba(0, 170, 206, 0.08); transform: translateY(-2px); }
 
 .card-hover { transition: var(--transition); }
-.card-hover:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: 0 16px 32px rgba(29, 163, 154, 0.14); }
+.card-hover:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: 0 16px 32px rgba(0, 170, 206, 0.14); }
 
 /* Header Navigation */
 header {
@@ -256,7 +256,7 @@ header.scrolled {
 /* Nav CTA needs to read against the dark header — light pill instead of
    the site-wide near-black .btn-primary, which would vanish on this bg. */
 header .btn-primary { background-color: var(--color-accent); color: #ffffff; }
-header .btn-primary:hover { background-color: #4fa334; color: #ffffff; box-shadow: 0 8px 20px rgba(107, 191, 78, 0.4); }
+header .btn-primary:hover { background-color: #4fa334; color: #ffffff; box-shadow: 0 8px 20px rgba(162, 205, 58, 0.4); }
 
 .nav-link.active::after { width: calc(100% - 28px); }
 
@@ -321,7 +321,7 @@ header .btn-primary:hover { background-color: #4fa334; color: #ffffff; box-shado
   gap: 8px;
   padding: 6px 14px;
   border-radius: 50px;
-  background: rgba(29, 163, 154, 0.1);
+  background: rgba(0, 170, 206, 0.1);
   color: var(--color-primary-dark);
   font-size: 12px;
   font-weight: 700;
@@ -359,7 +359,7 @@ header .btn-primary:hover { background-color: #4fa334; color: #ffffff; box-shado
   border: var(--card-border);
   border-radius: 16px;
   padding: 30px;
-  box-shadow: 0 20px 40px rgba(29, 163, 154, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 170, 206, 0.08);
 }
 
 .hero-badge-grid {
@@ -373,7 +373,7 @@ header .btn-primary:hover { background-color: #4fa334; color: #ffffff; box-shado
   padding: 16px;
   border-radius: 10px;
   background: var(--bg-main);
-  border: 1px solid rgba(29, 163, 154, 0.08);
+  border: 1px solid rgba(0, 170, 206, 0.08);
   text-align: center;
 }
 
@@ -443,7 +443,7 @@ main .text-center .section-title::after {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(29, 163, 154, 0.08);
+  background: rgba(0, 170, 206, 0.08);
   color: var(--color-primary);
   display: flex;
   align-items: center;
@@ -514,7 +514,7 @@ main .text-center .section-title::after {
 
 .member-card {
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   border-radius: 14px;
   padding: 32px;
   display: flex;
@@ -537,7 +537,7 @@ main .text-center .section-title::after {
   font-weight: 800;
   font-family: var(--font-header);
   margin-bottom: 20px;
-  box-shadow: 0 8px 16px rgba(29, 163, 154, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 170, 206, 0.2);
 }
 
 .member-card h3 {
@@ -572,7 +572,7 @@ main .text-center .section-title::after {
 .member-bio {
   font-size: 13px;
   color: var(--text-main);
-  border-top: 1px solid rgba(29, 163, 154, 0.08);
+  border-top: 1px solid rgba(0, 170, 206, 0.08);
   padding-top: 16px;
   margin-top: auto;
   line-height: 1.6;
@@ -588,7 +588,7 @@ main .text-center .section-title::after {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(29, 163, 154, 0.1);
+  background: rgba(0, 170, 206, 0.1);
   color: var(--color-primary);
   display: flex;
   align-items: center;
@@ -605,7 +605,7 @@ main .text-center .section-title::after {
 /* Testimonials Carousel */
 .testimonial-card {
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   border-radius: 14px;
   padding: 36px;
   max-width: 800px;
@@ -624,7 +624,7 @@ main .text-center .section-title::after {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   color: #ffffff; display: flex; align-items: center; justify-content: center;
   font-size: 16px; font-weight: 800; font-family: var(--font-header);
-  box-shadow: 0 6px 14px rgba(29, 163, 154, 0.25);
+  box-shadow: 0 6px 14px rgba(0, 170, 206, 0.25);
 }
 .testimonial-byline > div { text-align: left; }
 .testimonial-author { font-family: var(--font-header); font-weight: 700; font-size: 16px; color: var(--color-primary-dark); }
@@ -641,7 +641,7 @@ main .text-center .section-title::after {
 
 .faq-item {
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   border-radius: 12px;
   overflow: hidden;
   transition: var(--transition);
@@ -851,7 +851,7 @@ main .text-center .section-title::after {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: rgba(29, 163, 154, 0.08);
+  background: rgba(0, 170, 206, 0.08);
   color: var(--color-primary);
   display: flex;
   align-items: center;
@@ -871,7 +871,7 @@ main .text-center .section-title::after {
   padding: 12px 16px;
   border-radius: 8px;
   background: var(--bg-main);
-  border: 1px solid rgba(29, 163, 154, 0.15);
+  border: 1px solid rgba(0, 170, 206, 0.15);
   color: var(--text-main);
   transition: var(--transition);
   min-height: 44px;
@@ -880,7 +880,7 @@ main .text-center .section-title::after {
 .form-control:focus {
   border-color: var(--color-primary);
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(29, 163, 154, 0.15);
+  box-shadow: 0 0 0 3px rgba(0, 170, 206, 0.15);
 }
 
 textarea.form-control { resize: vertical; min-height: 120px; }
@@ -943,7 +943,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .admin-table th, .admin-table td {
   padding: 16px 20px;
   text-align: left;
-  border-bottom: 1px solid rgba(29, 163, 154, 0.08);
+  border-bottom: 1px solid rgba(0, 170, 206, 0.08);
 }
 
 .admin-table th {
@@ -966,7 +966,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   cursor: pointer;
 }
 
-.btn-edit { background: rgba(29, 163, 154, 0.1); color: var(--color-primary); }
+.btn-edit { background: rgba(0, 170, 206, 0.1); color: var(--color-primary); }
 .btn-delete { background: rgba(225, 29, 72, 0.1); color: #e11d48; margin-left: 6px; }
 
 /* Modal Editor */
@@ -1049,7 +1049,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 .office-card {
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   border-radius: 14px;
   padding: 28px;
   margin-bottom: 20px;
@@ -1073,7 +1073,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   color: var(--color-slate);
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(29, 163, 154, 0.1);
+  border-bottom: 1px solid rgba(0, 170, 206, 0.1);
 }
 
 /* Sectors We Serve — flat icon grid (about.html) */
@@ -1092,7 +1092,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   gap: 10px;
   padding: 18px 10px;
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   border-radius: 14px;
   text-align: center;
   transition: var(--transition);
@@ -1146,8 +1146,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
-  background: rgba(29, 163, 154, 0.1);
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  background: rgba(0, 170, 206, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   border-radius: 14px;
   overflow: hidden;
 }
@@ -1180,7 +1180,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   justify-content: space-between;
   gap: 12px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(29, 163, 154, 0.08);
+  border-bottom: 1px solid rgba(0, 170, 206, 0.08);
   margin-bottom: 18px;
 }
 
@@ -1196,7 +1196,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   justify-content: space-between;
   gap: 12px;
   padding-top: 16px;
-  border-top: 1px solid rgba(29, 163, 154, 0.08);
+  border-top: 1px solid rgba(0, 170, 206, 0.08);
 }
 
 .content-card-byline { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-muted); }
@@ -1248,7 +1248,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 
 .hub-lines line {
-  stroke: rgba(29, 163, 154, 0.15);
+  stroke: rgba(0, 170, 206, 0.15);
   stroke-width: 0.35;
 }
 
@@ -1261,7 +1261,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   height: 78px;
   border-radius: 50%;
   background: #ffffff;
-  border: 1.5px solid rgba(29, 163, 154, 0.12);
+  border: 1.5px solid rgba(0, 170, 206, 0.12);
   box-shadow: var(--card-shadow-lg);
   display: flex;
   align-items: center;
@@ -1289,7 +1289,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   height: 44px;
   border-radius: 50%;
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1328,7 +1328,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 /* Footer */
 footer {
-  background-color: var(--bg-dark);        /* Deep Navy #1DA39A */
+  background-color: var(--bg-dark);        /* Deep Navy #00AACE */
   color: #ffffff;
   padding: 70px 0 30px 0;
   border-top: 3px solid var(--color-accent); /* Gold top-border — ties footer to brand accent */
@@ -1518,10 +1518,10 @@ footer {
 /* Ledger Dashboard Simulation */
 .ledger-preview-card {
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 20px 40px rgba(29, 163, 154, 0.06);
+  box-shadow: 0 20px 40px rgba(0, 170, 206, 0.06);
   position: relative;
 }
 
@@ -1529,7 +1529,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(29, 163, 154, 0.08);
+  border-bottom: 1px solid rgba(0, 170, 206, 0.08);
   padding-bottom: 12px;
   margin-bottom: 16px;
 }
@@ -1586,7 +1586,7 @@ footer {
 }
 
 .ledger-sim-table tr {
-  border-bottom: 1px solid rgba(29, 163, 154, 0.04);
+  border-bottom: 1px solid rgba(0, 170, 206, 0.04);
 }
 
 .ledger-sim-table td {
@@ -1605,10 +1605,10 @@ footer {
 /* Firm Snapshot Card (hero) — quiet, factual, no simulated software */
 .firm-snapshot-card {
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   border-radius: 20px;
   padding: 36px 28px 28px;
-  box-shadow: 0 20px 40px rgba(29, 163, 154, 0.06);
+  box-shadow: 0 20px 40px rgba(0, 170, 206, 0.06);
 }
 
 .snapshot-header {
@@ -1624,7 +1624,7 @@ footer {
   display: block;
   padding: 10px;
   border-radius: 50%;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   background: var(--bg-alt);
   box-sizing: border-box;
 }
@@ -1651,7 +1651,7 @@ footer {
 
 .snapshot-item {
   background: var(--bg-alt);
-  border: 1px solid rgba(29, 163, 154, 0.06);
+  border: 1px solid rgba(0, 170, 206, 0.06);
   border-radius: 12px;
   padding: 18px;
   display: flex;
@@ -1680,10 +1680,10 @@ footer {
 /* Activity Timeline Tracker styling */
 .timeline-card {
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 20px 40px rgba(29, 163, 154, 0.06);
+  box-shadow: 0 20px 40px rgba(0, 170, 206, 0.06);
   position: relative;
 }
 
@@ -1838,7 +1838,7 @@ footer {
   border-radius: inherit;
   background: radial-gradient(
     250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(29, 163, 154, 0.08),
+    rgba(0, 170, 206, 0.08),
     transparent 80%
   );
   opacity: 0;
@@ -1875,7 +1875,7 @@ footer {
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.1);
+  border: 1px solid rgba(0, 170, 206, 0.1);
   border-radius: 14px;
   overflow: hidden;
 }
@@ -1883,7 +1883,7 @@ footer {
 .service-nav-item {
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(29, 163, 154, 0.08);
+  border-bottom: 1px solid rgba(0, 170, 206, 0.08);
   border-radius: 0;
   padding: 18px 24px;
   cursor: pointer;
@@ -1992,7 +1992,7 @@ footer {
    service added later with zero code changes. */
 .service-cta-panel {
   background: var(--bg-card);
-  border: 1px solid rgba(29, 163, 154, 0.08);
+  border: 1px solid rgba(0, 170, 206, 0.08);
   border-radius: 18px;
   padding: 22px 26px;
   display: flex;
@@ -2026,10 +2026,10 @@ footer {
 .tilt-card {
   width: 100%;
   background: #ffffff;
-  border: 1px solid rgba(29, 163, 154, 0.12);
+  border: 1px solid rgba(0, 170, 206, 0.12);
   border-radius: 24px;
   padding: 44px;
-  box-shadow: 0 30px 60px -15px rgba(29, 163, 154, 0.1);
+  box-shadow: 0 30px 60px -15px rgba(0, 170, 206, 0.1);
   transform-style: preserve-3d;
   perspective: 1000px;
   transition: transform 0.15s ease-out, box-shadow 0.3s ease;
@@ -2084,7 +2084,7 @@ footer {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(29, 163, 154, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 170, 206, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 1;
 }
@@ -2106,8 +2106,8 @@ footer {
   width: 100%;
   height: 100%;
   background-image:
-    linear-gradient(rgba(29, 163, 154, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(29, 163, 154, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(0, 170, 206, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 170, 206, 0.03) 1px, transparent 1px);
   background-size: 20px 20px;
   pointer-events: none;
   z-index: 1;
@@ -2128,9 +2128,9 @@ footer {
 }
 
 @keyframes idlePulseGlow {
-  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(29, 163, 154, 0); }
-  35%  { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(29, 163, 154, 0.12); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(29, 163, 154, 0); }
+  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 170, 206, 0); }
+  35%  { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(0, 170, 206, 0.12); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 170, 206, 0); }
 }
 
 /* Testimonials — flat cards in a snap-scrolling row, 2-3 visible at once,
@@ -2159,7 +2159,7 @@ footer {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(29, 163, 154, 0.15);
+  border: 1px solid rgba(0, 170, 206, 0.15);
   background: #ffffff;
   color: var(--color-slate);
   font-size: 20px;
@@ -2277,7 +2277,7 @@ footer {
   max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   border-top: 1px solid transparent; background: var(--bg-alt);
 }
-.svc-card.expanded .svc-diagram { max-height: 300px; border-top-color: rgba(29, 163, 154, 0.1); }
+.svc-card.expanded .svc-diagram { max-height: 300px; border-top-color: rgba(0, 170, 206, 0.1); }
 .svc-diagram-inner { padding: 18px; min-height: 230px; }
 
 /* ==========================================================================
@@ -2288,7 +2288,7 @@ footer {
    connecting line has to run between column centers: column i's center
    sits at i*25% + 12.5%, meaning the line spans from 12.5% to 87.5% —
    12.5% in from each edge of the 1000px track. */
-.process-track { position: absolute; top: 19px; left: 12.5%; right: 12.5%; height: 2px; background: rgba(29, 163, 154, 0.15); border-radius: 2px; z-index: 0; }
+.process-track { position: absolute; top: 19px; left: 12.5%; right: 12.5%; height: 2px; background: rgba(0, 170, 206, 0.15); border-radius: 2px; z-index: 0; }
 .process-fill {
   position: absolute; top: 19px; left: 12.5%; height: 2px; width: 0%; z-index: 1; border-radius: 2px;
   background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
@@ -2308,7 +2308,7 @@ footer {
 .p-step.active { opacity: 1; }
 .p-step.done { opacity: 0.92; }
 .p-num {
-  width: 40px; height: 40px; border-radius: 50%; background: #ffffff; border: 2px solid rgba(29, 163, 154, 0.2);
+  width: 40px; height: 40px; border-radius: 50%; background: #ffffff; border: 2px solid rgba(0, 170, 206, 0.2);
   color: var(--text-light); font-family: 'SF Mono', Menlo, Consolas, monospace; font-weight: 700; font-size: 13px;
   display: flex; align-items: center; justify-content: center; position: relative; z-index: 2; margin: 0 auto 16px;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -2316,17 +2316,17 @@ footer {
 .p-step.active .p-num, .p-step.done .p-num {
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-color: transparent; color: #ffffff;
 }
-.p-step.active .p-num { transform: scale(1.12); box-shadow: 0 0 0 8px rgba(29, 163, 154, 0.14); }
+.p-step.active .p-num { transform: scale(1.12); box-shadow: 0 0 0 8px rgba(0, 170, 206, 0.14); }
 
 /* Milestone celebration — a quick bounce + expanding ring on the circle
    the instant a step is marked complete, so finishing a step feels like
    an actual achievement rather than a silent state change. */
 .p-num.milestone-pop { animation: milestonePop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1); }
 @keyframes milestonePop {
-  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(29, 163, 154, 0.45); }
-  35%  { transform: scale(1.4); box-shadow: 0 0 0 3px rgba(29, 163, 154, 0.3); }
-  65%  { transform: scale(0.94); box-shadow: 0 0 0 10px rgba(29, 163, 154, 0.08); }
-  100% { transform: scale(1); box-shadow: 0 0 0 16px rgba(29, 163, 154, 0); }
+  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 170, 206, 0.45); }
+  35%  { transform: scale(1.4); box-shadow: 0 0 0 3px rgba(0, 170, 206, 0.3); }
+  65%  { transform: scale(0.94); box-shadow: 0 0 0 10px rgba(0, 170, 206, 0.08); }
+  100% { transform: scale(1); box-shadow: 0 0 0 16px rgba(0, 170, 206, 0); }
 }
 
 .milestone-particle {
@@ -2369,11 +2369,11 @@ footer {
   font-weight: 700;
   letter-spacing: 0.3px;
   cursor: pointer;
-  box-shadow: 0 8px 18px -6px rgba(29, 163, 154, 0.5);
+  box-shadow: 0 8px 18px -6px rgba(0, 170, 206, 0.5);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   animation: pAdvancePulse 1.8s ease infinite;
 }
-.p-advance:hover { transform: translateY(-2px); box-shadow: 0 12px 22px -6px rgba(29, 163, 154, 0.6); }
+.p-advance:hover { transform: translateY(-2px); box-shadow: 0 12px 22px -6px rgba(0, 170, 206, 0.6); }
 .p-step.active .p-advance { display: inline-flex; }
 
 .p-teaser {
@@ -2393,8 +2393,8 @@ footer {
 }
 
 @keyframes pAdvancePulse {
-  0%, 100% { box-shadow: 0 8px 18px -6px rgba(29, 163, 154, 0.5); }
-  50% { box-shadow: 0 8px 22px -4px rgba(29, 163, 154, 0.75); }
+  0%, 100% { box-shadow: 0 8px 18px -6px rgba(0, 170, 206, 0.5); }
+  50% { box-shadow: 0 8px 22px -4px rgba(0, 170, 206, 0.75); }
 }
 
 @media (max-width: 800px) {
