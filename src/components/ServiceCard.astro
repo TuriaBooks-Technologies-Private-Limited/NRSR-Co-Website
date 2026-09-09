@@ -1,0 +1,30 @@
+---
+interface Props {
+  service: {
+    id: string;
+    name: string;
+    category: string;
+    shortDesc: string;
+    description?: string;
+    features?: string[];
+    icon?: string;
+  };
+  index?: number;
+}
+
+const { service, index = 0 } = Astro.props;
+---
+
+<div class={`svc-card glow-card reveal-on-scroll ${index % 2 === 1 ? 'reveal-down' : ''}`} style={`transition-delay: ${(index % 6) * 0.12}s;`}>
+  <div class="svc-top">
+    <div class="svc-cat">{service.category || 'Practice Division'}</div>
+    <h4>{service.name}</h4>
+    <p>{service.shortDesc || service.description}</p>
+    <a href={`/services?service=${encodeURIComponent(service.id)}`} class="svc-open">
+      See the workflow 
+      <svg width="10" height="10" viewBox="0 0 10 10">
+        <path d="M2 1l6 4-6 4" stroke="currentColor" stroke-width="1.6" fill="none"/>
+      </svg>
+    </a>
+  </div>
+</div>

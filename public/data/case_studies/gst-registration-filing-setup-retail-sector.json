@@ -1,0 +1,19 @@
+{
+  "id": "cs-2",
+  "title": "GST Registration & Filing Setup — Retail Sector",
+  "slug": "gst-registration-filing-setup-retail-sector",
+  "metaTitle": "GST Registration & Filing Setup Overview | NRSR & Co",
+  "metaDesc": "An overview of GST registration and periodic return filing setup for an entity in the retail sector.",
+  "metaKeywords": "GST Registration, Return Filing, Retail",
+  "image": "",
+  "industry": "Retail",
+  "summary": "GST registration and periodic return filing processes were set up for a retail-sector entity operating across multiple locations.",
+  "metrics": [
+    { "label": "Engagement Type", "val": "GST Registration & Filing" },
+    { "label": "Duration", "val": "4 Weeks" },
+    { "label": "Filing Frequency", "val": "Monthly" }
+  ],
+  "challenge": "The entity operated multiple retail locations and required GST registration for each applicable location along with a consistent process for periodic return filing.",
+  "solution": "The engagement covered GST registration across applicable locations, setup of a monthly filing calendar, and review of sales and purchase records for return preparation.",
+  "execution": "Registration applications were filed and tracked to completion, followed by a structured handover of the monthly filing process, including document checklists and due-date tracking."
+}

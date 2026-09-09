@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+export async function getStaticPaths() {
+  const blogsDir = path.join(process.cwd(), 'src/data/blogs');
+  const files = fs.readdirSync(blogsDir).filter(f => f.endsWith('.json'));
+
+  return files.map(file => {
+    const filePath = path.join(blogsDir, file);
+    const content = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    const slug = file.replace('.json', '');
+    return {
+      params: { slug },
+      props: { post: content }
+    };
+  });
+}
+
+const { post } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.title,
+  "description": post.excerpt || post.summary,
+  "datePublished": post.date,
+  "author": {
+    "@type": "Organization",
+    "name": post.author || "M/s NRSR & Co"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "M/s NRSR & Co",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nrsrcoconsultants.com/assets/logo.svg"
+    }
+  }
+};
+---
+
+<Layout
+  title={`${post.title} | NRSR & Co Insights`}
+  description={post.excerpt || post.summary}
+  type="article"
+  jsonLd={jsonLd}
+>
+  <article class="section-padding" style="padding-top: calc(var(--header-height) + 50px);">
+    <div class="container" style="max-width: 820px; margin: 0 auto;">
+      <div style="margin-bottom: 24px;">
+        <a href="/blogs" style="color: var(--color-primary); font-weight: 700; font-size: 13px; text-decoration: none;">← Back to All Insights</a>
+      </div>
+
+      <div class="section-header" style="margin-bottom: 28px;">
+        <span class="section-subtitle">{post.category || 'Tax & Compliance'}</span>
+        <h1 class="section-title" style="font-size: 36px; line-height: 1.3;">{post.title}</h1>
+        <div style="display: flex; gap: 16px; color: var(--text-muted); font-size: 13px; margin-top: 12px; align-items: center;">
+          <span>📅 {post.date || '2026'}</span>
+          <span>•</span>
+          <span>✍️ By {post.author || 'NRSR & Co Advisory Team'}</span>
+        </div>
+      </div>
+
+      {post.image && (
+        <div style="border-radius: 12px; overflow: hidden; margin-bottom: 32px; box-shadow: var(--card-shadow);">
+          <img src={post.image} alt={post.title} style="width: 100%; max-height: 400px; object-fit: cover;" />
+        </div>
+      )}
+
+      <div class="article-content" style="font-size: 16px; line-height: 1.8; color: var(--text-main);">
+        {post.content ? (
+          <div set:html={post.content} />
+        ) : (
+          <div>
+            <p style="font-size: 17px; font-weight: 500; color: var(--color-primary); margin-bottom: 20px;">
+              {post.excerpt || post.summary}
+            </p>
+            {post.sections && post.sections.map((sec: any) => (
+              <div style="margin-bottom: 24px;">
+                <h3 style="font-size: 20px; color: var(--text-main); margin-bottom: 10px;">{sec.title}</h3>
+                <p style="color: var(--text-muted); line-height: 1.7;">{sec.body}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <!-- Article Share & CTA Footer -->
+      <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <a href="/blogs" class="btn btn-outline">← Explore More Articles</a>
+        </div>
+        <div>
+          <a href="/contact" class="btn btn-primary">Schedule Consultation →</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>

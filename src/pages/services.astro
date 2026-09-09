@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Our 10 Professional Service Divisions | M/s NRSR & Co"
+  description="Explore the 10 core practice divisions of M/s NRSR & Co: Income Tax, GST, Corporate Advisory, Partnerships & LLPs, Internal Controls, Certifications, Registrations, Financial Accounting, Audits, and Business Valuation."
+>
+  <!-- Page Header Banner -->
+  <section class="section-padding" style="padding-top: calc(var(--header-height) + 50px); background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-main) 100%);">
+    <div class="container text-center">
+      <div class="section-header text-center" style="margin-bottom:0;">
+        <span class="section-subtitle">Comprehensive Solutions</span>
+        <h1 class="section-title" style="font-size: 38px;">Our 10 Professional Service Divisions</h1>
+      </div>
+      <p style="color: var(--text-muted); max-width: 700px; margin: 16px auto 0 auto; font-size: 16px;">
+        Covering direct and indirect taxation, corporate structuring, statutory auditing, valuation, and financial advisory.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Split-Pane: left = description, right = animated workflow -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="services-split-container" id="serviceDetailPane">
+        <!-- Left: Service Navigation + Description -->
+        <div class="service-nav-pane">
+          <!-- Dynamically populated from store.js -->
+        </div>
+
+        <!-- Right: Animated Workflow Display -->
+        <div class="service-display-pane">
+          <div id="serviceDisplaySlide" class="service-display-slide">
+            <div class="tilt-card">
+              <div class="glow-ring"></div>
+              <div id="showcaseDiagram" class="tilt-card-inner">
+                <!-- Dynamically rendered diagram -->
+              </div>
+            </div>
+          </div>
+          <div class="service-cta-panel" id="serviceCtaPanel">
+            <!-- Dynamically populated quick facts & CTA -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisory by Business Stage -->
+  <section class="section-padding" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Strategic Engagement</span>
+        <h2 class="section-title">Advisory Built Around Your Stage of Business</h2>
+      </div>
+
+      <div class="content-grid content-grid-3">
+        <div class="content-card reveal-on-scroll" style="cursor:default;">
+          <h3 class="content-card-headline" style="font-size:18px;">First Generation Entrepreneur Advisory</h3>
+          <ul class="content-card-checklist">
+            <li>Procuring Working Capital & CMA Data</li>
+            <li>Maintaining Smooth Cash Flow</li>
+            <li>Legal & Regulatory Compliance Setups</li>
+            <li>Direct & Indirect Tax Optimization</li>
+            <li>Proposing Optimal Entity Structures</li>
+            <li>Business Scalability & De-bottlenecking</li>
+            <li>Solutions for Startup Sustenance</li>
+          </ul>
+        </div>
+
+        <div class="content-card reveal-on-scroll reveal-down" style="cursor:default;">
+          <h3 class="content-card-headline" style="font-size:18px;">Next Generation Family Business Advisory</h3>
+          <ul class="content-card-checklist">
+            <li>Explore New Growth Opportunities</li>
+            <li>Plan Ahead for Succession & Transition</li>
+            <li>Governance & Professionalization</li>
+            <li>Developing Next-Gen Leadership</li>
+            <li>Conflict-Free Family Business Structuring</li>
+            <li>Family Deeds & Asset Reorganization</li>
+            <li>Comprehensive Compliance Assurance</li>
+          </ul>
+        </div>
+
+        <div class="content-card reveal-on-scroll" style="cursor:default;">
+          <h3 class="content-card-headline" style="font-size:18px;">Corporate & Enterprise Advisory</h3>
+          <ul class="content-card-checklist">
+            <li>Company/LLP Incorporation & Subsidiaries</li>
+            <li>Branch & Project Office Setup</li>
+            <li>Direct Taxes & ITAT Dispute Defense</li>
+            <li>GST Audit Reconciliations & Refunds</li>
+            <li>Payroll & Labour Law Compliances</li>
+            <li>Secretarial Audits & Board Certifications</li>
+            <li>Enterprise DCF & Share Valuation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,51 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Meet Our Team', href: '/team' },
+  { name: 'Careers', href: '/careers' },
+  { name: 'Gallery', href: '/gallery' },
+  { name: 'Insights & Blogs', href: '/blogs' },
+  { name: 'Case Studies', href: '/case-studies' },
+  { name: 'About Us', href: '/about' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/' && currentPath === '/') return true;
+  if (href !== '/' && currentPath.startsWith(href)) return true;
+  return false;
+};
+---
+
+<header class="scrolled">
+  <div class="container nav-wrapper">
+    <a href="/" class="brand-logo">
+      <img src="/assets/logo.svg" alt="NRSR & Co Logo" width="48" height="48">
+      <div class="logo-text">
+        <span class="logo-title">NRSR <span>& Co</span></span>
+        <span class="logo-subtitle">CHARTERED ACCOUNTANTS</span>
+      </div>
+    </a>
+    
+    <nav class="nav-menu">
+      {navLinks.map(link => (
+        <a href={link.href} class={`nav-link ${isActive(link.href) ? 'active' : ''}`}>
+          {link.name}
+        </a>
+      ))}
+      <a href="/contact" class="btn btn-primary" style="padding: 8px 18px; font-size: 13px;">Contact Us</a>
+    </nav>
+
+    <div class="mobile-toggle" aria-label="Toggle Navigation Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>

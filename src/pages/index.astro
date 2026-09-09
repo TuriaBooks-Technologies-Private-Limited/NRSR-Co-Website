@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TeamCard from '../components/TeamCard.astro';
+import LinkCard from '../components/LinkCard.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+
+import servicesData from '../data/services.json';
+import teamData from '../data/team.json';
+import linksData from '../data/links.json';
+import faqsData from '../data/faqs.json';
+
+const services = servicesData.services || [];
+const team = teamData.team || [];
+const links = linksData.links || [];
+const faqs = (faqsData.faqs || []).filter(f => !f.placement || f.placement === 'all' || f.placement === 'index.html');
+---
+
+<Layout
+  title="M/s NRSR & Co | Chartered Accountants & Advisors"
+  description="M/s NRSR & Co is a partnership firm of Chartered Accountants providing audit, direct tax litigation, GST compliance, business valuation, and corporate advisory services."
+>
+  <!-- Background Motion Graphics Canvas Waves -->
+  <div class="canvas-container">
+    <canvas id="waveCanvas" aria-hidden="true"></canvas>
+  </div>
+
+  <!-- Hero Section with Ledger Metrics -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-badge reveal-on-scroll">★ CHARTERED ACCOUNTANTS</span>
+        <h1 class="hero-headline reveal-on-scroll" style="transition-delay: 0.1s;">
+          Finance, Tax & Audit Compliance Services
+        </h1>
+        <p class="hero-description reveal-on-scroll" style="transition-delay: 0.2s;">
+          M/s NRSR & Co is a partnership firm of Chartered Accountants providing audit, tax advisory, valuation, and corporate governance services.
+        </p>
+        <div class="hero-actions reveal-on-scroll" style="transition-delay: 0.3s;">
+          <a href="/services" class="btn btn-primary">View Our Services →</a>
+          <a href="/contact" class="btn btn-outline">Contact Us →</a>
+        </div>
+      </div>
+
+      <!-- Hero Ledger Card & Practice Stats -->
+      <div class="hero-card-wrapper reveal-on-scroll" style="transition-delay: 0.25s;">
+        <div class="hero-card glow-card">
+          <div class="card-logo-center">
+            <img src="/assets/logo.svg" alt="NRSR & Co Icon" width="48" height="48">
+          </div>
+          <h2 class="card-firm-title">NRSR & Co</h2>
+          <div class="card-firm-sub">Chartered Accountants • Est. 2019</div>
+
+          <div class="hero-stats-grid">
+            <div class="stat-box">
+              <div class="stat-num">2019</div>
+              <div class="stat-lbl">Founded</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">10</div>
+              <div class="stat-lbl">Practice Divisions</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">6</div>
+              <div class="stat-lbl">Named Specialists</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">2</div>
+              <div class="stat-lbl">Offices</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Split Interactive Showcase Section -->
+  <section class="section-padding" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">What We Do</span>
+        <h2 class="section-title">10 Specialized Service Divisions</h2>
+        <p style="color: var(--text-muted); max-width: 700px; margin: 10px auto 0 auto;">
+          Comprehensive Chartered Accountancy and advisory solutions across direct taxes, audits, business valuation, and governance.
+        </p>
+      </div>
+
+      <!-- Split Showcase Pane (Interactive Client-Side Engine) -->
+      <div id="serviceDetailPane" class="service-split-pane reveal-on-scroll">
+        <div class="service-nav-pane">
+          <!-- Populated by JS animations / store -->
+        </div>
+        <div class="service-viewer-pane">
+          <div class="service-viewer-content">
+            <!-- Dynamic interactive diagram & details -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Rail Horizontal Scroll Section -->
+  <section class="section-padding" style="overflow: hidden; padding-bottom: 20px;">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Practice Capabilities</span>
+        <h2 class="section-title">Explore All Practice Areas</h2>
+      </div>
+      
+      <!-- Interactive drag-to-scroll rail -->
+      <div class="svc-rail-wrapper">
+        <div id="svcRail" class="svc-rail">
+          {services.map((svc, idx) => (
+            <ServiceCard service={svc} index={idx} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Spotlight Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Leadership & Specialists</span>
+        <h2 class="section-title">Meet Our Team</h2>
+        <p style="color: var(--text-muted); max-width: 750px; margin: 10px auto 0 auto;">
+          NRSR & Co brings together a multidisciplinary team of Chartered Accountants, valuation specialists, and compliance consultants.
+        </p>
+      </div>
+
+      <div id="teamGrid" class="team-grid">
+        {team.map((m, idx) => (
+          <TeamCard member={m} index={idx} />
+        ))}
+      </div>
+
+      <div style="text-align: center; margin-top: 36px;">
+        <a href="/team" class="btn btn-outline">View Full Team Profiles →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Useful Portals & Live Support Resource Center -->
+  <section class="section-padding" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Client Resources</span>
+        <h2 class="section-title">Useful Portals & Live Support</h2>
+        <p style="color: var(--text-muted); max-width: 650px; margin: 10px auto 0 auto;">
+          Quick access to key statutory tax portals, regulatory filings, and instant live support chat.
+        </p>
+      </div>
+
+      <div id="usefulLinksGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:18px; max-width:1100px; margin:0 auto;">
+        {links.map(l => (
+          <LinkCard link={l} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions (FAQ Accordion) -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Common Questions</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <FaqAccordion faqs={faqs} />
+    </div>
+  </section>
+</Layout>

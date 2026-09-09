@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import galleryData from '../data/gallery.json';
+
+const gallery = galleryData.gallery || [];
+---
+
+<Layout
+  title="Photo Gallery & Media | M/s NRSR & Co"
+  description="Photo gallery and media moments of M/s NRSR & Co: office premises, client consultations, strategy seminars, and team moments."
+>
+  <!-- Header Banner -->
+  <section class="section-padding" style="padding-top: calc(var(--header-height) + 50px); background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-main) 100%);">
+    <div class="container text-center">
+      <div class="section-header text-center" style="margin-bottom:0;">
+        <span class="section-subtitle">Life At NRSR & Co</span>
+        <h1 class="section-title" style="font-size: 38px;">Photo Gallery & Media</h1>
+      </div>
+      <p style="color: var(--text-muted); max-width: 760px; margin: 16px auto 0 auto; font-size: 16px; line-height: 1.7;">
+        A glimpse into our offices, professional development seminars, client advisory sessions, and firm milestones across Manipal and Bengaluru.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Section with Category Tabs -->
+  <section class="section-padding">
+    <div class="container">
+      <!-- Category Filter Tabs -->
+      <div id="galleryTabs" style="display:flex; justify-content:center; gap:10px; margin-bottom:36px; flex-wrap:wrap;">
+        <button class="gallery-tab active btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('All', this)">All Moments</button>
+        <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Office', this)">Office & Infrastructure</button>
+        <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Events', this)">Events & Seminars</button>
+        <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Team', this)">Team & Advisory</button>
+        <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Certifications', this)">Certifications & Awards</button>
+      </div>
+
+      <!-- Dynamic Photo Grid Container -->
+      <div id="galleryGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:24px;">
+        {gallery.map(g => (
+          <div class="gallery-item-card card-hover" style="background:#ffffff; border-radius:14px; border:var(--card-border); box-shadow:var(--card-shadow); overflow:hidden; cursor:pointer; display:flex; flex-direction:column;" onclick={`openLightbox('${g.id}')`}>
+            <div style="height:210px; background:#f1f5f9; overflow:hidden; position:relative;">
+              <img src={g.image || "/assets/logo.svg"} alt={g.title} style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+              <span style="position:absolute; top:10px; left:10px; background:rgba(15,32,39,0.85); color:#ffffff; font-size:10px; font-weight:700; padding:3px 10px; border-radius:12px;">{g.category || "General"}</span>
+            </div>
+            <div style="padding:16px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <h4 style="font-size:15px; margin:0 0 6px 0; color:var(--text-main); font-weight:700;">{g.title}</h4>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0; line-height:1.5;">{g.caption || ""}</p>
+              </div>
+              <div style="margin-top:12px; font-size:11px; color:var(--color-primary); font-weight:600; display:flex; justify-content:space-between; align-items:center;">
+                <span>{g.date || ""}</span>
+                <span>View Photo 🔍</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Lightbox Modal -->
+  <div id="galleryLightbox" class="modal-overlay" onclick="closeLightbox(event)">
+    <div style="position:relative; max-width:900px; max-height:90vh; width:90%; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.5); display:flex; flex-direction:column;" onclick="event.stopPropagation()">
+      <button style="position:absolute; top:12px; right:14px; background:rgba(0,0,0,0.6); color:#ffffff; border:none; width:34px; height:34px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;" onclick="document.getElementById('galleryLightbox').classList.remove('active')">&times;</button>
+      <div style="max-height:65vh; background:#0f2027; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+        <img id="lightboxImg" src="" alt="" style="max-width:100%; max-height:65vh; object-fit:contain;" />
+      </div>
+      <div style="padding:20px 24px; background:#ffffff;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <h3 id="lightboxTitle" style="font-size:18px; margin:0; color:var(--text-main);"></h3>
+          <span id="lightboxCategory" style="font-size:11px; background:rgba(29,163,154,0.1); color:var(--color-primary); padding:3px 10px; border-radius:12px; font-weight:700;"></span>
+        </div>
+        <p id="lightboxCaption" style="font-size:14px; color:var(--text-muted); margin:0; line-height:1.5;"></p>
+        <div id="lightboxDate" style="font-size:12px; color:var(--text-light); margin-top:8px;"></div>
+      </div>
+    </div>
+  </div>
+</Layout>

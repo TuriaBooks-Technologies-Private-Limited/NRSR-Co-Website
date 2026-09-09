@@ -1,0 +1,26 @@
+{
+  "settings": {
+    "firm_name": "M/s NRSR & Co",
+    "firm_subtitle": "Chartered Accountants",
+    "firm_email": "info@nrsrandco.com",
+    "firm_phone": "+91 9108599083",
+    "whatsapp_numbers": [
+      {
+        "name": "NRSR & Co Advisory Team",
+        "number": "9108599083"
+      }
+    ],
+    "hq_address": "'Gokula', 1st Floor, Union Bank Building, Opp. Green Park Hotel, Near Tiger Circle, Manipal, Karnataka 576104",
+    "branch_address": "Laggere, Bengaluru, Karnataka",
+    "working_hours": "Mon - Sat: 9:30 AM - 6:30 PM",
+    "established_year": "2019",
+    "peer_reviewed": true,
+    "iso_certified": true,
+    "erp_api_url": "",
+    "erp_api_key": "",
+    "notification_usernames": "Likith0074",
+    "notification_emails": "info@nrsrandco.com,likiths2546@gmail.com,casandeepnaik@gmail.com",
+    "google_script_url": "",
+    "tawk_property_id": "6011a916c31c9117cb73225c"
+  }
+}

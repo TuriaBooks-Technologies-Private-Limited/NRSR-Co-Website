@@ -1,0 +1,100 @@
+{
+  "case_studies": [
+    {
+      "id": "cs-1",
+      "title": "Statutory Audit Engagement — Manufacturing Sector",
+      "slug": "statutory-audit-manufacturing-sector",
+      "metaTitle": "Statutory Audit Engagement Overview | NRSR & Co",
+      "metaDesc": "An overview of a statutory audit engagement carried out for an entity in the manufacturing sector.",
+      "metaKeywords": "Statutory Audit, Manufacturing, Companies Act",
+      "image": "",
+      "industry": "Manufacturing",
+      "summary": "A statutory audit engagement covering the review of financial statements and internal records for an entity in the manufacturing sector.",
+      "metrics": [
+        { "label": "Engagement Type", "val": "Statutory Audit" },
+        { "label": "Duration", "val": "8 Weeks" },
+        { "label": "Reporting Period", "val": "Annual" }
+      ]
+    },
+    {
+      "id": "cs-2",
+      "title": "GST Registration & Filing Setup — Retail Sector",
+      "slug": "gst-registration-filing-setup-retail-sector",
+      "metaTitle": "GST Registration & Filing Setup Overview | NRSR & Co",
+      "metaDesc": "An overview of GST registration and periodic return filing setup for an entity in the retail sector.",
+      "metaKeywords": "GST Registration, Return Filing, Retail",
+      "image": "",
+      "industry": "Retail",
+      "summary": "GST registration and periodic return filing processes were set up for a retail-sector entity operating across multiple locations.",
+      "metrics": [
+        { "label": "Engagement Type", "val": "GST Registration & Filing" },
+        { "label": "Duration", "val": "4 Weeks" },
+        { "label": "Filing Frequency", "val": "Monthly" }
+      ]
+    },
+    {
+      "id": "cs-3",
+      "title": "Transfer Pricing Documentation — Information Technology Sector",
+      "slug": "transfer-pricing-documentation-it-sector",
+      "metaTitle": "Transfer Pricing Documentation Overview | NRSR & Co",
+      "metaDesc": "An overview of Transfer Pricing documentation prepared for a cross-border information technology entity.",
+      "metaKeywords": "Transfer Pricing, Rule 10D, Information Technology",
+      "image": "",
+      "industry": "Information Technology",
+      "summary": "Transfer Pricing documentation, including Form 3CEB filing, was prepared for an entity with cross-border related-party transactions.",
+      "metrics": [
+        { "label": "Engagement Type", "val": "Transfer Pricing Documentation" },
+        { "label": "Duration", "val": "10 Weeks" },
+        { "label": "Filing", "val": "Form 3CEB" }
+      ]
+    },
+    {
+      "id": "cs-4",
+      "title": "Partnership to LLP Conversion — Professional Services Sector",
+      "slug": "partnership-llp-conversion-professional-services",
+      "metaTitle": "Partnership to LLP Conversion Overview | NRSR & Co",
+      "metaDesc": "An overview of the conversion of a partnership firm to a Limited Liability Partnership in the professional services sector.",
+      "metaKeywords": "LLP Conversion, Partnership Firm, Professional Services",
+      "image": "",
+      "industry": "Professional Services",
+      "summary": "A registered partnership firm in the professional services sector was converted into a Limited Liability Partnership.",
+      "metrics": [
+        { "label": "Engagement Type", "val": "Entity Conversion" },
+        { "label": "Duration", "val": "6 Weeks" },
+        { "label": "Filing Authority", "val": "Ministry of Corporate Affairs" }
+      ]
+    },
+    {
+      "id": "cs-5",
+      "title": "Internal Financial Controls Review — Healthcare Sector",
+      "slug": "internal-financial-controls-review-healthcare-sector",
+      "metaTitle": "Internal Financial Controls Review Overview | NRSR & Co",
+      "metaDesc": "An overview of an internal financial controls review carried out for an entity in the healthcare sector.",
+      "metaKeywords": "Internal Controls, SOP Design, Healthcare",
+      "image": "",
+      "industry": "Healthcare",
+      "summary": "An internal financial controls review, including SOP documentation, was carried out for a healthcare-sector entity.",
+      "metrics": [
+        { "label": "Engagement Type", "val": "Internal Controls Review" },
+        { "label": "Duration", "val": "12 Weeks" },
+        { "label": "Scope", "val": "Finance & Procurement" }
+      ]
+    },
+    {
+      "id": "cs-6",
+      "title": "Virtual CFO Engagement — E-commerce Sector",
+      "slug": "virtual-cfo-engagement-ecommerce-sector",
+      "metaTitle": "Virtual CFO Engagement Overview | NRSR & Co",
+      "metaDesc": "An overview of a Virtual CFO advisory engagement for an entity in the e-commerce sector.",
+      "metaKeywords": "Virtual CFO, Financial Reporting, E-commerce",
+      "image": "",
+      "industry": "E-commerce",
+      "summary": "A Virtual CFO engagement covering periodic financial reporting and cash flow monitoring was carried out for an e-commerce-sector entity.",
+      "metrics": [
+        { "label": "Engagement Type", "val": "Virtual CFO Advisory" },
+        { "label": "Duration", "val": "Ongoing, Retainer Basis" },
+        { "label": "Reporting", "val": "Monthly" }
+      ]
+    }
+  ]
+}

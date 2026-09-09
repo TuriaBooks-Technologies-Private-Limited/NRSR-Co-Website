@@ -1,0 +1,28 @@
+---
+interface Props {
+  testimonial: {
+    id: string;
+    name: string;
+    designation: string;
+    company: string;
+    rating: number;
+    review: string;
+    placement?: string;
+  };
+}
+
+const { testimonial } = Astro.props;
+---
+
+<div class="content-card reveal-on-scroll">
+  <div style="color:var(--color-accent); font-size:16px; margin-bottom:12px;">
+    {'★'.repeat(testimonial.rating || 5)}
+  </div>
+  <p class="content-card-quote" style="font-size:14px; line-height:1.6; color:var(--text-muted); margin-bottom:16px;">
+    "{testimonial.review}"
+  </p>
+  <div style="border-top:1px solid #e2e8f0; padding-top:12px; display:flex; flex-direction:column;">
+    <strong style="color:var(--text-main); font-size:14px;">{testimonial.name}</strong>
+    <span style="font-size:12px; color:var(--text-muted);">{testimonial.designation}, {testimonial.company}</span>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+{
+  "id": "cs-6",
+  "title": "Virtual CFO Engagement — E-commerce Sector",
+  "slug": "virtual-cfo-engagement-ecommerce-sector",
+  "metaTitle": "Virtual CFO Engagement Overview | NRSR & Co",
+  "metaDesc": "An overview of a Virtual CFO advisory engagement for an entity in the e-commerce sector.",
+  "metaKeywords": "Virtual CFO, Financial Reporting, E-commerce",
+  "image": "",
+  "industry": "E-commerce",
+  "summary": "A Virtual CFO engagement covering periodic financial reporting and cash flow monitoring was carried out for an e-commerce-sector entity.",
+  "metrics": [
+    { "label": "Engagement Type", "val": "Virtual CFO Advisory" },
+    { "label": "Duration", "val": "Ongoing, Retainer Basis" },
+    { "label": "Reporting", "val": "Monthly" }
+  ],
+  "challenge": "The entity did not have a dedicated in-house finance leadership function and required periodic financial reporting and cash flow visibility to support its operations.",
+  "solution": "The engagement was structured as a retainer-based Virtual CFO arrangement, covering monthly financial reporting, cash flow monitoring, and periodic budget review sessions.",
+  "execution": "Monthly reporting cycles were established with the entity's internal accounts team, along with a recurring review meeting to go through financial statements and cash flow forecasts."
+}

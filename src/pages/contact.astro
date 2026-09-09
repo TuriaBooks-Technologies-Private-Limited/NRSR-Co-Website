@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact Us | M/s NRSR & Co Chartered Accountants"
+  description="Contact M/s NRSR & Co Chartered Accountants in Manipal (HQ) and Bengaluru. Reach us for virtual CFO, direct tax litigation, GST audit, and business valuation inquiries."
+>
+  <!-- Header Banner -->
+  <section class="section-padding" style="padding-top: calc(var(--header-height) + 50px); background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-main) 100%);">
+    <div class="container text-center">
+      <div class="section-header text-center" style="margin-bottom:0;">
+        <span class="section-subtitle">Get in Touch</span>
+        <h1 class="section-title" style="font-size: 38px;">Contact Us</h1>
+      </div>
+      <p style="color: var(--text-muted); max-width: 700px; margin: 16px auto 0 auto; font-size: 16px;">
+        For inquiries relating to Virtual CFO services, Transfer Pricing, Statutory Audits, GST compliance, or Valuation advisory.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Form & Registered Offices Section -->
+  <section class="section-padding">
+    <div class="container contact-layout">
+      <!-- Contact Info Card -->
+      <div class="contact-card">
+        <h3 style="font-size: 22px; margin-bottom: 24px; color: var(--text-main);">Registered Offices</h3>
+
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div class="info-content">
+            <h4>Manipal Headquarters</h4>
+            <p>'Gokula', 1st Floor, Union Bank Building, Opp. Green Park Hotel, Near Tiger Circle, Manipal, Karnataka 576104</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">🏢</div>
+          <div class="info-content">
+            <h4>Bengaluru Branch Office</h4>
+            <p>Laggere, Bengaluru, Karnataka</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div class="info-content">
+            <h4>Phone & WhatsApp</h4>
+            <p><a href="tel:+919108599083" style="color: var(--color-primary); font-weight:700;">+91 9108599083</a></p>
+            <p style="font-size: 12px; color: var(--text-muted);">Mon - Sat: 9:30 AM - 6:30 PM IST</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div class="info-content">
+            <h4>Email Inquiries</h4>
+            <p><a href="mailto:info@nrsrandco.com" style="color: var(--color-primary); font-weight:700;">info@nrsrandco.com</a></p>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(15,17,20,0.1);">
+          <h4 style="font-size: 14px; color: var(--color-primary); margin-bottom: 8px;">Cross-Border Engagements</h4>
+          <p style="font-size: 13px; color: var(--text-muted);">The firm handles cross-border financial and tax compliance matters involving India, the United States, and Australia.</p>
+        </div>
+      </div>
+
+      <!-- Contact Form Card -->
+      <div class="contact-card">
+        <h3 style="font-size: 22px; margin-bottom: 8px; color: var(--text-main);">Send a Message</h3>
+        <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 24px;">Queries submitted through this form are typically responded to within 24 hours.</p>
+
+        <form id="contactForm">
+          <div class="form-group">
+            <label>Your Full Name *</label>
+            <input type="text" id="formName" name="name" class="form-control" placeholder="e.g. Ramesh Kumar" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" id="formEmail" name="email" class="form-control" placeholder="name@company.com" required />
+            </div>
+
+            <div class="form-group">
+              <label>Phone / Mobile Number *</label>
+              <input type="tel" id="formPhone" name="phone" class="form-control" placeholder="+91 98765 43210" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Primary Service Requirement</label>
+            <select id="formService" name="service" class="form-control">
+              <option>Direct Tax & Litigation</option>
+              <option>Goods & Services Tax (GST)</option>
+              <option>Statutory & Internal Audits</option>
+              <option>Business Valuation & ESOPs</option>
+              <option>Virtual CFO Services</option>
+              <option>Transfer Pricing (TP) Study</option>
+              <option>Company & LLP Compliance</option>
+              <option>Other Services</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Message / Specific Query</label>
+            <textarea id="formMessage" name="message" class="form-control" rows="4" placeholder="Describe your business background and compliance requirements..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 700;">Submit Consultation Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>

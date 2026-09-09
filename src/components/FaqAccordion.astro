@@ -1,0 +1,27 @@
+---
+interface Props {
+  faqs: Array<{
+    id: string;
+    question: string;
+    answer: string;
+    category?: string;
+    placement?: string;
+  }>;
+}
+
+const { faqs } = Astro.props;
+---
+
+<div class="faq-accordion" id="faqsContainer">
+  {faqs.map((faq, index) => (
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>{faq.question}</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>{faq.answer}</p>
+      </div>
+    </div>
+  ))}
+</div>

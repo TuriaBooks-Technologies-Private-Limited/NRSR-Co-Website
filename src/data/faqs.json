@@ -1,0 +1,28 @@
+{
+  "faqs": [
+    {
+      "id": "faq-1",
+      "question": "What is a Virtual CFO service and how does it benefit my business?",
+      "answer": "A Virtual CFO arrangement provides access to financial leadership functions such as cash flow forecasting, working capital review, and investor documentation preparation, on a retainer basis rather than through a full-time hire.",
+      "placement": "index.html"
+    },
+    {
+      "id": "faq-2",
+      "question": "How does NRSR & Co assist foreign entities setting up Global Capability Centres (GCC) in India?",
+      "answer": "The firm provides support with Indian company incorporation, STPI/SEZ filings, Transfer Pricing benchmarking under Rule 10D, and coordination on HR-related registrations in Karnataka.",
+      "placement": "all"
+    },
+    {
+      "id": "faq-3",
+      "question": "What direct tax litigation support does NRSR & Co offer?",
+      "answer": "The firm's team of Advocates and Chartered Accountants prepares legal submissions, applies for stay of high-pitched penalty demands, and represents clients before the Income Tax Appellate Tribunal (ITAT).",
+      "placement": "services.html"
+    },
+    {
+      "id": "faq-4",
+      "question": "Can you connect Power BI dashboards directly to our Tally or SAP accounting system?",
+      "answer": "Data pipelines can be set up to connect Tally, Zoho, or SAP with Power BI dashboards for periodic reporting purposes.",
+      "placement": "services.html"
+    }
+  ]
+}

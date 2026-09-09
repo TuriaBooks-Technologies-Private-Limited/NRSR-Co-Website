@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TeamCard from '../components/TeamCard.astro';
+import teamData from '../data/team.json';
+
+const team = teamData.team || [];
+---
+
+<Layout
+  title="Meet Our Team | M/s NRSR & Co"
+  description="The multidisciplinary team at NRSR & Co: Chartered Accountants, Registered Valuers, Tax Consultants, and Corporate Assurance Specialists."
+>
+  <!-- Header Banner -->
+  <section class="section-padding" style="padding-top: calc(var(--header-height) + 50px); background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-main) 100%);">
+    <div class="container text-center">
+      <div class="section-header text-center" style="margin-bottom:0;">
+        <span class="section-subtitle">Multidisciplinary Talent</span>
+        <h1 class="section-title" style="font-size: 38px;">Meet Our Team</h1>
+      </div>
+      <p style="color: var(--text-muted); max-width: 800px; margin: 16px auto 0 auto; font-size: 16px; line-height: 1.7;">
+        NRSR & Co brings together a multidisciplinary team of Chartered Accountants, valuation specialists, financial analysts, tax professionals, and corporate governance advisors.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team Structure Pillars -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Core Pillars</span>
+        <h2 class="section-title">Team Structure</h2>
+      </div>
+
+      <div class="content-grid content-grid-3">
+        <div class="content-card reveal-on-scroll" style="cursor:default;">
+          <div class="content-card-top"><span class="content-card-client">01</span></div>
+          <h3 class="content-card-headline" style="font-size:17px;">Dedicated Specialists</h3>
+          <p class="content-card-quote" style="font-style:normal;">Audit, tax, corporate accounts, compliance, and valuation each have a dedicated owner you can directly reach.</p>
+        </div>
+
+        <div class="content-card reveal-on-scroll reveal-down" style="cursor:default;">
+          <div class="content-card-top"><span class="content-card-client">02</span></div>
+          <h3 class="content-card-headline" style="font-size:17px;">Chartered Accountant-Led</h3>
+          <p class="content-card-quote" style="font-style:normal;">Our Managing Partner and Partner both hold ACA qualifications, backing every engagement with formal audit credentials.</p>
+        </div>
+
+        <div class="content-card reveal-on-scroll" style="cursor:default;">
+          <div class="content-card-top"><span class="content-card-client">03</span></div>
+          <h3 class="content-card-headline" style="font-size:17px;">Registered Valuation Qualification</h3>
+          <p class="content-card-quote" style="font-style:normal;">DISA(ICAI) and Registered Valuer qualifications on staff for information-systems audits and securities valuation.</p>
+        </div>
+
+        <div class="content-card reveal-on-scroll reveal-down" style="cursor:default;">
+          <div class="content-card-top"><span class="content-card-client">04</span></div>
+          <h3 class="content-card-headline" style="font-size:17px;">Structured Handover</h3>
+          <p class="content-card-quote" style="font-style:normal;">Corporate accounts, assurance, and compliance are separate roles, so nothing falls through the cracks between filing and audit.</p>
+        </div>
+
+        <div class="content-card reveal-on-scroll" style="cursor:default;">
+          <div class="content-card-top"><span class="content-card-client">05</span></div>
+          <h3 class="content-card-headline" style="font-size:17px;">Multi-Location Coverage</h3>
+          <p class="content-card-quote" style="font-style:normal;">Headquartered in Manipal with a dedicated branch office in Bengaluru.</p>
+        </div>
+
+        <div class="content-card reveal-on-scroll reveal-down" style="cursor:default;">
+          <div class="content-card-top"><span class="content-card-client">06</span></div>
+          <h3 class="content-card-headline" style="font-size:17px;">Bound by Professional Standards</h3>
+          <p class="content-card-quote" style="font-style:normal;">Operating strictly under the ICAI Chartered Accountants Act, 1949 with high integrity and transparent communication.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialist Team Members Grid -->
+  <section class="section-padding" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Specialist Areas</span>
+        <h2 class="section-title">Leadership & Specialists</h2>
+      </div>
+
+      <div id="teamGrid" class="team-grid">
+        {team.map((m, idx) => (
+          <TeamCard member={m} index={idx} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

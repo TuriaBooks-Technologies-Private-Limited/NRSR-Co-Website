@@ -1,0 +1,15 @@
+{
+  "id": "blog-3",
+  "title": "Power BI Dashboards for Financial Reporting",
+  "slug": "power-bi-executive-dashboards-financial-decision-making",
+  "metaTitle": "Power BI Financial Reporting Dashboards | NRSR & Co",
+  "metaDesc": "How ERP data can be connected to Power BI to produce recurring financial reporting dashboards.",
+  "metaKeywords": "Power BI, Financial Reporting, Business Intelligence, ERP Integration",
+  "image": "",
+  "category": "Technology & Automation",
+  "author": "Akshay Bhat",
+  "date": "2026-07-02",
+  "readTime": "5 min read",
+  "summary": "An overview of connecting accounting ERP data to Power BI to produce recurring financial reporting dashboards.",
+  "content": "### Reporting Frequency\nMonth-end financial statements provide a periodic view of a business's position. Some businesses additionally use dashboards that refresh on a more frequent basis for internal review purposes.\n\n### Connecting ERP Data to Power BI\nAccounting ERPs such as Tally, SAP, and Zoho Books can be connected to Microsoft Power BI through data pipelines, allowing figures recorded in the ERP to populate a dashboard layout.\n\n#### Common Dashboard Components\n- **Working Capital Summary**: Tracking of current assets against current liabilities.\n- **Receivables Ageing View**: Listing of overdue customer accounts by age bracket.\n- **Departmental Expense Tracking**: Comparison of recorded expenses against budgeted figures."
+}

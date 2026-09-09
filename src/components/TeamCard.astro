@@ -1,0 +1,38 @@
+---
+interface Props {
+  member: {
+    id: string;
+    name: string;
+    role: string;
+    category?: string;
+    qualification?: string;
+    expertise?: string;
+    bio?: string;
+    image?: string;
+  };
+  index?: number;
+}
+
+const { member, index = 0 } = Astro.props;
+---
+
+<div class="member-card card-hover reveal-on-scroll" style={`transition-delay: ${(index % 3) * 0.1}s;`}>
+  {member.image ? (
+    <div class="member-avatar reveal-on-scroll reveal-develop" style="background:none; border:2px solid var(--color-primary); overflow:hidden;">
+      <img src={member.image} alt={member.name} style="width:100%; height:100%; object-fit:cover;" />
+    </div>
+  ) : (
+    <div class="member-avatar reveal-on-scroll reveal-develop">
+      {member.name.charAt(0)}
+    </div>
+  )}
+  <h3>{member.name}</h3>
+  <div class="member-role">{member.role}</div>
+  {member.qualification && <div class="member-qual">{member.qualification}</div>}
+  {member.expertise && (
+    <div class="member-expertise">
+      <strong>Key Focus:</strong> {member.expertise}
+    </div>
+  )}
+  {member.bio && <div class="member-bio">{member.bio}</div>}
+</div>

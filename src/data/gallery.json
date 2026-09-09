@@ -1,0 +1,36 @@
+{
+  "gallery": [
+    {
+      "id": "gal-1",
+      "title": "NRSR & Co Headquarters — Manipal",
+      "category": "Office",
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+      "caption": "Our primary corporate office at Union Bank Building, Tiger Circle, Manipal.",
+      "date": "2026-01-15"
+    },
+    {
+      "id": "gal-2",
+      "title": "Annual Team Strategy & CPD Seminar",
+      "category": "Events",
+      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+      "caption": "Continuous professional development workshop on Union Budget and Tax Updates.",
+      "date": "2026-02-10"
+    },
+    {
+      "id": "gal-3",
+      "title": "Client Advisory & Corporate Consultation",
+      "category": "Team",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+      "caption": "Corporate restructuring and valuation advisory session in progress.",
+      "date": "2026-03-01"
+    },
+    {
+      "id": "gal-4",
+      "title": "ICAI Peer Review & Quality Certification",
+      "category": "Certifications",
+      "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+      "caption": "Recognition of rigorous quality control frameworks and adherence to ICAI standards.",
+      "date": "2026-04-20"
+    }
+  ]
+}
