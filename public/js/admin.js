@@ -500,8 +500,8 @@ window.openBlogModal = function() {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Featured Cover Photo Upload (with Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="bPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2);">
-            <span style="font-size:20px; color:#94a3b8;">🖼️</span>
+          <div id="bPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2); color:#94a3b8;">
+            ${window.SVG_ICONS?.gallery || `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>`}
           </div>
           <input type="file" id="bPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
         </div>
@@ -524,7 +524,9 @@ window.openBlogModal = function() {
       </div>
 
       <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(7,26,54,0.15); margin-bottom:16px;">
-        <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px;">🔍 Enterprise SEO & Social Metadata</h4>
+        <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+          ${window.SVG_ICONS?.search || ''} Enterprise SEO & Social Metadata
+        </h4>
         <div class="form-group">
           <label>Meta Title Tag (60 chars)</label>
           <input type="text" id="bMetaTitle" class="form-control" placeholder="Virtual CFO Advisory Guide 2026 | NRSR & Co">
@@ -620,8 +622,8 @@ window.openEditBlogModal = function(id) {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Update Featured Cover Photo (Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="editBPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2);">
-            ${b.image ? `<img src="${b.image}" style="width:100%; height:100%; object-fit:cover;">` : `<span style="font-size:20px; color:#94a3b8;">🖼️</span>`}
+          <div id="editBPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2); color:#94a3b8;">
+            ${b.image ? `<img src="${b.image}" style="width:100%; height:100%; object-fit:cover;">` : (window.SVG_ICONS?.gallery || `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>`)}
           </div>
           <input type="file" id="editBPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
         </div>
@@ -644,7 +646,9 @@ window.openEditBlogModal = function(id) {
       </div>
 
       <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(7,26,54,0.15); margin-bottom:16px;">
-        <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px;">🔍 Enterprise SEO & Social Metadata</h4>
+        <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+          ${window.SVG_ICONS?.search || ''} Enterprise SEO & Social Metadata
+        </h4>
         <div class="form-group">
           <label>Meta Title Tag</label>
           <input type="text" id="editBMetaTitle" class="form-control" value="${b.metaTitle || ''}">
@@ -747,8 +751,8 @@ window.openCaseStudyModal = function() {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Case Study Banner Photo Upload (with Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="csPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2);">
-            <span style="font-size:20px; color:#94a3b8;">📊</span>
+          <div id="csPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2); color:#94a3b8;">
+            ${window.SVG_ICONS?.chart || `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><line x1="2" y1="20" x2="22" y2="20"></line></svg>`}
           </div>
           <input type="file" id="csPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
         </div>
@@ -766,7 +770,9 @@ window.openCaseStudyModal = function() {
       </div>
 
       <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(7,26,54,0.15); margin-bottom:16px;">
-        <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px;">🔍 Enterprise SEO & Social Metadata</h4>
+        <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+          ${window.SVG_ICONS?.search || ''} Enterprise SEO & Social Metadata
+        </h4>
         <div class="form-group">
           <label>Meta Title Tag (60 chars)</label>
           <input type="text" id="csMetaTitle" class="form-control" placeholder="Income Tax Tribunal Case Study | NRSR & Co">
@@ -864,8 +870,8 @@ window.openEditCaseStudyModal = function(id) {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Update Banner Photo (Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="editCsPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2);">
-            ${c.image ? `<img src="${c.image}" style="width:100%; height:100%; object-fit:cover;">` : `<span style="font-size:20px; color:#94a3b8;">📊</span>`}
+          <div id="editCsPhotoPreview" style="width:90px; height:60px; border-radius:6px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(7,26,54,0.2); color:#94a3b8;">
+            ${c.image ? `<img src="${c.image}" style="width:100%; height:100%; object-fit:cover;">` : (window.SVG_ICONS?.chart || `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><line x1="2" y1="20" x2="22" y2="20"></line></svg>`)}
           </div>
           <input type="file" id="editCsPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
         </div>
@@ -883,7 +889,9 @@ window.openEditCaseStudyModal = function(id) {
       </div>
 
       <div style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px solid rgba(7,26,54,0.15); margin-bottom:16px;">
-        <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px;">🔍 Enterprise SEO & Social Metadata</h4>
+        <h4 style="font-size:13px; color:var(--color-primary); margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+          ${window.SVG_ICONS?.search || ''} Enterprise SEO & Social Metadata
+        </h4>
         <div class="form-group">
           <label>Meta Title Tag</label>
           <input type="text" id="editCsMetaTitle" class="form-control" value="${c.metaTitle || ''}">
@@ -994,8 +1002,8 @@ window.openTeamModal = function() {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Member Photo Upload (with Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="mPhotoPreview" style="width:64px; height:64px; border-radius:50%; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:2px solid var(--color-primary);">
-            <span style="font-size:24px; color:#94a3b8;">👤</span>
+          <div id="mPhotoPreview" style="width:64px; height:64px; border-radius:50%; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:2px solid var(--color-primary); color:#94a3b8;">
+            ${window.SVG_ICONS?.user || `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`}
           </div>
           <input type="file" id="mPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
         </div>
@@ -1282,8 +1290,8 @@ window.openTestimonialModal = function() {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Client Photo Upload (optional, with Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="tPhotoPreview" style="width:64px; height:64px; border-radius:50%; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:2px solid var(--color-primary);">
-            <span style="font-size:24px; color:#94a3b8;">👤</span>
+          <div id="tPhotoPreview" style="width:64px; height:64px; border-radius:50%; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:2px solid var(--color-primary); color:#94a3b8;">
+            ${window.SVG_ICONS?.user || `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`}
           </div>
           <input type="file" id="tPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
         </div>
@@ -1365,8 +1373,8 @@ window.openEditTestimonialModal = function(id) {
       <div class="form-group" style="background:var(--bg-main); padding:16px; border-radius:8px; border:1px dashed var(--color-primary);">
         <label style="font-weight:700;">Client Photo (optional, with Live Preview)</label>
         <div style="display:flex; align-items:center; gap:16px; margin-top:8px;">
-          <div id="editTPhotoPreview" style="width:64px; height:64px; border-radius:50%; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:2px solid var(--color-primary);">
-            ${t.image ? `<img src="${t.image}" style="width:100%; height:100%; object-fit:cover;">` : `<span style="font-size:24px; color:#94a3b8;">👤</span>`}
+          <div id="editTPhotoPreview" style="width:64px; height:64px; border-radius:50%; background:#e2e8f0; display:flex; align-items:center; justify-content:center; overflow:hidden; border:2px solid var(--color-primary); color:#94a3b8;">
+            ${t.image ? `<img src="${t.image}" style="width:100%; height:100%; object-fit:cover;">` : (window.SVG_ICONS?.user || `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`)}
           </div>
           <input type="file" id="editTPhotoInput" accept="image/*" class="form-control" style="padding:6px;">
           ${t.image ? `<button type="button" id="editTPhotoRemove" class="btn btn-outline" style="padding:6px 12px; font-size:12px;">Remove</button>` : ''}
@@ -1398,7 +1406,7 @@ window.openEditTestimonialModal = function(id) {
   if (removeBtn) {
     removeBtn.addEventListener('click', () => {
       uploadedTImageBase64 = '';
-      document.getElementById('editTPhotoPreview').innerHTML = `<span style="font-size:24px; color:#94a3b8;">👤</span>`;
+      document.getElementById('editTPhotoPreview').innerHTML = window.SVG_ICONS?.user || `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
     });
   }
 
@@ -1748,7 +1756,9 @@ function renderSettingsPanel(container) {
       
       <!-- Firm Identity & Contact Card -->
       <div>
-        <h3 style="font-size:18px; color:var(--color-primary); margin-top:0; margin-bottom:6px; font-weight:800;">📇 Firm Contact Card & Header Details</h3>
+        <h3 style="font-size:18px; color:var(--color-primary); margin-top:0; margin-bottom:6px; font-weight:800; display:flex; align-items:center; gap:8px;">
+          ${window.SVG_ICONS?.building || ''} Firm Contact Card & Header Details
+        </h3>
         <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Update official contact numbers, emails, and address lines displayed in headers, footers, and contact pages.</p>
         
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
@@ -1810,7 +1820,9 @@ function renderSettingsPanel(container) {
 
       <!-- Lead Notifications Config Block -->
       <div>
-        <h3 style="font-size:18px; color:var(--color-primary); margin-top:0; margin-bottom:6px; font-weight:800;">🔔 Lead Email Notifications Dispatch</h3>
+        <h3 style="font-size:18px; color:var(--color-primary); margin-top:0; margin-bottom:6px; font-weight:800; display:flex; align-items:center; gap:8px;">
+          ${window.SVG_ICONS?.bell || ''} Lead Email Notifications Dispatch
+        </h3>
         <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">New client submissions from the contact form are dispatched to these email addresses.</p>
         <div class="form-group">
           <label>Recipient Notification Emails (Comma separated)</label>
@@ -1822,7 +1834,9 @@ function renderSettingsPanel(container) {
 
       <!-- WhatsApp Support Routing Block -->
       <div>
-        <h3 style="font-size:18px; color:var(--color-primary); margin-bottom:6px; font-weight:800;">💬 WhatsApp Contact Routing</h3>
+        <h3 style="font-size:18px; color:var(--color-primary); margin-bottom:6px; font-weight:800; display:flex; align-items:center; gap:8px;">
+          ${window.SVG_ICONS?.messageSquare || ''} WhatsApp Contact Routing
+        </h3>
         <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Manage active advisor WhatsApp numbers displayed in floating chat buttons and contact points.</p>
         
         <table class="admin-table" style="margin-bottom:16px;">
@@ -1860,7 +1874,9 @@ function renderSettingsPanel(container) {
         </div>
       </div>
 
-      <button class="btn btn-primary" onclick="window.saveGlobalSettings()" style="width:100%; padding:14px; font-weight:800; font-size:15px; margin-top:10px;">💾 Save & Publish All Settings</button>
+      <button class="btn btn-primary" onclick="window.saveGlobalSettings()" style="width:100%; padding:14px; font-weight:800; font-size:15px; margin-top:10px; display:flex; align-items:center; justify-content:center; gap:8px;">
+        ${window.SVG_ICONS?.save || ''} Save & Publish All Settings
+      </button>
     </div>
   `;
 }
@@ -2258,7 +2274,7 @@ function renderLinksTable(container) {
           <tr>
             <td>
               <div style="font-weight:700; color:var(--text-main); display:flex; align-items:center; gap:8px;">
-                <span>${l.icon || "🔗"}</span>
+                <span style="color:var(--color-primary); display:inline-flex; align-items:center;">${(l.icon && l.icon.trim().startsWith('<svg')) ? l.icon : (window.SVG_ICONS?.link || `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>`)}</span>
                 <span>${l.title}</span>
               </div>
               <div style="font-size:11px; color:var(--text-muted);">${(l.description || "").substring(0, 60)}...</div>
@@ -2274,7 +2290,7 @@ function renderLinksTable(container) {
             </td>
           </tr>
         `).join("")}
-        ${links.length === 0 ? "<tr><td colspan="5" style="text-align:center; color:var(--text-muted); padding:30px;">No links added. Click + Add New Link / Tool to create!</td></tr>" : ""}
+        ${links.length === 0 ? "<tr><td colspan=\"5\" style=\"text-align:center; color:var(--text-muted); padding:30px;\">No links added. Click + Add New Link / Tool to create!</td></tr>" : ""}
       </tbody>
     </table>
   `;
@@ -2308,15 +2324,9 @@ window.openLinkModal = function(id) {
           <input type="text" id="linkBadge" class="form-control" value="${link ? link.badge || "Portal" : "Portal"}" placeholder="e.g. Tax Portal, Live Chat">
         </div>
       </div>
-      <div style="display:grid; grid-template-columns:80px 1fr; gap:12px;">
-        <div class="form-group">
-          <label>Icon / Emoji</label>
-          <input type="text" id="linkIcon" class="form-control" value="${link ? link.icon || "🔗" : "🔗"}" style="text-align:center;">
-        </div>
-        <div class="form-group">
-          <label>Destination URL *</label>
-          <input type="url" id="linkUrl" class="form-control" required value="${link ? link.url : "https://"}" placeholder="https://...">
-        </div>
+      <div class="form-group">
+        <label>Destination URL *</label>
+        <input type="url" id="linkUrl" class="form-control" required value="${link ? link.url : "https://"}" placeholder="https://...">
       </div>
       <div class="form-group">
         <label>Short Description</label>

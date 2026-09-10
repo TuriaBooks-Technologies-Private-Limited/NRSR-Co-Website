@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   testimonial: {
     id: string;
@@ -12,11 +14,14 @@ interface Props {
 }
 
 const { testimonial } = Astro.props;
+const ratingCount = Math.max(1, Math.min(5, testimonial.rating || 5));
 ---
 
 <div class="content-card reveal-on-scroll">
-  <div style="color:var(--color-accent); font-size:16px; margin-bottom:12px;">
-    {'★'.repeat(testimonial.rating || 5)}
+  <div style="display:flex; gap:3px; color:#f59e0b; margin-bottom:12px;">
+    {Array(ratingCount).fill(0).map(() => (
+      <Icon name="star" size={16} color="#f59e0b" />
+    ))}
   </div>
   <p class="content-card-quote" style="font-size:14px; line-height:1.6; color:var(--text-muted); margin-bottom:16px;">
     "{testimonial.review}"

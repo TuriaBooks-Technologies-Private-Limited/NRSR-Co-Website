@@ -1,5 +1,6 @@
 ---
 import settingsData from '../data/settings.json';
+import Icon from './Icon.astro';
 
 interface Props {
   currentPath?: string;
@@ -48,20 +49,24 @@ const isActive = (href: string) => {
       <!-- Portal Logins Dropdown (Client Login & Employee Practice Login) -->
       <div class="nav-dropdown">
         <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" id="portalDropdownBtn">
-          <span style="font-size:14px;">🔒</span>
+          <Icon name="lock" size={14} color="#ffffff" />
           <span>Portal Logins</span>
-          <span style="font-size:10px; opacity:0.8; margin-left:2px;">▼</span>
+          <Icon name="chevron-down" size={12} color="rgba(255,255,255,0.7)" />
         </button>
         <div class="nav-dropdown-menu">
           <a href={clientLoginUrl} target="_blank" rel="noopener noreferrer" class="nav-dropdown-item">
-            <div class="dropdown-item-icon">👤</div>
+            <div class="dropdown-item-icon">
+              <Icon name="user" size={18} color="var(--color-primary-dark)" />
+            </div>
             <div class="dropdown-item-text">
               <strong>Client Login</strong>
               <small>Access files, reports & returns</small>
             </div>
           </a>
           <a href={employeeLoginUrl} target="_blank" rel="noopener noreferrer" class="nav-dropdown-item">
-            <div class="dropdown-item-icon">💼</div>
+            <div class="dropdown-item-icon">
+              <Icon name="briefcase" size={18} color="#2b6140" />
+            </div>
             <div class="dropdown-item-text">
               <strong>Employee Login</strong>
               <small>Practice Portal (Turia)</small>

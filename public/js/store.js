@@ -429,7 +429,7 @@ const DEFAULT_LINKS = [
     category: 'Government Portals',
     url: 'https://www.incometax.gov.in',
     description: 'Official Income Tax Department e-filing portal for ITR, 26AS, AIS/TIS, and e-Verification.',
-    icon: '🏛️',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"></line><line x1="6" y1="18" x2="6" y2="11"></line><line x1="10" y1="18" x2="10" y2="11"></line><line x1="14" y1="18" x2="14" y2="11"></line><line x1="18" y1="18" x2="18" y2="11"></line><polygon points="12 2 20 7 4 7 12 2"></polygon></svg>`,
     badge: 'Tax Portal'
   },
   {
@@ -438,7 +438,7 @@ const DEFAULT_LINKS = [
     category: 'Government Portals',
     url: 'https://www.gst.gov.in',
     description: 'National GST portal for monthly return filing, GSTR-2B reconciliations, and registrations.',
-    icon: '🧾',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>`,
     badge: 'GST Portal'
   },
   {
@@ -447,7 +447,7 @@ const DEFAULT_LINKS = [
     category: 'Government Portals',
     url: 'https://www.mca.gov.in',
     description: 'MCA21 portal for company & LLP incorporations, DIN KYC, and annual ROC statutory filings.',
-    icon: '🏢',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><line x1="2" y1="20" x2="22" y2="20"></line><line x1="14" y1="4" x2="10" y2="4"></line></svg>`,
     badge: 'Corporate Portal'
   },
   {
@@ -456,7 +456,7 @@ const DEFAULT_LINKS = [
     category: 'Regulatory',
     url: 'https://www.icai.org',
     description: 'Institute of Chartered Accountants of India - accounting standards, notifications & guidance.',
-    icon: '🎓',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>`,
     badge: 'ICAI Portal'
   },
   {
@@ -465,7 +465,7 @@ const DEFAULT_LINKS = [
     category: 'Client Support',
     url: 'https://dashboard.tawk.to/#/dashboard/6011a916c31c9117cb73225c',
     description: 'Instant live support chat with NRSR & Co compliance and client advisory desk.',
-    icon: '💬',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
     badge: 'Live Chat'
   },
   {
@@ -474,7 +474,7 @@ const DEFAULT_LINKS = [
     category: 'Client Support',
     url: 'https://wa.me/919108599083?text=Hello%20NRSR%20%26%20Co,%20I%20would%20like%20to%20inquire%20about%20your%20services.',
     description: 'Direct WhatsApp hotline with our senior advisory team for queries and status tracking.',
-    icon: '📱',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>`,
     badge: 'WhatsApp Hotline'
   }
 ];

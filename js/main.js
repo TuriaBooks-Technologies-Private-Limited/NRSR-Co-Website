@@ -132,8 +132,9 @@ function initCookieBanner() {
 }
 
 function getCurrentPageName() {
-  const path = window.location.pathname.split('/').pop();
-  return path || 'index.html';
+  const clean = window.location.pathname.replace(/^\/|\/$/g, '').split('/')[0];
+  if (!clean || clean === 'index.html' || clean === 'index') return 'index';
+  return clean.replace(/\.html$/, '');
 }
 
 /* 4. Render Dynamic Content from Store */
@@ -152,7 +153,7 @@ function renderDynamicContent() {
   const faqsContainer = document.getElementById('faqsContainer');
   if (faqsContainer) {
     const allFaqs = window.gmStore.getFaqs();
-    const pageFaqs = allFaqs.filter(f => !f.placement || f.placement === 'all' || f.placement === currentPage);
+    const pageFaqs = allFaqs.filter(f => !f.placement || f.placement === 'all' || f.placement === currentPage || f.placement === `${currentPage}.html` || (currentPage === 'index' && (f.placement === 'index' || f.placement === 'index.html')));
     renderFaqsGrid(pageFaqs.length > 0 ? pageFaqs : allFaqs, faqsContainer);
   }
 
@@ -160,7 +161,7 @@ function renderDynamicContent() {
   const testimonialsContainer = document.getElementById('testimonialsContainer');
   if (testimonialsContainer) {
     const allTestimonials = window.gmStore.getTestimonials();
-    const pageTestimonials = allTestimonials.filter(t => !t.placement || t.placement === 'all' || t.placement === currentPage);
+    const pageTestimonials = allTestimonials.filter(t => !t.placement || t.placement === 'all' || t.placement === currentPage || t.placement === `${currentPage}.html` || (currentPage === 'index' && (t.placement === 'index' || t.placement === 'index.html')));
     renderTestimonials(pageTestimonials.length > 0 ? pageTestimonials : allTestimonials, testimonialsContainer);
   }
 
@@ -277,7 +278,7 @@ function renderTestimonials(testimonials, container) {
   const t = testimonials[0];
   container.innerHTML = `
     <div class="testimonial-card card-hover">
-      <div class="stars">${'★'.repeat(t.rating || 5)}</div>
+      <div class="stars" style="display:flex; gap:3px; margin-bottom:8px;">${window.renderSvgStars ? window.renderSvgStars(t.rating || 5) : ''}</div>
       <div class="testimonial-text">"${t.review}"</div>
       <div class="testimonial-author">${t.name}</div>
       <div class="testimonial-role">${t.designation} ${t.company ? '• ' + t.company : ''}</div>
@@ -286,11 +287,9 @@ function renderTestimonials(testimonials, container) {
 }
 
 /* 10. Render Blogs with Featured Cover Photo */
-/* Same flat content-card pattern as case studies — one card component
-   for any "grid of stories" section, rather than a bespoke style per page. */
 function renderBlogs(blogs, container) {
   container.innerHTML = blogs.map((b, i) => `
-    <a href="blog-detail.html?slug=${b.slug || b.id}" class="content-card reveal-on-scroll ${i % 2 ? 'reveal-down' : ''}" style="transition-delay:${(i % 3) * 0.08}s;">
+    <a href="/blogs/${b.slug || b.id}" class="content-card reveal-on-scroll ${i % 2 ? 'reveal-down' : ''}" style="transition-delay:${(i % 3) * 0.08}s;">
       <div class="content-card-top">
         <span class="content-card-client">${b.category}</span>
         <span class="content-card-industry">${b.date}</span>
@@ -309,15 +308,12 @@ function renderBlogs(blogs, container) {
 }
 
 /* 11. Render Case Studies with Featured Banner Photo */
-/* Flat, hairline-bordered case study grid — company/industry as the
-   "logo" row, the headline metric standing in for a stat header, quote,
-   then an avatar-initial + "Read case study" footer row. */
 function renderCaseStudies(caseStudies, container) {
   container.innerHTML = caseStudies.map((c, i) => {
     const headline = c.metrics && c.metrics[0] ? `${c.metrics[0].val} ${c.metrics[0].label}` : c.title;
     const initial = (c.client || c.industry || 'N').charAt(0);
     return `
-    <a href="case-study-detail.html?slug=${c.slug || c.id}" class="content-card reveal-on-scroll ${i % 2 ? 'reveal-down' : ''}" style="transition-delay:${(i % 3) * 0.08}s;">
+    <a href="/case-studies/${c.slug || c.id}" class="content-card reveal-on-scroll ${i % 2 ? 'reveal-down' : ''}" style="transition-delay:${(i % 3) * 0.08}s;">
       <div class="content-card-top">
         <span class="content-card-client">${c.client || c.industry}</span>
         <span class="content-card-industry">${c.industry}</span>
@@ -373,7 +369,7 @@ function renderDetailPages() {
         <div style="background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:var(--card-shadow); border:var(--card-border);">
           <!-- Breadcrumb Navigation -->
           <div style="background:var(--bg-alt); padding:14px 48px; border-bottom:1px solid rgba(29,163,154,0.08); font-size:12px; color:var(--text-muted);">
-            <a href="index.html">Home</a> &nbsp;›&nbsp; <a href="blogs.html">Insights & Blogs</a> &nbsp;›&nbsp; <span style="color:var(--color-primary); font-weight:600;">${blog.title}</span>
+            <a href="/">Home</a> &nbsp;›&nbsp; <a href="/blogs">Insights & Blogs</a> &nbsp;›&nbsp; <span style="color:var(--color-primary); font-weight:600;">${blog.title}</span>
           </div>
 
           ${blog.image ? `
@@ -412,7 +408,7 @@ function renderDetailPages() {
                 <h4 style="font-size:16px; color:var(--color-slate);">Need Financial or Compliance Advisory?</h4>
                 <p style="font-size:13px; color:var(--text-muted); margin:0;">Book a direct consultation with our Chartered Accountants & Tech Leads.</p>
               </div>
-              <a href="contact.html" class="btn btn-primary">Schedule Advisory Call →</a>
+              <a href="/contact" class="btn btn-primary">Schedule Advisory Call →</a>
             </div>
           </div>
         </div>
@@ -452,7 +448,7 @@ function renderDetailPages() {
         <div style="background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:var(--card-shadow); border:var(--card-border);">
           <!-- Breadcrumb Navigation -->
           <div style="background:var(--bg-alt); padding:14px 48px; border-bottom:1px solid rgba(29,163,154,0.08); font-size:12px; color:var(--text-muted);">
-            <a href="index.html">Home</a> &nbsp;›&nbsp; <a href="case-studies.html">Case Studies</a> &nbsp;›&nbsp; <span style="color:var(--color-primary); font-weight:600;">${cs.title}</span>
+            <a href="/">Home</a> &nbsp;›&nbsp; <a href="/case-studies">Case Studies</a> &nbsp;›&nbsp; <span style="color:var(--color-primary); font-weight:600;">${cs.title}</span>
           </div>
 
           ${cs.image ? `
@@ -501,7 +497,7 @@ function renderDetailPages() {
             </div>
 
             <div style="margin-top:40px; padding-top:30px; border-top:1px solid rgba(29,163,154,0.1);">
-              <a href="contact.html" class="btn btn-primary">Contact Us</a>
+              <a href="/contact" class="btn btn-primary">Contact Us</a>
             </div>
           </div>
         </div>
@@ -670,7 +666,7 @@ function triggerWhatsAppAction() {
 
   if (numbers.length === 0) {
     // Fallback default number
-    window.open('https://wa.me/919108599083?text=Hello%20NRSR%20%26%20Co', '_blank');
+    window.open('https://wa.me/917760485737?text=Hello%20NRSR%20%26%20Co', '_blank');
     return;
   }
 
@@ -710,7 +706,9 @@ function triggerWhatsAppAction() {
     <div style="display:flex; flex-direction:column; gap:8px;">
       ${numbers.map(n => `
         <a href="https://wa.me/${n.number}?text=Hello%20NRSR%20%26%20Co,%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" style="display:flex; align-items:center; gap:10px; background:#f8fafc; padding:10px; border-radius:8px; text-decoration:none; color:#1e293b; transition:background 0.2s;" onmouseover="this.style.background='rgba(29,163,154,0.06)'" onmouseout="this.style.background='#f8fafc'">
-          <div style="width:32px; height:32px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px;">💬</div>
+          <div style="width:32px; height:32px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; color:#fff;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
           <div style="flex:1;">
             <div style="font-size:12px; font-weight:700;">${n.name}</div>
             <div style="font-size:10px; color:#64748b;">Online on WhatsApp</div>
@@ -744,9 +742,9 @@ function renderCareersGrid(careers, container) {
             <span style="font-size:11px; background:rgba(107,191,78,0.15); color:var(--color-accent-dark, #15803d); padding:3px 10px; border-radius:12px; font-weight:700;">${j.type || "Full-Time"}</span>
           </div>
           <h3 style="font-size:20px; color:var(--text-main); margin:0 0 4px 0;">${j.title}</h3>
-          <div style="font-size:13px; color:var(--text-muted); display:flex; gap:14px; flex-wrap:wrap;">
-            <span>📍 ${j.location || "Manipal / Bengaluru"}</span>
-            <span>⏳ Experience: ${j.experience || "Not specified"}</span>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+            <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> ${j.location || "Manipal / Bengaluru"}</span>
+            <span>Experience: ${j.experience || "Not specified"}</span>
           </div>
         </div>
         <button class="btn btn-primary" onclick="openApplyModal('${(j.title || "").replace(/'/g, "\'")}')" style="padding:8px 20px; font-size:13px; height:38px;">Apply for Role →</button>
@@ -863,7 +861,7 @@ function renderGalleryGrid(gallery, container) {
         </div>
         <div style="margin-top:12px; font-size:11px; color:var(--color-primary); font-weight:600; display:flex; justify-content:space-between; align-items:center;">
           <span>${g.date || ""}</span>
-          <span>View Photo 🔍</span>
+          <span style="display:inline-flex; align-items:center; gap:4px;">View Photo <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
         </div>
       </div>
     </div>
@@ -898,10 +896,13 @@ window.closeLightbox = function(e) {
 /* 17. Render Useful Links & Chatbots Grid */
 function renderLinksGrid(links, container) {
   if (!links || links.length === 0) return;
-  container.innerHTML = links.map(l => `
+  container.innerHTML = links.map(l => {
+    const isSvg = l.icon && l.icon.trim().startsWith('<svg');
+    const iconHtml = isSvg ? l.icon : `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>`;
+    return `
     <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="link-resource-card card-hover" style="background:#ffffff; border-radius:12px; padding:18px 20px; border:var(--card-border); box-shadow:var(--card-shadow); display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit;">
-      <div style="width:44px; height:44px; border-radius:10px; background:rgba(29,163,154,0.1); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">
-        ${l.icon || "🔗"}
+      <div style="width:44px; height:44px; border-radius:10px; background:rgba(29,163,154,0.1); color:var(--color-primary); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        ${iconHtml}
       </div>
       <div style="flex:1;">
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:2px;">
@@ -912,5 +913,6 @@ function renderLinksGrid(links, container) {
       </div>
       <div style="font-size:16px; color:var(--color-primary); font-weight:700;">↗</div>
     </a>
-  `).join("");
+  `;
+  }).join("");
 }

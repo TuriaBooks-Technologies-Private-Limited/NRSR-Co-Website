@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -57,9 +58,9 @@ const jsonLd = {
         <span class="section-subtitle">{post.category || 'Tax & Compliance'}</span>
         <h1 class="section-title" style="font-size: 36px; line-height: 1.3;">{post.title}</h1>
         <div style="display: flex; gap: 16px; color: var(--text-muted); font-size: 13px; margin-top: 12px; align-items: center;">
-          <span>📅 {post.date || '2026'}</span>
+          <span style="display:inline-flex; align-items:center; gap:5px;"><Icon name="calendar" size={15} /> {post.date || '2026'}</span>
           <span>•</span>
-          <span>✍️ By {post.author || 'NRSR & Co Advisory Team'}</span>
+          <span style="display:inline-flex; align-items:center; gap:5px;"><Icon name="edit" size={15} /> By {post.author || 'NRSR & Co Advisory Team'}</span>
         </div>
       </div>
 

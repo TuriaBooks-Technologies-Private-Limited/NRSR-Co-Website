@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 import galleryData from '../data/gallery.json';
 
 const gallery = galleryData.gallery || [];
@@ -49,7 +50,7 @@ const gallery = galleryData.gallery || [];
               </div>
               <div style="margin-top:12px; font-size:11px; color:var(--color-primary); font-weight:600; display:flex; justify-content:space-between; align-items:center;">
                 <span>{g.date || ""}</span>
-                <span>View Photo 🔍</span>
+                <span style="display:inline-flex; align-items:center; gap:4px;">View Photo <Icon name="search" size={12} /></span>
               </div>
             </div>
           </div>

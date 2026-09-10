@@ -278,7 +278,7 @@ function renderTestimonials(testimonials, container) {
   const t = testimonials[0];
   container.innerHTML = `
     <div class="testimonial-card card-hover">
-      <div class="stars">${'★'.repeat(t.rating || 5)}</div>
+      <div class="stars" style="display:flex; gap:3px; margin-bottom:8px;">${window.renderSvgStars ? window.renderSvgStars(t.rating || 5) : ''}</div>
       <div class="testimonial-text">"${t.review}"</div>
       <div class="testimonial-author">${t.name}</div>
       <div class="testimonial-role">${t.designation} ${t.company ? '• ' + t.company : ''}</div>
@@ -706,7 +706,9 @@ function triggerWhatsAppAction() {
     <div style="display:flex; flex-direction:column; gap:8px;">
       ${numbers.map(n => `
         <a href="https://wa.me/${n.number}?text=Hello%20NRSR%20%26%20Co,%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" style="display:flex; align-items:center; gap:10px; background:#f8fafc; padding:10px; border-radius:8px; text-decoration:none; color:#1e293b; transition:background 0.2s;" onmouseover="this.style.background='rgba(29,163,154,0.06)'" onmouseout="this.style.background='#f8fafc'">
-          <div style="width:32px; height:32px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px;">💬</div>
+          <div style="width:32px; height:32px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; color:#fff;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
           <div style="flex:1;">
             <div style="font-size:12px; font-weight:700;">${n.name}</div>
             <div style="font-size:10px; color:#64748b;">Online on WhatsApp</div>
@@ -740,9 +742,9 @@ function renderCareersGrid(careers, container) {
             <span style="font-size:11px; background:rgba(107,191,78,0.15); color:var(--color-accent-dark, #15803d); padding:3px 10px; border-radius:12px; font-weight:700;">${j.type || "Full-Time"}</span>
           </div>
           <h3 style="font-size:20px; color:var(--text-main); margin:0 0 4px 0;">${j.title}</h3>
-          <div style="font-size:13px; color:var(--text-muted); display:flex; gap:14px; flex-wrap:wrap;">
-            <span>📍 ${j.location || "Manipal / Bengaluru"}</span>
-            <span>⏳ Experience: ${j.experience || "Not specified"}</span>
+          <div style="font-size:13px; color:var(--text-muted); display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+            <span style="display:inline-flex; align-items:center; gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> ${j.location || "Manipal / Bengaluru"}</span>
+            <span>Experience: ${j.experience || "Not specified"}</span>
           </div>
         </div>
         <button class="btn btn-primary" onclick="openApplyModal('${(j.title || "").replace(/'/g, "\'")}')" style="padding:8px 20px; font-size:13px; height:38px;">Apply for Role →</button>
@@ -859,7 +861,7 @@ function renderGalleryGrid(gallery, container) {
         </div>
         <div style="margin-top:12px; font-size:11px; color:var(--color-primary); font-weight:600; display:flex; justify-content:space-between; align-items:center;">
           <span>${g.date || ""}</span>
-          <span>View Photo 🔍</span>
+          <span style="display:inline-flex; align-items:center; gap:4px;">View Photo <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
         </div>
       </div>
     </div>
@@ -894,10 +896,13 @@ window.closeLightbox = function(e) {
 /* 17. Render Useful Links & Chatbots Grid */
 function renderLinksGrid(links, container) {
   if (!links || links.length === 0) return;
-  container.innerHTML = links.map(l => `
+  container.innerHTML = links.map(l => {
+    const isSvg = l.icon && l.icon.trim().startsWith('<svg');
+    const iconHtml = isSvg ? l.icon : `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>`;
+    return `
     <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="link-resource-card card-hover" style="background:#ffffff; border-radius:12px; padding:18px 20px; border:var(--card-border); box-shadow:var(--card-shadow); display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit;">
-      <div style="width:44px; height:44px; border-radius:10px; background:rgba(29,163,154,0.1); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">
-        ${l.icon || "🔗"}
+      <div style="width:44px; height:44px; border-radius:10px; background:rgba(29,163,154,0.1); color:var(--color-primary); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        ${iconHtml}
       </div>
       <div style="flex:1;">
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:2px;">
@@ -908,5 +913,6 @@ function renderLinksGrid(links, container) {
       </div>
       <div style="font-size:16px; color:var(--color-primary); font-weight:700;">↗</div>
     </a>
-  `).join("");
+  `;
+  }).join("");
 }

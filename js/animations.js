@@ -364,9 +364,11 @@ function init3DTilt() {
 }
 
 /* 8. Interactive Split-Showcase with per-service animated diagrams */
+const DEFAULT_SVG_ICON = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`;
+
 const SERVICE_TEMPLATES = {
   'Income Tax': {
-    icon: '📋',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>`,
     description: 'End-to-end Income Tax filing, assessments & appeals.',
     features: ['ITR Filing (All Types)', 'Tax Planning & Advisory', 'Assessment & Scrutiny', 'Advance Tax Computation', 'Form 15CA / 15CB'],
     renderDiagram: (el) => {
@@ -385,7 +387,7 @@ const SERVICE_TEMPLATES = {
     }
   },
   'Goods & Service Tax': {
-    icon: '🧾',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path></svg>`,
     description: 'Complete GST compliance: registration, filing, audits & ITC.',
     features: ['GST Registration', 'Monthly/Quarterly Returns', 'Input Tax Credit', 'GST Audit & Reconciliation', 'E-Way Bill Management'],
     renderDiagram: (el) => {
@@ -407,7 +409,7 @@ const SERVICE_TEMPLATES = {
     }
   },
   'Corporate': {
-    icon: '🏢',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><line x1="2" y1="20" x2="22" y2="20"></line><line x1="14" y1="4" x2="10" y2="4"></line></svg>`,
     description: 'Company incorporation, ROC filings & MCA compliance.',
     features: ['Company Incorporation', 'ROC Annual Filings', 'Board Meeting Compliance', 'Statutory Registers', 'MCA Portal Management'],
     renderDiagram: (el) => {
@@ -418,7 +420,7 @@ const SERVICE_TEMPLATES = {
           <div style="display:flex;flex-direction:column;gap:14px;">
             ${[['Name Approval','MCA21 Portal','✓ Approved'],['MOA / AOA Drafting','Legal Document','✓ Signed'],['DIN & DSC','Director Credentials','✓ Issued'],['Certificate of Incorporation','Registrar of Companies','✓ Received']].map(([title,sub,status],i)=>`
               <div style="display:flex;align-items:center;gap:14px;animation:fadeSlideIn 0.4s ease ${i*0.15}s both;">
-                <div style="width:32px;height:32px;background:${i===3?'#1DA39A':'rgba(29,163,154,0.06)'};border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">${['📝','📄','🔑','🏛️'][i]}</div>
+                <div style="width:32px;height:32px;background:${i===3?'#1DA39A':'rgba(29,163,154,0.06)'};border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${i===3?'#ffffff':'var(--color-primary)'};flex-shrink:0;">${i+1}</div>
                 <div style="flex:1;">
                   <div style="font-size:12px;font-weight:700;color:#1DA39A;">${title}</div>
                   <div style="font-size:10px;color:#94a3b8;">${sub}</div>
@@ -430,7 +432,7 @@ const SERVICE_TEMPLATES = {
     }
   },
   'Partnerships & LLPs': {
-    icon: '🤝',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="m11 17 2 2a1 1 0 0 0 1.42 0l4.24-4.24a1 1 0 0 0 0-1.42l-2.83-2.83a1 1 0 0 0-1.42 0L11 14"></path><path d="m18 11 3.5-3.5a1 1 0 0 0 0-1.42l-2.08-2.08a1 1 0 0 0-1.42 0L14 8"></path><path d="m6 18-3.5-3.5a1 1 0 0 1 0-1.42l2.08-2.08a1 1 0 0 1 1.42 0L10 15"></path></svg>`,
     description: 'Partnership deed drafting, LLP formation & compliance.',
     features: ['Partnership Deed Drafting', 'LLP Incorporation', 'Partner Capital Accounts', 'Profit Sharing Restructuring', 'Dissolution Support'],
     renderDiagram: (el) => {
@@ -457,7 +459,7 @@ const SERVICE_TEMPLATES = {
     }
   },
   'Internal Control': {
-    icon: '🛡️',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
     description: 'Risk assessment, internal audit & control systems design.',
     features: ['Risk Matrix Assessment', 'Internal Audit Planning', 'Process Review & Gaps', 'Control Design', 'Management Reports'],
     renderDiagram: (el) => {
@@ -476,7 +478,7 @@ const SERVICE_TEMPLATES = {
     }
   },
   'Certifications': {
-    icon: '🏅',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>`,
     description: 'Net worth, turnover, statutory & sector-specific certifications.',
     features: ['Net Worth Certificates', 'Turnover Certificates', 'Export Incentive Certs', 'MSME Certifications', 'Bank/Tender Certificates'],
     renderDiagram: (el) => {
@@ -485,7 +487,7 @@ const SERVICE_TEMPLATES = {
         <div class="mock-diagram-container" style="padding:10px;align-items:center;">
           <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:18px;align-self:flex-start;">CERTIFICATE ISSUED</div>
           <div style="width:220px;border:2px solid #1DA39A;border-radius:16px;padding:20px 24px;text-align:center;position:relative;background:linear-gradient(135deg,#F2FAF9,#E6F5F3);" class="stamp-seal">
-            <div style="font-size:28px;margin-bottom:8px;">🏅</div>
+            <div style="display:flex; justify-content:center; margin-bottom:8px; color:#1DA39A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
             <div style="font-size:12px;font-weight:800;color:#1DA39A;letter-spacing:0.5px;">CERTIFICATE OF NET WORTH</div>
             <div style="font-size:10px;color:#1DA39A;margin:6px 0;">M/s NRSR & Co</div>
             <div style="font-size:10px;color:#94a3b8;">Chartered Accountants</div>
@@ -495,7 +497,7 @@ const SERVICE_TEMPLATES = {
     }
   },
   'Registrations': {
-    icon: '📑',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
     description: 'GST, MSME, FSSAI, Import-Export and other statutory registrations.',
     features: ['GST Registration', 'MSME / Udyam', 'FSSAI License', 'IEC for Import/Export', 'Shop Act / Trade License'],
     renderDiagram: (el) => {
@@ -513,7 +515,7 @@ const SERVICE_TEMPLATES = {
     }
   },
   'Financial Accounting': {
-    icon: '📊',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><line x1="2" y1="20" x2="22" y2="20"></line></svg>`,
     description: 'Bookkeeping, financial statements & MIS reports.',
     features: ['Day-to-Day Bookkeeping', 'P&L and Balance Sheet', 'Cash Flow Statements', 'MIS Reports', 'Payroll Accounting'],
     renderDiagram: (el) => {
@@ -532,7 +534,7 @@ const SERVICE_TEMPLATES = {
     }
   },
   'Audits': {
-    icon: '🔍',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
     description: 'Statutory, tax, bank and concurrent audit services.',
     features: ['Statutory Audit (Companies Act)', 'Tax Audit (Sec 44AB)', 'Bank Branch Audit', 'Internal Concurrent Audit', 'Audit Reports & Certificates'],
     renderDiagram: (el) => {
@@ -586,7 +588,7 @@ function initServiceRail() {
   function buildCard(svc, i) {
     const template = SERVICE_TEMPLATES[svc.name];
     const card = document.createElement('a');
-    card.href = `services.html?service=${encodeURIComponent(svc.id)}`;
+    card.href = `/services?service=${encodeURIComponent(svc.id)}`;
     card.className = 'svc-card glow-card reveal-on-scroll' + (i % 2 ? ' reveal-down' : '');
     // A slower, more visible cascade than the default stagger — the user
     // should be able to watch each card settle in as they land on/scroll
@@ -709,7 +711,7 @@ function initServiceSplitPage() {
     item.style.transitionDelay = `${(i % 5) * 0.07}s`;
     item.dataset.id = svc.id;
     item.innerHTML = `
-      <h4><span class="icon-wrapper">${template ? template.icon : '📁'}</span> ${svc.name}</h4>
+      <h4><span class="icon-wrapper">${template ? template.icon : DEFAULT_SVG_ICON}</span> ${svc.name}</h4>
       <p>${svc.shortDesc || svc.description || ''}</p>
       <ul class="features-list">
         ${(svc.features || []).map(f => `<li>${f}</li>`).join('')}
@@ -912,15 +914,15 @@ function initServicesHub() {
   const nodeEls = nodes.map((node, i) => {
     const template = SERVICE_TEMPLATES[node.svc.name];
     return `
-      <a href="services.html?service=${encodeURIComponent(node.svc.id)}" class="hub-node reveal-on-scroll" style="left:${node.x.toFixed(2)}%; top:${node.y.toFixed(2)}%; transition-delay:${(i % 5) * 0.06}s;">
-        <span class="hub-node-icon">${template ? template.icon : '📁'}</span>
+      <a href="/services?service=${encodeURIComponent(node.svc.id)}" class="hub-node reveal-on-scroll" style="left:${node.x.toFixed(2)}%; top:${node.y.toFixed(2)}%; transition-delay:${(i % 5) * 0.06}s;">
+        <span class="hub-node-icon">${template ? template.icon : DEFAULT_SVG_ICON}</span>
         <span class="hub-node-label">${node.svc.name}</span>
       </a>`;
   }).join('');
 
   const listItems = services.map(svc => `
-    <a href="services.html?service=${encodeURIComponent(svc.id)}" class="hub-list-item">
-      <span>${SERVICE_TEMPLATES[svc.name] ? SERVICE_TEMPLATES[svc.name].icon : '📁'}</span> ${svc.name}
+    <a href="/services?service=${encodeURIComponent(svc.id)}" class="hub-list-item">
+      <span>${SERVICE_TEMPLATES[svc.name] ? SERVICE_TEMPLATES[svc.name].icon : DEFAULT_SVG_ICON}</span> ${svc.name}
     </a>`).join('');
 
   hub.innerHTML = `
@@ -1076,7 +1078,7 @@ function initTestimonialCarousel(container, testimonials) {
 
   const cardHTML = (t) => `
     <div class="testimonial-card card-hover glow-card">
-      <div class="stars">${'★'.repeat(t.rating || 5)}</div>
+      <div class="stars" style="display:flex; gap:3px; margin-bottom:8px;">${window.renderSvgStars ? window.renderSvgStars(t.rating || 5) : ''}</div>
       <div class="testimonial-text">"${t.review}"</div>
       <div class="testimonial-byline">
         ${t.image ? `

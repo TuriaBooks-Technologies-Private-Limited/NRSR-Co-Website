@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   link: {
     id: string;
@@ -12,11 +14,16 @@ interface Props {
 }
 
 const { link } = Astro.props;
+const isSvg = link.icon && link.icon.trim().startsWith('<svg');
 ---
 
 <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-resource-card card-hover" style="background:#ffffff; border-radius:12px; padding:18px 20px; border:var(--card-border); box-shadow:var(--card-shadow); display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit;">
-  <div style="width:44px; height:44px; border-radius:10px; background:rgba(29,163,154,0.1); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">
-    {link.icon || "🔗"}
+  <div style="width:44px; height:44px; border-radius:10px; background:rgba(29,163,154,0.1); color:var(--color-primary); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">
+    {isSvg ? (
+      <div set:html={link.icon} style="display:flex; align-items:center; justify-content:center;" />
+    ) : (
+      <Icon name="link" size={22} color="var(--color-primary)" />
+    )}
   </div>
   <div style="flex:1;">
     <div style="display:flex; align-items:center; gap:8px; margin-bottom:2px;">

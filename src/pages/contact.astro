@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 import settingsData from '../data/settings.json';
 
 const settings = settingsData.settings || {};
@@ -33,7 +34,7 @@ const mainPhoneClean = (settings.firm_phone || '+917760485737').replace(/[^0-9+]
         <h3 style="font-size: 22px; margin-bottom: 24px; color: var(--text-main);">Registered Offices</h3>
 
         <div class="info-item">
-          <div class="info-icon">📍</div>
+          <div class="info-icon" style="color: var(--color-primary);"><Icon name="map-pin" size={20} /></div>
           <div class="info-content">
             <h4>Manipal Headquarters</h4>
             <p>{settings.hq_address}</p>
@@ -42,7 +43,7 @@ const mainPhoneClean = (settings.firm_phone || '+917760485737').replace(/[^0-9+]
         </div>
 
         <div class="info-item">
-          <div class="info-icon">🏢</div>
+          <div class="info-icon" style="color: var(--color-primary);"><Icon name="building" size={20} /></div>
           <div class="info-content">
             <h4>Bengaluru Branch Office</h4>
             <p>{settings.branch_address}</p>
@@ -51,7 +52,7 @@ const mainPhoneClean = (settings.firm_phone || '+917760485737').replace(/[^0-9+]
         </div>
 
         <div class="info-item">
-          <div class="info-icon">📞</div>
+          <div class="info-icon" style="color: var(--color-primary);"><Icon name="phone" size={20} /></div>
           <div class="info-content">
             <h4>Direct Lines & Hours</h4>
             <p><a href={`tel:${mainPhoneClean}`} style="color: var(--color-primary); font-weight:700;">{settings.firm_phone || '+91 7760485737'}</a></p>
@@ -60,7 +61,7 @@ const mainPhoneClean = (settings.firm_phone || '+917760485737').replace(/[^0-9+]
         </div>
 
         <div class="info-item">
-          <div class="info-icon">✉️</div>
+          <div class="info-icon" style="color: var(--color-primary);"><Icon name="mail" size={20} /></div>
           <div class="info-content">
             <h4>Email Inquiries</h4>
             <p><a href={`mailto:${settings.firm_email}`} style="color: var(--color-primary); font-weight:700;">{settings.firm_email || 'info@nrsrandco.com'}</a></p>

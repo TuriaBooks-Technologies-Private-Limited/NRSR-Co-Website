@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import TeamCard from '../components/TeamCard.astro';
 import LinkCard from '../components/LinkCard.astro';
@@ -29,7 +30,7 @@ const faqs = (faqsData.faqs || []).filter(f => !f.placement || f.placement === '
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <span class="hero-badge reveal-on-scroll">★ CHARTERED ACCOUNTANTS</span>
+        <span class="hero-badge reveal-on-scroll" style="display:inline-flex; align-items:center; gap:6px;"><Icon name="sparkles" size={13} /> CHARTERED ACCOUNTANTS</span>
         <h1 class="hero-headline reveal-on-scroll" style="transition-delay: 0.1s;">
           Finance, Tax & Audit Compliance Services
         </h1>

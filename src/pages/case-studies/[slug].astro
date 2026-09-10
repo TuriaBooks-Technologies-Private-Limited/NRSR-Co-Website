@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -72,21 +73,27 @@ const jsonLd = {
       <div style="display: flex; flex-direction: column; gap: 28px;">
         {cs.challenge && (
           <div style="background: #ffffff; padding: 28px; border-radius: 14px; border: var(--card-border); box-shadow: var(--card-shadow);">
-            <h3 style="font-size: 20px; color: var(--color-primary); margin-top: 0; margin-bottom: 12px;">🚨 The Challenge</h3>
+            <h3 style="font-size: 20px; color: var(--color-primary); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span style="color: #ef4444;"><Icon name="alert-circle" size={20} /></span> The Challenge
+            </h3>
             <p style="color: var(--text-muted); line-height: 1.8; margin: 0;">{cs.challenge}</p>
           </div>
         )}
 
         {cs.solution && (
           <div style="background: #ffffff; padding: 28px; border-radius: 14px; border: var(--card-border); box-shadow: var(--card-shadow);">
-            <h3 style="font-size: 20px; color: var(--color-primary); margin-top: 0; margin-bottom: 12px;">💡 The NRSR & Co Advisory Approach</h3>
+            <h3 style="font-size: 20px; color: var(--color-primary); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--color-primary);"><Icon name="lightbulb" size={20} /></span> The NRSR & Co Advisory Approach
+            </h3>
             <p style="color: var(--text-muted); line-height: 1.8; margin: 0;">{cs.solution}</p>
           </div>
         )}
 
         {cs.results && (
           <div style="background: #ffffff; padding: 28px; border-radius: 14px; border: var(--card-border); box-shadow: var(--card-shadow);">
-            <h3 style="font-size: 20px; color: var(--color-accent-dark, #15803d); margin-top: 0; margin-bottom: 12px;">🏆 Impact & Long-Term Results</h3>
+            <h3 style="font-size: 20px; color: var(--color-accent-dark, #15803d); margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span style="color: #15803d;"><Icon name="trophy" size={20} /></span> Impact & Long-Term Results
+            </h3>
             <p style="color: var(--text-muted); line-height: 1.8; margin: 0;">{cs.results}</p>
           </div>
         )}

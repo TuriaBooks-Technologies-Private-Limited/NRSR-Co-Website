@@ -1,5 +1,6 @@
 ---
 import settingsData from '../data/settings.json';
+import Icon from './Icon.astro';
 
 interface Props {
   settings?: any;
@@ -43,17 +44,36 @@ const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
         <li><a href="/careers">Careers & Openings</a></li>
         <li><a href="/gallery">Photo Gallery</a></li>
         <li><a href="/contact">Contact Us</a></li>
-        <li style="margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.1);"><a href={settings.client_login_url || 'https://practice.turia.in/login'} target="_blank" rel="noopener noreferrer" style="color: var(--color-primary-light); font-weight: 600;">👤 Client Login</a></li>
-        <li><a href={settings.employee_login_url || 'https://practice.turia.in/login'} target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); font-weight: 600;">💼 Employee Login</a></li>
+        <li style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1);">
+          <a href={settings.client_login_url || 'https://practice.turia.in/login'} target="_blank" rel="noopener noreferrer" style="color: var(--color-primary-light); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+            <Icon name="user" size={14} color="var(--color-primary-light)" />
+            <span>Client Login</span>
+          </a>
+        </li>
+        <li>
+          <a href={settings.employee_login_url || 'https://practice.turia.in/login'} target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+            <Icon name="briefcase" size={14} color="var(--color-accent)" />
+            <span>Employee Login</span>
+          </a>
+        </li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Contact Info</h4>
-      <ul class="footer-links" style="font-size: 13.5px; color: rgba(255,255,255,0.55);">
-        <li style="margin-bottom: 12px;">📍 {settings.hq_address}</li>
-        <li style="margin-bottom: 12px;">📞 <a href={`tel:${cleanPhone}`}>{mainPhone}</a></li>
-        <li style="margin-bottom: 12px;">✉️ <a href={`mailto:${settings.firm_email}`}>{settings.firm_email}</a></li>
+      <ul class="footer-links" style="font-size: 13.5px; color: rgba(255,255,255,0.7);">
+        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 8px;">
+          <span style="margin-top: 2px; flex-shrink: 0;"><Icon name="map-pin" size={16} color="var(--color-primary-light)" /></span>
+          <span>{settings.hq_address}</span>
+        </li>
+        <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span style="flex-shrink: 0;"><Icon name="phone" size={15} color="var(--color-primary-light)" /></span>
+          <a href={`tel:${cleanPhone}`}>{mainPhone}</a>
+        </li>
+        <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span style="flex-shrink: 0;"><Icon name="mail" size={15} color="var(--color-primary-light)" /></span>
+          <a href={`mailto:${settings.firm_email}`}>{settings.firm_email}</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -62,7 +82,7 @@ const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
   <div class="footer-disclaimer">
     <button class="footer-disclaimer-toggle" id="footerDisclaimerToggle" type="button" aria-expanded="false">
       <span>ICAI Regulatory Disclaimer</span>
-      <span class="footer-disclaimer-caret">▼</span>
+      <span class="footer-disclaimer-caret"><Icon name="chevron-down" size={14} /></span>
     </button>
     <div class="footer-disclaimer-text" id="footerDisclaimerText">
       As per the rules of the Institute of Chartered Accountants of India (ICAI), Chartered Accountants are not permitted to solicit work or advertise. This website is meant solely for informational purposes to provide general background information about M/s NRSR & Co and does not constitute advertisement, personal communication, invitation or solicitation of any kind.
@@ -71,10 +91,13 @@ const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
 
   <div class="container footer-bottom">
     <div>© 2026 M/s NRSR & Co. All rights reserved.</div>
-    <div>
+    <div style="display: flex; align-items: center; gap: 10px;">
       <span>Built & Powered by <a href="https://turia.in" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary-light); font-weight:700; text-decoration:underline;">Turia.in</a></span>
-      &nbsp;•&nbsp;
-      <a href="/admin" style="color:rgba(255,255,255,0.35); font-size:11px; opacity:0.6;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">Admin Access ⚙</a>
+      <span>•</span>
+      <a href="/admin" style="color:rgba(255,255,255,0.45); font-size:12px; display: inline-flex; align-items: center; gap: 4px;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+        <Icon name="settings" size={12} color="currentColor" />
+        <span>Admin Access</span>
+      </a>
     </div>
   </div>
 </footer>

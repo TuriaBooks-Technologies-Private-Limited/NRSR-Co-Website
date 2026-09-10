@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   job: {
     id: string;
@@ -25,9 +27,9 @@ const { job } = Astro.props;
         <span style="font-size:11px; background:rgba(107,191,78,0.15); color:var(--color-accent-dark, #15803d); padding:3px 10px; border-radius:12px; font-weight:700;">{job.type || "Full-Time"}</span>
       </div>
       <h3 style="font-size:20px; color:var(--text-main); margin:0 0 4px 0;">{job.title}</h3>
-      <div style="font-size:13px; color:var(--text-muted); display:flex; gap:14px; flex-wrap:wrap;">
-        <span>📍 {job.location || "Manipal / Bengaluru"}</span>
-        <span>⏳ Experience: {job.experience || "Not specified"}</span>
+      <div style="font-size:13px; color:var(--text-muted); display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+        <span style="display:inline-flex; align-items:center; gap:4px;"><Icon name="map-pin" size={14} /> {job.location || "Manipal / Bengaluru"}</span>
+        <span>Experience: {job.experience || "Not specified"}</span>
       </div>
     </div>
     <button class="btn btn-primary" onclick={`openApplyModal('${(job.title || "").replace(/'/g, "\\'")}')`} style="padding:8px 20px; font-size:13px; height:38px;">Apply for Role →</button>

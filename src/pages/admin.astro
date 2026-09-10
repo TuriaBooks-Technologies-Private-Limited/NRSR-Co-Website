@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Icon from '../components/Icon.astro';
 ---
 
 <!DOCTYPE html>
@@ -12,6 +13,7 @@ import '../styles/global.css';
   
   <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
   <link rel="stylesheet" href="/css/style.css">
+  <script defer src="/js/icons.js"></script>
   <script defer src="/js/store.js"></script>
   <script defer src="/js/admin.js"></script>
 </head>
@@ -29,9 +31,9 @@ import '../styles/global.css';
       </a>
 
       <nav class="nav-menu">
-        <a href="/" class="nav-link">← Return to Main Website</a>
-        <button id="exportBackupBtn" class="btn btn-outline" style="padding: 6px 14px; font-size: 12px;">📥 Export Backup (JSON)</button>
-        <button id="importBackupBtn" class="btn btn-outline" style="padding: 6px 14px; font-size: 12px;">📤 Import Backup</button>
+        <a href="/" class="nav-link" style="display:inline-flex; align-items:center; gap:6px;"><Icon name="arrow-left" size={14} /> Return to Main Website</a>
+        <button id="exportBackupBtn" class="btn btn-outline" style="padding: 6px 14px; font-size: 12px; display:inline-flex; align-items:center; gap:6px;"><Icon name="download" size={14} /> Export Backup</button>
+        <button id="importBackupBtn" class="btn btn-outline" style="padding: 6px 14px; font-size: 12px; display:inline-flex; align-items:center; gap:6px;"><Icon name="upload" size={14} /> Import Backup</button>
       </nav>
     </div>
   </header>
@@ -41,41 +43,41 @@ import '../styles/global.css';
     <aside class="admin-sidebar">
       <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-accent); margin-bottom: 16px; padding-left: 16px;">CMS Operations</div>
       <div class="admin-menu-item active" data-section="overview">
-        <span>📊</span> Dashboard Overview
+        <span style="display:inline-flex; align-items:center;"><Icon name="chart" size={16} /></span> Dashboard Overview
       </div>
       <div class="admin-menu-item" data-section="services">
-        <span>⚙️</span> Services (Create & Edit)
+        <span style="display:inline-flex; align-items:center;"><Icon name="settings" size={16} /></span> Services (Create & Edit)
       </div>
       <div class="admin-menu-item" data-section="team">
-        <span>👥</span> Team Members & Photos
+        <span style="display:inline-flex; align-items:center;"><Icon name="users" size={16} /></span> Team Members & Photos
       </div>
       <div class="admin-menu-item" data-section="careers">
-        <span>💼</span> Careers & Job Openings
+        <span style="display:inline-flex; align-items:center;"><Icon name="briefcase" size={16} /></span> Careers & Job Openings
       </div>
       <div class="admin-menu-item" data-section="gallery">
-        <span>🖼️</span> Photo Gallery & Media
+        <span style="display:inline-flex; align-items:center;"><Icon name="search" size={16} /></span> Photo Gallery & Media
       </div>
       <div class="admin-menu-item" data-section="links">
-        <span>🔗</span> Useful Links & Chatbots
+        <span style="display:inline-flex; align-items:center;"><Icon name="arrow-right" size={16} /></span> Useful Links & Chatbots
       </div>
       <div class="admin-menu-item" data-section="faqs">
-        <span>❓</span> FAQs & Placement
+        <span style="display:inline-flex; align-items:center;"><Icon name="alert-circle" size={16} /></span> FAQs & Placement
       </div>
       <div class="admin-menu-item" data-section="testimonials">
-        <span>⭐</span> Testimonials & Placement
+        <span style="display:inline-flex; align-items:center;"><Icon name="star" size={16} /></span> Testimonials & Placement
       </div>
       <div class="admin-menu-item" data-section="blogs">
-        <span>📝</span> Blogs & Enterprise SEO
+        <span style="display:inline-flex; align-items:center;"><Icon name="edit" size={16} /></span> Blogs & Enterprise SEO
       </div>
       <div class="admin-menu-item" data-section="case-studies">
-        <span>📈</span> Case Studies & SEO
+        <span style="display:inline-flex; align-items:center;"><Icon name="award" size={16} /></span> Case Studies & SEO
       </div>
       <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-accent); margin-top: 24px; margin-bottom: 16px; padding-left: 16px;">System Config</div>
       <div class="admin-menu-item" data-section="leads">
-        <span>📥</span> Contact Leads
+        <span style="display:inline-flex; align-items:center;"><Icon name="mail" size={16} /></span> Contact Leads
       </div>
       <div class="admin-menu-item" data-section="settings">
-        <span>🛠️</span> Settings & Contact Card
+        <span style="display:inline-flex; align-items:center;"><Icon name="settings" size={16} /></span> Settings & Contact Card
       </div>
     </aside>
 

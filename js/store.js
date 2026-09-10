@@ -111,54 +111,64 @@ const DEFAULT_SERVICES = [
 
 const DEFAULT_TEAM = [
   {
-    id: 'team-1',
-    name: 'Sandeep',
-    role: 'Director / Chartered Accountant',
-    category: 'Chartered Accountant',
-    qualification: 'CA, B.Com',
-    expertise: 'Financial reporting, corporate taxation, statutory compliance, strategic financial advisory, and assurance services.',
-    bio: 'Sandeep leads NRSR & Co’s core financial advisory practice. With extensive experience in corporate audits, direct tax litigation, and Virtual CFO engagements, he ensures businesses maintain bulletproof financial health and compliance.',
-    image: ''
+    id: "team-1",
+    name: "CA Shrinidhi Rao",
+    role: "Managing Partner",
+    category: "Chartered Accountant",
+    qualification: "B.Com, ACA",
+    expertise: "Overall practice leadership, statutory audit, corporate taxation, and strategic client advisory.",
+    bio: "Shrinidhi leads NRSR & Co's practice, overseeing audit, taxation, and advisory engagements to ensure every client relationship is backed by sound, compliant financial guidance.",
+    image: ""
   },
   {
-    id: 'team-2',
-    name: 'Niranjan Rao',
-    role: 'International Accounting Professional',
-    category: 'International Accounting',
-    qualification: 'CPA (US Support Specialist), B.Com',
-    expertise: 'US GAAP Accounting, Australian Taxation, cross-border financial reconciliations, and global payroll management.',
-    bio: 'Niranjan specializes in international accounting standards, bridging compliance for cross-border entities operating across Australia, US, and India.',
-    image: ''
+    id: "team-2",
+    name: "CA Swetha SV",
+    role: "Partner",
+    category: "Chartered Accountant",
+    qualification: "B.Com, M.Com, ACA, DISA (ICAI), RV-SFA (IBBI)",
+    expertise: "Statutory audit, information systems audit, and registered valuation of securities and financial assets.",
+    bio: "Swetha brings a rare combination of audit, IT-systems assurance, and valuation credentials to the firm's advisory and assurance practice.",
+    image: ""
   },
   {
-    id: 'team-3',
-    name: 'Akshay Bhat',
-    role: 'Technology & Automation Lead',
-    category: 'Technology Consultant',
-    qualification: 'B.E. Computer Science, SaaS Architect',
-    expertise: 'Business process automation, SaaS implementation, Power BI data analytics, and cloud infrastructure setup.',
-    bio: 'Akshay spearheads NRSR & Co’s tech division, transforming manual business processes into automated, cloud-driven digital workflows.',
-    image: ''
+    id: "team-3",
+    name: "CA Karthik",
+    role: "Corporate Accounts Manager",
+    category: "Chartered Accountant",
+    qualification: "B.Com, ACA",
+    expertise: "Corporate accounting, financial reporting, and day-to-day management of client account books.",
+    bio: "Karthik manages the firm's corporate accounting engagements, keeping client books accurate, current, and audit-ready.",
+    image: ""
   },
   {
-    id: 'team-4',
-    name: 'Hrishikesh',
-    role: 'Legal & Direct Tax Expert',
-    category: 'Legal & Tax Expert',
-    qualification: 'LL.B, Tax Advocate',
-    expertise: 'Direct tax litigation support, Transfer Pricing studies, regulatory compliance, and dispute resolution.',
-    bio: 'Hrishikesh brings extensive courtroom and tribunal experience, safeguarding corporate clients against complex tax litigations and regulatory audits.',
-    image: ''
+    id: "team-4",
+    name: "Akshay Bhat",
+    role: "Assurance Manager",
+    category: "Assurance",
+    qualification: "B.Com",
+    expertise: "Audit execution, assurance engagements, and compliance verification across client portfolios.",
+    bio: "Akshay oversees assurance engagements end to end, working closely with clients to close audits on time and without surprises.",
+    image: ""
   },
   {
-    id: 'team-5',
-    name: 'Swathi Kulal',
-    role: 'HR & Admin Head',
-    category: 'HR & Admin Expert',
-    qualification: 'MBA (HR & Operations)',
-    expertise: 'Talent acquisition, organizational structuring, HR policy design, executive administration, and GCC manpower planning.',
-    bio: 'Swathi oversees human capital operations, recruitment drives, and administrative management to build agile workplace teams.',
-    image: ''
+    id: "team-5",
+    name: "Swathi Kulal",
+    role: "Compliance Manager",
+    category: "Compliance",
+    qualification: "BBA",
+    expertise: "Regulatory compliance tracking, filings management, and client compliance calendars.",
+    bio: "Swathi keeps every client's statutory and regulatory compliance on schedule, from filings to renewals.",
+    image: ""
+  },
+  {
+    id: "team-6",
+    name: "Chaithra Karanth",
+    role: "Admin & HR",
+    category: "Admin & HR",
+    qualification: "BBA",
+    expertise: "Practice administration, HR operations, and client coordination.",
+    bio: "Chaithra runs the firm's day-to-day administration and HR operations, keeping the practice organized and client communication smooth.",
+    image: ""
   }
 ];
 
@@ -196,25 +206,34 @@ const DEFAULT_TESTIMONIALS = [
     designation: 'Managing Director',
     company: 'Horizon Healthcare Solutions',
     rating: 5,
-    review: 'NRSR & Co’s Virtual CFO services completely restructured our finance department. Sandeep and his team optimized our working capital cycles, saving us over ₹35 Lakhs in interest overheads within 8 months.',
+    review: 'NRSR & Co’s Virtual CFO services completely restructured our finance department. The team optimized our working capital cycles, saving us over ₹35 Lakhs in interest overheads within 8 months.',
     placement: 'index.html'
   },
   {
     id: 'test-2',
-    name: 'Elena Rostova',
-    designation: 'VP Operations',
-    company: 'FinTech Global Inc (US)',
+    name: 'Deepak B',
+    designation: 'Google Review',
+    company: '',
     rating: 5,
-    review: 'Niranjan Rao and the international accounting team provided seamless US GAAP accounting and Australian tax compliance support for our GCC setup in Karnataka. Highly recommend their multi-disciplinary expertise!',
-    placement: 'team.html'
+    review: 'Shrinidi and team have helped me file Income tax returns for past few years. They are very approachable and have always answered all my questions in a timely manner. Very happy with the service provided. Best wishes to the team!',
+    placement: 'all'
   },
   {
     id: 'test-3',
-    name: 'Vikramaditya Naik',
-    designation: 'Founder & CEO',
-    company: 'Apex Robotics Pvt Ltd',
+    name: 'Prajwal Shenoy',
+    designation: 'Google Review',
+    company: '',
     rating: 5,
-    review: 'Akshay Bhat automated our entire billing and inventory reconciliation using custom SaaS integrations. What used to take our finance team 4 days a month is now completed in 10 minutes.',
+    review: 'Superb service. Wanted to file revised ITR with only 5 days remaining and they did a splendid job. I will be using their services henceforth every year. Highly recommended.',
+    placement: 'all'
+  },
+  {
+    id: 'test-4',
+    name: 'Harshitha Sharath',
+    designation: 'Google Review',
+    company: '',
+    rating: 5,
+    review: 'Must say CA Swetha and team is very friendly, professional and knowledgeable team. I got my service done so quickly in no time. Would highly recommend anyone and everyone to NRSR & Co.',
     placement: 'all'
   }
 ];
@@ -410,7 +429,7 @@ const DEFAULT_LINKS = [
     category: 'Government Portals',
     url: 'https://www.incometax.gov.in',
     description: 'Official Income Tax Department e-filing portal for ITR, 26AS, AIS/TIS, and e-Verification.',
-    icon: '🏛️',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"></line><line x1="6" y1="18" x2="6" y2="11"></line><line x1="10" y1="18" x2="10" y2="11"></line><line x1="14" y1="18" x2="14" y2="11"></line><line x1="18" y1="18" x2="18" y2="11"></line><polygon points="12 2 20 7 4 7 12 2"></polygon></svg>`,
     badge: 'Tax Portal'
   },
   {
@@ -419,7 +438,7 @@ const DEFAULT_LINKS = [
     category: 'Government Portals',
     url: 'https://www.gst.gov.in',
     description: 'National GST portal for monthly return filing, GSTR-2B reconciliations, and registrations.',
-    icon: '🧾',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>`,
     badge: 'GST Portal'
   },
   {
@@ -428,7 +447,7 @@ const DEFAULT_LINKS = [
     category: 'Government Portals',
     url: 'https://www.mca.gov.in',
     description: 'MCA21 portal for company & LLP incorporations, DIN KYC, and annual ROC statutory filings.',
-    icon: '🏢',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line><line x1="2" y1="20" x2="22" y2="20"></line><line x1="14" y1="4" x2="10" y2="4"></line></svg>`,
     badge: 'Corporate Portal'
   },
   {
@@ -437,7 +456,7 @@ const DEFAULT_LINKS = [
     category: 'Regulatory',
     url: 'https://www.icai.org',
     description: 'Institute of Chartered Accountants of India - accounting standards, notifications & guidance.',
-    icon: '🎓',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>`,
     badge: 'ICAI Portal'
   },
   {
@@ -446,7 +465,7 @@ const DEFAULT_LINKS = [
     category: 'Client Support',
     url: 'https://dashboard.tawk.to/#/dashboard/6011a916c31c9117cb73225c',
     description: 'Instant live support chat with NRSR & Co compliance and client advisory desk.',
-    icon: '💬',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
     badge: 'Live Chat'
   },
   {
@@ -455,7 +474,7 @@ const DEFAULT_LINKS = [
     category: 'Client Support',
     url: 'https://wa.me/919108599083?text=Hello%20NRSR%20%26%20Co,%20I%20would%20like%20to%20inquire%20about%20your%20services.',
     description: 'Direct WhatsApp hotline with our senior advisory team for queries and status tracking.',
-    icon: '📱',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>`,
     badge: 'WhatsApp Hotline'
   }
 ];
@@ -514,16 +533,16 @@ class Store {
     this._loadPromise = (async () => {
       try {
         const [services, team, faqs, blogs, testimonials, caseStudies, careers, gallery, links, settings] = await Promise.all([
-          fetch('data/services.json').then(r => r.json()).catch(() => null),
-          fetch('data/team.json').then(r => r.json()).catch(() => null),
-          fetch('data/faqs.json').then(r => r.json()).catch(() => null),
-          fetch('data/blogs-index.json').then(r => r.json()).catch(() => null),
-          fetch('data/testimonials.json').then(r => r.json()).catch(() => null),
-          fetch('data/case_studies-index.json').then(r => r.json()).catch(() => null),
-          fetch('data/careers.json').then(r => r.json()).catch(() => null),
-          fetch('data/gallery.json').then(r => r.json()).catch(() => null),
-          fetch('data/links.json').then(r => r.json()).catch(() => null),
-          fetch('data/settings.json').then(r => r.json()).catch(() => null)
+          fetch('/data/services.json').then(r => r.json()).catch(() => null),
+          fetch('/data/team.json').then(r => r.json()).catch(() => null),
+          fetch('/data/faqs.json').then(r => r.json()).catch(() => null),
+          fetch('/data/blogs-index.json').then(r => r.json()).catch(() => null),
+          fetch('/data/testimonials.json').then(r => r.json()).catch(() => null),
+          fetch('/data/case_studies-index.json').then(r => r.json()).catch(() => null),
+          fetch('/data/careers.json').then(r => r.json()).catch(() => null),
+          fetch('/data/gallery.json').then(r => r.json()).catch(() => null),
+          fetch('/data/links.json').then(r => r.json()).catch(() => null),
+          fetch('/data/settings.json').then(r => r.json()).catch(() => null)
         ]);
 
         this.services    = Array.isArray(services)      ? services      : (services      && services.services           ? services.services           : null);
@@ -605,15 +624,25 @@ class Store {
       firm_name: "M/s NRSR & Co",
       firm_subtitle: "Chartered Accountants",
       firm_email: "info@nrsrandco.com",
-      firm_phone: "+91 9108599083",
-      whatsapp_numbers: [{ name: "NRSR & Co Advisory Team", number: "9108599083" }],
-      hq_address: "'Gokula', 1st Floor, Union Bank Building, Opp. Green Park Hotel, Near Tiger Circle, Manipal, Karnataka 576104",
-      branch_address: "Laggere, Bengaluru, Karnataka",
-      working_hours: "Mon - Sat: 9:30 AM - 6:30 PM",
+      firm_phone: "+91 7760485737",
+      hq_phone: "+91 7760485737 / +91 6360523673",
+      branch_phone: "+91 8867531151 / +91 7829809690",
+      whatsapp_numbers: [
+        { name: "Manipal Office", number: "917760485737" },
+        { name: "Bengaluru Office", number: "918867531151" }
+      ],
+      hq_address: "'Gokula', 1st Floor, Union Bank Building, Opp. Green Park Hotel, Near Tiger Circle, Manipal - 576104",
+      branch_address: "17/106, 3rd Cross, LG Ramanna Extension, Laggere, Bengaluru, Karnataka - 560058",
+      working_hours: "Mon - Sat: 9:00 AM - 8:00 PM (Sunday Closed)",
       established_year: "2019",
+      peer_reviewed: true,
+      iso_certified: true,
       erp_api_url: "",
       erp_api_key: "",
-      tawk_property_id: "6011a916c31c9117cb73225c"
+      tawk_property_id: "6011a916c31c9117cb73225c",
+      tawk_widget_id: "1et2fp10u",
+      client_login_url: "https://practice.turia.in/login",
+      employee_login_url: "https://practice.turia.in/login"
     };
   }
 
@@ -625,7 +654,7 @@ class Store {
 
     const slug = meta.slug || meta.id;
     try {
-      const res = await fetch(`data/blogs/${slug}.json`);
+      const res = await fetch(`/data/blogs/${slug}.json`);
       if (!res.ok) throw new Error('File not found');
       const fullBlog = await res.json();
       return fullBlog;
@@ -642,7 +671,7 @@ class Store {
 
     const slug = meta.slug || meta.id;
     try {
-      const res = await fetch(`data/case_studies/${slug}.json`);
+      const res = await fetch(`/data/case_studies/${slug}.json`);
       if (!res.ok) throw new Error('File not found');
       const fullCs = await res.json();
       return fullCs;

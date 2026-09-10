@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 ---
 
 <Layout
@@ -30,21 +31,21 @@ import Layout from '../layouts/Layout.astro';
           <!-- Firm Credentials & Badges -->
           <div style="display:flex; flex-wrap:wrap; gap:12px; margin:22px 0 16px 0;">
             <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1.5px solid var(--color-accent); border-radius:10px; padding:10px 16px; box-shadow:0 4px 12px rgba(29,163,154,0.10);">
-              <span style="font-size:20px;">🏛️</span>
+              <div style="color:var(--color-primary);"><Icon name="landmark" size={22} /></div>
               <div>
                 <div style="font-size:10px; font-weight:700; color:var(--color-primary); letter-spacing:0.5px; text-transform:uppercase;">ICAI Member Firm</div>
                 <div style="font-size:10px; color:var(--text-muted);">Established July 2019</div>
               </div>
             </div>
             <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1.5px solid var(--color-accent); border-radius:10px; padding:10px 16px; box-shadow:0 4px 12px rgba(29,163,154,0.10);">
-              <span style="font-size:20px;">✅</span>
+              <div style="color:var(--color-accent);"><Icon name="check-circle" size={22} /></div>
               <div>
                 <div style="font-size:10px; font-weight:700; color:var(--color-primary); letter-spacing:0.5px; text-transform:uppercase;">Peer Reviewed</div>
                 <div style="font-size:10px; color:var(--text-muted);">ICAI Peer Review Board</div>
               </div>
             </div>
             <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1.5px solid var(--color-accent); border-radius:10px; padding:10px 16px; box-shadow:0 4px 12px rgba(29,163,154,0.10);">
-              <span style="font-size:20px;">🏅</span>
+              <div style="color:#d97706;"><Icon name="award" size={22} /></div>
               <div>
                 <div style="font-size:10px; font-weight:700; color:var(--color-primary); letter-spacing:0.5px; text-transform:uppercase;">ISO Certified</div>
                 <div style="font-size:10px; color:var(--text-muted);">Quality Management System</div>
@@ -104,25 +105,25 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="content-grid content-grid-4">
         <div class="content-card reveal-on-scroll">
-          <div style="font-size:24px; margin-bottom:10px;">🌐</div>
+          <div style="color:var(--color-primary); margin-bottom:12px;"><Icon name="globe" size={28} /></div>
           <h3 class="content-card-headline" style="font-size:16px;">Analytical Focus</h3>
           <p class="content-card-quote" style="font-style:normal;">To function as an analytical, research-oriented advisory practice serving clients across Karnataka and nationwide.</p>
         </div>
 
         <div class="content-card reveal-on-scroll reveal-down">
-          <div style="font-size:24px; margin-bottom:10px;">🛡️</div>
+          <div style="color:var(--color-primary); margin-bottom:12px;"><Icon name="shield" size={28} /></div>
           <h3 class="content-card-headline" style="font-size:16px;">Sustainable Solutions</h3>
           <p class="content-card-quote" style="font-style:normal;">To provide clients with sound financial and compliance structures built for long-term stability and resilience.</p>
         </div>
 
         <div class="content-card reveal-on-scroll">
-          <div style="font-size:24px; margin-bottom:10px;">⚖️</div>
+          <div style="color:var(--color-primary); margin-bottom:12px;"><Icon name="scale" size={28} /></div>
           <h3 class="content-card-headline" style="font-size:16px;">Professional Integrity</h3>
           <p class="content-card-quote" style="font-style:normal;">To maintain highest accuracy and compliance standards in every filing, certification, and statutory audit.</p>
         </div>
 
         <div class="content-card reveal-on-scroll reveal-down">
-          <div style="font-size:24px; margin-bottom:10px;">🤝</div>
+          <div style="color:var(--color-primary); margin-bottom:12px;"><Icon name="handshake" size={28} /></div>
           <h3 class="content-card-headline" style="font-size:16px;">Client Partnerships</h3>
           <p class="content-card-quote" style="font-style:normal;">To build long-lasting advisory relationships by delivering proactive counsel before regulatory deadlines.</p>
         </div>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 import CareerCard from '../components/CareerCard.astro';
 import careersData from '../data/careers.json';
 
@@ -33,19 +34,19 @@ const careers = careersData.careers || [];
 
       <div class="content-grid content-grid-3">
         <div class="content-card reveal-on-scroll">
-          <div style="font-size:28px; margin-bottom:12px;">📊</div>
+          <div style="color:var(--color-primary); margin-bottom:12px;"><Icon name="chart" size={32} /></div>
           <h3 class="content-card-headline" style="font-size:18px;">Multi-Disciplinary Exposure</h3>
           <p class="content-card-quote" style="font-style:normal;">Gain direct hands-on training in Statutory Audits, Direct Tax litigation, GST reconciliations, MCA21 corporate filings, and Business Valuation.</p>
         </div>
 
         <div class="content-card reveal-on-scroll reveal-down">
-          <div style="font-size:28px; margin-bottom:12px;">🎓</div>
+          <div style="color:var(--color-primary); margin-bottom:12px;"><Icon name="graduation-cap" size={32} /></div>
           <h3 class="content-card-headline" style="font-size:18px;">Structured Articleship</h3>
           <p class="content-card-quote" style="font-style:normal;">Comprehensive ICAI articleship framework with dedicated study leaves, exam support, and rotation across specialized practice divisions.</p>
         </div>
 
         <div class="content-card reveal-on-scroll">
-          <div style="font-size:28px; margin-bottom:12px;">💡</div>
+          <div style="color:var(--color-primary); margin-bottom:12px;"><Icon name="lightbulb" size={32} /></div>
           <h3 class="content-card-headline" style="font-size:18px;">Modern Tech & Automation</h3>
           <p class="content-card-quote" style="font-style:normal;">Work with cloud accounting systems, Power BI financial analytics, and paperless audit workpaper repositories.</p>
         </div>
