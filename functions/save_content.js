@@ -1,7 +1,24 @@
 export async function onRequestPost(context) {
   const { request, env } = context;
   const token = env.GITHUB_PAT;
-  const repo = env.GITHUB_REPO || 'NRSR_Coc/NRSR_Co-website';
+  const repo = env.GITHUB_REPO || 'TuriaBooks-Technologies-Private-Limited/NRSR-Co-Website';
+
+  // 1. Enforce Cloudflare Access or Admin Authentication
+  const jwt = request.headers.get('Cf-Access-Jwt-Assertion');
+  const cookieHeader = request.headers.get('Cookie') || '';
+  const cfCookie = cookieHeader.split(';').map(c => c.trim()).find(c => c.startsWith('CF_Authorization='));
+  const authHeader = request.headers.get('Authorization') || '';
+  const isDevBypass = env.DISABLE_CF_AUTH === 'true' || request.headers.get('x-dev-admin-bypass') === (env.DEV_ADMIN_KEY || 'nrsr-dev-local');
+
+  if (!jwt && !cfCookie && !authHeader && !isDevBypass) {
+    return new Response(JSON.stringify({ error: "Unauthorized. Cloudflare Access or Admin authentication required to modify content." }), {
+      status: 401,
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
+  }
 
   if (!token) {
     return new Response(JSON.stringify({ error: "Missing GITHUB_PAT on Cloudflare environment." }), {
@@ -25,7 +42,7 @@ export async function onRequestPost(context) {
       });
     }
 
-    // 1. Get file SHA if it exists (so we can update/overwrite it)
+    // 2. Get file SHA if it exists (so we can update/overwrite it)
     const fileUrl = `https://api.github.com/repos/${repo}/contents/${filePath}`;
     const getRes = await fetch(fileUrl, {
       headers: {
@@ -40,7 +57,7 @@ export async function onRequestPost(context) {
       sha = fileData.sha;
     }
 
-    // 2. Commit back to GitHub
+    // 3. Commit back to GitHub
     const jsonString = JSON.stringify(content, null, 2);
     // Encode to base64 using a worker-safe method
     const bytes = new TextEncoder().encode(jsonString);
@@ -57,7 +74,7 @@ export async function onRequestPost(context) {
         message: message || `cms: update ${filePath}`,
         content: base64Content,
         sha: sha || undefined,
-        branch: 'Main'
+        branch: 'main'
       })
     });
 

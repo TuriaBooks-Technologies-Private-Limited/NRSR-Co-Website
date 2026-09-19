@@ -2023,7 +2023,7 @@ function renderCareersTable(container) {
             </td>
           </tr>
         `).join("")}
-        ${careers.length === 0 ? "<tr><td colspan="7" style="text-align:center; color:var(--text-muted); padding:30px;">No job openings posted yet. Click + Post New Job Opening above!</td></tr>" : ""}
+        ${careers.length === 0 ? "<tr><td colspan=\"7\" style=\"text-align:center; color:var(--text-muted); padding:30px;\">No job openings posted yet. Click + Post New Job Opening above!</td></tr>" : ""}
       </tbody>
     </table>
   `;
@@ -2084,8 +2084,7 @@ window.openCareerModal = function(id) {
       </div>
       <div class="form-group">
         <label>Key Requirements (One requirement per line)</label>
-        <textarea id="jobReqs" class="form-control" rows="3" placeholder="CA Inter / IPCC Cleared&#10;Knowledge of TallyPrime & GST Portal&#10;Good communication skills">${job && job.requirements ? job.requirements.join("
-") : ""}</textarea>
+        <textarea id="jobReqs" class="form-control" rows="3" placeholder="CA Inter / IPCC Cleared&#10;Knowledge of TallyPrime & GST Portal&#10;Good communication skills">${job && job.requirements ? job.requirements.join('\n') : ""}</textarea>
       </div>
       <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
         <button type="button" class="btn btn-outline" onclick="document.getElementById('adminModal').classList.remove('active')">Cancel</button>
@@ -2106,8 +2105,7 @@ window.saveCareerForm = function(id) {
   const shortDesc = document.getElementById("jobShortDesc").value.trim();
   const description = document.getElementById("jobDesc").value.trim();
   const reqsRaw = document.getElementById("jobReqs").value;
-  const requirements = reqsRaw.split("
-").map(r => r.trim()).filter(Boolean);
+  const requirements = reqsRaw.split('\n').map(r => r.trim()).filter(Boolean);
 
   if (!title) { alert("Please enter job title."); return; }
 
@@ -2158,7 +2156,7 @@ function renderGalleryTable(container) {
         </div>
       `).join("")}
     </div>
-    ${gallery.length === 0 ? "<div style="background:#ffffff; padding:40px; text-align:center; border-radius:12px; color:var(--text-muted); border:var(--card-border);">No photos in gallery. Click + Add Photo to Gallery to upload!</div>" : ""}
+    ${gallery.length === 0 ? "<div style=\"background:#ffffff; padding:40px; text-align:center; border-radius:12px; color:var(--text-muted); border:var(--card-border);\">No photos in gallery. Click + Add Photo to Gallery to upload!</div>" : ""}
   `;
 }
 
@@ -2198,7 +2196,7 @@ window.openGalleryModal = function(id) {
         </div>
         <input type="text" id="galImageUrl" class="form-control" value="${item ? item.image || "" : ""}" placeholder="Or paste image URL (https://...)">
         <div id="galPreview" style="margin-top:10px; height:120px; border-radius:8px; border:1px dashed #cbd5e1; display:flex; align-items:center; justify-content:center; overflow:hidden; background:#f8fafc;">
-          ${item && item.image ? `<img src="${item.image}" style="height:100%; object-fit:cover;">` : "<span style="color:#94a3b8; font-size:12px;">Image preview will appear here</span>"}
+          ${item && item.image ? `<img src="${item.image}" style="height:100%; object-fit:cover;">` : "<span style=\"color:#94a3b8; font-size:12px;\">Image preview will appear here</span>"}
         </div>
       </div>
       <div class="form-group">

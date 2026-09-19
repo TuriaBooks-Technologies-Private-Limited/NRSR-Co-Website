@@ -3,9 +3,11 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev --host 0.0.0.0 --port 3000",
-    "start": "astro dev --host 0.0.0.0 --port 3000",
-    "build": "astro build",
+    "sync-data": "cp -r src/data/* public/data/ && cp -r src/data/* data/ 2>/dev/null || true",
+    "check": "node --check public/js/admin.js && node --check public/js/main.js && node --check public/js/store.js && node --check public/js/animations.js && node --check public/js/icons.js && npm run sync-data",
+    "dev": "npm run sync-data && ASTRO_TELEMETRY_DISABLED=1 astro dev --host 0.0.0.0 --port 3000",
+    "start": "npm run sync-data && ASTRO_TELEMETRY_DISABLED=1 astro dev --host 0.0.0.0 --port 3000",
+    "build": "npm run sync-data && ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "astro preview"
   },
   "dependencies": {

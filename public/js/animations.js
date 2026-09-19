@@ -761,7 +761,7 @@ function initServiceSplitPage() {
         <strong>${featureCount ? `${featureCount} areas covered under ${svc.name}` : svc.name}</strong>
         <p>Further information on this service is available on request.</p>
       </div>
-      <a href="contact.html" class="btn btn-primary">Contact Us</a>
+      <a href="/contact" class="btn btn-primary">Contact Us</a>
     `;
   }
 

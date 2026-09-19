@@ -1,7 +1,24 @@
 export async function onRequest(context) {
   const { request, env } = context;
   const token = env.GITHUB_PAT;
-  const repo = env.GITHUB_REPO || 'NRSR_Coc/NRSR_Co-website';
+  const repo = env.GITHUB_REPO || 'TuriaBooks-Technologies-Private-Limited/NRSR-Co-Website';
+
+  // 1. Enforce Cloudflare Access or Admin Authentication
+  const jwt = request.headers.get('Cf-Access-Jwt-Assertion');
+  const cookieHeader = request.headers.get('Cookie') || '';
+  const cfCookie = cookieHeader.split(';').map(c => c.trim()).find(c => c.startsWith('CF_Authorization='));
+  const authHeader = request.headers.get('Authorization') || '';
+  const isDevBypass = env.DISABLE_CF_AUTH === 'true' || request.headers.get('x-dev-admin-bypass') === (env.DEV_ADMIN_KEY || 'nrsr-dev-local');
+
+  if (!jwt && !cfCookie && !authHeader && !isDevBypass) {
+    return new Response(JSON.stringify({ error: "Unauthorized. Cloudflare Access or Admin authentication required." }), {
+      status: 401,
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
+  }
 
   if (!token) {
     return new Response(JSON.stringify({ error: "Missing GITHUB_PAT on Cloudflare environment." }), {

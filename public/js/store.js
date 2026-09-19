@@ -11,7 +11,7 @@
 */
 
 // Global Configuration for agency skeleton replication
-window.GITHUB_REPOSITORY = 'NRSR-Co/nrsr-website';
+window.GITHUB_REPOSITORY = 'TuriaBooks-Technologies-Private-Limited/NRSR-Co-Website';
 window.CLOUDFLARE_TEAM_DOMAIN = 'nrsr-co-trust'; // Cloudflare Zero Trust Team Subdomain
 window.API_ENGINE = 'cloudflare';
 const GITHUB_REPOSITORY = window.GITHUB_REPOSITORY;
@@ -177,7 +177,7 @@ const DEFAULT_FAQS = [
     id: 'faq-1',
     question: 'What is a Virtual CFO service and how does it benefit my business?',
     answer: 'A Virtual CFO gives your growing company executive-level financial leadership, cash flow forecasting, working capital optimization, and investor deck preparation at a fraction of the cost of a full-time CFO.',
-    placement: 'index.html'
+    placement: 'index'
   },
   {
     id: 'faq-2',
@@ -189,13 +189,13 @@ const DEFAULT_FAQS = [
     id: 'faq-3',
     question: 'What direct tax litigation support does NRSR & Co offer?',
     answer: 'Our team of Advocates and Chartered Accountants drafts legal submissions, stays high-pitched penalty notices, and represents clients before the Income Tax Appellate Tribunal (ITAT).',
-    placement: 'services.html'
+    placement: 'services'
   },
   {
     id: 'faq-4',
     question: 'Can you connect Power BI dashboards directly to our Tally or SAP accounting system?',
     answer: 'Yes! Our technology team builds automated API data pipelines linking Tally, Zoho, or SAP directly with interactive Power BI executive dashboards for real-time KPI tracking.',
-    placement: 'services.html'
+    placement: 'services'
   }
 ];
 
@@ -207,7 +207,7 @@ const DEFAULT_TESTIMONIALS = [
     company: 'Horizon Healthcare Solutions',
     rating: 5,
     review: 'NRSR & Co’s Virtual CFO services completely restructured our finance department. The team optimized our working capital cycles, saving us over ₹35 Lakhs in interest overheads within 8 months.',
-    placement: 'index.html'
+    placement: 'index'
   },
   {
     id: 'test-2',

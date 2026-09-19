@@ -119,7 +119,7 @@ function initCookieBanner() {
   const banner = document.createElement('div');
   banner.className = 'cookie-banner';
   banner.innerHTML = `
-    <p>We use essential cookies to optimize your browsing experience and analyze corporate site traffic. Read our <a href="contact.html">Privacy Policy</a>.</p>
+    <p>We use essential cookies to optimize your browsing experience and analyze corporate site traffic. Read our <a href="/contact">Privacy Policy</a>.</p>
     <button id="acceptCookieBtn" class="btn btn-primary" style="padding: 6px 18px; font-size: 12px; min-height:36px;">Accept & Continue</button>
   `;
 

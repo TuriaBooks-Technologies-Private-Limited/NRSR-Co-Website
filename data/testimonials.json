@@ -7,7 +7,7 @@
       "company": "Horizon Healthcare Solutions",
       "rating": 5,
       "review": "NRSR & Co's Virtual CFO services completely restructured our finance department. The team optimized our working capital cycles, saving us over ₹35 Lakhs in interest overheads within 8 months.",
-      "placement": "index.html",
+      "placement": "index",
       "date": "",
       "image": ""
     },
@@ -18,7 +18,7 @@
       "company": "FinTech Global Inc (US)",
       "rating": 5,
       "review": "The team at NRSR & Co provided seamless US GAAP accounting and Australian tax compliance support for our GCC setup in Karnataka. Highly recommend their multi-disciplinary expertise!",
-      "placement": "team.html",
+      "placement": "team",
       "date": "",
       "image": ""
     },

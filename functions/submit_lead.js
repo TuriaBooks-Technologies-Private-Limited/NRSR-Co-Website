@@ -13,10 +13,10 @@ export async function onRequestPost(context) {
     const timestamp = Date.now();
     const filename = `lead-${timestamp}.json`;
 
-    const repo = env.GITHUB_REPO || 'NRSR_Coc/NRSR_Co-website';
+    const repo = env.GITHUB_REPO || 'TuriaBooks-Technologies-Private-Limited/NRSR-Co-Website';
 
-    // 1. Fetch ERP settings from data/settings.json in repository
-    const settingsUrl = `https://api.github.com/repos/${repo}/contents/data/settings.json`;
+    // 1. Fetch ERP settings from src/data/settings.json in repository
+    const settingsUrl = `https://api.github.com/repos/${repo}/contents/src/data/settings.json`;
     const settingsRes = await fetch(settingsUrl, {
       headers: { 
         'Authorization': `token ${token}`,
@@ -47,8 +47,8 @@ export async function onRequestPost(context) {
       notificationEmails = config.settings?.notification_emails || '';
     }
 
-    // 2. Commit lead to GitHub repository under data/leads/
-    const leadUrl = `https://api.github.com/repos/${repo}/contents/data/leads/${filename}`;
+    // 2. Commit lead to GitHub repository under src/data/leads/
+    const leadUrl = `https://api.github.com/repos/${repo}/contents/src/data/leads/${filename}`;
     const fileContent = JSON.stringify(leadData, null, 2);
     
     // Encode base64 using Web Worker API compatibility
@@ -70,7 +70,7 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         message: `lead: add contact inquiry from ${leadData.name}`,
         content: base64Content,
-        branch: 'Main'
+        branch: 'main'
       })
     });
 
