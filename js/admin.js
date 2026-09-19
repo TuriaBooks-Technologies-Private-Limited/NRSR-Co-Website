@@ -1975,6 +1975,14 @@ window.viewLeadDetails = async function(name, path) {
           <strong style="display:block; margin-bottom:8px; color:var(--color-primary);">Message Text:</strong>
           <p style="white-space:pre-line; margin:0;">${lead.message}</p>
         </div>
+        ${lead.resume_base64 ? `
+          <div style="background:rgba(16,185,129,0.1); padding:14px; border-radius:8px; border:1px solid rgba(16,185,129,0.3); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div>
+              <strong>Attached Resume:</strong> ${lead.resume_filename || 'Candidate Resume'}
+            </div>
+            <a href="${lead.resume_base64}" download="${lead.resume_filename || 'Candidate_Resume'}" class="btn btn-primary" style="padding:6px 14px; font-size:12px; text-decoration:none;">Download Resume File</a>
+          </div>
+        ` : ''}
         <button class="btn btn-primary" onclick="document.getElementById('adminModal').classList.remove('active')" style="width:100%; margin-top:10px;">Close Details</button>
       </div>
     `;

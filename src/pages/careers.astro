@@ -128,8 +128,12 @@ const careers = careersData.careers || [];
             </div>
           </div>
           <div class="form-group">
-            <label>Resume Link (Google Drive / Dropbox) or LinkedIn</label>
-            <input type="text" id="applicantResumeLink" class="form-control" placeholder="Link to your Google Drive resume or LinkedIn URL">
+            <label>Upload Resume / CV (PDF, DOC, DOCX — Max 5MB)</label>
+            <input type="file" id="applicantResumeFile" class="form-control" accept=".pdf,.doc,.docx" style="padding: 8px 12px; font-size: 13px;">
+          </div>
+          <div class="form-group">
+            <label>Or Resume Link (Google Drive / Dropbox) / LinkedIn URL</label>
+            <input type="text" id="applicantResumeLink" class="form-control" placeholder="https://drive.google.com/... or LinkedIn URL">
           </div>
           <div class="form-group">
             <label>Cover Note / Relevant Experience</label>

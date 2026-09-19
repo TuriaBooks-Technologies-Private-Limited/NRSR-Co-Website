@@ -1749,13 +1749,15 @@ footer {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
+    width: 85%;
     max-width: 320px;
     height: 100vh;
     background: #ffffff;
     flex-direction: column;
     align-items: flex-start;
-    padding: 90px 30px 40px 30px;
+    padding: 85px 24px 40px 24px;
+    gap: 8px;
+    overflow-y: auto;
     transition: var(--transition);
     box-shadow: -10px 0 30px rgba(0,0,0,0.15);
     z-index: 1001;
@@ -1763,13 +1765,54 @@ footer {
   
   .nav-menu.active { right: 0; }
 
-  /* The drawer itself is white, unlike the dark header bar it slides out
-     of — nav links/CTA need their light-on-dark styling reversed here. */
-  .nav-menu .nav-link { color: var(--color-slate); }
-  .nav-menu .nav-link:hover, .nav-menu .nav-link.active { color: var(--color-primary); }
-  .nav-menu .nav-link::after { background-color: var(--color-primary); }
-  .nav-menu .btn-primary { background-color: var(--color-slate); color: #ffffff; }
-  .nav-menu .btn-primary:hover { background-color: #000000; }
+  .nav-menu .nav-link { 
+    color: var(--color-slate); 
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+  }
+  .nav-menu .nav-link:hover, .nav-menu .nav-link.active { 
+    color: var(--color-primary-dark);
+    background-color: var(--bg-main);
+  }
+  .nav-menu .nav-link::after { display: none; }
+  
+  .nav-menu .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-menu .nav-dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+    background: var(--bg-main);
+    color: var(--text-main);
+    border-color: rgba(0, 170, 206, 0.2);
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+
+  .nav-menu .nav-dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: 1px solid rgba(0, 170, 206, 0.1);
+    background: var(--bg-main);
+    margin-top: 6px;
+    width: 100%;
+    min-width: 100% !important;
+  }
+
+  .nav-menu .btn-header-contact {
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 12px;
+    padding: 12px;
+    font-size: 14px;
+  }
 
   .team-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }

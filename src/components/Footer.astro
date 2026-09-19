@@ -22,6 +22,14 @@ const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
         </div>
       </div>
       <p>{settings.firm_name || 'M/s NRSR & Co'} is a partnership firm of Chartered Accountants providing financial, compliance, valuation, and advisory services.</p>
+      <div style="display: flex; gap: 10px; margin-top: 14px;">
+        <a href={settings.linkedin_url || "https://www.linkedin.com/company/nrsr-and-co"} target="_blank" rel="noopener noreferrer" aria-label="NRSR & Co LinkedIn" style="width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:#ffffff; transition:all 0.2s;">
+          <Icon name="linkedin" size={16} color="currentColor" />
+        </a>
+        <a href="https://wa.me/917760485737" target="_blank" rel="noopener noreferrer" aria-label="NRSR & Co WhatsApp" style="width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:#25D366; transition:all 0.2s;">
+          <Icon name="whatsapp" size={16} color="currentColor" />
+        </a>
+      </div>
     </div>
 
     <div class="footer-col">

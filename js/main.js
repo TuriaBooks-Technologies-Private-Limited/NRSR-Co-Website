@@ -782,10 +782,35 @@ window.handleJobApplicationSubmit = async function(e) {
   const location = document.getElementById("applicantLocation").value;
   const resumeLink = document.getElementById("applicantResumeLink").value.trim();
   const notes = document.getElementById("applicantNotes").value.trim();
+  const fileInput = document.getElementById("applicantResumeFile");
   const submitBtn = document.getElementById("submitAppBtn");
 
   submitBtn.disabled = true;
   submitBtn.textContent = "Submitting Application...";
+
+  let resumeFileBase64 = "";
+  let resumeFileName = "";
+
+  if (fileInput && fileInput.files && fileInput.files[0]) {
+    const file = fileInput.files[0];
+    if (file.size > 5 * 1024 * 1024) {
+      alert("File size exceeds 5MB limit. Please upload a smaller file or provide a Google Drive / Dropbox link.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Application";
+      return;
+    }
+    resumeFileName = file.name;
+    try {
+      resumeFileBase64 = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+        reader.readAsDataURL(file);
+      });
+    } catch (readErr) {
+      console.warn("Failed to read resume file:", readErr);
+    }
+  }
 
   const applicationData = {
     type: "Job Application",
@@ -796,6 +821,8 @@ window.handleJobApplicationSubmit = async function(e) {
     qualification,
     location,
     resumeLink,
+    resumeFileName,
+    hasAttachment: !!resumeFileBase64,
     notes,
     submitted_at: new Date().toISOString()
   };
@@ -809,9 +836,13 @@ window.handleJobApplicationSubmit = async function(e) {
         email,
         phone,
         service: `Career: ${jobTitle}`,
-        message: `Qualification: ${qualification}
+        resume_filename: resumeFileName,
+        resume_base64: resumeFileBase64,
+        resume_link: resumeLink,
+        message: `Position: ${jobTitle}
+Qualification: ${qualification}
 Location: ${location}
-Resume Link: ${resumeLink}
+Resume Link: ${resumeLink || (resumeFileName ? `Attached File (${resumeFileName})` : "None")}
 
 Cover Note:
 ${notes}`
