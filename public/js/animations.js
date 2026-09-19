@@ -900,23 +900,15 @@ function initCursorGlow() {
 
 function initMagneticButtons() {
   if (PREFERS_REDUCED_MOTION) return;
-  const buttons = document.querySelectorAll('.btn-primary, .btn-accent, .btn-outline');
+  // Apply only subtle scale to dedicated CTA buttons (never to inline tabs or filter pills)
+  const buttons = document.querySelectorAll('.hero-actions .btn, .btn-header-contact');
   buttons.forEach(btn => {
-    let raf = null;
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      if (raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        btn.style.transition = 'background-color 0.4s, box-shadow 0.4s, transform 0.15s ease-out';
-        btn.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px)`;
-      });
+    btn.addEventListener('mouseenter', () => {
+      btn.style.transition = 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)';
+      btn.style.transform = 'translateY(-2px)';
     });
     btn.addEventListener('mouseleave', () => {
-      if (raf) cancelAnimationFrame(raf);
-      btn.style.transition = 'background-color 0.4s, box-shadow 0.4s, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
-      btn.style.transform = 'translate(0, 0)';
+      btn.style.transform = 'none';
     });
   });
 }
@@ -955,7 +947,7 @@ function initServicesHub() {
   if (!services || !services.length) return;
 
   const n = services.length;
-  const R = 35;
+  const R = 36;
   const nodes = services.map((svc, i) => {
     const angle = (-90 + i * (360 / n)) * (Math.PI / 180);
     return {
@@ -965,30 +957,44 @@ function initServicesHub() {
     };
   });
 
-  const lines = nodes.map(node => `<line x1="50" y1="50" x2="${node.x.toFixed(2)}" y2="${node.y.toFixed(2)}" />`).join('');
+  const lines = nodes.map(node => `<line x1="50" y1="50" x2="${node.x.toFixed(2)}" y2="${node.y.toFixed(2)}" stroke="rgba(0,132,180,0.22)" stroke-width="0.5" stroke-dasharray="1.5,1.5" />`).join('');
 
   const nodeEls = nodes.map((node, i) => {
     const template = SERVICE_TEMPLATES[node.svc.name];
     return `
-      <a href="/services?service=${encodeURIComponent(node.svc.id)}" class="hub-node reveal-on-scroll" style="left:${node.x.toFixed(2)}%; top:${node.y.toFixed(2)}%; transition-delay:${(i % 5) * 0.06}s;">
-        <span class="hub-node-icon">${template ? template.icon : DEFAULT_SVG_ICON}</span>
+      <a href="/services" class="hub-node reveal-on-scroll" style="left:${node.x.toFixed(2)}%; top:${node.y.toFixed(2)}%; transition-delay:${(i % 5) * 0.06}s;" title="${node.svc.name}">
+        <span class="hub-node-icon" style="border: 2px solid var(--color-primary); box-shadow: 0 6px 16px -2px var(--glow-cyan);">${template ? template.icon : DEFAULT_SVG_ICON}</span>
         <span class="hub-node-label">${node.svc.name}</span>
       </a>`;
   }).join('');
 
   const listItems = services.map(svc => `
-    <a href="/services?service=${encodeURIComponent(svc.id)}" class="hub-list-item">
+    <a href="/services" class="hub-list-item">
       <span>${SERVICE_TEMPLATES[svc.name] ? SERVICE_TEMPLATES[svc.name].icon : DEFAULT_SVG_ICON}</span> ${svc.name}
     </a>`).join('');
 
   hub.innerHTML = `
     <svg class="hub-lines" viewBox="0 0 100 100">${lines}</svg>
-    <div class="hub-center reveal-on-scroll">
-      <img src="assets/logo.svg" alt="NRSR & Co">
+    <div class="hub-center reveal-on-scroll" style="width:84px; height:84px; border:2.5px solid var(--color-primary); box-shadow:0 0 25px var(--glow-cyan); padding:8px;">
+      <img src="/images/logo.png" alt="NRSR & Co" style="width:100%; height:100%; object-fit:contain;">
     </div>
     ${nodeEls}
     <div class="hub-list">${listItems}</div>
   `;
+
+  // Add 3D perspective tilt to the radial diagram on mouse movement
+  if (!PREFERS_REDUCED_MOTION) {
+    hub.style.transition = 'transform 0.25s ease-out';
+    hub.addEventListener('mousemove', (e) => {
+      const rect = hub.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      hub.style.transform = `perspective(1000px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg)`;
+    });
+    hub.addEventListener('mouseleave', () => {
+      hub.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+    });
+  }
 }
 
 /* 12. How We Work — inline scroll-linked process line (not pinned/scroll-jacked) */

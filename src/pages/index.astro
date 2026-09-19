@@ -67,28 +67,30 @@ const sectors = [
 
       <!-- Hero Ledger Card & Practice Stats -->
       <div class="hero-card-wrapper reveal-on-scroll" style="transition-delay: 0.25s;">
-        <div class="hero-card tilt-card" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); border: 1px solid rgba(0,132,180,0.2); box-shadow: 0 20px 40px -10px var(--glow-cyan);">
-          <div class="card-logo-center" style="margin-bottom:12px;">
-            <img src="/images/logo.png" alt="NRSR & Co Logo" style="height:52px; width:auto; max-width:190px; object-fit:contain;">
+        <div class="hero-card tilt-card">
+          <div class="hero-card-brand">
+            <div class="card-logo-center">
+              <img src="/images/logo.png" alt="NRSR & Co Logo">
+            </div>
+            <h2 class="card-firm-title">M/s NRSR & Co</h2>
+            <div class="card-firm-sub">Chartered Accountants & Registered Valuers</div>
           </div>
-          <h2 class="card-firm-title">M/s NRSR & Co</h2>
-          <div class="card-firm-sub">Chartered Accountants & Registered Valuers</div>
 
-          <div class="hero-stats-grid" style="margin-top:18px;">
+          <div class="hero-stats-grid">
             <div class="stat-box">
-              <div class="stat-num" style="color:var(--color-primary);">2019</div>
+              <div class="stat-num">2019</div>
               <div class="stat-lbl">Established</div>
             </div>
             <div class="stat-box">
-              <div class="stat-num" style="color:var(--color-primary);">10+</div>
+              <div class="stat-num">10+</div>
               <div class="stat-lbl">Core Verticals</div>
             </div>
             <div class="stat-box">
               <div class="stat-num" style="color:var(--color-accent);">100%</div>
-              <div class="stat-lbl">Statutory Assurance</div>
+              <div class="stat-lbl">Assurance</div>
             </div>
             <div class="stat-box">
-              <div class="stat-num" style="color:var(--color-primary);">2</div>
+              <div class="stat-num">2</div>
               <div class="stat-lbl">Offices (Manipal & BLR)</div>
             </div>
           </div>
@@ -117,6 +119,25 @@ const sectors = [
           <div class="service-viewer-content">
             <!-- Dynamic interactive diagram & details -->
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Rail Horizontal Scroll Section -->
+  <section class="section-padding" style="overflow: hidden; padding-bottom: 20px;">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Practice Capabilities</span>
+        <h2 class="section-title">Explore All Practice Areas</h2>
+      </div>
+      
+      <!-- Interactive drag-to-scroll rail -->
+      <div class="svc-rail-wrapper">
+        <div id="svcRail" class="svc-rail">
+          {services.map((svc, idx) => (
+            <ServiceCard service={svc} index={idx} />
+          ))}
         </div>
       </div>
     </div>
