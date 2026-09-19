@@ -811,7 +811,7 @@ class Store {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            path: `data/${filename}`,
+            path: `src/data/${filename}`,
             content: data,
             message: `cms: update ${filename}`
           })
@@ -838,7 +838,7 @@ class Store {
       return;
     }
 
-    const url = `https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/data/${filename}`;
+    const url = `https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/src/data/${filename}`;
     const headers = {
       'Content-Type': 'application/json',
       'Authorization': `token ${oauthToken}`
@@ -869,7 +869,7 @@ class Store {
           message: `cms: update ${filename}`,
           content: base64,
           sha: sha || undefined,
-          branch: 'Main'
+          branch: 'main'
         })
       });
       
@@ -896,8 +896,8 @@ class Store {
 
     const useOAuth = !!oauthToken;
     const url = useOAuth
-      ? `https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/data/${filename}`
-      : `/.netlify/git/github/contents/data/${filename}`;
+      ? `https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/src/data/${filename}`
+      : `/.netlify/git/github/contents/src/data/${filename}`;
     
     const headers = {};
     if (useOAuth) {

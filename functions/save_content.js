@@ -31,7 +31,7 @@ export async function onRequestPost(context) {
   }
 
   try {
-    const { path: filePath, content, message } = await request.json();
+    let { path: filePath, content, message } = await request.json();
     if (!filePath || !content) {
       return new Response(JSON.stringify({ error: "Missing path or content parameter." }), {
         status: 400,
@@ -42,8 +42,16 @@ export async function onRequestPost(context) {
       });
     }
 
+    // Normalize path to canonical src/data/
+    let targetPath = filePath.trim();
+    if (targetPath.startsWith('data/')) {
+      targetPath = `src/${targetPath}`;
+    } else if (!targetPath.startsWith('src/')) {
+      targetPath = `src/data/${targetPath}`;
+    }
+
     // 2. Get file SHA if it exists (so we can update/overwrite it)
-    const fileUrl = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+    const fileUrl = `https://api.github.com/repos/${repo}/contents/${targetPath}`;
     const getRes = await fetch(fileUrl, {
       headers: {
         'Authorization': `token ${token}`,

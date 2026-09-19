@@ -43,7 +43,14 @@ export async function onRequest(context) {
     });
   }
 
-  const gitUrl = `https://api.github.com/repos/${repo}/${apiPath}`;
+  let normalizedApiPath = apiPath.trim();
+  if (normalizedApiPath.startsWith('contents/data/')) {
+    normalizedApiPath = normalizedApiPath.replace('contents/data/', 'contents/src/data/');
+  } else if (normalizedApiPath.startsWith('data/')) {
+    normalizedApiPath = `contents/src/${normalizedApiPath}`;
+  }
+
+  const gitUrl = `https://api.github.com/repos/${repo}/${normalizedApiPath}`;
   const method = request.method;
   
   const requestHeaders = new Headers();

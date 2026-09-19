@@ -1656,8 +1656,8 @@ async function renderLeadsPanel(container) {
   }
 
   const url = isCloudflare
-    ? `/github_proxy?path=${encodeURIComponent('contents/data/leads')}`
-    : `https://api.github.com/repos/${window.GITHUB_REPOSITORY || 'NRSR_Coc/NRSR_Co-website'}/contents/data/leads`;
+    ? `/github_proxy?path=${encodeURIComponent('contents/src/data/leads')}`
+    : `https://api.github.com/repos/${window.GITHUB_REPOSITORY || 'TuriaBooks-Technologies-Private-Limited/NRSR-Co-Website'}/contents/src/data/leads`;
   
   const headers = {};
   if (!isCloudflare && oauthToken) {
@@ -1959,8 +1959,8 @@ window.deleteLead = async function(name, sha) {
   const oauthToken = localStorage.getItem("git_oauth_token");
   const isCloudflare = oauthToken === "cloudflare_access" || window.API_ENGINE === "cloudflare";
   const url = isCloudflare
-    ? `/github_proxy?path=${encodeURIComponent(`contents/data/leads/${name}`)}`
-    : `https://api.github.com/repos/${window.GITHUB_REPOSITORY || "NRSR-Co/nrsr-website"}/contents/data/leads/${name}`;
+    ? `/github_proxy?path=${encodeURIComponent(`contents/src/data/leads/${name}`)}`
+    : `https://api.github.com/repos/${window.GITHUB_REPOSITORY || "TuriaBooks-Technologies-Private-Limited/NRSR-Co-Website"}/contents/src/data/leads/${name}`;
   const headers = { "Content-Type": "application/json" };
   if (!isCloudflare && oauthToken) headers["Authorization"] = `token ${oauthToken}`;
 
