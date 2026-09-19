@@ -1814,6 +1814,32 @@ function renderSettingsPanel(container) {
             <input type="text" id="setTawkId" class="form-control" value="${settings.tawk_property_id || "6011a916c31c9117cb73225c"}">
           </div>
         </div>
+
+        <div class="form-group">
+          <label>Company LinkedIn Page URL</label>
+          <input type="url" id="setLinkedInUrl" class="form-control" placeholder="https://www.linkedin.com/company/..." value="${settings.linkedin_url || "https://www.linkedin.com/company/nrsr-and-co"}">
+        </div>
+      </div>
+
+      <hr style="border:none; border-top:1px solid #e2e8f0;">
+
+      <!-- Firm Accreditations Block -->
+      <div>
+        <h3 style="font-size:18px; color:var(--color-primary); margin-top:0; margin-bottom:6px; font-weight:800; display:flex; align-items:center; gap:8px;">
+          ${window.SVG_ICONS?.award || ''} Accreditations & Quality Certifications
+        </h3>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Manage ICAI Peer Review credentials and ISO standards displayed across trust badges.</p>
+        
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label>ICAI Peer Review Number</label>
+            <input type="text" id="setPeerReviewNum" class="form-control" placeholder="e.g. PRC-014289" value="${settings.peer_review_number || "PRC-014289"}">
+          </div>
+          <div class="form-group">
+            <label>ISO Certificate Specification</label>
+            <input type="text" id="setIsoCertNum" class="form-control" placeholder="e.g. ISO 9001:2015" value="${settings.iso_certification_number || "ISO 9001:2015"}">
+          </div>
+        </div>
       </div>
 
       <hr style="border:none; border-top:1px solid #e2e8f0;">
@@ -1917,6 +1943,9 @@ window.saveGlobalSettings = function() {
   settings.working_hours = document.getElementById("setWorkingHours").value.trim();
   settings.tawk_property_id = document.getElementById("setTawkId").value.trim();
   settings.notification_emails = document.getElementById("setNotificationEmails").value.trim();
+  settings.linkedin_url = document.getElementById("setLinkedInUrl").value.trim();
+  settings.peer_review_number = document.getElementById("setPeerReviewNum").value.trim();
+  settings.iso_certification_number = document.getElementById("setIsoCertNum").value.trim();
 
   window.gmStore.saveSettings(settings);
   alert("Settings & Contact Card successfully saved to GitHub!");

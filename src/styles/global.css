@@ -52,7 +52,7 @@
   
   /* Layout */
   --max-width: 1240px;
-  --header-height: 84px;
+  --header-height: 104px;
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -154,25 +154,112 @@ button, input, textarea, select { font-family: inherit; font-size: inherit; outl
 .card-hover { transition: var(--transition); }
 .card-hover:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: 0 16px 32px rgba(0, 170, 206, 0.14); }
 
-/* Header Navigation */
-header {
+/* ── Dual-Tier Corporate Header Navigation ── */
+header.main-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
   z-index: 1000;
   transition: var(--transition);
-  display: flex;
-  align-items: center;
   background-color: var(--header-bg);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 header.scrolled {
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
-  height: 74px;
+  box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.45);
+}
+
+/* 1. Top Utility Strip */
+.top-utility-bar {
+  background: rgba(6, 18, 24, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 6px 0;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1;
+}
+
+.top-utility-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.top-utility-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-utility-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.utility-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.utility-item:hover {
+  color: #ffffff;
+}
+
+.utility-item strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.utility-sep {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 10px;
+}
+
+.utility-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-accent-light);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+}
+
+.utility-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.utility-whatsapp:hover {
+  background: #10b981;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* 2. Main Nav Bar */
+.main-nav-bar {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .nav-wrapper {
@@ -186,6 +273,7 @@ header.scrolled {
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
 }
 
 .brand-logo img, .brand-logo svg {
@@ -208,7 +296,7 @@ header.scrolled {
 .logo-title span { color: var(--color-primary-light); }
 
 .logo-subtitle {
-  font-size: 9.5px;
+  font-size: 9px;
   font-weight: 700;
   color: var(--color-accent-light);
   letter-spacing: 2px;
@@ -218,48 +306,102 @@ header.scrolled {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
 }
 
 .nav-link {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   position: relative;
-  padding: 8px 14px;
-  border-radius: 20px;
+  padding: 7px 12px;
+  border-radius: 18px;
   background-color: transparent;
-  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
-.nav-link.active { color: var(--color-primary-light); }
-
-/* Apple-nav style hover: a solid pill drops in behind the item and it
-   magnifies slightly, rather than just an underline/color swap. */
 .nav-link:hover {
-  background-color: #000000;
+  background-color: rgba(0, 170, 206, 0.15);
   color: #ffffff;
-  transform: scale(1.1);
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 14px;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-primary-light);
-  transition: var(--transition);
-  border-radius: 2px;
+.nav-link.active {
+  color: var(--color-primary-light);
+  background-color: rgba(0, 170, 206, 0.1);
 }
 
-/* Nav CTA needs to read against the dark header — light pill instead of
-   the site-wide near-black .btn-primary, which would vanish on this bg. */
-header .btn-primary { background-color: var(--color-accent); color: #ffffff; }
-header .btn-primary:hover { background-color: #4fa334; color: #ffffff; box-shadow: 0 8px 20px rgba(162, 205, 58, 0.4); }
+.hiring-badge {
+  display: inline-block;
+  margin-left: 2px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: #0A1C24;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
 
-.nav-link.active::after { width: calc(100% - 28px); }
+/* Mega / Wide Dropdown */
+.nav-dropdown-wide {
+  min-width: 320px !important;
+}
+
+.dropdown-footer {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 170, 206, 0.12);
+  text-align: center;
+}
+
+.dropdown-footer-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.dropdown-footer-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Header Contact Button */
+.btn-header-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  background: var(--color-accent);
+  color: #0A1C24;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  margin-left: 6px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-header-contact:hover {
+  background: #b8de5e;
+  color: #0A1C24;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(162, 205, 58, 0.4);
+}
+
+@media (max-width: 992px) {
+  .top-utility-bar {
+    display: none;
+  }
+  --header-height: 70px;
+}
 
 /* Mobile Menu Toggle */
 .mobile-toggle {

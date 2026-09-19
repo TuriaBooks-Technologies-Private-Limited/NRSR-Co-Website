@@ -10,17 +10,9 @@ const { currentPath = Astro.url.pathname } = Astro.props;
 const settings = settingsData.settings || {};
 const clientLoginUrl = settings.client_login_url || 'https://practice.turia.in/login';
 const employeeLoginUrl = settings.employee_login_url || 'https://practice.turia.in/login';
-
-const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Meet Our Team', href: '/team' },
-  { name: 'Careers', href: '/careers' },
-  { name: 'Gallery', href: '/gallery' },
-  { name: 'Insights & Blogs', href: '/blogs' },
-  { name: 'Case Studies', href: '/case-studies' },
-  { name: 'About Us', href: '/about' },
-];
+const hqPhone = settings.firm_phone || '+91 77604 85737';
+const branchPhone = '+91 88675 31151';
+const firmEmail = settings.firm_email || 'info@nrsrandco.com';
 
 const isActive = (href: string) => {
   if (href === '/' && currentPath === '/') return true;
@@ -29,59 +21,180 @@ const isActive = (href: string) => {
 };
 ---
 
-<header class="scrolled">
-  <div class="container nav-wrapper">
-    <a href="/" class="brand-logo">
-      <img src="/assets/logo.svg" alt="NRSR & Co Logo" width="48" height="48">
-      <div class="logo-text">
-        <span class="logo-title">NRSR <span>& Co</span></span>
-        <span class="logo-subtitle">CHARTERED ACCOUNTANTS</span>
-      </div>
-    </a>
-    
-    <nav class="nav-menu">
-      {navLinks.map(link => (
-        <a href={link.href} class={`nav-link ${isActive(link.href) ? 'active' : ''}`}>
-          {link.name}
+<header class="main-header scrolled">
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="container top-utility-inner">
+      <div class="top-utility-left">
+        <a href="tel:+917760485737" class="utility-item">
+          <Icon name="phone" size={12} color="var(--color-accent)" />
+          <span>Manipal: <strong>+91 77604 85737</strong></span>
         </a>
-      ))}
-
-      <!-- Portal Logins Dropdown (Client Login & Employee Practice Login) -->
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" id="portalDropdownBtn">
-          <Icon name="lock" size={14} color="#ffffff" />
-          <span>Portal Logins</span>
-          <Icon name="chevron-down" size={12} color="rgba(255,255,255,0.7)" />
-        </button>
-        <div class="nav-dropdown-menu">
-          <a href={clientLoginUrl} target="_blank" rel="noopener noreferrer" class="nav-dropdown-item">
-            <div class="dropdown-item-icon">
-              <Icon name="user" size={18} color="var(--color-primary-dark)" />
-            </div>
-            <div class="dropdown-item-text">
-              <strong>Client Login</strong>
-              <small>Access files, reports & returns</small>
-            </div>
-          </a>
-          <a href={employeeLoginUrl} target="_blank" rel="noopener noreferrer" class="nav-dropdown-item">
-            <div class="dropdown-item-icon">
-              <Icon name="briefcase" size={18} color="#2b6140" />
-            </div>
-            <div class="dropdown-item-text">
-              <strong>Employee Login</strong>
-              <small>Practice Portal (Turia)</small>
-            </div>
-          </a>
-        </div>
+        <span class="utility-sep">•</span>
+        <a href="tel:+918867531151" class="utility-item">
+          <Icon name="phone" size={12} color="var(--color-accent)" />
+          <span>Bengaluru: <strong>+91 88675 31151</strong></span>
+        </a>
+        <span class="utility-sep">•</span>
+        <a href={`mailto:${firmEmail}`} class="utility-item">
+          <Icon name="mail" size={12} color="var(--color-accent)" />
+          <span>{firmEmail}</span>
+        </a>
       </div>
+      <div class="top-utility-right">
+        <span class="utility-badge">
+          <Icon name="shield" size={12} color="var(--color-accent)" />
+          <span>ICAI Peer Reviewed & ISO 9001:2015</span>
+        </span>
+        <a href="https://wa.me/917760485737" target="_blank" rel="noopener noreferrer" class="utility-whatsapp">
+          <Icon name="sparkles" size={12} color="#ffffff" />
+          <span>WhatsApp Desk</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
-      <a href="/contact" class="btn btn-primary" style="padding: 8px 18px; font-size: 13px;">Contact Us</a>
-    </nav>
+  <!-- Main Navigation Bar -->
+  <div class="main-nav-bar">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo" aria-label="NRSR & Co Homepage">
+        <img src="/assets/logo.svg" alt="NRSR & Co Logo" width="46" height="46">
+        <div class="logo-text">
+          <span class="logo-title">NRSR <span>& Co</span></span>
+          <span class="logo-subtitle">CHARTERED ACCOUNTANTS</span>
+        </div>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="/" class={`nav-link ${isActive('/') ? 'active' : ''}`}>Home</a>
+        <a href="/about" class={`nav-link ${isActive('/about') ? 'active' : ''}`}>About Us</a>
 
-    <div class="mobile-toggle" aria-label="Toggle Navigation Menu">
-      <span></span>
-      <span></span>
-      <span></span>
+        <!-- Services Dropdown -->
+        <div class="nav-dropdown">
+          <a href="/services" class={`nav-link nav-dropdown-link ${isActive('/services') ? 'active' : ''}`}>
+            <span>Services</span>
+            <Icon name="chevron-down" size={11} color="rgba(255,255,255,0.7)" />
+          </a>
+          <div class="nav-dropdown-menu nav-dropdown-wide">
+            <a href="/services#taxation" class="nav-dropdown-item">
+              <div class="dropdown-item-icon">
+                <Icon name="file-text" size={16} color="var(--color-primary-dark)" />
+              </div>
+              <div class="dropdown-item-text">
+                <strong>Direct & Indirect Tax</strong>
+                <small>Income Tax, GST, 12A/80G & Appeals</small>
+              </div>
+            </a>
+            <a href="/services#corporate" class="nav-dropdown-item">
+              <div class="dropdown-item-icon">
+                <Icon name="briefcase" size={16} color="var(--color-primary-dark)" />
+              </div>
+              <div class="dropdown-item-text">
+                <strong>Corporate & Structuring</strong>
+                <small>Company/LLP Setup, ROC & Startups</small>
+              </div>
+            </a>
+            <a href="/services#audit" class="nav-dropdown-item">
+              <div class="dropdown-item-icon">
+                <Icon name="award" size={16} color="var(--color-primary-dark)" />
+              </div>
+              <div class="dropdown-item-text">
+                <strong>Audit & Assurance</strong>
+                <small>Statutory, Tax & Internal Reviews</small>
+              </div>
+            </a>
+            <a href="/services#advisory" class="nav-dropdown-item">
+              <div class="dropdown-item-icon">
+                <Icon name="trending-up" size={16} color="var(--color-primary-dark)" />
+              </div>
+              <div class="dropdown-item-text">
+                <strong>Valuation & Virtual CFO</strong>
+                <small>DCF Valuation, FEMA & Accounting</small>
+              </div>
+            </a>
+            <div class="dropdown-footer">
+              <a href="/services" class="dropdown-footer-link">Explore All 16 Practice Areas &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/team" class={`nav-link ${isActive('/team') ? 'active' : ''}`}>Our Team</a>
+
+        <!-- Insights Dropdown -->
+        <div class="nav-dropdown">
+          <a href="/blogs" class={`nav-link nav-dropdown-link ${isActive('/blogs') || isActive('/case-studies') ? 'active' : ''}`}>
+            <span>Insights</span>
+            <Icon name="chevron-down" size={11} color="rgba(255,255,255,0.7)" />
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="/blogs" class="nav-dropdown-item">
+              <div class="dropdown-item-icon">
+                <Icon name="edit" size={16} color="var(--color-primary-dark)" />
+              </div>
+              <div class="dropdown-item-text">
+                <strong>Articles & Updates</strong>
+                <small>Tax, GST & regulatory briefings</small>
+              </div>
+            </a>
+            <a href="/case-studies" class="nav-dropdown-item">
+              <div class="dropdown-item-icon">
+                <Icon name="chart" size={16} color="var(--color-primary-dark)" />
+              </div>
+              <div class="dropdown-item-text">
+                <strong>Client Case Studies</strong>
+                <small>Real-world advisory engagements</small>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="/careers" class={`nav-link ${isActive('/careers') ? 'active' : ''}`}>
+          <span>Careers</span>
+          <span class="hiring-badge">Hiring</span>
+        </a>
+
+        <a href="/gallery" class={`nav-link ${isActive('/gallery') ? 'active' : ''}`}>Gallery</a>
+
+        <!-- Portal Logins Dropdown (Client Login & Employee Practice Login) -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false" id="portalDropdownBtn">
+            <Icon name="lock" size={13} color="#ffffff" />
+            <span>Portals</span>
+            <Icon name="chevron-down" size={11} color="rgba(255,255,255,0.7)" />
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href={clientLoginUrl} target="_blank" rel="noopener noreferrer" class="nav-dropdown-item">
+              <div class="dropdown-item-icon">
+                <Icon name="user" size={16} color="var(--color-primary-dark)" />
+              </div>
+              <div class="dropdown-item-text">
+                <strong>Client Portal</strong>
+                <small>Access returns & documents</small>
+              </div>
+            </a>
+            <a href={employeeLoginUrl} target="_blank" rel="noopener noreferrer" class="nav-dropdown-item">
+              <div class="dropdown-item-icon" style="background: rgba(162, 205, 58, 0.18); color: #2b6140;">
+                <Icon name="briefcase" size={16} color="#2b6140" />
+              </div>
+              <div class="dropdown-item-text">
+                <strong>Employee Practice Login</strong>
+                <small>Turia Practice Management</small>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="/contact" class="btn btn-header-contact">
+          <span>Contact Us</span>
+          <Icon name="arrow-right" size={13} color="#0A1C24" />
+        </a>
+      </nav>
+
+      <div class="mobile-toggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </div>
 </header>

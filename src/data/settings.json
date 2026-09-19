@@ -30,6 +30,11 @@
     "tawk_property_id": "6011a916c31c9117cb73225c",
     "tawk_widget_id": "1et2fp10u",
     "client_login_url": "https://practice.turia.in/login",
-    "employee_login_url": "https://practice.turia.in/login"
+    "employee_login_url": "https://practice.turia.in/login",
+    "linkedin_url": "https://www.linkedin.com/company/nrsr-and-co",
+    "peer_review_number": "PRC-014289",
+    "iso_certification_number": "ISO 9001:2015",
+    "announcement_bar_text": "",
+    "announcement_bar_enabled": false
   }
 }
