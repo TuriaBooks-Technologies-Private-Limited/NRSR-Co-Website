@@ -793,8 +793,8 @@ window.handleJobApplicationSubmit = async function(e) {
 
   if (fileInput && fileInput.files && fileInput.files[0]) {
     const file = fileInput.files[0];
-    if (file.size > 5 * 1024 * 1024) {
-      alert("File size exceeds 5MB limit. Please upload a smaller file or provide a Google Drive / Dropbox link.");
+    if (file.size > 2 * 1024 * 1024) {
+      alert("File size exceeds 2MB limit. Please upload a smaller PDF/Word file or provide a Google Drive / Dropbox link.");
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Application";
       return;

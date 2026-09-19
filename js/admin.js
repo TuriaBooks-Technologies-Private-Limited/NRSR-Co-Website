@@ -1688,6 +1688,24 @@ async function renderLeadsPanel(container) {
     }
 
     container.innerHTML = `
+      <!-- Data Retention & Backup Control Strip -->
+      <div style="background:#ffffff; padding:18px 24px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
+        <div>
+          <strong style="font-size:14px; color:var(--color-primary); display:flex; align-items:center; gap:6px;">
+            ${window.SVG_ICONS?.shield || ''} Candidate Data Retention (30-Day Auto Policy)
+          </strong>
+          <p style="font-size:12px; color:var(--text-muted); margin:4px 0 0 0;">Candidate resumes and inquiries can be backed up locally and purged after 30 days to keep the website lightweight.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn btn-outline" onclick="window.backupAllLeads()" style="padding:6px 14px; font-size:12px; display:inline-flex; align-items:center; gap:6px;">
+            ${window.SVG_ICONS?.download || ''} Backup All Inquiries (JSON)
+          </button>
+          <button class="btn btn-outline" onclick="window.purgeOldLeads(30)" style="padding:6px 14px; font-size:12px; color:#dc2626; border-color:#dc2626;">
+            Purge Older Than 30 Days
+          </button>
+        </div>
+      </div>
+
       <table class="admin-table">
         <thead>
           <tr>
@@ -1695,7 +1713,7 @@ async function renderLeadsPanel(container) {
             <th>Lead Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Service</th>
+            <th>Service / Position</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -2024,10 +2042,136 @@ window.deleteLead = async function(name, sha) {
   }
 };
 
+window.backupAllLeads = async function() {
+  const oauthToken = localStorage.getItem('git_oauth_token');
+  const isCloudflare = oauthToken === 'cloudflare_access' || window.API_ENGINE === 'cloudflare';
+  const url = isCloudflare
+    ? `/github_proxy?path=${encodeURIComponent('contents/src/data/leads')}`
+    : `https://api.github.com/repos/${window.GITHUB_REPOSITORY || 'TuriaBooks-Technologies-Private-Limited/NRSR-Co-Website'}/contents/src/data/leads`;
+  const headers = {};
+  if (!isCloudflare && oauthToken) headers['Authorization'] = `token ${oauthToken}`;
+
+  try {
+    const res = await fetch(url, { headers });
+    if (!res.ok) throw new Error("Could not fetch leads directory");
+    const files = await res.json();
+    const leadFiles = files.filter(f => f.name.endsWith('.json'));
+    if (leadFiles.length === 0) {
+      alert("No inquiries found to backup.");
+      return;
+    }
+    
+    const allLeads = [];
+    for (const f of leadFiles) {
+      try {
+        const lead = await fetchGitFile(f.path);
+        allLeads.push({ filename: f.name, ...lead });
+      } catch (err) {
+        console.warn("Could not load lead:", f.name, err);
+      }
+    }
+    
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allLeads, null, 2));
+    const dlAnchor = document.createElement('a');
+    dlAnchor.setAttribute("href", dataStr);
+    const dateStr = new Date().toISOString().split('T')[0];
+    dlAnchor.setAttribute("download", `nrsr-leads-backup-${dateStr}.json`);
+    document.body.appendChild(dlAnchor);
+    dlAnchor.click();
+    dlAnchor.remove();
+    alert(`Successfully backed up ${allLeads.length} inquiries to JSON!`);
+  } catch (e) {
+    alert("Error backing up leads: " + e.message);
+  }
+};
+
+window.purgeOldLeads = async function(days = 30) {
+  if (!confirm(`Are you sure you want to purge candidate inquiries and resumes older than ${days} days?\n\nTip: Click 'Backup All Inquiries (JSON)' first to save an offline archive.`)) {
+    return;
+  }
+  
+  const oauthToken = localStorage.getItem('git_oauth_token');
+  const isCloudflare = oauthToken === 'cloudflare_access' || window.API_ENGINE === 'cloudflare';
+  const listUrl = isCloudflare
+    ? `/github_proxy?path=${encodeURIComponent('contents/src/data/leads')}`
+    : `https://api.github.com/repos/${window.GITHUB_REPOSITORY || 'TuriaBooks-Technologies-Private-Limited/NRSR-Co-Website'}/contents/src/data/leads`;
+  const headers = { "Content-Type": "application/json" };
+  if (!isCloudflare && oauthToken) headers['Authorization'] = `token ${oauthToken}`;
+
+  try {
+    const res = await fetch(listUrl, { headers });
+    if (!res.ok) throw new Error("Could not fetch leads list");
+    const files = await res.json();
+    const cutoffTime = Date.now() - (days * 24 * 60 * 60 * 1000);
+    
+    const oldFiles = files.filter(f => {
+      if (!f.name.endsWith('.json')) return false;
+      const timestamp = parseInt(f.name.replace('lead-', '').replace('.json', ''));
+      return !isNaN(timestamp) && timestamp < cutoffTime;
+    });
+
+    if (oldFiles.length === 0) {
+      alert(`No inquiries older than ${days} days were found.`);
+      return;
+    }
+
+    let purgedCount = 0;
+    for (const f of oldFiles) {
+      const deleteUrl = isCloudflare
+        ? `/github_proxy?path=${encodeURIComponent(`contents/src/data/leads/${f.name}`)}`
+        : `https://api.github.com/repos/${window.GITHUB_REPOSITORY || 'TuriaBooks-Technologies-Private-Limited/NRSR-Co-Website'}/contents/src/data/leads/${f.name}`;
+      
+      const delRes = await fetch(deleteUrl, {
+        method: "DELETE",
+        headers,
+        body: JSON.stringify({ message: `lead: auto-purge older than 30d (${f.name})`, sha: f.sha, branch: "Main" })
+      });
+      if (delRes.ok) purgedCount++;
+    }
+
+    alert(`Successfully purged ${purgedCount} inquiries older than ${days} days.`);
+    renderAdminSection("leads");
+  } catch (e) {
+    alert("Error during lead purge: " + e.message);
+  }
+};
+
+window.toggleHiringStatus = function(active) {
+  const settings = window.gmStore.getSettings() || {};
+  settings.hiring_active = active;
+  window.gmStore.saveSettings(settings);
+  alert(`Recruitment status updated: ${active ? "HIRING ACTIVE (Badge visible in Navbar)" : "HIRING PAUSED (Badge hidden)"}`);
+  renderAdminSection("careers");
+};
+
 /* 16. Careers / Job Openings Section */
 function renderCareersTable(container) {
   const careers = window.gmStore.getCareers() || [];
+  const settings = window.gmStore.getSettings() || {};
+  const isHiringActive = settings.hiring_active !== false;
+
   container.innerHTML = `
+    <!-- Hiring Status Global Switch Banner -->
+    <div style="background:#ffffff; padding:18px 24px; border-radius:12px; border:var(--card-border); box-shadow:var(--card-shadow); margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
+      <div>
+        <strong style="font-size:14px; color:var(--color-primary); display:flex; align-items:center; gap:8px;">
+          <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:${isHiringActive ? '#10b981' : '#94a3b8'};"></span>
+          Recruitment & "We're Hiring" Navbar Badge
+        </strong>
+        <p style="font-size:12px; color:var(--text-muted); margin:4px 0 0 0;">
+          ${isHiringActive 
+            ? 'The "Hiring" pulsing badge is currently <strong>ACTIVE</strong> in the main navigation header and careers portal.' 
+            : 'The hiring badge is currently <strong>DISABLED</strong>. Visitors will not see the hiring alert.'}
+        </p>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <label style="display:inline-flex; align-items:center; cursor:pointer; gap:8px; font-weight:700; font-size:13px; color:var(--text-main);">
+          <input type="checkbox" ${isHiringActive ? 'checked' : ''} onchange="window.toggleHiringStatus(this.checked)" style="width:18px; height:18px; accent-color:var(--color-primary); cursor:pointer;">
+          Enable Recruitment Badge
+        </label>
+      </div>
+    </div>
+
     <table class="admin-table">
       <thead>
         <tr>

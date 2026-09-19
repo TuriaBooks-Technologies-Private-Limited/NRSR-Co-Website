@@ -1,5 +1,6 @@
 ---
 import settingsData from '../data/settings.json';
+import careersData from '../data/careers.json';
 import Icon from './Icon.astro';
 
 interface Props {
@@ -13,6 +14,7 @@ const employeeLoginUrl = settings.employee_login_url || 'https://practice.turia.
 const hqPhone = settings.firm_phone || '+91 77604 85737';
 const branchPhone = '+91 88675 31151';
 const firmEmail = settings.firm_email || 'info@nrsrandco.com';
+const isHiringActive = settings.hiring_active !== false && (careersData.careers || []).some((c: any) => c.status === 'Active');
 
 const isActive = (href: string) => {
   if (href === '/' && currentPath === '/') return true;
@@ -150,7 +152,7 @@ const isActive = (href: string) => {
 
         <a href="/careers" class={`nav-link ${isActive('/careers') ? 'active' : ''}`}>
           <span>Careers</span>
-          <span class="hiring-badge">Hiring</span>
+          {isHiringActive && <span class="hiring-badge">Hiring</span>}
         </a>
 
         <a href="/gallery" class={`nav-link ${isActive('/gallery') ? 'active' : ''}`}>Gallery</a>
