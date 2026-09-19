@@ -9,6 +9,15 @@ interface Props {
 const settings = Astro.props.settings || settingsData.settings;
 const mainPhone = settings.firm_phone || '+91 7760485737';
 const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
+
+const socials = [
+  { name: 'linkedin', url: settings.linkedin_url || 'https://www.linkedin.com/company/nrsr-and-co', label: 'NRSR & Co LinkedIn', color: '#ffffff' },
+  { name: 'whatsapp', url: 'https://wa.me/917760485737', label: 'NRSR & Co WhatsApp', color: '#25D366' },
+  { name: 'facebook', url: settings.facebook_url, label: 'NRSR & Co Facebook', color: '#1877F2' },
+  { name: 'instagram', url: settings.instagram_url, label: 'NRSR & Co Instagram', color: '#E1306C' },
+  { name: 'twitter', url: settings.twitter_url, label: 'NRSR & Co Twitter / X', color: '#ffffff' },
+  { name: 'youtube', url: settings.youtube_url, label: 'NRSR & Co YouTube', color: '#FF0000' }
+].filter(s => !!s.url);
 ---
 
 <footer>
@@ -17,24 +26,35 @@ const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
       <div class="brand-logo" style="margin-bottom: 16px;">
         <img src="/images/logo.png" alt="NRSR & Co Chartered Accountants" style="height: 48px; width: auto; max-width: 180px; object-fit: contain; background: #ffffff; padding: 4px 8px; border-radius: 6px;" />
       </div>
-      <p>{settings.firm_name || 'M/s NRSR & Co'} is a partnership firm of Chartered Accountants providing financial, compliance, valuation, and advisory services.</p>
-      <div style="display: flex; gap: 10px; margin-top: 14px;">
-        <a href={settings.linkedin_url || "https://www.linkedin.com/company/nrsr-and-co"} target="_blank" rel="noopener noreferrer" aria-label="NRSR & Co LinkedIn" style="width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:#ffffff; transition:all 0.2s;">
-          <Icon name="linkedin" size={16} color="currentColor" />
-        </a>
-        <a href="https://wa.me/917760485737" target="_blank" rel="noopener noreferrer" aria-label="NRSR & Co WhatsApp" style="width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:#25D366; transition:all 0.2s;">
-          <Icon name="whatsapp" size={16} color="currentColor" />
-        </a>
+      <p>{settings.firm_name || 'M/s NRSR & Co'} is a premier partnership firm of Chartered Accountants providing financial assurance, direct & indirect taxation, registered valuation, and corporate advisory services across Karnataka.</p>
+      
+      <!-- Social Media Icons -->
+      <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap;">
+        {socials.map(soc => (
+          <a
+            href={soc.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={soc.label}
+            style="width:36px; height:36px; border-radius:8px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:#ffffff; transition:all 0.25s ease; border:1px solid rgba(255,255,255,0.12);"
+            onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)';"
+            onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.transform='translateY(0)';"
+          >
+            <Icon name={soc.name} size={17} color={soc.name === 'whatsapp' ? '#25D366' : 'currentColor'} />
+          </a>
+        ))}
       </div>
     </div>
 
     <div class="footer-col">
       <h4>Core Verticals</h4>
       <ul class="footer-links">
-        <li><a href="/services">Income Tax & GST</a></li>
-        <li><a href="/services">Corporate & Partnership</a></li>
-        <li><a href="/services">Audit & Assurance</a></li>
-        <li><a href="/services">Business Valuation</a></li>
+        <li><a href="/services">Income Tax & GST Compliance</a></li>
+        <li><a href="/services">Corporate & LLP Restructuring</a></li>
+        <li><a href="/services">Statutory Audit & Assurance</a></li>
+        <li><a href="/services">Registered Valuation (IBBI)</a></li>
+        <li><a href="/services">Transfer Pricing & International Tax</a></li>
+        <li><a href="/services">Virtual CFO & MIS Dashboards</a></li>
       </ul>
     </div>
 
@@ -44,9 +64,11 @@ const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
         <li><a href="/">Home</a></li>
         <li><a href="/about">About Us</a></li>
         <li><a href="/services">Our Services</a></li>
+        <li><a href="/case-studies">Enterprise Case Studies</a></li>
+        <li><a href="/blogs">Insights & Blogs</a></li>
         <li><a href="/team">Meet Our Team</a></li>
         <li><a href="/careers">Careers & Openings</a></li>
-        <li><a href="/gallery">Photo Gallery</a></li>
+        <li><a href="/gallery">Occasions & Photo Gallery</a></li>
         <li><a href="/contact">Contact Us</a></li>
         <li style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1);">
           <a href={settings.client_login_url || 'https://practice.turia.in/login'} target="_blank" rel="noopener noreferrer" style="color: var(--color-primary-light); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
@@ -83,13 +105,13 @@ const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
   </div>
 
   <!-- Mandatory Footer Disclaimer Accordion -->
-  <div class="footer-disclaimer">
+  <div class="footer-disclaimer" id="footerDisclaimerWrapper">
     <button class="footer-disclaimer-toggle" id="footerDisclaimerToggle" type="button" aria-expanded="false">
       <span>ICAI Regulatory Disclaimer</span>
       <span class="footer-disclaimer-caret"><Icon name="chevron-down" size={14} /></span>
     </button>
     <div class="footer-disclaimer-text" id="footerDisclaimerText">
-      As per the rules of the Institute of Chartered Accountants of India (ICAI), Chartered Accountants are not permitted to solicit work or advertise. This website is meant solely for informational purposes to provide general background information about M/s NRSR & Co and does not constitute advertisement, personal communication, invitation or solicitation of any kind.
+      As per the rules and regulations prescribed by the Institute of Chartered Accountants of India (ICAI), Chartered Accountants in India are prohibited from soliciting client work or advertising services in any form. This website is hosted solely for informational purposes to provide general background information about the practice profile, verticals, and credentials of M/s NRSR & Co. The information contained herein does not constitute professional advice, solicitation, invitation, or commercial advertisement under the Chartered Accountants Act, 1949.
     </div>
   </div>
 
@@ -105,3 +127,16 @@ const cleanPhone = mainPhone.replace(/[^0-9+]/g, '');
     </div>
   </div>
 </footer>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('footerDisclaimerToggle');
+    const wrapper = document.getElementById('footerDisclaimerWrapper');
+    if (btn && wrapper) {
+      btn.addEventListener('click', () => {
+        const isExpanded = wrapper.classList.toggle('expanded');
+        btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      });
+    }
+  });
+</script>

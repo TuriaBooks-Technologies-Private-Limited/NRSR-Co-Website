@@ -1833,9 +1833,30 @@ function renderSettingsPanel(container) {
           </div>
         </div>
 
-        <div class="form-group">
-          <label>Company LinkedIn Page URL</label>
-          <input type="url" id="setLinkedInUrl" class="form-control" placeholder="https://www.linkedin.com/company/..." value="${settings.linkedin_url || "https://www.linkedin.com/company/nrsr-and-co"}">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label>Company LinkedIn Page URL</label>
+            <input type="url" id="setLinkedInUrl" class="form-control" placeholder="https://www.linkedin.com/company/..." value="${settings.linkedin_url || "https://www.linkedin.com/company/nrsr-and-co"}">
+          </div>
+          <div class="form-group">
+            <label>Company Facebook Page URL</label>
+            <input type="url" id="setFacebookUrl" class="form-control" placeholder="https://www.facebook.com/..." value="${settings.facebook_url || ""}">
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <label>Instagram URL</label>
+            <input type="url" id="setInstagramUrl" class="form-control" placeholder="https://instagram.com/..." value="${settings.instagram_url || ""}">
+          </div>
+          <div class="form-group">
+            <label>Twitter / X URL</label>
+            <input type="url" id="setTwitterUrl" class="form-control" placeholder="https://x.com/..." value="${settings.twitter_url || ""}">
+          </div>
+          <div class="form-group">
+            <label>YouTube Channel URL</label>
+            <input type="url" id="setYoutubeUrl" class="form-control" placeholder="https://youtube.com/..." value="${settings.youtube_url || ""}">
+          </div>
         </div>
       </div>
 
@@ -1961,7 +1982,11 @@ window.saveGlobalSettings = function() {
   settings.working_hours = document.getElementById("setWorkingHours").value.trim();
   settings.tawk_property_id = document.getElementById("setTawkId").value.trim();
   settings.notification_emails = document.getElementById("setNotificationEmails").value.trim();
-  settings.linkedin_url = document.getElementById("setLinkedInUrl").value.trim();
+  settings.linkedin_url = document.getElementById("setLinkedInUrl") ? document.getElementById("setLinkedInUrl").value.trim() : "";
+  settings.facebook_url = document.getElementById("setFacebookUrl") ? document.getElementById("setFacebookUrl").value.trim() : "";
+  settings.instagram_url = document.getElementById("setInstagramUrl") ? document.getElementById("setInstagramUrl").value.trim() : "";
+  settings.twitter_url = document.getElementById("setTwitterUrl") ? document.getElementById("setTwitterUrl").value.trim() : "";
+  settings.youtube_url = document.getElementById("setYoutubeUrl") ? document.getElementById("setYoutubeUrl").value.trim() : "";
   settings.peer_review_number = document.getElementById("setPeerReviewNum").value.trim();
   settings.iso_certification_number = document.getElementById("setIsoCertNum").value.trim();
 
@@ -2347,46 +2372,61 @@ window.openGalleryModal = function(id) {
   const body = document.getElementById("modalBody");
   const item = id ? window.gmStore.getGallery().find(g => g.id === id) : null;
 
-  title.textContent = item ? "Edit Gallery Photo" : "Add Photo to Gallery";
+  const photosListStr = item && item.photos ? item.photos.map(p => p.url).join("\n") : "";
+
+  title.textContent = item ? "Edit Occasion & Photos" : "Add Occasion & Photos to Gallery";
   body.innerHTML = `
     <form id="galleryForm" onsubmit="event.preventDefault(); window.saveGalleryForm('${id || ""}');">
       <div class="form-group">
-        <label>Photo Title *</label>
+        <label>Occasion / Milestone Title *</label>
         <input type="text" id="galTitle" class="form-control" required value="${item ? item.title : ""}" placeholder="e.g. Annual Firm Strategy Seminar">
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
         <div class="form-group">
           <label>Category</label>
           <select id="galCategory" class="form-control">
-            <option value="Office" ${item && item.category === "Office" ? "selected" : ""}>Office & Infrastructure</option>
-            <option value="Events" ${item && item.category === "Events" ? "selected" : ""}>Events & Seminars</option>
-            <option value="Team" ${item && item.category === "Team" ? "selected" : ""}>Team & Advisory</option>
             <option value="Certifications" ${item && item.category === "Certifications" ? "selected" : ""}>Certifications & Awards</option>
+            <option value="Seminars" ${item && item.category === "Seminars" ? "selected" : ""}>Seminars & CPD</option>
+            <option value="Office" ${item && item.category === "Office" ? "selected" : ""}>Office & Infrastructure</option>
             <option value="CSR" ${item && item.category === "CSR" ? "selected" : ""}>CSR & Community</option>
+            <option value="Milestones" ${item && item.category === "Milestones" ? "selected" : ""}>Firm Milestones</option>
+            <option value="Team" ${item && item.category === "Team" ? "selected" : ""}>Team & Events</option>
           </select>
         </div>
         <div class="form-group">
           <label>Date (YYYY-MM-DD)</label>
           <input type="date" id="galDate" class="form-control" value="${item ? item.date || "" : new Date().toISOString().split("T")[0]}">
         </div>
+        <div class="form-group">
+          <label>Location / Venue</label>
+          <input type="text" id="galLocation" class="form-control" value="${item ? item.location || "Manipal HQ" : "Manipal HQ"}" placeholder="e.g. Manipal HQ">
+        </div>
       </div>
       <div class="form-group">
-        <label>Image Upload or Image URL</label>
+        <label>Primary Cover Image Upload or URL *</label>
         <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
           <input type="file" id="galFileInput" class="form-control" accept="image/*" onchange="window.handleGalPhotoUpload(event)">
         </div>
-        <input type="text" id="galImageUrl" class="form-control" value="${item ? item.image || "" : ""}" placeholder="Or paste image URL (https://...)">
+        <input type="text" id="galImageUrl" class="form-control" value="${item ? item.image || "" : ""}" placeholder="Or paste primary image URL (https://...)">
         <div id="galPreview" style="margin-top:10px; height:120px; border-radius:8px; border:1px dashed #cbd5e1; display:flex; align-items:center; justify-content:center; overflow:hidden; background:#f8fafc;">
-          ${item && item.image ? `<img src="${item.image}" style="height:100%; object-fit:cover;">` : "<span style=\"color:#94a3b8; font-size:12px;\">Image preview will appear here</span>"}
+          ${item && item.image ? `<img src="${item.image}" style="height:100%; object-fit:cover;">` : "<span style=\"color:#94a3b8; font-size:12px;\">Primary image preview will appear here</span>"}
         </div>
       </div>
       <div class="form-group">
-        <label>Caption / Short Description</label>
-        <textarea id="galCaption" class="form-control" rows="2" placeholder="Brief description of the event or photo...">${item ? item.caption || "" : ""}</textarea>
+        <label>Additional Photo URLs (One URL per line for Multi-Photo Carousel)</label>
+        <textarea id="galPhotosList" class="form-control" rows="3" placeholder="https://image1.jpg\nhttps://image2.jpg">${photosListStr}</textarea>
+      </div>
+      <div class="form-group">
+        <label>Caption / Short Summary *</label>
+        <textarea id="galCaption" class="form-control" rows="2" placeholder="Brief 1-2 sentence teaser of the occasion..." required>${item ? item.caption || "" : ""}</textarea>
+      </div>
+      <div class="form-group">
+        <label>Detailed Occasion Story / Article (Markdown supported)</label>
+        <textarea id="galStory" class="form-control" rows="4" placeholder="Write a comprehensive article about what happened, key takeaways, partner quotes...">${item ? item.story || "" : ""}</textarea>
       </div>
       <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
         <button type="button" class="btn btn-outline" onclick="document.getElementById('adminModal').classList.remove('active')">Cancel</button>
-        <button type="submit" class="btn btn-primary">${item ? "Save Photo" : "Add to Gallery"}</button>
+        <button type="submit" class="btn btn-primary">${item ? "Save Occasion" : "Add to Gallery"}</button>
       </div>
     </form>
   `;
@@ -2409,12 +2449,31 @@ window.saveGalleryForm = function(id) {
   const title = document.getElementById("galTitle").value.trim();
   const category = document.getElementById("galCategory").value;
   const date = document.getElementById("galDate").value;
+  const location = document.getElementById("galLocation").value.trim() || "Manipal HQ";
   const image = document.getElementById("galImageUrl").value.trim();
   const caption = document.getElementById("galCaption").value.trim();
+  const story = document.getElementById("galStory").value.trim();
+  const rawPhotos = document.getElementById("galPhotosList").value.trim();
 
-  if (!title) { alert("Please enter a photo title."); return; }
+  if (!title) { alert("Please enter an occasion title."); return; }
 
-  const itemObj = { title, category, date, image, caption };
+  const year = date ? date.split("-")[0] : new Date().getFullYear().toString();
+  
+  // Build photos array
+  let photos = [];
+  if (image) {
+    photos.push({ url: image, caption: title });
+  }
+  if (rawPhotos) {
+    rawPhotos.split("\n").forEach(line => {
+      const u = line.trim();
+      if (u && u !== image) {
+        photos.push({ url: u, caption: title });
+      }
+    });
+  }
+
+  const itemObj = { title, category, date, year, location, image, caption, story, photos };
 
   if (id) {
     itemObj.id = id;

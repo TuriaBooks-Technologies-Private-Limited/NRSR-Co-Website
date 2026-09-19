@@ -2,35 +2,141 @@
   "gallery": [
     {
       "id": "gal-1",
-      "title": "NRSR & Co Headquarters — Manipal",
-      "category": "Office",
-      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
-      "caption": "Our primary corporate office at Union Bank Building, Tiger Circle, Manipal.",
-      "date": "2026-01-15"
+      "title": "ICAI Peer Review Board Certification & Quality Milestone",
+      "category": "Certifications",
+      "date": "2026-04-20",
+      "year": "2026",
+      "location": "Manipal Headquarters",
+      "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80",
+      "photos": [
+        {
+          "url": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Official presentation of the ICAI Peer Review Board compliance certificate (PRC-014289)."
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Partners and assurance audit leads reviewing quality control documentation frameworks."
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Audit team briefing on Standard on Quality Control (SQC 1) adherence."
+        }
+      ],
+      "caption": "Recognition of rigorous quality control frameworks, audit documentation, and full adherence to ICAI standards.",
+      "story": "In April 2026, M/s NRSR & Co achieved a significant regulatory milestone with the successful completion of the Peer Review process by the Institute of Chartered Accountants of India (ICAI) Peer Review Board, holding Certificate No. PRC-014289. In addition, the firm maintains ISO 9001:2015 certification for its Quality Management System.\n\nThis peer review validation reflects our steadfast commitment to SQC 1 (Standard on Quality Control), ethical standards, client confidentiality, and uncompromising audit integrity across our offices in Manipal and Bengaluru. The review encompassed sample engagements across statutory audits, corporate valuations, and indirect tax advisory."
     },
     {
       "id": "gal-2",
-      "title": "Annual Team Strategy & CPD Seminar",
-      "category": "Events",
-      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
-      "caption": "Continuous professional development workshop on Union Budget and Tax Updates.",
-      "date": "2026-02-10"
+      "title": "Annual Firm Strategy & Continuing Professional Development (CPD) Seminar",
+      "category": "Seminars",
+      "date": "2026-02-10",
+      "year": "2026",
+      "location": "Manipal Central Conference Hall",
+      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+      "photos": [
+        {
+          "url": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Keynote presentation on Union Budget tax amendments and corporate compliance."
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Breakout technical discussion on automated audit data analytics."
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Team collaborative workshop on IBBI Registered Valuation methodologies."
+        }
+      ],
+      "caption": "Intensive multi-day CPD technical workshop analyzing Union Budget amendments, Ind AS updates, and AI audit tools.",
+      "story": "The NRSR & Co Annual Strategy & CPD Seminar brought together our entire audit, tax, and consulting teams from Manipal and Bengaluru. The 2-day conference focused on deep-dive analyses of the Union Budget 2026 tax reforms, emerging Transfer Pricing scrutiny triggers, and hands-on training in automated Power BI financial modeling.\n\nLed by Managing Partner CA Shrinidhi Rao and Partner CA Swetha SV, the sessions emphasized continuous learning and technical mastery as the cornerstone of exceptional client service."
     },
     {
       "id": "gal-3",
-      "title": "Client Advisory & Corporate Consultation",
-      "category": "Team",
-      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-      "caption": "Corporate restructuring and valuation advisory session in progress.",
-      "date": "2026-03-01"
+      "title": "NRSR & Co Headquarters & Infrastructure Expansion",
+      "category": "Office",
+      "date": "2025-08-15",
+      "year": "2025",
+      "location": "Tiger Circle, Manipal",
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+      "photos": [
+        {
+          "url": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Main reception and corporate advisory suite at Union Bank Building, Manipal."
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Modern conference and board advisory room equipped with video consultation tech."
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Dedicated audit and compliance research bays."
+        }
+      ],
+      "caption": "Upgraded corporate headquarters at Union Bank Building, Tiger Circle, Manipal with modern consulting bays and secure client rooms.",
+      "story": "To support our expanding practice and growing team of Chartered Accountants and research analysts, NRSR & Co expanded its primary headquarters at 'Gokula', 1st Floor, Union Bank Building, Manipal. The upgraded infrastructure features high-speed secure networking, dedicated client consultation chambers, soundproof advisory rooms, and an extensive physical and digital tax library."
     },
     {
       "id": "gal-4",
-      "title": "ICAI Peer Review & Quality Certification",
-      "category": "Certifications",
-      "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
-      "caption": "Recognition of rigorous quality control frameworks and adherence to ICAI standards.",
-      "date": "2026-04-20"
+      "title": "Bengaluru Branch Office Inception & Expansion",
+      "category": "Office",
+      "date": "2024-06-01",
+      "year": "2024",
+      "location": "Laggere, Bengaluru",
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+      "photos": [
+        {
+          "url": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Bengaluru branch office operations desk."
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Client briefing session on startup corporate governance and seed compliance."
+        }
+      ],
+      "caption": "Establishing dedicated branch operations in Bengaluru to serve high-growth tech startups, D2C brands, and corporate clients.",
+      "story": "In response to escalating demand for specialized startup taxation, Virtual CFO services, and registered valuation across the Bengaluru tech corridor, NRSR & Co officially established its Bengaluru branch office. The branch serves as a dynamic hub connecting institutional investors, technology founders, and corporate enterprises with our senior advisory team."
+    },
+    {
+      "id": "gal-5",
+      "title": "Community Financial Literacy & MSME Outreach Camp",
+      "category": "CSR",
+      "date": "2023-11-20",
+      "year": "2023",
+      "location": "Udupi & Manipal District",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+      "photos": [
+        {
+          "url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Interactive guidance session with local MSME proprietors on GST compliance."
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Distributing simplified tax accounting booklets to retail business owners."
+        }
+      ],
+      "caption": "Pro-bono financial literacy and tax compliance guidance workshop organized for local micro and small business proprietors.",
+      "story": "As part of our commitment to community empowerment, NRSR & Co conducted a pro-bono financial literacy initiative for local small business owners, traders, and artisanal entrepreneurs. Our partners and article assistants provided one-on-one guidance on digital bookkeeping, GST threshold exemptions, MSME Samadhaan delayed payment protections, and bank loan documentation."
+    },
+    {
+      "id": "gal-6",
+      "title": "Firm Foundation & Inception Milestone",
+      "category": "Milestones",
+      "date": "2019-05-10",
+      "year": "2019",
+      "location": "Manipal, Karnataka",
+      "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80",
+      "photos": [
+        {
+          "url": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Founding day of M/s NRSR & Co Chartered Accountants in 2019."
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Initial firm premises and team kick-off meeting."
+        }
+      ],
+      "caption": "The inception of M/s NRSR & Co with a vision to deliver uncompromised audit integrity, corporate structuring, and strategic tax advisory.",
+      "story": "Established in 2019 by visionary Chartered Accountants, M/s NRSR & Co began with a core mission: to provide world-class financial assurance, precision tax advisory, and ethical corporate leadership to emerging businesses and established institutions. From our first client engagement to our present footprint spanning hundreds of corporate clients, the firm remains grounded in trust, precision, and excellence."
     }
   ]
 }

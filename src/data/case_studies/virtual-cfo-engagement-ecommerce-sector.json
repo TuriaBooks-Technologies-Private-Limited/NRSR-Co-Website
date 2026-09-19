@@ -1,19 +1,43 @@
 {
-  "id": "cs-6",
-  "title": "Virtual CFO Engagement — E-commerce Sector",
+  "id": "cs-2",
+  "title": "Virtual CFO & Financial Engineering — D2C Omnichannel Retail Scale-up",
   "slug": "virtual-cfo-engagement-ecommerce-sector",
-  "metaTitle": "Virtual CFO Engagement Overview | NRSR & Co",
-  "metaDesc": "An overview of a Virtual CFO advisory engagement for an entity in the e-commerce sector.",
-  "metaKeywords": "Virtual CFO, Financial Reporting, E-commerce",
-  "image": "",
-  "industry": "E-commerce",
-  "summary": "A Virtual CFO engagement covering periodic financial reporting and cash flow monitoring was carried out for an e-commerce-sector entity.",
+  "metaTitle": "Virtual CFO & Strategic Financial Modeling Case Study | NRSR & Co",
+  "metaDesc": "Strategic Virtual CFO engagement transforming unit economics, cash burn, real-time MIS analytics, and Series-A investor readiness for a high-growth consumer retail brand.",
+  "metaKeywords": "Virtual CFO, Unit Economics, Cash Flow Management, Series A Due Diligence, Power BI Dashboards, E-commerce",
+  "industry": "D2C Consumer Goods & E-Commerce",
+  "duration": "Ongoing Retainer (12+ Months)",
+  "regulatoryFramework": "Ind AS, Corporate Governance, Statutory Tax Frameworks & VC Reporting",
+  "summary": "NRSR & Co stepped in as Virtual CFO for a fast-scaling D2C lifestyle brand, revamping contribution margins, deploying automated Power BI financial dashboards, and steering a ₹25 Cr institutional equity fundraise.",
   "metrics": [
-    { "label": "Engagement Type", "val": "Virtual CFO Advisory" },
-    { "label": "Duration", "val": "Ongoing, Retainer Basis" },
-    { "label": "Reporting", "val": "Monthly" }
+    { "label": "Revenue Growth Scaled", "val": "3.4x ARR Expansion" },
+    { "label": "Working Capital Cycle", "val": "Reduced by 32 Days" },
+    { "label": "Contribution Margin", "val": "+6.8% Improvement" },
+    { "label": "Equity Capital Raised", "val": "₹25 Cr Series A" }
   ],
-  "challenge": "The entity did not have a dedicated in-house finance leadership function and required periodic financial reporting and cash flow visibility to support its operations.",
-  "solution": "The engagement was structured as a retainer-based Virtual CFO arrangement, covering monthly financial reporting, cash flow monitoring, and periodic budget review sessions.",
-  "execution": "Monthly reporting cycles were established with the entity's internal accounts team, along with a recurring review meeting to go through financial statements and cash flow forecasts."
+  "background": "The client is a high-growth consumer brand selling through major marketplaces (Amazon, Flipkart, Quick Commerce) and their own D2C Shopify portal. Generating ₹18 Cr in annual run-rate with rapid customer acquisition, the company struggled with negative cash flow cycles, hidden marketplace commission leakages, and uncoordinated inventory ordering.",
+  "challenge": "The founders required seasoned executive financial leadership without incurring the prohibitive overhead of a full-time CFO. Critical friction points included: 1) High Return-to-Origin (RTO) and COD logistics charges eating into gross margins, 2) Inability to calculate SKU-level Customer Acquisition Cost (CAC) vs Lifetime Value (LTV), 3) Constant cash crunches despite strong top-line revenue growth due to supplier payment mismatches, and 4) Complete lack of institutional-grade financial reporting for venture capital investors.",
+  "solution": "NRSR & Co embedded a senior Virtual CFO practice team into the client's executive leadership. We implemented unit-economic modeling, weekly cash runway forecasting, automated marketplace reconciliation bots, and structured the financial model for their institutional Series-A fundraise.",
+  "executionSteps": [
+    {
+      "phase": "Phase 1: Unit Economics & SKU Profitability Diagnostic",
+      "description": "Deconstructed the P&L across 140+ active SKUs. Factored in blended ad spends (ROAS), marketplace commission slabs, logistics surcharges, reverse shipping, and packaging costs to establish true CM1, CM2, and CM3 margins."
+    },
+    {
+      "phase": "Phase 2: Automated Marketplace Payment Reconciliation",
+      "description": "Deployed automated reconciliation algorithms to match marketplace settlement disbursements with portal sales orders, identifying ₹34 Lakhs in incorrect weight discrepancy penalties and uncredited customer returns."
+    },
+    {
+      "phase": "Phase 3: Real-Time Power BI Executive Dashboards",
+      "description": "Engineered live executive dashboards integrating Shopify, ERP, and payment gateways, providing founders with daily gross margin visibility, inventory holding days, and 13-week rolling cash burn projections."
+    },
+    {
+      "phase": "Phase 4: Series A Due Diligence & Valuation Advisory",
+      "description": "Prepared 5-year financial forecast models, built the Virtual Data Room (VDR), addressed Big 4 financial and tax due diligence queries, and assisted legal counsel with Term Sheet and SHA financial covenants."
+    }
+  ],
+  "results": "The client scaled ARR from ₹18 Cr to ₹62 Cr over 14 months while transforming operating cash flow from negative to positive. Armed with our financial architecture and clean due diligence reports, the founders closed a ₹25 Cr Series-A round with a tier-1 venture fund at a premier valuation.",
+  "quote": "A great Virtual CFO does not just balance the ledger — they architect the unit economics and capital strategy that turns rapid revenue into sustainable enterprise valuation.",
+  "quoteAuthor": "CA Shrinidhi Rao, Managing Partner",
+  "content": "### Strategic Unit Economics Optimization Framework\n\nTo establish scalable unit economics, the NRSR & Co team restructured the client's financial reporting into a 3-tier Contribution Margin hierarchy:\n\n```\nGross Revenue (MRP - Marketplace Discounts)\n  (-) Taxes & GST Outflow\n  = Net Realized Sales\n  (-) COGS & Raw Material Inflows\n  = Contribution Margin 1 (CM1: Product Margin)\n  (-) Direct Shipping & COD Charges\n  (-) Marketplace Fees & Payment Gateway Surcharges\n  = Contribution Margin 2 (CM2: Fulfillment Margin)\n  (-) Performance Marketing & Ad Spends (Meta / Google / Amazon Ads)\n  = Contribution Margin 3 (CM3: True Marketing Margin)\n```\n\n### Financial Performance Matrix Before & After VCFO Engagement\n\n| Financial Metric | Prior to NRSR VCFO Engagement | Post-Optimization Outcome |\n|---|---|---|\n| Gross Margin (CM1) | 54.2% | **61.8%** (Direct Supplier Negotiations) |\n| Blended Ad Spend (ROAS) | 2.1x | **3.4x** (Pruned Non-Performing SKUs) |\n| RTO Reconciliation Recovery | Neglected / Zero | **₹34.2 Lakhs Recovered** |\n| Cash Runway Visibility | 2 Weeks (Ad-hoc) | **13-Week Dynamic Rolling Model** |\n| Due Diligence Closure Time | 6+ Months (Estimated) | **Completed in 28 Days** |"
 }

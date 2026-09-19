@@ -1,19 +1,43 @@
 {
   "id": "cs-4",
-  "title": "Partnership to LLP Conversion — Professional Services Sector",
-  "slug": "partnership-llp-conversion-professional-services",
-  "metaTitle": "Partnership to LLP Conversion Overview | NRSR & Co",
-  "metaDesc": "An overview of the conversion of a partnership firm to a Limited Liability Partnership in the professional services sector.",
-  "metaKeywords": "LLP Conversion, Partnership Firm, Professional Services",
-  "image": "",
-  "industry": "Professional Services",
-  "summary": "A registered partnership firm in the professional services sector was converted into a Limited Liability Partnership.",
+  "title": "Tax-Neutral Conversion of Traditional Partnership Firm into Limited Liability Partnership (LLP)",
+  "slug": "partnership-llp-conversion-professional-services.json",
+  "metaTitle": "Partnership to LLP Conversion Advisory | NRSR & Co",
+  "metaDesc": "Corporate restructuring case study detailing Chapter X LLP Act compliance, Section 47(xiiib) capital gains exemption, and seamless statutory transition for an engineering firm.",
+  "metaKeywords": "Partnership to LLP Conversion, Section 47(xiiib), LLP Act 2008, Capital Gains Exemption, ROC Filings",
+  "industry": "Engineering & Architectural Consultancy",
+  "duration": "7 Weeks",
+  "regulatoryFramework": "Limited Liability Partnership Act 2008 (Second Schedule) & Section 47(xiiib) Income Tax Act 1961",
+  "summary": "NRSR & Co advised and executed the end-to-end statutory conversion of a 25-year-old engineering consultancy partnership firm into an LLP, shielding partner personal wealth while preserving 100% tax neutrality and banking relationships.",
   "metrics": [
-    { "label": "Engagement Type", "val": "Entity Conversion" },
-    { "label": "Duration", "val": "6 Weeks" },
-    { "label": "Filing Authority", "val": "Ministry of Corporate Affairs" }
+    { "label": "Enterprise Asset Value", "val": "₹38.0 Cr" },
+    { "label": "Capital Gains Tax Saved", "val": "₹2.4 Cr (100% Exempt)" },
+    { "label": "Statutory Approvals", "val": "ROC, GST, IT & Banks" },
+    { "label": "Conversion Timelines", "val": "Executed in 45 Days" }
   ],
-  "challenge": "The partners of the firm wished to convert their registered partnership into a Limited Liability Partnership, requiring consent documentation and statutory filings with the Ministry of Corporate Affairs.",
-  "solution": "The engagement covered obtaining Digital Signature Certificates and Designated Partner Identification Numbers for partners, name reservation, incorporation filings, and the conversion filing under Form 17.",
-  "execution": "Filings were prepared and submitted in sequence, followed by post-conversion updates to the entity's PAN, bank accounts, and GST registration to reflect the new LLP structure."
+  "background": "The client is an established structural engineering firm founded in 1999 as a traditional partnership firm under the Indian Partnership Act, 1932. With multiple high-value infrastructure projects underway across South India, the 5 senior partners were exposed to unlimited joint and several liability under traditional partnership laws. As project liability exposure scaled, transitioning to an LLP became imperative.",
+  "challenge": "Key challenges included: 1) Mitigating severe capital gains tax risks upon transfer of immovable real estate, intellectual property, and client contracts to the new entity, 2) Navigating Section 47(xiiib) / Section 47(xiii) statutory conditions to secure complete income tax exemption, 3) Ensuring uninterrupted validity of ongoing government tenders, bank guarantees, and GST input credits without triggering novation defaults, and 4) Aligning diverse partner profit-sharing ratios and capital accounts.",
+  "solution": "NRSR & Co formulated a comprehensive restructuring blueprint under the Second Schedule of the Limited Liability Partnership Act, 2008, ensuring all conditions of Section 47(xiiib) of the Income Tax Act, 1961 were scrupulously satisfied.",
+  "executionSteps": [
+    {
+      "phase": "Phase 1: Due Diligence & Section 47 Exemption Checklist",
+      "description": "Verified that all assets and liabilities of the firm immediately before conversion became assets and liabilities of the LLP; confirmed that all partners remained partners in the exact capital contribution and profit-sharing ratio."
+    },
+    {
+      "phase": "Phase 2: Drafting LLP Agreement & Partner Governance Clauses",
+      "description": "Drafted customized LLP Agreement incorporating robust dispute resolution mechanisms, retirement and expulsion protocols, defined partner draw limits, and management committee powers."
+    },
+    {
+      "phase": "Phase 3: ROC Filing & Form 17 Second Schedule Approval",
+      "description": "Prepared statement of assets and liabilities signed by all partners, obtained auditor certifications, and filed Form 17 (Application for conversion) and Form 2 (Incorporation document) with the Registrar of Companies (ROC)."
+    },
+    {
+      "phase": "Phase 4: Post-Conversion Statutory Migrations & Bank Line Transfer",
+      "description": "Migrated PAN/TAN, obtained fresh GST registration with seamless ITC-02 transfer of unutilized input tax credits under Section 18(3) of CGST Act, and novated existing bank credit facilities."
+    }
+  ],
+  "results": "The Registrar of Companies issued the Certificate of Registration on Day 42. The conversion achieved total limited liability protection for the partners while legally saving ₹2.4 Crores in potential capital gains tax and stamp duty charges. All bank credit lines and client contracts transferred seamlessly.",
+  "quote": "Structuring a partnership-to-LLP conversion requires surgical precision across corporate law, tax statutes, and GST input credit rules. A single overlooked condition under Section 47 can trigger massive tax consequences.",
+  "quoteAuthor": "CA Swetha SV, Partner",
+  "content": "### Statutory Conditions under Section 47(xiiib) / Section 47(xiii)\n\nTo ensure complete tax neutrality during conversion from a firm to an LLP, the following statutory conditions were methodically verified and certified:\n\n1. **All Assets and Liabilities Transfer**: All property and obligations of the firm immediately before conversion become property and obligations of the LLP.\n2. **Partner Continuity**: All partners of the firm immediately before conversion become partners of the LLP and no other person is introduced.\n3. **Proportionate Capital & Profit Sharing**: The capital contribution and profit-sharing ratio of the partners in the LLP correspond exactly to those in the firm.\n4. **Zero Consideration Other Than Shares/Interest**: Partners receive no consideration or benefit directly or indirectly other than by way of share in profit and capital contribution in the LLP.\n5. **Aggregate Profit Sharing Threshold**: The aggregate of profit-sharing ratios of the old partners in the LLP does not fall below 50% for a continuous period of 5 years.\n\n### Transition Roadmap & Regulatory Approvals\n\n| Statutory Stage | Governing Authority | Form Filed | Status |\n|---|---|---|---|\n| Name Reservation | Ministry of Corporate Affairs | RUN-LLP | Approved |\n| Conversion Application | Registrar of Companies (ROC) | Form 17 (Second Schedule) | Approved |\n| Incorporation & KYC | MCA Central Processing Unit | Form 2 (FiLLiP) | Certificate Issued |\n| LLP Agreement Adoption | ROC | Form 3 | Registered |\n| GST ITC Transfer | State/Central GST Department | Form GST ITC-02 | ₹48.6L ITC Migrated |"
 }

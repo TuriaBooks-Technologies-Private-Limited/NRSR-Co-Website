@@ -262,8 +262,41 @@ const s = typeof size === 'number' ? `${size}px` : size;
 )}
 
 {name === 'whatsapp' && (
-  <svg class={className} width={s} height={s} viewBox="0 0 24 24" fill={color === 'currentColor' ? 'none' : color} stroke={color === 'currentColor' ? color : 'none'} stroke-width={strokeWidth} stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+  <svg class={className} width={s} height={s} viewBox="0 0 24 24" fill={color === 'currentColor' ? '#25D366' : color}>
+    <path d="M17.472 14.382c-.301-.15-1.782-.88-2.058-.98-.276-.1-.477-.15-.677.15-.201.3-.778.98-.954 1.18-.176.2-.351.225-.652.075-.301-.15-1.272-.469-2.423-1.496-.895-.799-1.5-1.786-1.676-2.087-.176-.3-.019-.462.132-.612.135-.135.301-.35.451-.525.15-.175.2-.3.301-.5.1-.2.05-.375-.025-.525-.075-.15-.677-1.633-.928-2.237-.244-.588-.493-.508-.677-.517-.175-.009-.375-.011-.577-.011s-.527.075-.803.375c-.276.3-1.054 1.03-1.054 2.513 0 1.482 1.08 2.915 1.23 3.115.15.2 2.126 3.246 5.15 4.553.72.311 1.282.497 1.72.636.723.23 1.381.197 1.902.119.58-.087 1.782-.728 2.033-1.432.251-.704.251-1.307.176-1.432-.075-.125-.276-.2-.577-.35zM12.04 2C6.517 2 2.037 6.48 2.037 12c0 1.97.57 3.809 1.554 5.361L2 22l4.805-1.551A9.972 9.972 0 0 0 12.04 22c5.523 0 10.003-4.48 10.003-10S17.563 2 12.04 2z"/>
+  </svg>
+)}
+
+{name === 'facebook' && (
+  <svg class={className} width={s} height={s} viewBox="0 0 24 24" fill={color === 'currentColor' ? '#1877F2' : color}>
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+  </svg>
+)}
+
+{name === 'instagram' && (
+  <svg class={className} width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={color} stroke-width={strokeWidth} stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+)}
+
+{name === 'twitter' && (
+  <svg class={className} width={s} height={s} viewBox="0 0 24 24" fill={color === 'currentColor' ? '#000000' : color}>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+)}
+
+{name === 'youtube' && (
+  <svg class={className} width={s} height={s} viewBox="0 0 24 24" fill={color === 'currentColor' ? '#FF0000' : color}>
+    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+  </svg>
+)}
+
+{name === 'clock' && (
+  <svg class={className} width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={color} stroke-width={strokeWidth} stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"></circle>
+    <polyline points="12 6 12 12 16 14"></polyline>
   </svg>
 )}
 

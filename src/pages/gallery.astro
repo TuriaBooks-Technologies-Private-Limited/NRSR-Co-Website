@@ -4,76 +4,416 @@ import Icon from '../components/Icon.astro';
 import galleryData from '../data/gallery.json';
 
 const gallery = galleryData.gallery || [];
+// Sort chronologically for timeline (newest first or oldest first)
+const sortedTimeline = [...gallery].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 ---
 
 <Layout
-  title="Photo Gallery & Media | M/s NRSR & Co"
-  description="Photo gallery and media moments of M/s NRSR & Co: office premises, client consultations, strategy seminars, and team moments."
+  title="Occasions, Milestones & Photo Gallery | M/s NRSR & Co"
+  description="Explore the journey, occasions, CPD seminars, certifications, and media moments of M/s NRSR & Co Chartered Accountants from 2019 to present."
 >
   <!-- Header Banner -->
   <section class="section-padding" style="padding-top: calc(var(--header-height) + 50px); background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-main) 100%);">
     <div class="container text-center">
       <div class="section-header text-center" style="margin-bottom:0;">
-        <span class="section-subtitle">Life At NRSR & Co</span>
-        <h1 class="section-title" style="font-size: 38px;">Photo Gallery & Media</h1>
+        <span class="section-subtitle">Moments & Milestones</span>
+        <h1 class="section-title" style="font-size: clamp(30px, 4vw, 42px);">Firm Occasions, Stories & Gallery</h1>
       </div>
-      <p style="color: var(--text-muted); max-width: 760px; margin: 16px auto 0 auto; font-size: 16px; line-height: 1.7;">
-        A glimpse into our offices, professional development seminars, client advisory sessions, and firm milestones across Manipal and Bengaluru.
+      <p style="color: var(--text-muted); max-width: 780px; margin: 16px auto 0 auto; font-size: 16.5px; line-height: 1.7;">
+        A visual journey through our firm milestones, office premises, continuing professional development seminars, client advisory sessions, and community initiatives across Karnataka.
       </p>
+
+      <!-- View Mode Switcher Toggle -->
+      <div style="display: inline-flex; background: #ffffff; padding: 5px; border-radius: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid rgba(0,132,180,0.2); margin-top: 28px; gap: 4px;">
+        <button id="viewGridBtn" class="btn btn-primary" style="border-radius: 24px; padding: 9px 22px; font-size: 13.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;" onclick="switchGalleryView('grid')">
+          <Icon name="sparkles" size={15} color="currentColor" />
+          <span>Occasion Albums Grid</span>
+        </button>
+        <button id="viewTimelineBtn" class="btn btn-outline" style="border-radius: 24px; padding: 9px 22px; font-size: 13.5px; font-weight: 700; border: none; display: inline-flex; align-items: center; gap: 8px;" onclick="switchGalleryView('timeline')">
+          <Icon name="calendar" size={15} color="currentColor" />
+          <span>Chronological Timeline View</span>
+        </button>
+      </div>
     </div>
   </section>
 
-  <!-- Gallery Section with Category Tabs -->
-  <section class="section-padding">
+  <!-- Main Content Container -->
+  <section class="section-padding" style="padding-top: 30px;">
     <div class="container">
-      <!-- Category Filter Tabs -->
-      <div id="galleryTabs" style="display:flex; justify-content:center; gap:10px; margin-bottom:36px; flex-wrap:wrap;">
-        <button class="gallery-tab active btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('All', this)">All Moments</button>
-        <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Office', this)">Office & Infrastructure</button>
-        <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Events', this)">Events & Seminars</button>
-        <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Team', this)">Team & Advisory</button>
-        <button class="gallery-tab btn btn-outline" style="padding:8px 18px; font-size:13px; border-radius:20px;" onclick="filterGallery('Certifications', this)">Certifications & Awards</button>
+
+      <!-- ==========================================
+           VIEW 1: OCCASIONS ALBUMS GRID
+           ========================================== -->
+      <div id="gridSection">
+        <!-- Category Filter Tabs -->
+        <div id="galleryTabs" style="display:flex; justify-content:center; gap:10px; margin-bottom:40px; flex-wrap:wrap;">
+          <button class="gallery-tab active btn btn-primary" style="padding:8px 20px; font-size:13px; border-radius:20px;" onclick="filterGallery('All', this)">All Occasions</button>
+          <button class="gallery-tab btn btn-outline" style="padding:8px 20px; font-size:13px; border-radius:20px;" onclick="filterGallery('Certifications', this)">Certifications & Awards</button>
+          <button class="gallery-tab btn btn-outline" style="padding:8px 20px; font-size:13px; border-radius:20px;" onclick="filterGallery('Seminars', this)">Seminars & CPD</button>
+          <button class="gallery-tab btn btn-outline" style="padding:8px 20px; font-size:13px; border-radius:20px;" onclick="filterGallery('Office', this)">Office & Infrastructure</button>
+          <button class="gallery-tab btn btn-outline" style="padding:8px 20px; font-size:13px; border-radius:20px;" onclick="filterGallery('CSR', this)">CSR & Community</button>
+          <button class="gallery-tab btn btn-outline" style="padding:8px 20px; font-size:13px; border-radius:20px;" onclick="filterGallery('Milestones', this)">Firm Milestones</button>
+        </div>
+
+        <!-- Occasions Grid Cards -->
+        <div id="galleryGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:28px;">
+          {gallery.map(g => {
+            const photoCount = (g.photos && g.photos.length) || 1;
+            return (
+              <div
+                class="gallery-item-card card-hover"
+                data-category={g.category}
+                style="background:#ffffff; border-radius:16px; border:var(--card-border); box-shadow:var(--card-shadow); overflow:hidden; cursor:pointer; display:flex; flex-direction:column; transition:transform 0.3s ease, box-shadow 0.3s ease;"
+                onclick={`openOccasionModal('${g.id}')`}
+              >
+                <!-- Thumbnail & Badges -->
+                <div style="height:230px; background:#f1f5f9; overflow:hidden; position:relative;">
+                  <img src={g.image || "/assets/logo.svg"} alt={g.title} style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;" class="card-thumb" />
+                  <div style="position:absolute; top:12px; left:12px; display:flex; gap:6px; flex-wrap:wrap;">
+                    <span style="background:rgba(15,32,39,0.85); color:#ffffff; font-size:11px; font-weight:700; padding:4px 10px; border-radius:12px; backdrop-filter:blur(4px);">
+                      {g.category || "General"}
+                    </span>
+                    {g.year && (
+                      <span style="background:var(--color-primary); color:#ffffff; font-size:11px; font-weight:800; padding:4px 10px; border-radius:12px;">
+                        {g.year}
+                      </span>
+                    )}
+                  </div>
+                  <div style="position:absolute; bottom:12px; right:12px; background:rgba(0,0,0,0.75); color:#ffffff; font-size:11.5px; font-weight:700; padding:4px 10px; border-radius:12px; display:flex; align-items:center; gap:5px; backdrop-filter:blur(4px);">
+                    <Icon name="sparkles" size={12} color="var(--color-accent)" />
+                    <span>{photoCount} {photoCount === 1 ? 'Photo' : 'Photos'}</span>
+                  </div>
+                </div>
+
+                <!-- Text Content -->
+                <div style="padding:22px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <h3 style="font-size:17px; margin:0 0 8px 0; color:var(--text-main); font-weight:800; line-height:1.4;">{g.title}</h3>
+                    <p style="font-size:13.5px; color:var(--text-muted); margin:0; line-height:1.6;">{g.caption || ""}</p>
+                  </div>
+                  
+                  <div style="margin-top:18px; padding-top:14px; border-top:1px solid #f1f5f9; font-size:12px; color:var(--color-primary); font-weight:700; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:var(--text-muted); display:inline-flex; align-items:center; gap:5px;">
+                      <Icon name="map-pin" size={13} color="var(--color-primary)" /> {g.location || "Manipal"}
+                    </span>
+                    <span style="display:inline-flex; align-items:center; gap:5px; color:var(--color-primary-dark);">
+                      View Story & Photos <Icon name="arrow-right" size={12} />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
-      <!-- Dynamic Photo Grid Container -->
-      <div id="galleryGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:24px;">
-        {gallery.map(g => (
-          <div class="gallery-item-card card-hover" style="background:#ffffff; border-radius:14px; border:var(--card-border); box-shadow:var(--card-shadow); overflow:hidden; cursor:pointer; display:flex; flex-direction:column;" onclick={`openLightbox('${g.id}')`}>
-            <div style="height:210px; background:#f1f5f9; overflow:hidden; position:relative;">
-              <img src={g.image || "/assets/logo.svg"} alt={g.title} style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-              <span style="position:absolute; top:10px; left:10px; background:rgba(15,32,39,0.85); color:#ffffff; font-size:10px; font-weight:700; padding:3px 10px; border-radius:12px;">{g.category || "General"}</span>
-            </div>
-            <div style="padding:16px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
-              <div>
-                <h4 style="font-size:15px; margin:0 0 6px 0; color:var(--text-main); font-weight:700;">{g.title}</h4>
-                <p style="font-size:12.5px; color:var(--text-muted); margin:0; line-height:1.5;">{g.caption || ""}</p>
+      <!-- ==========================================
+           VIEW 2: CHRONOLOGICAL TIMELINE VIEW
+           ========================================== -->
+      <div id="timelineSection" style="display:none; max-width:860px; margin:0 auto;">
+        <div class="timeline-container" style="position:relative; padding:20px 0;">
+          <!-- Vertical Center Track -->
+          <div style="position:absolute; left:24px; top:0; bottom:0; width:3px; background:linear-gradient(180deg, var(--color-primary) 0%, var(--color-accent) 100%); border-radius:2px;"></div>
+
+          <div style="display:flex; flex-direction:column; gap:36px;">
+            {sortedTimeline.map((item, idx) => (
+              <div style="position:relative; padding-left:64px;" class="timeline-node">
+                <!-- Timeline Dot Indicator -->
+                <div style="position:absolute; left:12px; top:24px; width:26px; height:26px; border-radius:50%; background:#ffffff; border:4px solid var(--color-primary); display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 4px rgba(0,132,180,0.2); z-index:2;">
+                </div>
+
+                <!-- Timeline Milestone Card -->
+                <div
+                  style="background:#ffffff; border-radius:16px; border:var(--card-border); box-shadow:var(--card-shadow); padding:24px 28px; cursor:pointer; transition:transform 0.25s ease;"
+                  onclick={`openOccasionModal('${item.id}')`}
+                  onmouseover="this.style.transform='translateY(-3px)'"
+                  onmouseout="this.style.transform='translateY(0)'"
+                >
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+                    <div style="display:flex; gap:8px; align-items:center;">
+                      <span style="font-size:16px; font-weight:800; color:var(--color-primary-dark);">{item.year}</span>
+                      <span style="font-size:12px; color:var(--text-muted);">• {item.date}</span>
+                    </div>
+                    <span style="font-size:11px; font-weight:700; background:rgba(0,132,180,0.1); color:var(--color-primary); padding:3px 10px; border-radius:12px;">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  <h3 style="font-size:18px; color:var(--text-main); font-weight:800; margin:0 0 8px 0; line-height:1.4;">
+                    {item.title}
+                  </h3>
+
+                  <p style="font-size:14px; color:var(--text-muted); line-height:1.6; margin:0 0 16px 0;">
+                    {item.caption || item.story?.substring(0, 160) + '...'}
+                  </p>
+
+                  <!-- Photo Strip Preview (if multiple photos) -->
+                  {item.photos && item.photos.length > 0 && (
+                    <div style="display:flex; gap:10px; margin-bottom:16px; overflow-x:auto; padding-bottom:6px;">
+                      {item.photos.slice(0, 3).map(p => (
+                        <div style="width:110px; height:75px; border-radius:8px; overflow:hidden; flex-shrink:0; background:#f1f5f9; border:1px solid #e2e8f0;">
+                          <img src={p.url} alt={p.caption || item.title} style="width:100%; height:100%; object-fit:cover;" />
+                        </div>
+                      ))}
+                      {item.photos.length > 3 && (
+                        <div style="width:75px; height:75px; border-radius:8px; background:rgba(0,132,180,0.1); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; color:var(--color-primary); flex-shrink:0;">
+                          +{item.photos.length - 3} more
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px;">
+                    <span style="color:var(--text-muted); display:inline-flex; align-items:center; gap:4px;">
+                      <Icon name="map-pin" size={13} color="var(--color-primary)" /> {item.location || "Manipal HQ"}
+                    </span>
+                    <span style="color:var(--color-primary); font-weight:700; display:inline-flex; align-items:center; gap:4px;">
+                      Read Full Story & View Gallery <Icon name="arrow-right" size={12} />
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div style="margin-top:12px; font-size:11px; color:var(--color-primary); font-weight:600; display:flex; justify-content:space-between; align-items:center;">
-                <span>{g.date || ""}</span>
-                <span style="display:inline-flex; align-items:center; gap:4px;">View Photo <Icon name="search" size={12} /></span>
-              </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Photo Lightbox Modal -->
-  <div id="galleryLightbox" class="modal-overlay" onclick="closeLightbox(event)">
-    <div style="position:relative; max-width:900px; max-height:90vh; width:90%; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.5); display:flex; flex-direction:column;" onclick="event.stopPropagation()">
-      <button style="position:absolute; top:12px; right:14px; background:rgba(0,0,0,0.6); color:#ffffff; border:none; width:34px; height:34px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10;" onclick="document.getElementById('galleryLightbox').classList.remove('active')">&times;</button>
-      <div style="max-height:65vh; background:#0f2027; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-        <img id="lightboxImg" src="" alt="" style="max-width:100%; max-height:65vh; object-fit:contain;" />
-      </div>
-      <div style="padding:20px 24px; background:#ffffff;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-          <h3 id="lightboxTitle" style="font-size:18px; margin:0; color:var(--text-main);"></h3>
-          <span id="lightboxCategory" style="font-size:11px; background:rgba(29,163,154,0.1); color:var(--color-primary); padding:3px 10px; border-radius:12px; font-weight:700;"></span>
+  <!-- ==========================================
+       OCCASION LIGHTBOX & STORY READER MODAL
+       ========================================== -->
+  <div id="occasionModal" class="modal-overlay" onclick="closeOccasionModal(event)">
+    <div style="position:relative; max-width:1080px; max-height:92vh; width:94%; background:#ffffff; border-radius:20px; overflow:hidden; box-shadow:0 35px 70px rgba(0,0,0,0.4); display:flex; flex-direction:column;" onclick="event.stopPropagation()">
+      
+      <!-- Modal Close Button -->
+      <button
+        style="position:absolute; top:16px; right:18px; background:rgba(15,23,42,0.7); color:#ffffff; border:none; width:38px; height:38px; border-radius:50%; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:20; transition:background 0.2s;"
+        onclick="closeOccasionModalDirect()"
+        aria-label="Close Occasion Modal"
+      >&times;</button>
+
+      <!-- Modal Body Split Layout (Slider Left, Story Right on Desktop) -->
+      <div style="display:grid; grid-template-columns:1.2fr 1fr; max-height:92vh; overflow:hidden;" class="modal-split-grid">
+        
+        <!-- Left Side: Interactive Multi-Photo Carousel -->
+        <div style="background:#0b1319; display:flex; flex-direction:column; justify-content:space-between; position:relative; min-height:360px;">
+          <!-- Main Display Photo -->
+          <div style="flex:1; display:flex; align-items:center; justify-content:center; padding:20px; overflow:hidden; position:relative;">
+            <img id="modalMainPhoto" src="" alt="" style="max-width:100%; max-height:55vh; object-fit:contain; border-radius:8px; transition:opacity 0.3s ease;" />
+            
+            <!-- Prev / Next Navigation Arrows -->
+            <button id="sliderPrevBtn" onclick="prevSlide()" style="position:absolute; left:16px; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.6); color:#ffffff; border:none; width:40px; height:40px; border-radius:50%; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5;">
+              ‹
+            </button>
+            <button id="sliderNextBtn" onclick="nextSlide()" style="position:absolute; right:16px; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.6); color:#ffffff; border:none; width:40px; height:40px; border-size:18px; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5;">
+              ›
+            </button>
+          </div>
+
+          <!-- Bottom Photo Caption & Counter Strip -->
+          <div style="background:rgba(0,0,0,0.85); padding:12px 20px; border-top:1px solid rgba(255,255,255,0.1);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <p id="modalPhotoCaption" style="font-size:13px; color:rgba(255,255,255,0.9); margin:0; line-height:1.4;"></p>
+              <span id="modalPhotoCounter" style="font-size:12px; color:var(--color-primary-light); font-weight:700; flex-shrink:0; margin-left:12px;"></span>
+            </div>
+            <!-- Clickable Thumbnails -->
+            <div id="modalThumbnailsStrip" style="display:flex; gap:8px; overflow-x:auto; padding-top:4px;"></div>
+          </div>
         </div>
-        <p id="lightboxCaption" style="font-size:14px; color:var(--text-muted); margin:0; line-height:1.5;"></p>
-        <div id="lightboxDate" style="font-size:12px; color:var(--text-light); margin-top:8px;"></div>
+
+        <!-- Right Side: Long-Form Occasion Article Story -->
+        <div style="padding:32px 28px; background:#ffffff; overflow-y:auto; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
+              <span id="modalCategoryBadge" style="font-size:11px; background:rgba(0,132,180,0.1); color:var(--color-primary); padding:3px 10px; border-radius:12px; font-weight:800;"></span>
+              <span id="modalYearBadge" style="font-size:11px; background:rgba(141,198,63,0.15); color:var(--color-accent-dark,#2e7d32); padding:3px 10px; border-radius:12px; font-weight:800;"></span>
+              <span id="modalLocationBadge" style="font-size:11px; color:var(--text-muted); display:inline-flex; align-items:center; gap:4px;">
+                <Icon name="map-pin" size={12} /> <span id="modalLocationText"></span>
+              </span>
+            </div>
+
+            <h2 id="modalOccasionTitle" style="font-size:22px; color:var(--color-primary-dark); margin:0 0 16px 0; font-weight:800; line-height:1.35;"></h2>
+
+            <div id="modalOccasionStory" style="font-size:15px; color:var(--text-main); line-height:1.8; white-space:pre-line;"></div>
+          </div>
+
+          <div style="margin-top:32px; padding-top:16px; border-top:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center;">
+            <div id="modalOccasionDate" style="font-size:12px; color:var(--text-muted); font-weight:600;"></div>
+            <a href="/contact" class="btn btn-primary" style="font-size:12px; padding:6px 16px;">Connect with Advisors →</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+
+  <style>
+    @media (max-width: 850px) {
+      .modal-split-grid {
+        grid-template-columns: 1fr !important;
+        max-height: 90vh !important;
+        overflow-y: auto !important;
+      }
+    }
+    .thumb-btn {
+      width: 50px;
+      height: 38px;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.6;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .thumb-btn.active {
+      border-color: var(--color-primary);
+      opacity: 1;
+    }
+  </style>
+
+  <!-- Client-Side Interactive Script -->
+  <script is:inline define:vars={{ gallery }}>
+    window.GALLERY_DATA = gallery;
+    let currentOccasion = null;
+    let currentPhotoIndex = 0;
+
+    window.switchGalleryView = function(view) {
+      const gridSec = document.getElementById('gridSection');
+      const timeSec = document.getElementById('timelineSection');
+      const gridBtn = document.getElementById('viewGridBtn');
+      const timeBtn = document.getElementById('viewTimelineBtn');
+
+      if (view === 'grid') {
+        gridSec.style.display = 'block';
+        timeSec.style.display = 'none';
+        gridBtn.className = 'btn btn-primary';
+        gridBtn.style.border = 'none';
+        timeBtn.className = 'btn btn-outline';
+        timeBtn.style.border = 'none';
+      } else {
+        gridSec.style.display = 'none';
+        timeSec.style.display = 'block';
+        timeBtn.className = 'btn btn-primary';
+        timeBtn.style.border = 'none';
+        gridBtn.className = 'btn btn-outline';
+        gridBtn.style.border = 'none';
+      }
+    };
+
+    window.filterGallery = function(cat, btn) {
+      const tabs = document.querySelectorAll('.gallery-tab');
+      tabs.forEach(t => {
+        t.classList.remove('active', 'btn-primary');
+        t.classList.add('btn-outline');
+      });
+      btn.classList.add('active', 'btn-primary');
+      btn.classList.remove('btn-outline');
+
+      const cards = document.querySelectorAll('.gallery-item-card');
+      cards.forEach(card => {
+        const itemCat = card.getAttribute('data-category');
+        if (cat === 'All' || itemCat === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    };
+
+    window.openOccasionModal = function(id) {
+      const item = window.GALLERY_DATA.find(g => g.id === id);
+      if (!item) return;
+
+      currentOccasion = item;
+      currentPhotoIndex = 0;
+
+      // Populate Story Details
+      document.getElementById('modalOccasionTitle').textContent = item.title;
+      document.getElementById('modalCategoryBadge').textContent = item.category || 'General';
+      document.getElementById('modalYearBadge').textContent = item.year || '2026';
+      document.getElementById('modalLocationText').textContent = item.location || 'Manipal';
+      document.getElementById('modalOccasionDate').textContent = 'Milestone Date: ' + (item.date || '');
+      document.getElementById('modalOccasionStory').textContent = item.story || item.caption || '';
+
+      // Initialize Photo Carousel
+      renderModalSlide();
+
+      // Show Modal
+      document.getElementById('occasionModal').classList.add('active');
+    };
+
+    function renderModalSlide() {
+      if (!currentOccasion) return;
+      const photos = (currentOccasion.photos && currentOccasion.photos.length > 0) 
+        ? currentOccasion.photos 
+        : [{ url: currentOccasion.image, caption: currentOccasion.caption }];
+
+      if (currentPhotoIndex < 0) currentPhotoIndex = photos.length - 1;
+      if (currentPhotoIndex >= photos.length) currentPhotoIndex = 0;
+
+      const activePhoto = photos[currentPhotoIndex];
+      const mainImg = document.getElementById('modalMainPhoto');
+      mainImg.src = activePhoto.url;
+      mainImg.alt = activePhoto.caption || currentOccasion.title;
+
+      document.getElementById('modalPhotoCaption').textContent = activePhoto.caption || currentOccasion.title;
+      document.getElementById('modalPhotoCounter').textContent = `${currentPhotoIndex + 1} / ${photos.length}`;
+
+      // Render Thumbnails
+      const thumbStrip = document.getElementById('modalThumbnailsStrip');
+      thumbStrip.innerHTML = photos.map((p, idx) => `
+        <div class="thumb-btn ${idx === currentPhotoIndex ? 'active' : ''}" onclick="selectSlide(${idx})">
+          <img src="${p.url}" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
+      `).join('');
+
+      // Toggle Arrow buttons visibility if only 1 photo
+      const prevBtn = document.getElementById('sliderPrevBtn');
+      const nextBtn = document.getElementById('sliderNextBtn');
+      if (photos.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+      }
+    }
+
+    window.selectSlide = function(idx) {
+      currentPhotoIndex = idx;
+      renderModalSlide();
+    };
+
+    window.nextSlide = function() {
+      currentPhotoIndex++;
+      renderModalSlide();
+    };
+
+    window.prevSlide = function() {
+      currentPhotoIndex--;
+      renderModalSlide();
+    };
+
+    window.closeOccasionModal = function(e) {
+      if (e.target.id === 'occasionModal') {
+        document.getElementById('occasionModal').classList.remove('active');
+      }
+    };
+
+    window.closeOccasionModalDirect = function() {
+      document.getElementById('occasionModal').classList.remove('active');
+    };
+
+    // Keyboard listener for modal
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('occasionModal');
+      if (modal && modal.classList.contains('active')) {
+        if (e.key === 'Escape') closeOccasionModalDirect();
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+      }
+    });
+  </script>
 </Layout>

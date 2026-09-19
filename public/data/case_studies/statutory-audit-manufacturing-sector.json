@@ -1,19 +1,43 @@
 {
   "id": "cs-1",
-  "title": "Statutory Audit Engagement — Manufacturing Sector",
+  "title": "Comprehensive Statutory Audit & CARO 2020 Compliance — Precision Automotive Manufacturer",
   "slug": "statutory-audit-manufacturing-sector",
-  "metaTitle": "Statutory Audit Engagement Overview | NRSR & Co",
-  "metaDesc": "An overview of a statutory audit engagement carried out for an entity in the manufacturing sector.",
-  "metaKeywords": "Statutory Audit, Manufacturing, Companies Act",
-  "image": "",
-  "industry": "Manufacturing",
-  "summary": "A statutory audit engagement covering the review of financial statements and internal records for an entity in the manufacturing sector.",
+  "metaTitle": "Statutory Audit & CARO 2020 Compliance Case Study | NRSR & Co",
+  "metaDesc": "Enterprise audit engagement detailing inventory valuation under AS-2, revenue recognition under Ind AS 115, and internal control certifications for an automotive component manufacturer.",
+  "metaKeywords": "Statutory Audit, CARO 2020, Companies Act 2013, Ind AS 115, AS-2 Inventory Valuation, Manufacturing",
+  "industry": "Automotive & Heavy Engineering Manufacturing",
+  "duration": "8 Weeks",
+  "regulatoryFramework": "Companies Act 2013 (Sec 139/143), CARO 2020, Ind AS & Standards on Auditing (ICAI)",
+  "summary": "M/s NRSR & Co executed an exhaustive Statutory Audit and CARO 2020 evaluation for a tier-1 precision automotive component manufacturer with ₹120+ Cr turnover, resolving complex inventory valuation disparities and strengthening ERP internal controls.",
   "metrics": [
-    { "label": "Engagement Type", "val": "Statutory Audit" },
-    { "label": "Duration", "val": "8 Weeks" },
-    { "label": "Reporting Period", "val": "Annual" }
+    { "label": "Annual Revenue Audited", "val": "₹128.4 Cr" },
+    { "label": "Inventory Reconciled", "val": "4 Plant Locations" },
+    { "label": "Audit Adjustments Resolved", "val": "100% Resolved" },
+    { "label": "CARO 2020 Reporting", "val": "Clean & Qualified Opinion" }
   ],
-  "challenge": "The entity required its annual financial statements to be audited under the Companies Act, 2013, ahead of its Annual General Meeting, with supporting schedules for fixed assets, inventory, and statutory registers to be reviewed.",
-  "solution": "The engagement covered planning and risk assessment, review of books of account and supporting vouchers, verification of statutory registers, and preparation of the audit report for presentation at the Annual General Meeting.",
-  "execution": "Fieldwork was carried out in stages, with periodic status updates shared with the entity's finance team, followed by a review meeting to discuss observations before finalizing the audit report."
+  "background": "The client operates multiple manufacturing facilities producing high-precision machined transmission components for domestic OEMs and international auto giants. Operating across 4 production units and 2 central warehouses, the client maintained high-volume, multi-stage Bill of Materials (BOM) inventory spanning raw forgings, work-in-progress (WIP), scrap, and finished assemblies.",
+  "challenge": "Rapid business expansion led to severe operational accounting bottlenecks: 1) Significant variances between ERP perpetual inventory balances and physical stock counts during year-end closure, 2) Inadequate allocation of standard factory overheads to WIP and finished goods under Accounting Standard 2 (AS-2), 3) Ambiguities in revenue recognition on bill-and-hold OEM delivery contracts under Ind AS 115, and 4) Strict CARO 2020 reporting requirements regarding quarterly stock statement filings with consortium bankers under Clause 3(ii)(b).",
+  "solution": "NRSR & Co instituted a risk-based audit approach in accordance with ICAI Standards on Auditing (SA 200 series through SA 700 series). We deployed automated audit data analytics, executed simultaneous physical inventory verifications across all 4 plant locations, and re-engineered the client's cost-accounting absorption model.",
+  "executionSteps": [
+    {
+      "phase": "Phase 1: Risk Assessment & Internal Control Testing (SA 315 & SA 330)",
+      "description": "Mapped end-to-end transactional workflows across Procure-to-Pay (P2P), Order-to-Cash (O2C), and Record-to-Report (R2R). Performed walkthroughs of ERP authorization controls, segregation of duties (SoD), and automated 3-way matching rules."
+    },
+    {
+      "phase": "Phase 2: Multi-Location Simultaneous Stock Take (SA 501)",
+      "description": "Deployed dedicated audit squads simultaneously across all 4 manufacturing plants on March 31st to observe management's physical inventory verification, verify high-value CNC tooling, and inspect slow-moving and obsolete stock provisions."
+    },
+    {
+      "phase": "Phase 3: Cost Absorption & Revenue Recognition Modeling",
+      "description": "Restructured overhead absorption keys to ensure factory power, machine depreciation, and direct manufacturing labor were attributed to WIP on machine-hour basis rather than rough estimations. Evaluated OEM performance obligations under Ind AS 115."
+    },
+    {
+      "phase": "Phase 4: Bank Working Capital Disclosures & CARO 2020 Reporting",
+      "description": "Reconciled quarterly stock and book debt statements submitted to lead bankers against audited financial books, ensuring zero material variance under CARO 2020 Clause 3(ii)(b)."
+    }
+  ],
+  "results": "The audit was concluded and signed well within statutory deadlines, enabling timely presentation to the Board of Directors and consortium bankers. The client adopted our recommended automated overhead absorption engine in their SAP ERP, eliminating year-end inventory discrepancies and securing an upgraded credit rating from their consortium lender.",
+  "quote": "Rigorous statutory audit is not just an annual compliance box-ticking exercise — when executed with engineering-level depth, it protects enterprise value and unlocks cheaper institutional capital.",
+  "quoteAuthor": "CA Swetha SV, Partner",
+  "content": "### Key Statutory Findings & CARO 2020 Compliance Breakdown\n\nUnder the **Companies (Auditor's Report) Order, 2020 (CARO 2020)**, auditor reporting responsibilities were substantially expanded to cover 21 specific clauses. The engagement successfully validated full compliance across key high-scrutiny areas:\n\n| CARO 2020 Clause | Subject Matter | Audit Validation & Resolution |\n|---|---|---|\n| **Clause 3(i)** | Property, Plant & Equipment (PPE) | Complete physical verification of CNC machinery; title deeds of industrial land verified without encumbrances. |\n| **Clause 3(ii)(a)** | Physical Inventory Verification | Coverage & procedure verified across 4 plant units; discrepancies < 10% in aggregate and properly adjusted in books. |\n| **Clause 3(ii)(b)** | Quarterly Bank Stock Statements | Reconciled all quarterly hypothecation returns with audited trial balances; no unexplainable differences. |\n| **Clause 3(vii)** | Statutory Dues (GST, PF, ESI, TDS) | Verified regular deposit of undisputed statutory dues with no arrears exceeding 6 months. |\n| **Clause 3(ix)** | Default in Repayment of Loans | Verified term loan repayments and utilization of short-term borrowings strictly for intended working capital. |\n\n### Impact on Financial Statements & Bank Rating\n- **Inventory Valuation Accuracy**: Restated closing inventory by ₹1.82 Cr to reflect true net realizable value (NRV) and scientific overhead absorption under AS-2.\n- **Working Capital Optimization**: Resolved unbilled revenue accruals, reducing Days Sales Outstanding (DSO) from 74 days to 58 days.\n- **Bank Consortium Approval**: Unanimous acceptance of audited financials by lead banker, leading to a 50 bps reduction in working capital borrowing interest rate."
 }
