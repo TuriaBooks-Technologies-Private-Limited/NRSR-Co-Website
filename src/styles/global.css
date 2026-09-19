@@ -13,31 +13,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  /* NRSR & Co Brand Tokens — Exact Logo Extraction */
-  --color-primary: #00AACE;
-  --color-primary-dark: #008BA8;
-  --color-primary-light: #38C8E6;
-  --color-accent: #A2CD3A;
-  --color-accent-light: #B8DE5E;
-  --color-accent-soft: rgba(162, 205, 58, 0.15);
-  --color-blue: #007791;
+  /* NRSR & Co Brand Tokens — Exact Logo Match */
+  --color-primary: #0084B4;
+  --color-primary-dark: #00678F;
+  --color-primary-light: #00A3CC;
+  --color-accent: #8DC63F;
+  --color-accent-light: #9BD648;
+  --color-accent-soft: rgba(141, 198, 63, 0.15);
+  --color-blue: #00678F;
+  --color-dark: #071A36;
   --color-slate: #475569;
   --color-slate-light: #64748B;
 
-  --bg-main: #F4F9FA;
+  --bg-main: #F8FAFC;
   --bg-card: #FFFFFF;
-  --bg-alt: #E8F4F7;
-  --bg-dark: #0A1C24;
+  --bg-alt: #F0F9FF;
+  --bg-dark: #071A36;
 
   --text-main: #0F172A;
   --text-muted: #475569;
   --text-light: #64748B;
 
-  --card-border: 1px solid rgba(0, 170, 206, 0.12);
-  --card-shadow: 0 8px 24px -12px rgba(0, 170, 206, 0.12);
-  --card-shadow-lg: 0 24px 50px -16px rgba(0, 170, 206, 0.22);
-  --glass-bg: rgba(255, 255, 255, 0.92);
-  --header-bg: rgba(10, 28, 36, 0.97);
+  --card-border: 1px solid rgba(0, 132, 180, 0.14);
+  --card-shadow: 0 10px 30px -10px rgba(0, 132, 180, 0.14);
+  --card-shadow-lg: 0 25px 50px -12px rgba(7, 26, 54, 0.25);
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --header-bg: rgba(7, 26, 54, 0.96);
+
+  /* 3D Glow & Glass Accents */
+  --glow-cyan: rgba(0, 132, 180, 0.35);
+  --glow-lime: rgba(141, 198, 63, 0.35);
 
   /* Status accents */
   --color-verified: #10b981;
@@ -53,7 +58,7 @@
   /* Layout */
   --max-width: 1240px;
   --header-height: 104px;
-  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Resets */

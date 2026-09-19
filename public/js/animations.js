@@ -542,17 +542,73 @@ const SERVICE_TEMPLATES = {
       el.innerHTML = `
         <div class="mock-grid-lines"></div>
         <div class="mock-diagram-container" style="padding:10px;">
-          <div style="font-size:11px;color:#1DA39A;font-weight:700;letter-spacing:1px;margin-bottom:14px;">STATUTORY AUDIT PROGRESS</div>
+          <div style="font-size:11px;color:#0084B4;font-weight:700;letter-spacing:1px;margin-bottom:14px;">STATUTORY AUDIT PROGRESS</div>
           ${phases.map(([phase,status],i)=>`
             <div style="display:flex;align-items:center;gap:12px;margin-bottom:11px;animation:fadeSlideIn 0.4s ease ${i*0.15}s both;">
-              <div style="width:24px;height:24px;border-radius:50%;border:2px solid ${status==='✓'?'#10b981':status==='→'?'#1DA39A':'#e2e8f0'};background:${status==='✓'?'#10b981':status==='→'?'rgba(29,163,154,0.08)':'white'};display:flex;align-items:center;justify-content:center;font-size:10px;color:${status==='✓'?'white':status==='→'?'#1DA39A':'#94a3b8'};flex-shrink:0;font-weight:700;">${status}</div>
+              <div style="width:24px;height:24px;border-radius:50%;border:2px solid ${status==='✓'?'#10b981':status==='→'?'#0084B4':'#e2e8f0'};background:${status==='✓'?'#10b981':status==='→'?'rgba(0,132,180,0.08)':'white'};display:flex;align-items:center;justify-content:center;font-size:10px;color:${status==='✓'?'white':status==='→'?'#0084B4':'#94a3b8'};flex-shrink:0;font-weight:700;">${status}</div>
               <div style="flex:1;">
                 <div style="font-size:11px;color:${status==='○'?'#94a3b8':'#374151'};font-weight:${status!=='○'?'600':'400'};">${phase}</div>
               </div>
-              ${status==='→'?`<span style="font-size:9px;background:rgba(29,163,154,0.08);color:#6BBF4E;padding:2px 8px;border-radius:20px;font-weight:700;">IN PROGRESS</span>`:''}
+              ${status==='→'?`<span style="font-size:9px;background:rgba(0,132,180,0.08);color:#8DC63F;padding:2px 8px;border-radius:20px;font-weight:700;">IN PROGRESS</span>`:''}
             </div>`).join('')}
-          <div style="height:4px;background:#f1f5f9;border-radius:2px;margin-top:8px;"><div style="width:65%;height:100%;background:linear-gradient(90deg,#1DA39A,#6BBF4E);border-radius:2px;"></div></div>
+          <div style="height:4px;background:#f1f5f9;border-radius:2px;margin-top:8px;"><div style="width:65%;height:100%;background:linear-gradient(90deg,#0084B4,#8DC63F);border-radius:2px;"></div></div>
           <div style="font-size:10px;color:#94a3b8;margin-top:6px;">65% Complete</div>
+        </div>`;
+    }
+  },
+  'Valuation of Securities & Financial Assets': {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
+    description: 'IBBI Registered Valuer led valuations under Companies Act 2013, Rule 11UA, FEMA & ESOPs.',
+    features: ['Companies Act Sec 247 Valuation', 'Income Tax Rule 11UA Valuation', 'FEMA / FDI Pricing Guidelines', 'ESOP & Startup Pitch Valuation', 'Purchase Price Allocation (PPA)'],
+    renderDiagram: (el) => {
+      el.innerHTML = `
+        <div class="mock-grid-lines"></div>
+        <div class="mock-diagram-container" style="padding:10px;">
+          <div style="font-size:11px;color:#0084B4;font-weight:700;letter-spacing:1px;margin-bottom:12px;">REGISTERED VALUER (IBBI) DASHBOARD</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+            <div style="background:#f8fafc; padding:10px; border-radius:8px; border-left:3px solid #0084B4;">
+              <div style="font-size:10px; color:#64748b;">Methodology</div>
+              <div style="font-size:12px; font-weight:700; color:#0084B4;">DCF + NAV Hybrid</div>
+            </div>
+            <div style="background:#f8fafc; padding:10px; border-radius:8px; border-left:3px solid #8DC63F;">
+              <div style="font-size:10px; color:#64748b;">Statutory Validity</div>
+              <div style="font-size:12px; font-weight:700; color:#4d7a18;">Sec 247 & Rule 11UA</div>
+            </div>
+          </div>
+          <div style="padding:10px; background:linear-gradient(90deg, rgba(0,132,180,0.08), rgba(141,198,63,0.12)); border-radius:8px; border:1px solid rgba(0,132,180,0.15);">
+            <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700; color:#071a36;">
+              <span>Fair Market Value (FMV)</span>
+              <span style="color:#0084B4;">₹ 142.50 / Share</span>
+            </div>
+          </div>
+        </div>`;
+    }
+  },
+  'Valuation': {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
+    description: 'IBBI Registered Valuer led valuations under Companies Act 2013, Rule 11UA, FEMA & ESOPs.',
+    features: ['Companies Act Sec 247 Valuation', 'Income Tax Rule 11UA Valuation', 'FEMA / FDI Pricing Guidelines', 'ESOP & Startup Pitch Valuation', 'Purchase Price Allocation (PPA)'],
+    renderDiagram: (el) => {
+      el.innerHTML = `
+        <div class="mock-grid-lines"></div>
+        <div class="mock-diagram-container" style="padding:10px;">
+          <div style="font-size:11px;color:#0084B4;font-weight:700;letter-spacing:1px;margin-bottom:12px;">REGISTERED VALUER (IBBI) DASHBOARD</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+            <div style="background:#f8fafc; padding:10px; border-radius:8px; border-left:3px solid #0084B4;">
+              <div style="font-size:10px; color:#64748b;">Methodology</div>
+              <div style="font-size:12px; font-weight:700; color:#0084B4;">DCF + NAV Hybrid</div>
+            </div>
+            <div style="background:#f8fafc; padding:10px; border-radius:8px; border-left:3px solid #8DC63F;">
+              <div style="font-size:10px; color:#64748b;">Statutory Validity</div>
+              <div style="font-size:12px; font-weight:700; color:#4d7a18;">Sec 247 & Rule 11UA</div>
+            </div>
+          </div>
+          <div style="padding:10px; background:linear-gradient(90deg, rgba(0,132,180,0.08), rgba(141,198,63,0.12)); border-radius:8px; border:1px solid rgba(0,132,180,0.15);">
+            <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700; color:#071a36;">
+              <span>Fair Market Value (FMV)</span>
+              <span style="color:#0084B4;">₹ 142.50 / Share</span>
+            </div>
+          </div>
         </div>`;
     }
   }

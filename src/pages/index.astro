@@ -10,63 +10,85 @@ import servicesData from '../data/services.json';
 import teamData from '../data/team.json';
 import linksData from '../data/links.json';
 import faqsData from '../data/faqs.json';
+import testimonialsData from '../data/testimonials.json';
 
 const services = servicesData.services || [];
 const team = teamData.team || [];
 const links = linksData.links || [];
+const testimonials = (testimonialsData.testimonials || []).slice(0, 6);
 const faqs = (faqsData.faqs || []).filter(f => !f.placement || f.placement === 'all' || f.placement === 'index' || f.placement === 'index.html');
+
+const sectors = [
+  { name: "Manufacturing", icon: "/images/sectors/manufacturing.png", desc: "Cost accounting, tax audits & inventory controls." },
+  { name: "Education", icon: "/images/sectors/education.png", desc: "Trust & society compliance, 12A/80G & grants." },
+  { name: "Information Technology", icon: "/images/sectors/it.png", desc: "Cross-border TP, FEMA FDI pricing & ESOPs." },
+  { name: "Service Industry", icon: "/images/sectors/service.png", desc: "GST input credit, payroll & working capital." },
+  { name: "Retail & Wholesale", icon: "/images/sectors/trade.png", desc: "Multi-branch GST reconciliation & audit." },
+  { name: "Non-Govt. Org. (NGOs)", icon: "/images/sectors/ngo.png", desc: "FCRA, trust registrations & regulatory audits." }
+];
 ---
 
 <Layout
-  title="M/s NRSR & Co | Chartered Accountants & Advisors"
-  description="M/s NRSR & Co is a partnership firm of Chartered Accountants providing audit, direct tax litigation, GST compliance, business valuation, and corporate advisory services."
+  title="M/s NRSR & Co | Chartered Accountants & Registered Valuers"
+  description="M/s NRSR & Co is an ICAI Peer Reviewed & ISO Certified CA firm in Manipal & Bengaluru offering Audits, Taxation, IBBI Registered Valuation, and Virtual CFO services."
 >
   <!-- Background Motion Graphics Canvas Waves -->
   <div class="canvas-container">
     <canvas id="waveCanvas" aria-hidden="true"></canvas>
   </div>
 
-  <!-- Hero Section with Ledger Metrics -->
+  <!-- Hero Section with 3D Glass Badges -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <span class="hero-badge reveal-on-scroll" style="display:inline-flex; align-items:center; gap:6px;"><Icon name="sparkles" size={13} /> CHARTERED ACCOUNTANTS</span>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+          <span class="hero-badge reveal-on-scroll" style="display:inline-flex; align-items:center; gap:6px;">
+            <Icon name="sparkles" size={13} color="var(--color-accent)" /> ICAI PEER REVIEWED
+          </span>
+          <span class="hero-badge reveal-on-scroll" style="display:inline-flex; align-items:center; gap:6px; background:rgba(141,198,63,0.15); border-color:rgba(141,198,63,0.3); color:var(--color-primary-dark);">
+            <Icon name="award" size={13} color="var(--color-accent)" /> ISO 9001:2015 CERTIFIED
+          </span>
+          <span class="hero-badge reveal-on-scroll" style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,132,180,0.12); border-color:rgba(0,132,180,0.3); color:var(--color-primary-dark);">
+            <Icon name="shield" size={13} color="var(--color-primary)" /> IBBI REGISTERED VALUER
+          </span>
+        </div>
+
         <h1 class="hero-headline reveal-on-scroll" style="transition-delay: 0.1s;">
-          Finance, Tax & Audit Compliance Services
+          Precision Audit, Tax, Valuation & Corporate Advisory
         </h1>
         <p class="hero-description reveal-on-scroll" style="transition-delay: 0.2s;">
-          M/s NRSR & Co is a partnership firm of Chartered Accountants providing audit, tax advisory, valuation, and corporate governance services.
+          M/s NRSR & Co is an esteemed partnership firm of Chartered Accountants and IBBI Registered Valuers providing statutory audits, direct & indirect tax litigation, registered valuation, and startup advisory from Manipal HQ and Bengaluru.
         </p>
         <div class="hero-actions reveal-on-scroll" style="transition-delay: 0.3s;">
-          <a href="/services" class="btn btn-primary">View Our Services →</a>
-          <a href="/contact" class="btn btn-outline">Contact Us →</a>
+          <a href="/services" class="btn btn-primary">Explore Practice Verticals →</a>
+          <a href="/contact" class="btn btn-outline">Schedule Consultation →</a>
         </div>
       </div>
 
       <!-- Hero Ledger Card & Practice Stats -->
       <div class="hero-card-wrapper reveal-on-scroll" style="transition-delay: 0.25s;">
-        <div class="hero-card">
-          <div class="card-logo-center">
-            <img src="/assets/logo.svg" alt="NRSR & Co Logo" width="52" height="52">
+        <div class="hero-card tilt-card" style="background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); border: 1px solid rgba(0,132,180,0.2); box-shadow: 0 20px 40px -10px var(--glow-cyan);">
+          <div class="card-logo-center" style="margin-bottom:12px;">
+            <img src="/images/logo.png" alt="NRSR & Co Logo" style="height:52px; width:auto; max-width:190px; object-fit:contain;">
           </div>
           <h2 class="card-firm-title">M/s NRSR & Co</h2>
-          <div class="card-firm-sub">Chartered Accountants • Est. 2019</div>
+          <div class="card-firm-sub">Chartered Accountants & Registered Valuers</div>
 
-          <div class="hero-stats-grid">
+          <div class="hero-stats-grid" style="margin-top:18px;">
             <div class="stat-box">
-              <div class="stat-num">2019</div>
+              <div class="stat-num" style="color:var(--color-primary);">2019</div>
               <div class="stat-lbl">Established</div>
             </div>
             <div class="stat-box">
-              <div class="stat-num">10</div>
-              <div class="stat-lbl">Practice Divisions</div>
+              <div class="stat-num" style="color:var(--color-primary);">10+</div>
+              <div class="stat-lbl">Core Verticals</div>
             </div>
             <div class="stat-box">
-              <div class="stat-num">6</div>
-              <div class="stat-lbl">Core Specialists</div>
+              <div class="stat-num" style="color:var(--color-accent);">100%</div>
+              <div class="stat-lbl">Statutory Assurance</div>
             </div>
             <div class="stat-box">
-              <div class="stat-num">2</div>
+              <div class="stat-num" style="color:var(--color-primary);">2</div>
               <div class="stat-lbl">Offices (Manipal & BLR)</div>
             </div>
           </div>
@@ -80,9 +102,9 @@ const faqs = (faqsData.faqs || []).filter(f => !f.placement || f.placement === '
     <div class="container">
       <div class="section-header text-center">
         <span class="section-subtitle">What We Do</span>
-        <h2 class="section-title">10 Specialized Service Divisions</h2>
+        <h2 class="section-title">Comprehensive Practice Verticals</h2>
         <p style="color: var(--text-muted); max-width: 700px; margin: 10px auto 0 auto;">
-          Comprehensive Chartered Accountancy and advisory solutions across direct taxes, audits, business valuation, and governance.
+          Full-spectrum Chartered Accountancy solutions across direct & indirect taxes, statutory audits, IBBI registered valuation, and corporate governance.
         </p>
       </div>
 
@@ -100,20 +122,83 @@ const faqs = (faqsData.faqs || []).filter(f => !f.placement || f.placement === '
     </div>
   </section>
 
-  <!-- Services Rail Horizontal Scroll Section -->
-  <section class="section-padding" style="overflow: hidden; padding-bottom: 20px;">
+  <!-- Sectors We Serve Section (from live site) -->
+  <section class="section-padding" style="background: #ffffff;">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-subtitle">Practice Capabilities</span>
-        <h2 class="section-title">Explore All Practice Areas</h2>
+        <span class="section-subtitle">Industry Experience</span>
+        <h2 class="section-title">Sectors We Serve</h2>
+        <p style="color: var(--text-muted); max-width: 650px; margin: 10px auto 0 auto;">
+          Tailored accounting, statutory compliance, and tax advisory across core economic sectors in Karnataka and nationwide.
+        </p>
       </div>
-      
-      <!-- Interactive drag-to-scroll rail -->
-      <div class="svc-rail-wrapper">
-        <div id="svcRail" class="svc-rail">
-          {services.map((svc, idx) => (
-            <ServiceCard service={svc} index={idx} />
-          ))}
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; margin-top: 30px;">
+        {sectors.map((s, idx) => (
+          <div class="tilt-card card-hover" style="background: var(--bg-main); border: 1px solid rgba(0,132,180,0.12); border-radius: 12px; padding: 24px 16px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;">
+            <div style="width: 70px; height: 70px; border-radius: 50%; background: #ffffff; border: 3px solid var(--color-primary-light); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 6px 15px -4px var(--glow-cyan);">
+              <img src={s.icon} alt={s.name} style="width: 44px; height: 44px; object-fit: contain;" />
+            </div>
+            <h3 style="font-size: 15px; font-weight: 700; color: var(--text-main); margin: 0;">{s.name}</h3>
+            <p style="font-size: 12px; color: var(--text-muted); margin: 0; line-height: 1.4;">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Entrepreneur Advisory Specials Section -->
+  <section class="section-padding" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Specialized Advisory</span>
+        <h2 class="section-title">Entrepreneur Advisory Packages</h2>
+        <p style="color: var(--text-muted); max-width: 700px; margin: 10px auto 0 auto;">
+          Strategic advisory blueprints structured for distinct stages of entrepreneurial and family business growth.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 32px;">
+        <div class="tilt-card" style="background: #ffffff; border-radius: 14px; padding: 30px; border: 1px solid rgba(0,132,180,0.15); box-shadow: var(--card-shadow); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; background: rgba(0,132,180,0.12); color: var(--color-primary-dark); margin-bottom: 12px;">FIRST GEN</div>
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--color-primary-dark);">First Generation Entrepreneur Advisory</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 13.5px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px;">
+              <li style="display: flex; gap: 8px;">✓ Working capital procurement & cashflow structuring</li>
+              <li style="display: flex; gap: 8px;">✓ Business entity formation & legal compliance roadmap</li>
+              <li style="display: flex; gap: 8px;">✓ Proactive tax planning & regulatory foresight</li>
+              <li style="display: flex; gap: 8px;">✓ Scalability planning & operational de-bottlenecking</li>
+            </ul>
+          </div>
+          <a href="/contact?service=First%20Gen%20Advisory" class="btn btn-primary" style="margin-top: 20px; width: 100%; text-align: center;">Inquire for First Gen →</a>
+        </div>
+
+        <div class="tilt-card" style="background: #ffffff; border-radius: 14px; padding: 30px; border: 2px solid var(--color-accent); box-shadow: var(--card-shadow-lg); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; background: rgba(141,198,63,0.2); color: #4d7a18; margin-bottom: 12px;">FAMILY BUSINESS</div>
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--color-primary-dark);">Next Gen Family Entrepreneur Advisory</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 13.5px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px;">
+              <li style="display: flex; gap: 8px;">✓ Developing next-generation professional leadership</li>
+              <li style="display: flex; gap: 8px;">✓ Structured succession planning & governance frameworks</li>
+              <li style="display: flex; gap: 8px;">✓ Corporate professionalization & modernization</li>
+              <li style="display: flex; gap: 8px;">✓ Managing family business compliance transitions</li>
+            </ul>
+          </div>
+          <a href="/contact?service=Family%20Business%20Advisory" class="btn btn-primary" style="margin-top: 20px; width: 100%; text-align: center; background: var(--color-accent); border-color: var(--color-accent); color: #071a36; font-weight: 700;">Inquire for Family Business →</a>
+        </div>
+
+        <div class="tilt-card" style="background: #ffffff; border-radius: 14px; padding: 30px; border: 1px solid rgba(0,132,180,0.15); box-shadow: var(--card-shadow); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; background: rgba(0,132,180,0.12); color: var(--color-primary-dark); margin-bottom: 12px;">STARTUP & SCALE</div>
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--color-primary-dark);">Innovative & Startup Advisory</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 13.5px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px;">
+              <li style="display: flex; gap: 8px;">✓ Subsidiary/LLP incorporation & branch office setup</li>
+              <li style="display: flex; gap: 8px;">✓ IBBI Registered Valuation for ESOPs & FDI equity</li>
+              <li style="display: flex; gap: 8px;">✓ Comprehensive direct & indirect tax structuring</li>
+              <li style="display: flex; gap: 8px;">✓ Secretarial compliance & investor pitch CMA readiness</li>
+            </ul>
+          </div>
+          <a href="/contact?service=Startup%20Advisory" class="btn btn-primary" style="margin-top: 20px; width: 100%; text-align: center;">Inquire for Startups →</a>
         </div>
       </div>
     </div>
@@ -126,7 +211,7 @@ const faqs = (faqsData.faqs || []).filter(f => !f.placement || f.placement === '
         <span class="section-subtitle">Leadership & Specialists</span>
         <h2 class="section-title">Meet Our Team</h2>
         <p style="color: var(--text-muted); max-width: 750px; margin: 10px auto 0 auto;">
-          NRSR & Co brings together a multidisciplinary team of Chartered Accountants, valuation specialists, and compliance consultants.
+          NRSR & Co brings together a multidisciplinary team of Chartered Accountants, IBBI registered valuers, and compliance consultants.
         </p>
       </div>
 
@@ -142,8 +227,50 @@ const faqs = (faqsData.faqs || []).filter(f => !f.placement || f.placement === '
     </div>
   </section>
 
-  <!-- Useful Portals & Live Support Resource Center -->
+  <!-- Google Reviews & Testimonials Section -->
   <section class="section-padding" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Client Testimonials</span>
+        <h2 class="section-title">Rated 5-Stars on Google</h2>
+        <p style="color: var(--text-muted); max-width: 650px; margin: 10px auto 0 auto;">
+          Read genuine reviews from entrepreneurs, individuals, and corporate clients who rely on NRSR & Co.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+        {testimonials.map((t) => (
+          <div class="tilt-card" style="background: #ffffff; border-radius: 12px; padding: 24px; border: 1px solid rgba(0,132,180,0.12); box-shadow: var(--card-shadow); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  {t.image ? (
+                    <img src={t.image} alt={t.name} style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-primary-light);" />
+                  ) : (
+                    <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--color-primary); color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">
+                      {t.name.charAt(0)}
+                    </div>
+                  )}
+                  <div>
+                    <strong style="display: block; font-size: 14px; color: var(--text-main);">{t.name}</strong>
+                    <small style="color: var(--text-muted); font-size: 11px;">{t.designation || 'Google Review'} {t.company ? `• ${t.company}` : ''}</small>
+                  </div>
+                </div>
+                <div style="color: #f59e0b; font-size: 13px;">★★★★★</div>
+              </div>
+              <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0; font-style: italic;">
+                "{t.review}"
+              </p>
+            </div>
+            {t.date && <div style="font-size: 11px; color: var(--text-light); margin-top: 14px; text-align: right;">{t.date}</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Useful Portals & Live Support Resource Center -->
+  <section class="section-padding">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-subtitle">Client Resources</span>
@@ -162,7 +289,7 @@ const faqs = (faqsData.faqs || []).filter(f => !f.placement || f.placement === '
   </section>
 
   <!-- Frequently Asked Questions (FAQ Accordion) -->
-  <section class="section-padding">
+  <section class="section-padding" style="background: var(--bg-alt);">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-subtitle">Common Questions</span>

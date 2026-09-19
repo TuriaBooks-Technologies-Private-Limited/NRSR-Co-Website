@@ -4,61 +4,67 @@
       "id": "team-1",
       "name": "CA Shrinidhi Rao",
       "role": "Managing Partner",
-      "category": "Chartered Accountant",
+      "category": "Partner",
       "qualification": "B.Com, ACA",
-      "expertise": "Overall practice leadership, statutory audit, corporate taxation, and strategic client advisory.",
-      "bio": "Shrinidhi leads NRSR & Co's practice, overseeing audit, taxation, and advisory engagements to ensure every client relationship is backed by sound, compliant financial guidance.",
-      "image": ""
+      "expertise": "Practice Leadership, Statutory Audit, Corporate Taxation, Litigations & Strategic Client Advisory",
+      "bio": "CA Shrinidhi Rao leads NRSR & Co. with extensive expertise in statutory audit, taxation, and startup advisory. He oversees the firm's growth across Karnataka, representing clients before tax authorities and providing strategic financial leadership.",
+      "image": "/images/team/shrinidhi.png",
+      "linkedin": "https://www.linkedin.com/company/nrsr-co/"
     },
     {
       "id": "team-2",
       "name": "CA Swetha SV",
       "role": "Partner",
-      "category": "Chartered Accountant",
+      "category": "Partner",
       "qualification": "B.Com, M.Com, ACA, DISA (ICAI), RV-SFA (IBBI)",
-      "expertise": "Statutory audit, information systems audit, and registered valuation of securities and financial assets.",
-      "bio": "Swetha brings a rare combination of audit, IT-systems assurance, and valuation credentials to the firm's advisory and assurance practice.",
-      "image": ""
+      "expertise": "Statutory Audit, Information Systems Audit, Registered Valuation of Securities & Financial Assets (IBBI)",
+      "bio": "CA Swetha SV brings elite credentials in financial assurance, DISA systems audit, and IBBI Registered Valuation of Securities and Financial Assets. She leads the firm's corporate valuation, M&A advisory, and technology audits.",
+      "image": "/images/team/shwetha.png",
+      "linkedin": "https://www.linkedin.com/company/nrsr-co/"
     },
     {
       "id": "team-3",
       "name": "CA Karthik",
       "role": "Corporate Accounts Manager",
-      "category": "Chartered Accountant",
+      "category": "Manager",
       "qualification": "B.Com, ACA",
-      "expertise": "Corporate accounting, financial reporting, and day-to-day management of client account books.",
-      "bio": "Karthik manages the firm's corporate accounting engagements, keeping client books accurate, current, and audit-ready.",
-      "image": ""
+      "expertise": "Corporate Accounting, Financial Reporting, Ind AS / AS Compliance & Day-to-Day Advisory",
+      "bio": "CA Karthik manages complex corporate accounting engagements, ensuring client financials comply with Indian Accounting Standards (Ind AS), Companies Act regulations, and audit-ready reporting.",
+      "image": "/images/team/karthik.png",
+      "linkedin": "https://www.linkedin.com/company/nrsr-co/"
     },
     {
       "id": "team-4",
       "name": "Akshay Bhat",
       "role": "Assurance Manager",
-      "category": "Assurance",
+      "category": "Manager",
       "qualification": "B.Com",
-      "expertise": "Audit execution, assurance engagements, and compliance verification across client portfolios.",
-      "bio": "Akshay oversees assurance engagements end to end, working closely with clients to close audits on time and without surprises.",
-      "image": ""
+      "expertise": "Statutory & Tax Audit Execution, Due Diligence, Internal Control Reviews",
+      "bio": "Akshay leads assurance and audit field teams across manufacturing, education, and service enterprises, ensuring rigorous compliance with accounting frameworks and smooth audit closures.",
+      "image": "/images/team/akshay.png",
+      "linkedin": "https://www.linkedin.com/company/nrsr-co/"
     },
     {
       "id": "team-5",
       "name": "Swathi Kulal",
       "role": "Compliance Manager",
-      "category": "Compliance",
+      "category": "Manager",
       "qualification": "BBA",
-      "expertise": "Regulatory compliance tracking, filings management, and client compliance calendars.",
-      "bio": "Swathi keeps every client's statutory and regulatory compliance on schedule, from filings to renewals.",
-      "image": ""
+      "expertise": "GST Returns, Income Tax Compliances, ROC Filings, Regulatory Tracking",
+      "bio": "Swathi coordinates client statutory compliance calendars, managing end-to-end periodic GST, TDS, and corporate ROC filings with strict adherence to statutory deadlines.",
+      "image": "/images/team/swathi.png",
+      "linkedin": "https://www.linkedin.com/company/nrsr-co/"
     },
     {
       "id": "team-6",
       "name": "Chaithra Karanth",
       "role": "Admin & HR",
-      "category": "Admin & HR",
+      "category": "Operations",
       "qualification": "BBA",
-      "expertise": "Practice administration, HR operations, and client coordination.",
-      "bio": "Chaithra runs the firm's day-to-day administration and HR operations, keeping the practice organized and client communication smooth.",
-      "image": ""
+      "expertise": "Practice Administration, Talent Coordination, Client Relationship Management",
+      "bio": "Chaithra spearheads practice administration, human resource operations, and client communication workflows, maintaining seamless coordination across Manipal HQ and Bengaluru branches.",
+      "image": "/images/team/chaithra.png",
+      "linkedin": "https://www.linkedin.com/company/nrsr-co/"
     }
   ]
 }

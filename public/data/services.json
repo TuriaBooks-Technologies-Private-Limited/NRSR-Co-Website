@@ -131,16 +131,17 @@
     },
     {
       "id": "srv-10",
-      "name": "Valuation",
-      "category": "Valuation Advisory",
-      "shortDesc": "Business valuation, share valuation, ESOP valuation, and fair value assessments for regulatory, transactional, and litigation purposes.",
-      "description": "Our valuation practice delivers independent, defensible valuations for businesses, equity, intangibles, and financial instruments — supporting M&A transactions, ESOP schemes, regulatory filings, and dispute resolution.",
+      "name": "Valuation of Securities & Financial Assets",
+      "category": "Valuation & Advisory",
+      "shortDesc": "Registered Valuer (IBBI) led valuations under Companies Act 2013, Income Tax Rule 11UA, FEMA FDI pricing, ESOPs & M&A.",
+      "description": "Led by our IBBI Registered Valuer Partner (CA Swetha SV, RV-SFA), our valuation practice delivers independent, defensible valuation reports for equity shares, convertibles, startups, and business intangibles.",
       "features": [
-        "Business Enterprise Valuation",
-        "Share & Equity Valuation",
-        "ESOP / Sweat Equity Valuation",
-        "Intangible Asset Valuation",
-        "Fairness Opinion Reports"
+        "Companies Act Sec 247 & IBC Valuations",
+        "Income Tax Rule 11UA Fair Market Value",
+        "FEMA / FDI Pricing Guidelines",
+        "ESOP & Sweat Equity Valuations",
+        "Purchase Price Allocation (PPA) & Impairment",
+        "Startup Pitch & Enterprise Valuation"
       ],
       "icon": "bar-chart-2"
     }
